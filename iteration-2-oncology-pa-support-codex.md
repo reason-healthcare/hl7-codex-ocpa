@@ -52,6 +52,9 @@ MedicationRequest / ServiceRequest = component orders within the RequestGroup
 CDS Hooks selections + draftOrders = the RequestGroup and/or component draft orders
 ```
 
+> **NOTE — NCPDP Structured Sig:**
+> NCPDP Structured Sig encodes per-drug dispensing instructions (dose, route, frequency, duration) and maps to `MedicationRequest.dosageInstruction` (`Dosage`). It is **compatible** with this model at the leaf level — i.e., within each component `MedicationRequest` action. It is **not** a substitute for the `RequestGroup` layer. NCPDP Structured Sig has no concept of cycle day, cross-drug phase sequencing, or inter-drug ordering (`relatedAction`); those constructs live exclusively in the `RequestGroup`. For oral oncology agents dispensed via retail pharmacy (e.g., capecitabine, palbociclib), NCPDP SCRIPT is the e-prescribing channel and structured sig governs the per-fill instructions, but cycle context (e.g., "days 1–14 of a 21-day cycle") still belongs on the `RequestGroup` action, not the sig.
+
 ### 3.2 Use CDS Hooks extension for oncology-specific context
 
 CDS Hooks extensibility is handled through reserved JSON `extension` elements, not through FHIR `Extension` elements.
