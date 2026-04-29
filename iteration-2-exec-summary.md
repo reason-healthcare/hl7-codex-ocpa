@@ -63,7 +63,7 @@ This effort is scoped to **breast cancer prior authorization** as the lead use c
 The current deliverables are:
 
 1. A proposed CDS Hooks extension for oncology CRD — defining how the ordered regimen and required patient context are communicated to a coverage decision service.
-2. An anti-cancer regimen profile — a structured, computable representation of the ordered treatment protocol.
+2. Anti-cancer regimen profiles — a canonical regimen definition and a patient-specific ordered instance, structured to carry the treatment schedule (cycle days, sequential phases) needed for authorization evaluation.
 3. A breast cancer PA data requirements matrix — mapping each clinical data element needed for authorization to existing mCODE / FHIR representations, identifying gaps, and recommending new profiles or constraints where needed.
 
 These artifacts are intended for submission to the relevant HL7 working groups as the basis for a formal oncology prior authorization implementation guide or CRD oncology profile.

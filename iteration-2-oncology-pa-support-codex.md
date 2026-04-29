@@ -6,11 +6,12 @@ This document proposes an oncology-specific extension pattern for Da Vinci CRD u
 
 The goal is to support prior authorization evaluation at the **anti-cancer regimen level**, while using mCODE-based patient context to determine whether an ordered regimen is sufficiently documented for guideline-aligned pre-approval or reduced documentation burden.
 
-This proposal focuses on three artifacts:
+This proposal focuses on four artifacts:
 
 1. A CDS Hooks extension for oncology CRD context.
-2. An anti-cancer regimen profile on FHIR `PlanDefinition` with `type = order-set`.
-3. A reusable oncology data-requirements pattern using FHIR `DataRequirement`, preferably published in a cancer-specific `Library`.
+2. An anti-cancer regimen profile on FHIR `PlanDefinition` with `type = order-set` — the canonical, reusable regimen definition.
+3. An anti-cancer regimen profile on FHIR `RequestGroup` — the patient-specific ordered instance passed as the CDS Hooks payload.
+4. A reusable oncology data-requirements pattern using FHIR `DataRequirement`, preferably published in a cancer-specific `Library`.
 
 Regimen comparison, clinical equivalence, and preference ranking are intentionally out of scope for this phase.
 
@@ -27,13 +28,12 @@ The CDS Hooks and CRD examples commonly show `MedicationRequest`, such as `Medic
 
 For oncology, the selected clinical unit is often not a single medication order. It is the coordinated **anti-cancer regimen**: disease context, treatment intent, regimen components, timing, line of therapy, and the clinical facts that justify the regimen.
 
-FHIR `PlanDefinition` is appropriate for representing the selected regimen because it can represent pre-defined groups of actions, including order sets and protocols. In this proposal, the ordered anti-cancer regimen is represented as a profiled `PlanDefinition` with:
+FHIR separates the *definition* of a regimen from its *instantiation* as a patient-specific order. In this proposal:
 
-```text
-PlanDefinition.type = order-set
-```
+- The canonical anti-cancer regimen definition is represented as a profiled `PlanDefinition` with `type = order-set`. This is the reusable, versioned protocol — not patient-specific.
+- The patient-specific ordered instance is represented as a profiled `RequestGroup`, with `RequestGroup.instantiatesCanonical` referencing the `PlanDefinition`. This is what is placed in the CDS Hooks `draftOrders` Bundle and referenced in `context.selections`.
 
-mCODE provides a strong foundation for oncology data, including profiles for primary cancer condition, cancer stage, cancer-related medication requests, medication administrations, and performance status. However, mCODE does not currently define a first-class anti-cancer regimen/order-set profile or a cancer-specific prior authorization data-requirements package. This proposal fills that gap by defining an mCODE-adjacent regimen profile and reusable data-requirements pattern.
+mCODE provides a strong foundation for oncology data, including profiles for primary cancer condition, cancer stage, cancer-related medication requests, medication administrations, and performance status. However, mCODE does not currently define a first-class anti-cancer regimen profile (either as definition or as ordered instance) or a cancer-specific prior authorization data-requirements package. This proposal fills that gap by defining both profiles and a reusable data-requirements pattern.
 
 ---
 
@@ -41,14 +41,15 @@ mCODE provides a strong foundation for oncology data, including profiles for pri
 
 ### 3.1 Treat the regimen as the selected clinical unit
 
-For oncology CRD, the selected order may be the anti-cancer regimen itself, represented as a `PlanDefinition` with `type = order-set`.
+For oncology CRD, the selected order is the patient-specific anti-cancer regimen instance, represented as a `RequestGroup`. The `RequestGroup.instantiatesCanonical` references the canonical `PlanDefinition` regimen definition.
 
-Component `MedicationRequest`, `ServiceRequest`, or other request resources may also be included when instantiated, but they should not be the only representation of the regimen.
+Component `MedicationRequest`, `ServiceRequest`, or other request resources may also be included as `RequestGroup.action` references when instantiated, but they should not be the only representation of the regimen.
 
 ```text
-PlanDefinition = the coordinated anti-cancer regimen / order set
-MedicationRequest / ServiceRequest = instantiated component orders
-CDS Hooks draftOrders = the selected regimen and/or component draft orders
+PlanDefinition    = the canonical regimen definition / protocol (not patient-specific)
+RequestGroup      = the patient-specific ordered regimen instance (instantiatesCanonical → PlanDefinition)
+MedicationRequest / ServiceRequest = component orders within the RequestGroup
+CDS Hooks selections + draftOrders = the RequestGroup and/or component draft orders
 ```
 
 ### 3.2 Use CDS Hooks extension for oncology-specific context
@@ -81,8 +82,11 @@ This is a cleaner model than using `PlanDefinition` as a data-requirements conta
 The core model separates three concepts:
 
 ```text
-Regimen PlanDefinition
-  What is being ordered.
+Regimen RequestGroup (instantiatesCanonical → PlanDefinition)
+  What is being ordered, for this patient.
+
+PlanDefinition
+  The canonical regimen definition the RequestGroup instantiates.
 
 DataRequirement[]
   What patient data is needed to evaluate the order.
@@ -119,7 +123,7 @@ For CDS Clients claiming conformance to this oncology CRD profile, when an anti-
 ```
 
 ```text
-For CDS Services claiming conformance to this oncology CRD profile, the service SHALL be capable of interpreting the oncology CRD extension and the referenced anti-cancer regimen PlanDefinition.
+For CDS Services claiming conformance to this oncology CRD profile, the service SHALL be capable of interpreting the oncology CRD extension and the referenced anti-cancer regimen RequestGroup and its instantiated PlanDefinition.
 ```
 
 ### 4.3 Extension shape
@@ -131,8 +135,9 @@ The request extension should be small and computable. It should identify the reg
   "extension": {
     "org.hl7.davinci-crd.oncology": {
       "orderedRegimen": {
-        "reference": "PlanDefinition/breast-cancer-regimen-001",
-        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition"
+        "reference": "RequestGroup/breast-cancer-regimen-request-001",
+        "regimenDefinition": "http://example.org/fhir/PlanDefinition/breast-cancer-paclitaxel-trastuzumab-regimen",
+        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
       },
       "dataRequirements": {
         "purpose": "pre-approval",
@@ -157,8 +162,9 @@ For pilots or simpler implementations, the extension may include inline `DataReq
   "extension": {
     "org.hl7.davinci-crd.oncology": {
       "orderedRegimen": {
-        "reference": "PlanDefinition/breast-cancer-regimen-001",
-        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition"
+        "reference": "RequestGroup/breast-cancer-regimen-request-001",
+        "regimenDefinition": "http://example.org/fhir/PlanDefinition/breast-cancer-paclitaxel-trastuzumab-regimen",
+        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
       },
       "dataRequirements": {
         "purpose": "pre-approval",
@@ -234,7 +240,7 @@ For pilots or simpler implementations, the extension may include inline `DataReq
     "patientId": "Patient/456",
     "encounterId": "Encounter/789",
     "selections": [
-      "PlanDefinition/breast-cancer-regimen-001"
+      "RequestGroup/breast-cancer-regimen-request-001"
     ],
     "draftOrders": {
       "resourceType": "Bundle",
@@ -242,24 +248,21 @@ For pilots or simpler implementations, the extension may include inline `DataReq
       "entry": [
         {
           "resource": {
-            "resourceType": "PlanDefinition",
-            "id": "breast-cancer-regimen-001",
+            "resourceType": "RequestGroup",
+            "id": "breast-cancer-regimen-request-001",
             "meta": {
               "profile": [
-                "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition"
+                "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
               ]
             },
-            "status": "active",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
-                  "code": "order-set",
-                  "display": "Order Set"
-                }
-              ]
+            "status": "draft",
+            "intent": "order",
+            "subject": {
+              "reference": "Patient/456"
             },
-            "title": "Breast Cancer Anti-Cancer Therapy Regimen"
+            "instantiatesCanonical": [
+              "http://example.org/fhir/PlanDefinition/breast-cancer-paclitaxel-trastuzumab-regimen"
+            ]
           }
         }
       ]
@@ -268,8 +271,9 @@ For pilots or simpler implementations, the extension may include inline `DataReq
   "extension": {
     "org.hl7.davinci-crd.oncology": {
       "orderedRegimen": {
-        "reference": "PlanDefinition/breast-cancer-regimen-001",
-        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition"
+        "reference": "RequestGroup/breast-cancer-regimen-request-001",
+        "regimenDefinition": "http://example.org/fhir/PlanDefinition/breast-cancer-paclitaxel-trastuzumab-regimen",
+        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
       },
       "dataRequirements": {
         "purpose": "pre-approval",
@@ -286,7 +290,7 @@ For pilots or simpler implementations, the extension may include inline `DataReq
 
 ### 4.6 Example: `order-sign`
 
-At `order-sign`, the regimen may still be present as the selected order-set artifact, while the component orders may also be instantiated.
+At `order-sign`, the `RequestGroup` carries `instantiatesCanonical` pointing to the regimen `PlanDefinition`. Component `MedicationRequest` resources are included in the Bundle and referenced from `RequestGroup.action`.
 
 ```json
 {
@@ -303,23 +307,37 @@ At `order-sign`, the regimen may still be present as the selected order-set arti
       "entry": [
         {
           "resource": {
-            "resourceType": "PlanDefinition",
-            "id": "breast-cancer-regimen-001",
+            "resourceType": "RequestGroup",
+            "id": "breast-cancer-regimen-request-001",
             "meta": {
               "profile": [
-                "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition"
+                "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
               ]
             },
-            "status": "active",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
-                  "code": "order-set"
-                }
-              ]
+            "status": "draft",
+            "intent": "order",
+            "subject": {
+              "reference": "Patient/456"
             },
-            "title": "Breast Cancer Anti-Cancer Therapy Regimen"
+            "instantiatesCanonical": [
+              "http://example.org/fhir/PlanDefinition/breast-cancer-paclitaxel-trastuzumab-regimen"
+            ],
+            "action": [
+              {
+                "id": "paclitaxel-action",
+                "title": "Paclitaxel",
+                "timingTiming": { "repeat": { "period": 7, "periodUnit": "d" } },
+                "extension": [{ "url": "http://example.org/fhir/StructureDefinition/cycle-day", "valuePositiveInt": 1 }],
+                "resource": { "reference": "MedicationRequest/paclitaxel-order" }
+              },
+              {
+                "id": "trastuzumab-action",
+                "title": "Trastuzumab",
+                "timingTiming": { "repeat": { "period": 7, "periodUnit": "d" } },
+                "extension": [{ "url": "http://example.org/fhir/StructureDefinition/cycle-day", "valuePositiveInt": 1 }],
+                "resource": { "reference": "MedicationRequest/trastuzumab-order" }
+              }
+            ]
           }
         },
         {
@@ -360,8 +378,9 @@ At `order-sign`, the regimen may still be present as the selected order-set arti
   "extension": {
     "org.hl7.davinci-crd.oncology": {
       "orderedRegimen": {
-        "reference": "PlanDefinition/breast-cancer-regimen-001",
-        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition"
+        "reference": "RequestGroup/breast-cancer-regimen-request-001",
+        "regimenDefinition": "http://example.org/fhir/PlanDefinition/breast-cancer-paclitaxel-trastuzumab-regimen",
+        "profile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
       },
       "dataRequirements": {
         "purpose": "pre-approval",
@@ -378,9 +397,9 @@ At `order-sign`, the regimen may still be present as the selected order-set arti
 
 ---
 
-## 5. Anti-Cancer Regimen PlanDefinition Profile
+## 5. Anti-Cancer Regimen Profiles
 
-### 5.1 Intent
+### 5.1 PlanDefinition profile: canonical regimen definition
 
 Define a new mCODE-adjacent profile:
 
@@ -388,11 +407,11 @@ Define a new mCODE-adjacent profile:
 OncologyAntiCancerRegimenPlanDefinition
 ```
 
-This profile represents a coordinated anti-cancer therapy regimen as a FHIR `PlanDefinition` order set.
+This profile represents a canonical, reusable anti-cancer therapy regimen definition as a FHIR `PlanDefinition` order set. It is not patient-specific.
 
-It is the selected clinical unit passed through CDS Hooks.
+It is the canonical definition referenced by `OncologyAntiCancerRegimenRequestGroup` instances via `RequestGroup.instantiatesCanonical`.
 
-### 5.2 Profile definition
+### 5.2 PlanDefinition FSH profile
 
 Draft FSH:
 
@@ -421,7 +440,7 @@ Description: "A coordinated anti-cancer therapy regimen represented as a FHIR Pl
     regimenClinicalContextProfile 0..1
 ```
 
-### 5.3 Suggested extensions
+### 5.3 PlanDefinition suggested extensions
 
 | Extension | Type | Purpose |
 |---|---|---|
@@ -430,7 +449,7 @@ Description: "A coordinated anti-cancer therapy regimen represented as a FHIR Pl
 | `regimenTreatmentLine` | `CodeableConcept` | First-line, second-line, later-line, maintenance |
 | `regimenClinicalContextProfile` | `canonical` | Canonical reference to the cancer-specific data-requirements artifact |
 
-### 5.4 Example
+### 5.4 PlanDefinition example
 
 ```json
 {
@@ -495,6 +514,222 @@ Description: "A coordinated anti-cancer therapy regimen represented as a FHIR Pl
 
 ---
 
+### 5.5 RequestGroup profile: patient-specific ordered instance
+
+#### Intent
+
+Define a new mCODE-adjacent profile:
+
+```text
+OncologyAntiCancerRegimenRequestGroup
+```
+
+This profile represents a patient-specific ordered anti-cancer therapy regimen as a FHIR `RequestGroup`. It is the resource placed in the CDS Hooks `draftOrders` Bundle and referenced in `context.selections`.
+
+`RequestGroup.instantiatesCanonical` is must-support. When the canonical regimen definition is known, it SHOULD reference an `OncologyAntiCancerRegimenPlanDefinition`.
+
+The profile supports two scheduling requirements that are essential for oncology PA evaluation:
+
+1. **Cycle day timing** — each action declares which day(s) of the cycle the drug is administered (e.g., day 1, day 1 and 8). A `cycleDay` extension on `action` carries this as a human-readable positive integer; `action.timingTiming` carries the machine-computable cycle period.
+
+2. **Sequential phase ordering** — for regimens like AC followed by T (dose-dense doxorubicin/cyclophosphamide → paclitaxel), top-level action groups represent phases and `action.relatedAction` with `relationship = after-end` declares that the second phase begins after the first completes.
+
+#### FSH profile
+
+```fsh
+Profile: OncologyAntiCancerRegimenRequestGroup
+Parent: RequestGroup
+Id: oncology-anticancer-regimen-requestgroup
+Title: "Oncology Anti-Cancer Regimen RequestGroup"
+Description: "A patient-specific ordered anti-cancer therapy regimen. When the canonical regimen definition is known, instantiatesCanonical SHOULD reference an OncologyAntiCancerRegimenPlanDefinition. Includes cycle-day timing and sequential phase ordering."
+
+* status 1..1
+* intent 1..1
+* intent = http://hl7.org/fhir/request-intent#order
+
+* subject 1..1
+* subject only Reference(Patient)
+
+* instantiatesCanonical MS
+
+* action 0..*
+* action.id 1..1                        // required for relatedAction cross-reference
+* action.title 1..1
+* action.timingTiming 0..1              // cycle period: e.g., every 14 days, every 21 days
+* action.relatedAction 0..*             // sequential ordering between phase groups
+* action.relatedAction.actionId 1..1
+* action.relatedAction.relationship 1..1
+* action.relatedAction.offsetDuration 0..1  // optional delay between phases
+* action.action 0..*                    // nested actions within a phase group
+* action.action.id 1..1
+* action.action.title 1..1
+* action.action.timingTiming 0..1
+* action.action.resource 0..1
+* action.action.extension contains CycleDay named cycleDay 0..*
+* action.resource 0..1
+
+Extension: CycleDay
+Id: cycle-day
+Title: "Cycle Day"
+Description: "The day(s) within a treatment cycle on which this action is performed. Day 1 is the first day of the cycle."
+* value[x] only positiveInt
+```
+
+#### Example A: concurrent regimen with cycle-day timing (Paclitaxel + Trastuzumab, weekly)
+
+Both agents administered on day 1 of each 7-day cycle.
+
+```json
+{
+  "resourceType": "RequestGroup",
+  "id": "breast-cancer-regimen-request-001",
+  "meta": {
+    "profile": [
+      "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
+    ]
+  },
+  "status": "draft",
+  "intent": "order",
+  "subject": { "reference": "Patient/456" },
+  "instantiatesCanonical": [
+    "http://example.org/fhir/PlanDefinition/breast-cancer-paclitaxel-trastuzumab-regimen"
+  ],
+  "action": [
+    {
+      "id": "paclitaxel-action",
+      "title": "Paclitaxel",
+      "timingTiming": {
+        "repeat": { "period": 7, "periodUnit": "d" }
+      },
+      "extension": [
+        {
+          "url": "http://example.org/fhir/StructureDefinition/cycle-day",
+          "valuePositiveInt": 1
+        }
+      ],
+      "resource": { "reference": "MedicationRequest/paclitaxel-order" }
+    },
+    {
+      "id": "trastuzumab-action",
+      "title": "Trastuzumab",
+      "timingTiming": {
+        "repeat": { "period": 7, "periodUnit": "d" }
+      },
+      "extension": [
+        {
+          "url": "http://example.org/fhir/StructureDefinition/cycle-day",
+          "valuePositiveInt": 1
+        }
+      ],
+      "resource": { "reference": "MedicationRequest/trastuzumab-order" }
+    }
+  ]
+}
+```
+
+#### Example B: sequential regimen with phase ordering (dose-dense AC → T)
+
+Phase 1 — ddAC: doxorubicin and cyclophosphamide, day 1 of each 14-day cycle, 4 cycles.
+Phase 2 — T: paclitaxel, day 1 of each 14-day cycle, 4 cycles, starting after ddAC completes.
+
+`relatedAction` on the T phase declares `after-end` of the AC phase.
+
+```json
+{
+  "resourceType": "RequestGroup",
+  "id": "breast-cancer-ddac-t-request-001",
+  "meta": {
+    "profile": [
+      "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup"
+    ]
+  },
+  "status": "draft",
+  "intent": "order",
+  "subject": { "reference": "Patient/456" },
+  "instantiatesCanonical": [
+    "http://example.org/fhir/PlanDefinition/breast-cancer-ddac-t-regimen"
+  ],
+  "action": [
+    {
+      "id": "ac-phase",
+      "title": "ddAC Phase (Cycles 1–4)",
+      "timingTiming": {
+        "repeat": {
+          "count": 4,
+          "period": 14,
+          "periodUnit": "d"
+        }
+      },
+      "action": [
+        {
+          "id": "doxorubicin-action",
+          "title": "Doxorubicin",
+          "timingTiming": {
+            "repeat": { "period": 14, "periodUnit": "d" }
+          },
+          "extension": [
+            {
+              "url": "http://example.org/fhir/StructureDefinition/cycle-day",
+              "valuePositiveInt": 1
+            }
+          ],
+          "resource": { "reference": "MedicationRequest/doxorubicin-order" }
+        },
+        {
+          "id": "cyclophosphamide-action",
+          "title": "Cyclophosphamide",
+          "timingTiming": {
+            "repeat": { "period": 14, "periodUnit": "d" }
+          },
+          "extension": [
+            {
+              "url": "http://example.org/fhir/StructureDefinition/cycle-day",
+              "valuePositiveInt": 1
+            }
+          ],
+          "resource": { "reference": "MedicationRequest/cyclophosphamide-order" }
+        }
+      ]
+    },
+    {
+      "id": "t-phase",
+      "title": "T Phase — Paclitaxel (Cycles 5–8)",
+      "relatedAction": [
+        {
+          "actionId": "ac-phase",
+          "relationship": "after-end"
+        }
+      ],
+      "timingTiming": {
+        "repeat": {
+          "count": 4,
+          "period": 14,
+          "periodUnit": "d"
+        }
+      },
+      "action": [
+        {
+          "id": "paclitaxel-action",
+          "title": "Paclitaxel",
+          "timingTiming": {
+            "repeat": { "period": 14, "periodUnit": "d" }
+          },
+          "extension": [
+            {
+              "url": "http://example.org/fhir/StructureDefinition/cycle-day",
+              "valuePositiveInt": 1
+            }
+          ],
+          "resource": { "reference": "MedicationRequest/paclitaxel-order" }
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
 ## 6. Oncology Data Requirements Pattern
 
 ### 6.1 Intent
@@ -525,7 +760,8 @@ OncologyDataRequirementsLibrary
 
 | Artifact | FHIR type | Purpose |
 |---|---|---|
-| Anti-cancer regimen | `PlanDefinition` | Represents the ordered regimen/order set |
+| Anti-cancer regimen definition | `PlanDefinition` | Canonical, reusable regimen protocol (not patient-specific) |
+| Anti-cancer regimen order | `RequestGroup` | Patient-specific ordered instance; `instantiatesCanonical` → `PlanDefinition`; passed in CDS Hooks `draftOrders` |
 | Data requirements | `DataRequirement[]` | Declares required patient data |
 | Governed data requirements package | `Library` | Optional wrapper for versioning, publication, dependencies, and reuse |
 | Patient context | `Bundle` or FHIR queries | Supplies actual patient data |
@@ -693,7 +929,8 @@ This artifact defines the patient facts required to evaluate an anti-cancer ther
 | Prior systemic therapy | mCODE medication statement/administration/request | Need summarization pattern for prior therapy |
 | Performance status | mCODE ECOG/Karnofsky profiles | Required only for selected regimens/policies |
 | Contraindication / exception | Likely new profile/extension | Needed when guideline-concordant care requires exception documentation |
-| Ordered regimen | New PlanDefinition profile | Core artifact proposed here |
+| Ordered regimen (instance) | New RequestGroup profile | Patient-specific ordered regimen; `instantiatesCanonical` → PlanDefinition |
+| Regimen definition | New PlanDefinition profile | Canonical protocol; referenced by RequestGroup |
 
 ---
 
@@ -706,8 +943,8 @@ The same data-requirements artifact should drive both CRD and DTR.
 CRD uses the data requirements to determine whether the EHR has supplied enough patient context to support a pre-approval decision.
 
 ```text
-Selected regimen
-  -> Regimen PlanDefinition
+Clinician selects regimen
+  -> RequestGroup (instantiatesCanonical -> PlanDefinition)
   -> DataRequirement[] from Library or inline extension
   -> Patient Context Bundle or FHIR query
   -> CRD evaluation
@@ -757,7 +994,8 @@ CDS Hooks service discovery can advertise support for the oncology extension, su
       },
       "extension": {
         "org.hl7.davinci-crd.oncology": {
-          "supportedRegimenProfile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition",
+          "supportedRegimenProfile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-requestgroup",
+        "supportedRegimenDefinitionProfile": "http://example.org/fhir/StructureDefinition/oncology-anticancer-regimen-plandefinition",
           "supportedDataRequirementsLibraryProfile": "http://example.org/fhir/StructureDefinition/oncology-data-requirements-library",
           "supportedCancerTypes": [
             {
@@ -783,11 +1021,15 @@ A conformant oncology CRD CDS Client SHALL include the oncology CDS Hooks extens
 ```
 
 ```text
-A conformant oncology CRD CDS Client SHALL include the selected anti-cancer regimen as a PlanDefinition conforming to OncologyAntiCancerRegimenPlanDefinition when the selected clinical unit is a regimen or order set.
+A conformant oncology CRD CDS Client SHALL include the selected anti-cancer regimen as a RequestGroup conforming to OncologyAntiCancerRegimenRequestGroup in context.draftOrders and context.selections when the selected clinical unit is a regimen.
 ```
 
 ```text
-A conformant oncology CRD CDS Client SHOULD include instantiated component MedicationRequest, ServiceRequest, or other request resources when available.
+A conformant oncology CRD CDS Client SHALL populate RequestGroup.instantiatesCanonical with the canonical URL of the OncologyAntiCancerRegimenPlanDefinition being ordered when the definition is known.
+```
+
+```text
+A conformant oncology CRD CDS Client SHOULD include instantiated component MedicationRequest, ServiceRequest, or other request resources as RequestGroup.action references when available.
 ```
 
 ```text
@@ -797,7 +1039,7 @@ A conformant oncology CRD CDS Client SHALL make available the patient context re
 ### 10.2 CDS Service
 
 ```text
-A conformant oncology CRD CDS Service SHALL be capable of evaluating the selected anti-cancer regimen PlanDefinition.
+A conformant oncology CRD CDS Service SHALL be capable of evaluating the selected anti-cancer regimen RequestGroup and resolving its instantiated PlanDefinition.
 ```
 
 ```text
@@ -832,8 +1074,8 @@ A cancer-specific data-requirements Library SHOULD use mCODE profiles where avai
 2. The EHR invokes CDS Hooks order-select.
 
 3. The CRD request includes:
-   - selected PlanDefinition regimen
-   - draftOrders Bundle
+   - selected RequestGroup regimen instance (in context.selections and draftOrders)
+   - RequestGroup.instantiatesCanonical referencing the PlanDefinition regimen definition
    - oncology CDS Hooks extension
    - reference to required data-requirements Library or inline DataRequirement[]
 
@@ -859,7 +1101,7 @@ A cancer-specific data-requirements Library SHOULD use mCODE profiles where avai
 
 This proposal defines an oncology-specific extension pattern for Da Vinci CRD using CDS Hooks `order-select` and `order-sign`.
 
-For anti-cancer therapy, the selected clinical unit may be a coordinated regimen rather than an individual medication order. The regimen will be represented as a profiled FHIR `PlanDefinition` with `type = order-set` and included in the CDS Hooks `draftOrders` Bundle.
+For anti-cancer therapy, the selected clinical unit is the patient-specific ordered regimen, represented as a profiled FHIR `RequestGroup` included in the CDS Hooks `draftOrders` Bundle. `RequestGroup.instantiatesCanonical` references the canonical regimen definition, represented as a profiled `PlanDefinition` with `type = order-set`.
 
 A CDS Hooks oncology extension will identify the selected regimen and the cancer-specific data requirements needed to evaluate the order for guideline-aligned pre-approval. The data requirements will be represented using FHIR `DataRequirement` entries, preferably published in a cancer-specific `Library` for versioning and reuse.
 
@@ -868,10 +1110,11 @@ For breast cancer, the Library will declare required mCODE-based data such as pr
 The final model is:
 
 ```text
-PlanDefinition = ordered regimen
+RequestGroup    = ordered regimen instance (patient-specific; instantiatesCanonical → PlanDefinition)
+PlanDefinition  = canonical regimen definition (reusable protocol)
 Library.dataRequirement = required patient context
 DataRequirement = individual computable requirement
-Questionnaire = DTR collection instrument
+Questionnaire   = DTR collection instrument
 Bundle / FHIR API = actual patient data
 ```
 
