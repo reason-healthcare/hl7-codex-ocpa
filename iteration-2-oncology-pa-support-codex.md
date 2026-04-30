@@ -330,14 +330,14 @@ At `order-sign`, the `RequestGroup` carries `instantiatesCanonical` pointing to 
                 "id": "paclitaxel-action",
                 "title": "Paclitaxel",
                 "timingTiming": { "repeat": { "period": 7, "periodUnit": "d" } },
-                "extension": [{ "url": "http://example.org/fhir/StructureDefinition/cycle-day", "valuePositiveInt": 1 }],
+                "extension": [{ "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle", "extension": [{ "url": "day", "valueInteger": 1 }] }],
                 "resource": { "reference": "MedicationRequest/paclitaxel-order" }
               },
               {
                 "id": "trastuzumab-action",
                 "title": "Trastuzumab",
                 "timingTiming": { "repeat": { "period": 7, "periodUnit": "d" } },
-                "extension": [{ "url": "http://example.org/fhir/StructureDefinition/cycle-day", "valuePositiveInt": 1 }],
+                "extension": [{ "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle", "extension": [{ "url": "day", "valueInteger": 1 }] }],
                 "resource": { "reference": "MedicationRequest/trastuzumab-order" }
               }
             ]
@@ -435,6 +435,7 @@ Description: "A coordinated anti-cancer therapy regimen represented as a FHIR Pl
 * action 1..*
 * action.title 1..1
 * action.definitionCanonical 0..1
+* action.extension[http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle] 0..1
 
 * extension contains
     regimenIntent 0..1 and
@@ -503,12 +504,24 @@ Description: "A coordinated anti-cancer therapy regimen represented as a FHIR Pl
       "id": "paclitaxel",
       "title": "Paclitaxel",
       "description": "Paclitaxel anti-cancer therapy component",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+          "extension": [{ "url": "day", "valueInteger": 1 }]
+        }
+      ],
       "definitionCanonical": "http://example.org/fhir/ActivityDefinition/paclitaxel-medication-request"
     },
     {
       "id": "trastuzumab",
       "title": "Trastuzumab",
       "description": "Trastuzumab anti-cancer therapy component",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+          "extension": [{ "url": "day", "valueInteger": 1 }]
+        }
+      ],
       "definitionCanonical": "http://example.org/fhir/ActivityDefinition/trastuzumab-medication-request"
     }
   ]
@@ -533,7 +546,7 @@ This profile represents a patient-specific ordered anti-cancer therapy regimen a
 
 The profile supports two scheduling requirements that are essential for oncology PA evaluation:
 
-1. **Cycle day timing** — each action declares which day(s) of the cycle the drug is administered (e.g., day 1, day 1 and 8). A `cycleDay` extension on `action` carries this as a human-readable positive integer; `action.timingTiming` carries the machine-computable cycle period.
+1. **Cycle day timing** — each action declares which day(s) of the cycle the drug is administered (e.g., day 1, day 1 and 8). The `timing-daysOfCycle` extension (`http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle`) on `action` carries this as one or more integers; `action.timingTiming` carries the machine-computable cycle period.
 
 2. **Sequential phase ordering** — for regimens like AC followed by T (dose-dense doxorubicin/cyclophosphamide → paclitaxel), top-level action groups represent phases and `action.relatedAction` with `relationship = after-end` declares that the second phase begins after the first completes.
 
@@ -544,7 +557,7 @@ Profile: OncologyAntiCancerRegimenRequestGroup
 Parent: RequestGroup
 Id: oncology-anticancer-regimen-requestgroup
 Title: "Oncology Anti-Cancer Regimen RequestGroup"
-Description: "A patient-specific ordered anti-cancer therapy regimen. When the canonical regimen definition is known, instantiatesCanonical SHOULD reference an OncologyAntiCancerRegimenPlanDefinition. Includes cycle-day timing and sequential phase ordering."
+Description: "A patient-specific ordered anti-cancer therapy regimen. When the canonical regimen definition is known, instantiatesCanonical SHOULD reference an OncologyAntiCancerRegimenPlanDefinition. Includes timing-daysOfCycle extension for cycle day scheduling and sequential phase ordering."
 
 * status 1..1
 * intent 1..1
@@ -568,17 +581,12 @@ Description: "A patient-specific ordered anti-cancer therapy regimen. When the c
 * action.action.title 1..1
 * action.action.timingTiming 0..1
 * action.action.resource 0..1
-* action.action.extension contains CycleDay named cycleDay 0..*
+* action.action.extension[http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle] 0..1
+* action.extension[http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle] 0..1
 * action.resource 0..1
-
-Extension: CycleDay
-Id: cycle-day
-Title: "Cycle Day"
-Description: "The day(s) within a treatment cycle on which this action is performed. Day 1 is the first day of the cycle."
-* value[x] only positiveInt
 ```
 
-#### Example A: concurrent regimen with cycle-day timing (Paclitaxel + Trastuzumab, weekly)
+#### Example A: concurrent regimen with daysOfCycle timing (Paclitaxel + Trastuzumab, weekly)
 
 Both agents administered on day 1 of each 7-day cycle.
 
@@ -606,8 +614,8 @@ Both agents administered on day 1 of each 7-day cycle.
       },
       "extension": [
         {
-          "url": "http://example.org/fhir/StructureDefinition/cycle-day",
-          "valuePositiveInt": 1
+          "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+          "extension": [{ "url": "day", "valueInteger": 1 }]
         }
       ],
       "resource": { "reference": "MedicationRequest/paclitaxel-order" }
@@ -620,8 +628,8 @@ Both agents administered on day 1 of each 7-day cycle.
       },
       "extension": [
         {
-          "url": "http://example.org/fhir/StructureDefinition/cycle-day",
-          "valuePositiveInt": 1
+          "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+          "extension": [{ "url": "day", "valueInteger": 1 }]
         }
       ],
       "resource": { "reference": "MedicationRequest/trastuzumab-order" }
@@ -672,8 +680,8 @@ Phase 2 — T: paclitaxel, day 1 of each 14-day cycle, 4 cycles, starting after 
           },
           "extension": [
             {
-              "url": "http://example.org/fhir/StructureDefinition/cycle-day",
-              "valuePositiveInt": 1
+              "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+              "extension": [{ "url": "day", "valueInteger": 1 }]
             }
           ],
           "resource": { "reference": "MedicationRequest/doxorubicin-order" }
@@ -686,8 +694,8 @@ Phase 2 — T: paclitaxel, day 1 of each 14-day cycle, 4 cycles, starting after 
           },
           "extension": [
             {
-              "url": "http://example.org/fhir/StructureDefinition/cycle-day",
-              "valuePositiveInt": 1
+              "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+              "extension": [{ "url": "day", "valueInteger": 1 }]
             }
           ],
           "resource": { "reference": "MedicationRequest/cyclophosphamide-order" }
@@ -719,8 +727,8 @@ Phase 2 — T: paclitaxel, day 1 of each 14-day cycle, 4 cycles, starting after 
           },
           "extension": [
             {
-              "url": "http://example.org/fhir/StructureDefinition/cycle-day",
-              "valuePositiveInt": 1
+              "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle",
+              "extension": [{ "url": "day", "valueInteger": 1 }]
             }
           ],
           "resource": { "reference": "MedicationRequest/paclitaxel-order" }
