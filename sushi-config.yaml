@@ -3,8 +3,9 @@ canonical: http://hl7.org/fhir/us/codex-ocpa
 name: CodexOCPAIG
 title: OCPA Implementation Guide
 description: >-
-  FHIR implementation guide project for oncology prior authorization (OCPA),
-  using SUSHI for authoring and IG Publisher for guide generation.
+  Standards-based oncology prior authorization (OCPA) framework extending Da Vinci
+  CRD/DTR/PAS with mCODE patient context and computable anti-cancer regimen
+  representation. Lead use case: breast cancer prior authorization.
 status: draft
 version: 0.1.0
 releaseLabel: ci-build
@@ -17,6 +18,61 @@ publisher:
   url: http://www.hl7.org/Special/committees/cic
   email: ciclist@lists.HL7.org
 
+dependencies:
+  hl7.fhir.uv.extensions.r4: 5.2.0
+  hl7.fhir.us.core:
+    version: 7.0.0
+    id: hl7fhiruscore
+  hl7.fhir.us.mcode:
+    version: 4.0.0
+    id: fhirmcode
+  hl7.fhir.us.davinci-crd:
+    version: 2.1.0
+    id: davinciCRD
+  hl7.fhir.us.davinci-dtr:
+    version: 2.0.1
+    id: davinciDTR
+  hl7.fhir.us.davinci-pas:
+    version: 2.2.1
+    id: davinciPAS
+
+parameters:
+  show-inherited-invariants: false
+  auto-oid-root: 2.16.840.1.113883.4.642.40.XX
+
+pages:
+  index.md:
+    title: Home
+  background.md:
+    title: Background
+  use-cases.md:
+    title: Use Cases and Actors
+  regimen-model.md:
+    title: Regimen Modeling
+  cds-hooks-extension.md:
+    title: CDS Hooks Oncology Extension
+  data-requirements.md:
+    title: Data Requirements Pattern
+  breast-cancer-pa.md:
+    title: Breast Cancer Prior Authorization
+  conformance.md:
+    title: Conformance
+  artifacts.html:
+    title: Artifacts Summary
+  downloads.md:
+    title: Downloads
+  history.md:
+    title: Change Log
+
 menu:
   Home: index.html
-  Project Documentation: docs.html
+  Background: background.html
+  Use Cases: use-cases.html
+  Specification:
+    Regimen Modeling: regimen-model.html
+    CDS Hooks Extension: cds-hooks-extension.html
+    Data Requirements: data-requirements.html
+    Breast Cancer PA: breast-cancer-pa.html
+  Conformance: conformance.html
+  Artifacts: artifacts.html
+  Downloads: downloads.html
