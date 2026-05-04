@@ -5,12 +5,12 @@
   "description": "SUSHI/IG Publisher project for the OCPA Implementation Guide",
   "scripts": {
     "sushi": "sushi .",
-    "build": "./_build.sh build",
-    "build:once": "./_genonce.sh",
-    "build:watch": "./_gencontinuous.sh",
+    "build": "PATH=$PWD/node_modules/.bin:$PATH ./_build.sh build",
+    "build:once": "PATH=$PWD/node_modules/.bin:$PATH ./_genonce.sh",
+    "build:watch": "PATH=$PWD/node_modules/.bin:$PATH ./_gencontinuous.sh",
     "publisher:update": "./_updatePublisher.sh"
   },
   "devDependencies": {
-    "fsh-sushi": "^3.14.0"
+    "fsh-sushi": "3.19.0"
   }
 }

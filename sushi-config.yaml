@@ -13,8 +13,9 @@ copyrightYear: 2026+
 FSHOnly: false
 
 publisher:
-  name: OCPA Project
-  url: https://example.org/ocpa
+  name: HL7 International / Clinical Interoperability Council
+  url: http://www.hl7.org/Special/committees/cic
+  email: ciclist@lists.HL7.org
 
 menu:
   Home: index.html
