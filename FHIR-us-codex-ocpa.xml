@@ -7,7 +7,15 @@
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
-<page key="docs" name="Docs"/>
+<page key="background" name="Background"/>
+<page key="breast-cancer-pa" name="Breast Cancer Prior Authorization"/>
+<page key="cds-hooks-extension" name="CDS Hooks Oncology Extension"/>
+<page key="history" name="Change Log"/>
+<page key="conformance" name="Conformance"/>
+<page key="data-requirements" name="Data Requirements Pattern"/>
+<page key="downloads" name="Downloads"/>
 <page key="index" name="Home"/>
+<page key="regimen-model" name="Regimen Modeling"/>
 <page key="toc" name="Table of Contents"/>
+<page key="use-cases" name="Use Cases and Actors"/>
 </specification>
