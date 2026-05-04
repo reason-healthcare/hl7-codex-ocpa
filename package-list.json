@@ -1,0 +1,16 @@
+{
+  "package-id": "hl7.fhir.us.codex-ocpa",
+  "title": "OCPA Implementation Guide",
+  "canonical": "http://hl7.org/fhir/us/codex-ocpa",
+  "category": "Clinical Reasoning",
+  "introduction": "Oncology Prior Authorization (OCPA) implementation guide project.",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Continuous Integration Build",
+      "status": "ci-build",
+      "current": true,
+      "path": "http://hl7.org/fhir/us/codex-ocpa"
+    }
+  ]
+}

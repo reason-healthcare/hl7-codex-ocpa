@@ -1,0 +1,16 @@
+{
+  "name": "hl7.fhir.us.codex-ocpa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SUSHI/IG Publisher project for the OCPA Implementation Guide",
+  "scripts": {
+    "sushi": "sushi .",
+    "build": "./_build.sh build",
+    "build:once": "./_genonce.sh",
+    "build:watch": "./_gencontinuous.sh",
+    "publisher:update": "./_updatePublisher.sh"
+  },
+  "devDependencies": {
+    "fsh-sushi": "^3.14.0"
+  }
+}
