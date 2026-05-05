@@ -2,15 +2,15 @@
 
 ### The Oncology Prior Authorization Problem
 
-For patients with breast cancer and other oncology diagnoses, the prior authorization process
-between oncologists and health plans is fragmented, slow, and often disconnected from the clinical
-evidence that guided the treatment decision. Clinicians document the same information in multiple
-systems. Payers request data already in the medical record. Approvals are delayed. Treatments are
-postponed.
+For oncology patients, the prior authorization process between clinicians and health plans is
+fragmented, slow, and often disconnected from the clinical evidence that guided the treatment
+decision. Clinicians document the same information in multiple systems. Payers request data
+already in the medical record. Approvals are delayed. Treatments are postponed.
 
-The root cause is structural: there is no shared, standards-based language for oncology treatment
-decisions, and no common way to move the right clinical data from the point of care to the
-authorization system at the right moment.
+The problem is consistent across cancer types — breast, lung, colorectal, hematologic, and
+beyond. The root cause is structural: there is no shared, standards-based language for oncology
+treatment decisions, and no common way to move the right clinical data from the point of care
+to the authorization system at the right moment.
 
 ### Regulatory Context
 
@@ -67,8 +67,9 @@ This IG fills the identified gaps by defining:
    and required patient context to the coverage decision service
 3. A **data requirements Library pattern** that drives both CRD pre-approval evaluation and DTR
    documentation collection from the same artifact
-4. A **breast cancer PA data requirements package** as the lead use case, mapping each required
-   clinical data element to mCODE / FHIR representations
+4. A **cancer-specific data requirements package** pattern — `OncologyDataRequirementsLibrary` —
+   with breast cancer PA as the first concrete implementation (`BreastCancerPADataRequirementsLibrary`),
+   designed to be replicated for lung, colorectal, hematologic, and other cancer types
 
 These artifacts are designed as incremental extensions to Da Vinci CRD/DTR/PAS and mCODE, not as
 replacements.

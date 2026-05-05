@@ -2,10 +2,9 @@
 
 This implementation guide defines a standards-based oncology prior authorization (OCPA)
 framework that extends the [Da Vinci Burden Reduction](https://confluence.hl7.org/display/DVP)
-suite — CRD, DTR, and PAS — with oncology-specific capabilities: a computable anti-cancer
-regimen representation and a structured patient context package for authorization evaluation.
-
-**Lead use case:** Breast cancer prior authorization
+suite — CRD, DTR, and PAS — with oncology-specific capabilities applicable across all cancer
+types: a computable anti-cancer regimen representation and a structured patient context package
+for authorization evaluation.
 
 ### The Problem
 
@@ -33,14 +32,15 @@ This IG addresses two connected layers:
 ### Scope
 
 **In scope:**
+- All oncology cancer types (solid tumors and hematologic malignancies)
 - Anti-cancer regimen representation as a first-class FHIR artifact
 - CDS Hooks extension for oncology `order-select` and `order-sign`
 - Patient context data requirements for oncology PA evaluation
-- Breast cancer PA as the lead use case
+- **Use Case 1: Breast cancer prior authorization** — the first concrete data requirements
+  implementation, serving as the template for other cancer types
 
 **Out of scope (this version):**
 - Regimen clinical equivalence and preference ranking
-- Multi-cancer generalizations beyond the breast cancer use case
 - X12 transaction details (covered by Da Vinci PAS)
 
 ### Stakeholders
@@ -65,7 +65,6 @@ flowchart TD
   Clinician -- "orders treatment via" --> EHR
   EHR -- "requests authorization" --> Payer
   Payer -- "authorizes treatment for" --> Patient
-  GA -- "publishes computable<br>guidelines" --> EHR
   GA -- "informs coverage<br>policy" --> Payer
   GA -- "provides CDS" --> Clinician
 ```

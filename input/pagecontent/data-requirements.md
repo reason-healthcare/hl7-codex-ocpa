@@ -32,16 +32,22 @@ specifies:
 ### OncologyDataRequirementsLibrary
 
 A `Library` resource acts as a versioned, governable wrapper for `DataRequirement[]` entries.
+The base profile is designed to be **instantiated once per cancer type**. Each instance declares
+the data requirements specific to that cancer's PA evaluation logic.
 
 ```
-OncologyDataRequirementsLibrary          ← base profile (abstract-like)
-  ├── BreastCancerPADataRequirementsLibrary
-  ├── LungCancerPADataRequirementsLibrary    (future)
-  ├── ColorectalCancerPADataRequirementsLibrary  (future)
+OncologyDataRequirementsLibrary          ← base profile (cancer-agnostic)
+  ├── BreastCancerPADataRequirementsLibrary  ← Use Case 1 (defined in this IG)
+  ├── LungCancerPADataRequirementsLibrary    ← Use Case 2 (future)
+  ├── ColorectalCancerPADataRequirementsLibrary  ← Use Case 3 (future)
+  ├── LeukemiaPADataRequirementsLibrary      ← Use Case 4 (future)
   └── ...
 ```
 
 The base profile requires `Library.dataRequirement` (1..*) and `Library.subject[x]` (cancer type).
+Authoring a new cancer-type use case means creating a new `Library` instance conforming to this
+base profile with a `subjectCodeableConcept` bound to the target cancer type (SNOMED CT) and
+`dataRequirement[]` entries reflecting that cancer's PA-relevant clinical data elements.
 
 ### CRD Usage
 
@@ -79,5 +85,6 @@ applicable:
 
 ### See Also
 
-[Breast Cancer Prior Authorization](breast-cancer-pa.html) for the first cancer-specific Library
-instance.
+[Use Case 1: Breast Cancer Prior Authorization](breast-cancer-pa.html) — the first
+cancer-specific `OncologyDataRequirementsLibrary` instance, including data requirements matrix,
+staging constraints, and priority gaps.

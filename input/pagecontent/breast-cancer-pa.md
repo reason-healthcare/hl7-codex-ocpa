@@ -1,11 +1,12 @@
-# Breast Cancer Prior Authorization
+# Use Case 1: Breast Cancer Prior Authorization
 
-### Overview
+### Context
 
-This page defines the breast cancer prior authorization use case as the lead implementation of
-the OCPA framework. It specifies the `BreastCancerPADataRequirementsLibrary` — the first
-cancer-specific derivative of `OncologyDataRequirementsLibrary` — and documents which mCODE and
-FHIR profiles cover each requirement, where gaps exist, and the recommended modeling actions.
+This page defines **Use Case 1** — the first concrete instantiation of the OCPA data requirements
+pattern for a specific cancer type. It serves as the template for subsequent use cases (lung,
+colorectal, hematologic malignancies, and others). Each future use case follows the same structure:
+a cancer-specific `OncologyDataRequirementsLibrary` derivative with its own `dataRequirement[]`
+entries, mCODE coverage assessment, gap analysis, and recommended profiles.
 
 ### Scope
 

@@ -3,9 +3,10 @@ canonical: http://hl7.org/fhir/us/codex-ocpa
 name: CodexOCPAIG
 title: OCPA Implementation Guide
 description: >-
-  Standards-based oncology prior authorization (OCPA) framework extending Da Vinci
-  CRD/DTR/PAS with mCODE patient context and computable anti-cancer regimen
-  representation. Lead use case: breast cancer prior authorization.
+  Standards-based oncology prior authorization (OCPA) framework covering all cancer
+  types, extending Da Vinci CRD/DTR/PAS with mCODE patient context and computable
+  anti-cancer regimen representation. Breast cancer prior authorization is the first
+  concrete use case and data requirements implementation.
 status: draft
 version: 0.1.0
 releaseLabel: ci-build
@@ -54,7 +55,7 @@ pages:
   data-requirements.md:
     title: Data Requirements Pattern
   breast-cancer-pa.md:
-    title: Breast Cancer Prior Authorization
+    title: "Use Case 1: Breast Cancer PA"
   conformance.md:
     title: Conformance
   artifacts.html:

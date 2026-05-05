@@ -11,34 +11,6 @@
 | **PAS Server** | A payer system that receives and adjudicates the PA request |
 | **Guideline Authority** | An organization (e.g., NCCN, ASCO, internal pathways program) that publishes canonical regimen definitions as computable `PlanDefinition` artifacts |
 
-```mermaid
-%%{init: {'flowchart': {'htmlLabels': false}}}%%
-flowchart TD
-  subgraph Provider ["Provider Domain"]
-    Clinician(["👤 Oncologist"])
-    EHR["Oncology EHR\n(CRD Client)"]
-    DTR["DTR Client"]
-  end
-
-  subgraph Payer ["Payer Domain"]
-    CRD["CRD Service"]
-    PAS["PAS Client / Server"]
-  end
-
-  subgraph Knowledge ["Knowledge Layer"]
-    GA["Guideline Authority"]
-  end
-
-  Clinician -- "selects regimen" --> EHR
-  EHR -- "CDS Hooks order-select / sign" --> CRD
-  CRD -- "cards / pre-approval" --> EHR
-  EHR -- "launches" --> DTR
-  DTR -- "QuestionnaireResponse" --> EHR
-  EHR -- "PA request" --> PAS
-  GA -- "PlanDefinition (canonical regimen)" --> EHR
-  GA -- "DataRequirements Library" --> CRD
-```
-
 ### The Two-Layer Framework
 
 This IG defines two connected layers that together address the full oncology PA workflow.
@@ -69,7 +41,6 @@ oncology-specific extensions:
 
 ### Workflow: Complete Oncology PA Sequence
 
-```
 1. Clinician opens patient chart and begins treatment planning
 
 2. [Optional] Pre-order CDS evaluates patient context and returns
@@ -100,7 +71,6 @@ oncology-specific extensions:
 
 8. PAS (if PA required) submits structured authorization package
    Payer adjudicates and returns decision
-```
 
 ```mermaid
 %%{init: {'sequence': {'htmlLabels': false}}}%%
