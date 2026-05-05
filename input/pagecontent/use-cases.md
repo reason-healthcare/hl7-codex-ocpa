@@ -115,7 +115,7 @@ sequenceDiagram
   participant Payer as Payer Backend
 
   rect rgb(240, 248, 240)
-    Note over Oncologist,CDS: Optional \u2014 Layer 1: Pre-Order CDS
+    Note over Oncologist,CDS: Optional — Layer 1: Pre-Order CDS
     Oncologist->>EHR: Open chart / begin treatment planning
     EHR->>CDS: Evaluate patient context (diagnosis, stage, biomarkers)
     CDS-->>EHR: Guideline-aligned regimen options
@@ -125,7 +125,7 @@ sequenceDiagram
   rect rgb(230, 240, 255)
     Note over Oncologist,Payer: Layer 2: Structured Authorization Exchange
     Oncologist->>EHR: Select anti-cancer regimen
-    EHR->>EHR: Create draft RequestGroup (instantiatesCanonical \u2192 PlanDefinition)
+    EHR->>EHR: Create draft RequestGroup (instantiatesCanonical → PlanDefinition)
     EHR->>CRD: CDS Hooks order-select (RequestGroup + oncology extension)
     CRD->>CRD: Evaluate context completeness and guideline criteria
 

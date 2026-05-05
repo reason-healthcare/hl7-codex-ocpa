@@ -79,18 +79,18 @@ sequenceDiagram
   EHR->>CRD: POST /cds-services/oncology-crd-order-select
   Note over EHR,CRD: context.selections: [RequestGroup/id]<br/>context.draftOrders: Bundle (RequestGroup + draft MedicationRequests)<br/>extension[org.hl7.davinci-crd.oncology]:<br/>  orderedRegimen.reference + regimenDefinition<br/>  dataRequirements.canonical (Library URL)<br/>  patientContextExpectation.mode
 
-  CRD->>CRD: Resolve instantiatesCanonical \u2192 PlanDefinition
+  CRD->>CRD: Resolve instantiatesCanonical → PlanDefinition
   CRD->>CRD: Fetch DataRequirements Library
   CRD->>CRD: Evaluate context completeness and criteria
 
   alt Context complete + criteria satisfied
-    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "No PA required"}]
+    CRD-->>EHR: 200 OK — cards: [{summary: "No PA required"}]
   else Context incomplete
-    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "Launch DTR", links: [DTR URL]}]
+    CRD-->>EHR: 200 OK — cards: [{summary: "Launch DTR", links: [DTR URL]}]
   else Context complete, criteria not met
-    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "PA required"}]
+    CRD-->>EHR: 200 OK — cards: [{summary: "PA required"}]
   else Regimen cannot be evaluated
-    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "Coverage guidance"}]
+    CRD-->>EHR: 200 OK — cards: [{summary: "Coverage guidance"}]
   end
 ```
 
