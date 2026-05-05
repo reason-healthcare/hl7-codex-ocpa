@@ -15,7 +15,7 @@
 %%{init: {'layout': 'elk', 'flowchart': {'htmlLabels': false}}}%%
 flowchart TD
   subgraph Provider ["Provider Domain"]
-    Clinician(["\U0001F464 Oncologist"])
+    Clinician(["👤 Oncologist"])
     EHR["Oncology EHR\n(CRD Client)"]
     DTR["DTR Client"]
   end

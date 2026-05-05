@@ -56,7 +56,7 @@ This IG addresses two connected layers:
 ```mermaid
 %%{init: {'layout': 'elk', 'flowchart': {'htmlLabels': false}}}%%
 flowchart TD
-  Clinician(["\U0001F464 Oncologist"])
+  Clinician(["👤 Oncologist"])
   EHR["Oncology EHR\n(CRD Client)"]
   CRD["CRD Service"]
   DTR["DTR Client"]
