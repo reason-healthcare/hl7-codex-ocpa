@@ -70,6 +70,7 @@ supported cancer types.
 | Regimen cannot be evaluated | Return coverage/documentation guidance |
 
 ```mermaid
+%%{init: {'sequence': {'htmlLabels': false}}}%%
 sequenceDiagram
   autonumber
   participant EHR as CRD Client (EHR)
