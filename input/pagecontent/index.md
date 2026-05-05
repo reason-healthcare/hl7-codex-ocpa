@@ -54,7 +54,7 @@ This IG addresses two connected layers:
 | **Guideline Authority** | Publisher of computable regimen definitions (e.g., NCCN, ASCO) |
 
 ```mermaid
-%%{init: {'layout': 'elk', 'flowchart': {'htmlLabels': false}}}%%
+%%{init: {'flowchart': {'htmlLabels': false}}}%%
 flowchart TD
   Clinician(["👤 Oncologist"])
   EHR["Oncology EHR\n(CRD Client)"]

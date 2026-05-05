@@ -12,7 +12,7 @@
 | **Guideline Authority** | An organization (e.g., NCCN, ASCO, internal pathways program) that publishes canonical regimen definitions as computable `PlanDefinition` artifacts |
 
 ```mermaid
-%%{init: {'layout': 'elk', 'flowchart': {'htmlLabels': false}}}%%
+%%{init: {'flowchart': {'htmlLabels': false}}}%%
 flowchart TD
   subgraph Provider ["Provider Domain"]
     Clinician(["👤 Oncologist"])
