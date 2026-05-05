@@ -69,6 +69,30 @@ supported cancer types.
 | Required context complete but criteria not met | Return PA required or documentation required |
 | Regimen cannot be evaluated | Return coverage/documentation guidance |
 
+```mermaid
+sequenceDiagram
+  autonumber
+  participant EHR as CRD Client (EHR)
+  participant CRD as CRD Service
+
+  EHR->>CRD: POST /cds-services/oncology-crd-order-select
+  Note over EHR,CRD: context.selections: [RequestGroup/id]<br/>context.draftOrders: Bundle (RequestGroup + draft MedicationRequests)<br/>extension[org.hl7.davinci-crd.oncology]:<br/>  orderedRegimen.reference + regimenDefinition<br/>  dataRequirements.canonical (Library URL)<br/>  patientContextExpectation.mode
+
+  CRD->>CRD: Resolve instantiatesCanonical \u2192 PlanDefinition
+  CRD->>CRD: Fetch DataRequirements Library
+  CRD->>CRD: Evaluate context completeness and criteria
+
+  alt Context complete + criteria satisfied
+    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "No PA required"}]
+  else Context incomplete
+    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "Launch DTR", links: [DTR URL]}]
+  else Context complete, criteria not met
+    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "PA required"}]
+  else Regimen cannot be evaluated
+    CRD-->>EHR: 200 OK \u2014 cards: [{summary: "Coverage guidance"}]
+  end
+```
+
 ### Examples
 
 See [Example: order-select request](Bundle-example-order-select-request.html) and

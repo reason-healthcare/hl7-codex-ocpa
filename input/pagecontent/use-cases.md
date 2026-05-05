@@ -11,6 +11,33 @@
 | **PAS Server** | A payer system that receives and adjudicates the PA request |
 | **Guideline Authority** | An organization (e.g., NCCN, ASCO, internal pathways program) that publishes canonical regimen definitions as computable `PlanDefinition` artifacts |
 
+```mermaid
+flowchart LR
+  subgraph Provider ["Provider Domain"]
+    Clinician(["\U0001F464 Oncologist"])
+    EHR["Oncology EHR\n(CRD Client)"]
+    DTR["DTR Client"]
+  end
+
+  subgraph Payer ["Payer Domain"]
+    CRD["CRD Service"]
+    PAS["PAS Client / Server"]
+  end
+
+  subgraph Knowledge ["Knowledge Layer"]
+    GA["Guideline Authority"]
+  end
+
+  Clinician -- "selects regimen" --> EHR
+  EHR -- "CDS Hooks order-select / sign" --> CRD
+  CRD -- "cards / pre-approval" --> EHR
+  EHR -- "launches" --> DTR
+  DTR -- "QuestionnaireResponse" --> EHR
+  EHR -- "PA request" --> PAS
+  GA -- "PlanDefinition (canonical regimen)" --> EHR
+  GA -- "DataRequirements Library" --> CRD
+```
+
 ### The Two-Layer Framework
 
 This IG defines two connected layers that together address the full oncology PA workflow.
@@ -72,6 +99,55 @@ oncology-specific extensions:
 
 8. PAS (if PA required) submits structured authorization package
    Payer adjudicates and returns decision
+```
+
+```mermaid
+sequenceDiagram
+  autonumber
+  actor Oncologist
+  participant EHR as Oncology EHR
+  participant CDS as Pre-Order CDS
+  participant CRD as CRD Service
+  participant DTR as DTR Client
+  participant PAS as PAS Service
+  participant Payer as Payer Backend
+
+  rect rgb(240, 248, 240)
+    Note over Oncologist,CDS: Optional \u2014 Layer 1: Pre-Order CDS
+    Oncologist->>EHR: Open chart / begin treatment planning
+    EHR->>CDS: Evaluate patient context (diagnosis, stage, biomarkers)
+    CDS-->>EHR: Guideline-aligned regimen options
+    EHR-->>Oncologist: Present options before order selection
+  end
+
+  rect rgb(230, 240, 255)
+    Note over Oncologist,Payer: Layer 2: Structured Authorization Exchange
+    Oncologist->>EHR: Select anti-cancer regimen
+    EHR->>EHR: Create draft RequestGroup (instantiatesCanonical \u2192 PlanDefinition)
+    EHR->>CRD: CDS Hooks order-select (RequestGroup + oncology extension)
+    CRD->>CRD: Evaluate context completeness and guideline criteria
+
+    alt Context complete + criteria satisfied
+      CRD-->>EHR: Pre-approval / no PA required
+    else Context incomplete
+      CRD-->>EHR: DTR launch card
+      EHR->>DTR: Launch DTR
+      DTR-->>EHR: Completed QuestionnaireResponse
+    else Criteria not met
+      CRD-->>EHR: PA required card
+    end
+
+    Oncologist->>EHR: Sign order
+    Note over EHR: RequestGroup populated with component MedicationRequests
+
+    opt PA required
+      EHR->>PAS: Submit PA request
+      PAS->>Payer: Transmit for adjudication
+      Payer-->>PAS: PA decision
+      PAS-->>EHR: Approval / pended / denied
+      EHR-->>Oncologist: Display PA outcome
+    end
+  end
 ```
 
 ### Pre-Conditions

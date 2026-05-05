@@ -53,6 +53,25 @@ This IG addresses two connected layers:
 | **PAS Client / Server** | Prior authorization submission and response (per Da Vinci PAS) |
 | **Guideline Authority** | Publisher of computable regimen definitions (e.g., NCCN, ASCO) |
 
+```mermaid
+flowchart LR
+  Clinician(["\U0001F464 Oncologist"])
+  EHR["Oncology EHR\n(CRD Client)"]
+  CRD["CRD Service"]
+  DTR["DTR Client"]
+  PAS["PAS Client / Server"]
+  GA["Guideline Authority"]
+
+  Clinician -- "places order" --> EHR
+  EHR -- "CDS Hooks\norder-select / sign" --> CRD
+  CRD -- "cards / decision" --> EHR
+  EHR -- "launches" --> DTR
+  DTR -- "QuestionnaireResponse" --> EHR
+  EHR -- "PA request" --> PAS
+  GA -- "PlanDefinition\n(canonical regimens)" --> EHR
+  GA -- "DataRequirements\nLibrary" --> CRD
+```
+
 ### Dependencies
 
 | Implementation Guide | Version | Role |
