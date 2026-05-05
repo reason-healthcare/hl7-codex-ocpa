@@ -4,6 +4,17 @@
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
+<artifact id="StructureDefinition/anticancer-regimen-plandefinition" key="StructureDefinition-anticancer-regimen-plandefinition" name="Anti-Cancer Regimen PlanDefinition"/>
+<artifact id="StructureDefinition/anticancer-regimen-requestgroup" key="StructureDefinition-anticancer-regimen-requestgroup" name="Anti-Cancer Regimen RequestGroup"/>
+<artifact id="StructureDefinition/line-of-therapy-observation" key="StructureDefinition-line-of-therapy-observation" name="Line of Therapy Observation"/>
+<artifact id="CodeSystem/ocpa-codes" key="CodeSystem-ocpa-codes" name="OCPA Local Code System"/>
+<artifact id="StructureDefinition/oncology-data-requirements-library" key="StructureDefinition-oncology-data-requirements-library" name="Oncology Data Requirements Library"/>
+<artifact id="StructureDefinition/ocpa-regimen-disease-context" key="StructureDefinition-ocpa-regimen-disease-context" name="Regimen Disease Context"/>
+<artifact id="StructureDefinition/ocpa-regimen-intent" key="StructureDefinition-ocpa-regimen-intent" name="Regimen Intent"/>
+<artifact id="ValueSet/regimen-intent-vs" key="ValueSet-regimen-intent-vs" name="Regimen Intent Value Set"/>
+<artifact id="StructureDefinition/ocpa-regimen-treatment-line" key="StructureDefinition-ocpa-regimen-treatment-line" name="Regimen Treatment Line"/>
+<artifact id="CodeSystem/treatment-line-cs" key="CodeSystem-treatment-line-cs" name="Treatment Line Code System"/>
+<artifact id="ValueSet/treatment-line-vs" key="ValueSet-treatment-line-vs" name="Treatment Line Value Set"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
