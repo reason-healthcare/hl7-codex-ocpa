@@ -43,34 +43,31 @@ This IG addresses two connected layers:
 - Multi-cancer generalizations beyond the breast cancer use case
 - X12 transaction details (covered by Da Vinci PAS)
 
-### Actors
+### Stakeholders
 
-| Actor | Role |
+| Stakeholder | Benefit |
 |---|---|
-| **Oncology CRD Client** | EHR or ordering system that invokes CDS Hooks during regimen selection |
-| **Oncology CRD Service** | Coverage decision service that evaluates the ordered regimen |
-| **DTR Client** | System that collects missing patient context for authorization |
-| **PAS Client / Server** | Prior authorization submission and response (per Da Vinci PAS) |
-| **Guideline Authority** | Publisher of computable regimen definitions (e.g., NCCN, ASCO) |
+| **Oncology Practice / Clinician** | Fewer authorization delays; reduced administrative workload |
+| **Cancer Patient** | Faster access to guideline-appropriate treatment |
+| **Health Plan / Payer** | Structured, computable authorization requests; fewer manual reviews |
+| **EHR / Ordering System** | Reusable, standards-based integration pattern for oncology workflows |
+| **Guideline Authority** | Computable guidelines (e.g., NCCN, ASCO) that align clinical and payer logic |
 
 ```mermaid
 %%{init: {'flowchart': {'htmlLabels': false}}}%%
 flowchart TD
   Clinician(["👤 Oncologist"])
-  EHR["Oncology EHR\n(CRD Client)"]
-  CRD["CRD Service"]
-  DTR["DTR Client"]
-  PAS["PAS Client / Server"]
-  GA["Guideline Authority"]
+  Patient(["👤 Cancer Patient"])
+  Payer["Health Plan / Payer"]
+  EHR["EHR / Ordering System"]
+  GA["Guideline Authority\n(e.g., NCCN, ASCO)"]
 
-  Clinician -- "places order" --> EHR
-  EHR -- "CDS Hooks\norder-select / sign" --> CRD
-  CRD -- "cards / decision" --> EHR
-  EHR -- "launches" --> DTR
-  DTR -- "QuestionnaireResponse" --> EHR
-  EHR -- "PA request" --> PAS
-  GA -- "PlanDefinition\n(canonical regimens)" --> EHR
-  GA -- "DataRequirements\nLibrary" --> CRD
+  Clinician -- "treats" --> Patient
+  Clinician -- "orders treatment via" --> EHR
+  EHR -- "requests authorization" --> Payer
+  Payer -- "authorizes treatment for" --> Patient
+  GA -- "publishes computable\nguidelines" --> EHR
+  GA -- "informs coverage\npolicy" --> Payer
 ```
 
 ### Dependencies
@@ -86,7 +83,7 @@ flowchart TD
 ### How to Read This Guide
 
 - [Background](background.html) — Clinical problem, regulatory context, and gaps in existing standards
-- [Use Cases and Actors](use-cases.html) — The two-layer workflow and actor responsibilities
+- [Use Cases and Actors](use-cases.html) — The two-layer workflow, system actors, and actor responsibilities
 - **Specification:**
   - [Regimen Modeling](regimen-model.html) — How anti-cancer regimens are represented as FHIR `PlanDefinition` and `RequestGroup`
   - [CDS Hooks Oncology Extension](cds-hooks-extension.html) — The CDS Hooks extension for oncology CRD
