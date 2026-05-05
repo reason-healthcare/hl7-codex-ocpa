@@ -54,20 +54,20 @@ This IG addresses two connected layers:
 | **Guideline Authority** | Computable guidelines (e.g., NCCN, ASCO) that align clinical and payer logic |
 
 ```mermaid
-%%{init: {'flowchart': {'htmlLabels': false}}}%%
 flowchart TD
   Clinician(["👤 Oncologist"])
   Patient(["👤 Cancer Patient"])
   Payer["Health Plan / Payer"]
   EHR["EHR / Ordering System"]
-  GA["Guideline Authority\n(e.g., NCCN, ASCO)"]
+  GA["Guideline Authority<br>(e.g., NCCN, ASCO)"]
 
   Clinician -- "treats" --> Patient
   Clinician -- "orders treatment via" --> EHR
   EHR -- "requests authorization" --> Payer
   Payer -- "authorizes treatment for" --> Patient
-  GA -- "publishes computable\nguidelines" --> EHR
-  GA -- "informs coverage\npolicy" --> Payer
+  GA -- "publishes computable<br>guidelines" --> EHR
+  GA -- "informs coverage<br>policy" --> Payer
+  GA -- "provides CDS" --> Clinician
 ```
 
 ### Dependencies
