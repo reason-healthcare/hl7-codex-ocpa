@@ -72,55 +72,7 @@ oncology-specific extensions:
 8. PAS (if PA required) submits structured authorization package
    Payer adjudicates and returns decision
 
-```mermaid
-%%{init: {'sequence': {'htmlLabels': false}}}%%
-sequenceDiagram
-  autonumber
-  actor Oncologist
-  participant EHR as Oncology EHR
-  participant CDS as Pre-Order CDS
-  participant CRD as CRD Service
-  participant DTR as DTR Client
-  participant PAS as PAS Service
-  participant Payer as Payer Backend
-
-  rect rgb(240, 248, 240)
-    Note over Oncologist,CDS: Optional — Layer 1: Pre-Order CDS
-    Oncologist->>EHR: Open chart / begin treatment planning
-    EHR->>CDS: Evaluate patient context (diagnosis, stage, biomarkers)
-    CDS-->>EHR: Guideline-aligned regimen options
-    EHR-->>Oncologist: Present options before order selection
-  end
-
-  rect rgb(230, 240, 255)
-    Note over Oncologist,Payer: Layer 2: Structured Authorization Exchange
-    Oncologist->>EHR: Select anti-cancer regimen
-    EHR->>EHR: Create draft RequestGroup (instantiatesCanonical → PlanDefinition)
-    EHR->>CRD: CDS Hooks order-select (RequestGroup + oncology extension)
-    CRD->>CRD: Evaluate context completeness and guideline criteria
-
-    alt Context complete + criteria satisfied
-      CRD-->>EHR: Pre-approval / no PA required
-    else Context incomplete
-      CRD-->>EHR: DTR launch card
-      EHR->>DTR: Launch DTR
-      DTR-->>EHR: Completed QuestionnaireResponse
-    else Criteria not met
-      CRD-->>EHR: PA required card
-    end
-
-    Oncologist->>EHR: Sign order
-    Note over EHR: RequestGroup populated with component MedicationRequests
-
-    opt PA required
-      EHR->>PAS: Submit PA request
-      PAS->>Payer: Transmit for adjudication
-      Payer-->>PAS: PA decision
-      PAS-->>EHR: Approval / pended / denied
-      EHR-->>Oncologist: Display PA outcome
-    end
-  end
-```
+![OGCA Two-Layer Workflow](ogca-workflow.svg)
 
 ### Pre-Conditions
 

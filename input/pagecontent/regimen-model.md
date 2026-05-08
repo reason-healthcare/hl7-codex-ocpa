@@ -90,5 +90,5 @@ the `RequestGroup` action.
 
 ### Examples
 
-See [Example: Paclitaxel + Trastuzumab (concurrent, weekly)](RequestGroup-example-paclitaxel-trastuzumab.html)
-and [Example: ddAC→T (sequential phases)](RequestGroup-example-ddac-t.html).
+See [Example: Paclitaxel + Trastuzumab (concurrent, weekly)](RequestGroup-THRegimenOrder.html)
+and [Example: ddAC→T (sequential phases)](RequestGroup-DDACTRegimenOrder.html).
