@@ -1,4 +1,3 @@
-# Data Requirements Pattern
 
 ### Overview
 

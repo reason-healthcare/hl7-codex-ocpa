@@ -1,4 +1,3 @@
-# Oncology Guideline and Coverage Authorization (OGCA) Implementation Guide
 
 <div class="ogca-logo-bar">
 <img src="codex-logo.png" alt="HL7 CodeX FHIR Accelerator" />

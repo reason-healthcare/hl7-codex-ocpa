@@ -1,4 +1,3 @@
-# Regimen Modeling
 
 ### Overview
 

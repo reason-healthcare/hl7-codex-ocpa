@@ -1,4 +1,3 @@
-# Background
 
 ### The Oncology Prior Authorization Problem
 

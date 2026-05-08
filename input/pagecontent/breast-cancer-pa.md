@@ -1,4 +1,3 @@
-# Use Case 1: Breast Cancer Prior Authorization
 
 ### Context
 

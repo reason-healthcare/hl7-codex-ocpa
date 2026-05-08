@@ -1,4 +1,3 @@
-# CDS Hooks Oncology Extension
 
 ### Overview
 
