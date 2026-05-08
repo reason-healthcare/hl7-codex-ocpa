@@ -32,7 +32,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;
-  font-size: 15px;
+  font-size: 16.5px;
   line-height: 1.7;
   color: #1a1a2e;
 }
@@ -108,9 +108,13 @@ a:hover, a:focus {
 .table td {
   padding: 8px 14px;
   border: none;
-  border-bottom: 1px solid #e8ecf0;
+  border-bottom: 1px solid #d0d7e0;
   line-height: 1.55;
   vertical-align: top;
+}
+
+tr td {
+  border-bottom: 1px solid #d0d7e0;
 }
 
 .table tbody tr:nth-child(even) td {
@@ -205,6 +209,20 @@ ul.markdown-toc, div.markdown-toc {
 .container > .row > .inner-wrapper {
   margin-top: 20px;
   margin-bottom: 32px;
+}
+
+/* --- Images ------------------------------------------------------------------ */
+
+img {
+  display: block;
+}
+
+/* restore inline for icons and logo-bar images that live inside flex/inline contexts */
+.ogca-logo-bar img,
+.navbar img,
+#segment-header img,
+#segment-footer img {
+  display: inline-block;
 }
 
 /* --- Codex logo bar (index page) --------------------------------------------- */
