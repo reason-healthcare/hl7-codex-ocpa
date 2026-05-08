@@ -5,6 +5,12 @@
 //   B — ddAC→T (Jane Smith, adjuvant, sequential phases)
 //   C — PHD (Jane Smith, first-line metastatic, order-select)
 //
+// All three RequestGroup instances demonstrate the timing-daysOfCycle
+// extension ($DaysOfCycle) on action.timingTiming:
+//   TH  — days 1, 8, 15 of a 21-day cycle (multi-day pattern)
+//   ddAC→T — day 1 of each 14-day cycle (per-phase)
+//   PHD — day 1 of each 21-day cycle
+//
 // Also includes companion draft MedicationRequest instances referenced
 // from RequestGroup.action.resource (available at order-sign).
 // RxNorm codes verified via NLM RxNav API 2026-05-04:
@@ -21,7 +27,7 @@ Title: "Example: Paclitaxel MedicationRequest (TH regimen, draft)"
 Description: "Draft MedicationRequest for paclitaxel 80 mg/m² IV weekly in TH regimen."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#56946 "paclitaxel"
 * dosageInstruction[+].text = "80 mg/m² IV over 1 hour, weekly"
 
@@ -32,7 +38,7 @@ Title: "Example: Trastuzumab MedicationRequest (TH regimen, draft)"
 Description: "Draft MedicationRequest for trastuzumab IV weekly in TH regimen."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#224905 "trastuzumab"
 * dosageInstruction[+].text = "4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly"
 
@@ -43,7 +49,7 @@ Title: "Example: Doxorubicin MedicationRequest (ddAC→T regimen, draft)"
 Description: "Draft MedicationRequest for doxorubicin 60 mg/m² IV in ddAC phase."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#3639 "doxorubicin"
 * dosageInstruction[+].text = "60 mg/m² IV day 1 of each 14-day cycle"
 
@@ -54,7 +60,7 @@ Title: "Example: Cyclophosphamide MedicationRequest (ddAC→T regimen, draft)"
 Description: "Draft MedicationRequest for cyclophosphamide 600 mg/m² IV in ddAC phase."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#3002 "cyclophosphamide"
 * dosageInstruction[+].text = "600 mg/m² IV day 1 of each 14-day cycle"
 
@@ -65,7 +71,7 @@ Title: "Example: Paclitaxel MedicationRequest (T phase, ddAC→T regimen, draft)
 Description: "Draft MedicationRequest for paclitaxel 175 mg/m² IV q14d in T phase."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#56946 "paclitaxel"
 * dosageInstruction[+].text = "175 mg/m² IV over 3 hours, day 1 of each 14-day cycle"
 
@@ -75,7 +81,7 @@ Usage: #example
 Title: "Example: Pertuzumab MedicationRequest (PHD regimen, draft)"
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#1298944 "pertuzumab"
 * dosageInstruction[+].text = "840 mg IV cycle 1, then 420 mg IV q21d"
 
@@ -85,7 +91,7 @@ Usage: #example
 Title: "Example: Trastuzumab MedicationRequest (PHD regimen, draft)"
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#224905 "trastuzumab"
 * dosageInstruction[+].text = "8 mg/kg IV cycle 1, then 6 mg/kg IV q21d"
 
@@ -95,7 +101,7 @@ Usage: #example
 Title: "Example: Docetaxel MedicationRequest (PHD regimen, draft)"
 * status  = #draft
 * intent  = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * medicationCodeableConcept = $RxNorm#72962 "docetaxel"
 * dosageInstruction[+].text = "75 mg/m² IV day 1 of each 21-day cycle"
 
@@ -103,31 +109,45 @@ Title: "Example: Docetaxel MedicationRequest (PHD regimen, draft)"
 // ─── A: TH regimen order (typical case) ─────────────────────────────────────
 // Adjuvant HER2+ early breast cancer. Concurrent two-agent weekly order.
 // All Must Support elements populated. instantiatesCanonical references THRegimenDefinition.
+//
+// Scheduling note: TH is conventionally given as a weekly regimen for 12 weeks.
+// We represent it as a 21-day super-cycle with paclitaxel and trastuzumab
+// administered on days 1, 8, and 15 — demonstrating the multi-day
+// timing-daysOfCycle pattern. This mirrors common EHR order-set encoding.
 Instance: THRegimenOrder
 InstanceOf: AntiCancerRegimenRequestGroup
 Usage: #example
 Title: "Example Regimen Order: TH (Jane Smith, Adjuvant HER2+) — Typical"
 Description: """Patient-specific draft ordered TH regimen for Jane Smith at order-select.
 instantiatesCanonical references THRegimenDefinition. All Must Support elements populated.
-This is the primary reference example for AntiCancerRegimenRequestGroup."""
+Demonstrates timing-daysOfCycle (days 1, 8, 15 of a 21-day cycle) and is the primary
+reference example for AntiCancerRegimenRequestGroup."""
 
 * status = #draft
 * intent = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * instantiatesCanonical = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition"
 * extension[regimenIntent].valueCodeableConcept = $SCT#373846009 "Adjuvant - intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
 
-* action[+].id       = "paclitaxel-th-action"
-* action[=].title    = "Paclitaxel 80 mg/m² IV weekly"
-* action[=].timingTiming.repeat.period = 7
+// Paclitaxel — days 1, 8, 15 of a 21-day cycle (weekly x3 per cycle)
+* action[+].id    = "paclitaxel-th-action"
+* action[=].title = "Paclitaxel 80 mg/m² IV — days 1, 8, 15 of 21-day cycle"
+* action[=].timingTiming.repeat.period     = 21
 * action[=].timingTiming.repeat.periodUnit = #d
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 8
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 15
 * action[=].resource = Reference(PaclitaxelMedRequestTH)
 
-* action[+].id       = "trastuzumab-th-action"
-* action[=].title    = "Trastuzumab IV weekly"
-* action[=].timingTiming.repeat.period = 7
+// Trastuzumab — days 1, 8, 15 of a 21-day cycle (weekly x3 per cycle)
+* action[+].id    = "trastuzumab-th-action"
+* action[=].title = "Trastuzumab IV — days 1, 8, 15 of 21-day cycle"
+* action[=].timingTiming.repeat.period     = 21
 * action[=].timingTiming.repeat.periodUnit = #d
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 8
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 15
 * action[=].resource = Reference(TrastuzumabMedRequestTH)
 
 
@@ -143,37 +163,46 @@ phase ordering with action.relatedAction relationship = after-end."""
 
 * status = #draft
 * intent = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * instantiatesCanonical = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/DDACTRegimenDefinition"
 * extension[regimenIntent].valueCodeableConcept = $SCT#373846009 "Adjuvant - intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
 
-// AC Phase
+// AC Phase — doxorubicin and cyclophosphamide both on day 1 of each 14-day cycle
 * action[+].id    = "ac-phase-order"
 * action[=].title = "AC Phase (Cycles 1–4, q14d)"
-* action[=].timingTiming.repeat.count  = 4
-* action[=].timingTiming.repeat.period = 14
+* action[=].timingTiming.repeat.count      = 4
+* action[=].timingTiming.repeat.period     = 14
 * action[=].timingTiming.repeat.periodUnit = #d
 
-* action[=].action[+].id       = "doxorubicin-action"
-* action[=].action[=].title    = "Doxorubicin 60 mg/m² IV day 1"
+* action[=].action[+].id    = "doxorubicin-action"
+* action[=].action[=].title = "Doxorubicin 60 mg/m² IV day 1"
+* action[=].action[=].timingTiming.repeat.period     = 14
+* action[=].action[=].timingTiming.repeat.periodUnit = #d
+* action[=].action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
 * action[=].action[=].resource = Reference(DoxorubicinMedRequestDDACT)
 
-* action[=].action[+].id       = "cyclophosphamide-action"
-* action[=].action[=].title    = "Cyclophosphamide 600 mg/m² IV day 1"
+* action[=].action[+].id    = "cyclophosphamide-action"
+* action[=].action[=].title = "Cyclophosphamide 600 mg/m² IV day 1"
+* action[=].action[=].timingTiming.repeat.period     = 14
+* action[=].action[=].timingTiming.repeat.periodUnit = #d
+* action[=].action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
 * action[=].action[=].resource = Reference(CyclophosphamideMedRequestDDACT)
 
-// T Phase — begins after AC phase ends
+// T Phase — begins after AC phase ends; paclitaxel on day 1 of each 14-day cycle
 * action[+].id    = "t-phase-order"
 * action[=].title = "T Phase — Paclitaxel (Cycles 5–8, q14d)"
-* action[=].relatedAction[+].actionId    = "ac-phase-order"
+* action[=].relatedAction[+].actionId     = "ac-phase-order"
 * action[=].relatedAction[=].relationship = #after-end
-* action[=].timingTiming.repeat.count  = 4
-* action[=].timingTiming.repeat.period = 14
+* action[=].timingTiming.repeat.count      = 4
+* action[=].timingTiming.repeat.period     = 14
 * action[=].timingTiming.repeat.periodUnit = #d
 
-* action[=].action[+].id       = "paclitaxel-t-action"
-* action[=].action[=].title    = "Paclitaxel 175 mg/m² IV day 1"
+* action[=].action[+].id    = "paclitaxel-t-action"
+* action[=].action[=].title = "Paclitaxel 175 mg/m² IV day 1"
+* action[=].action[=].timingTiming.repeat.period     = 14
+* action[=].action[=].timingTiming.repeat.periodUnit = #d
+* action[=].action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
 * action[=].action[=].resource = Reference(PaclitaxelMedRequestTPHase)
 
 
@@ -189,25 +218,31 @@ Demonstrates palliative intent and first-line metastatic treatment setting."""
 
 * status = #draft
 * intent = #order
-* subject = Reference(OCPAPatientExample)
+* subject = Reference(OGCAPatientExample)
 * instantiatesCanonical = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/PHDRegimenDefinition"
-* extension[regimenIntent].valueCodeableConcept = $SCT#363676003 "Palliative - procedure intent"
+* extension[regimenIntent].valueCodeableConcept = $SCT#363676003 "Palliative intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
 
-* action[+].id       = "pertuzumab-phd-action"
-* action[=].title    = "Pertuzumab IV q21d"
-* action[=].timingTiming.repeat.period = 21
+// Pertuzumab — day 1 of each 21-day cycle
+* action[+].id    = "pertuzumab-phd-action"
+* action[=].title = "Pertuzumab IV day 1 q21d"
+* action[=].timingTiming.repeat.period     = 21
 * action[=].timingTiming.repeat.periodUnit = #d
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
 * action[=].resource = Reference(PertuzumabMedRequestPHD)
 
-* action[+].id       = "trastuzumab-phd-action"
-* action[=].title    = "Trastuzumab IV q21d"
-* action[=].timingTiming.repeat.period = 21
+// Trastuzumab — day 1 of each 21-day cycle
+* action[+].id    = "trastuzumab-phd-action"
+* action[=].title = "Trastuzumab IV day 1 q21d"
+* action[=].timingTiming.repeat.period     = 21
 * action[=].timingTiming.repeat.periodUnit = #d
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
 * action[=].resource = Reference(TrastuzumabMedRequestPHD)
 
-* action[+].id       = "docetaxel-phd-action"
-* action[=].title    = "Docetaxel 75 mg/m² IV day 1 q21d"
-* action[=].timingTiming.repeat.period = 21
+// Docetaxel — day 1 of each 21-day cycle
+* action[+].id    = "docetaxel-phd-action"
+* action[=].title = "Docetaxel 75 mg/m² IV day 1 q21d"
+* action[=].timingTiming.repeat.period     = 21
 * action[=].timingTiming.repeat.periodUnit = #d
+* action[=].timingTiming.extension[$DaysOfCycle].extension[day][+].valueInteger = 1
 * action[=].resource = Reference(DocetaxelMedRequestPHD)

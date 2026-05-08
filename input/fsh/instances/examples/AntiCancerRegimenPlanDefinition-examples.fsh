@@ -28,12 +28,12 @@ cancer. Demonstrates RegimenIntentExtension (adjuvant), RegimenTreatmentLineExte
 * status  = #active
 * experimental = true
 * type    = $PD-TYPE#order-set "Order Set"
-* subjectCodeableConcept = $SCT#254837009 "Malignant tumor of breast"
+* subjectCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
 * description = "Weekly Paclitaxel + Trastuzumab for 12 weeks; standard adjuvant regimen for early HER2+ breast cancer."
 
 * extension[regimenIntent].valueCodeableConcept = $SCT#373846009 "Adjuvant - intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
-* extension[regimenDiseaseContext].valueCodeableConcept = $SCT#254837009 "Malignant tumor of breast"
+* extension[regimenDiseaseContext].valueCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
 
 * action[+].id    = "paclitaxel-th"
 * action[=].title = "Paclitaxel 80 mg/m² IV — Day 1 of each 7-day cycle"
@@ -69,12 +69,12 @@ sequential phase ordering using action.relatedAction with relationship = after-e
 * status  = #active
 * experimental = true
 * type    = $PD-TYPE#order-set "Order Set"
-* subjectCodeableConcept = $SCT#254837009 "Malignant tumor of breast"
+* subjectCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
 * description = "Dose-dense AC x4 cycles (q14d) followed by paclitaxel x4 cycles (q14d). Standard adjuvant regimen."
 
 * extension[regimenIntent].valueCodeableConcept = $SCT#373846009 "Adjuvant - intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
-* extension[regimenDiseaseContext].valueCodeableConcept = $SCT#254837009 "Malignant tumor of breast"
+* extension[regimenDiseaseContext].valueCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
 
 // Phase 1: ddAC (2 concurrent agents, q14d x4)
 * action[+].id    = "ac-phase"
@@ -126,12 +126,12 @@ for first-line metastatic HER2-positive breast cancer. Demonstrates palliative i
 * status  = #active
 * experimental = true
 * type    = $PD-TYPE#order-set "Order Set"
-* subjectCodeableConcept = $SCT#254837009 "Malignant tumor of breast"
+* subjectCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
 * description = "PHD regimen every 21 days for first-line HER2+ metastatic breast cancer. Standard of care per CLEOPATRA trial."
 
 * extension[regimenIntent].valueCodeableConcept = $SCT#363676003 "Palliative - procedure intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
-* extension[regimenDiseaseContext].valueCodeableConcept = $SCT#254837009 "Malignant tumor of breast"
+* extension[regimenDiseaseContext].valueCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
 
 * action[+].id    = "pertuzumab-phd"
 * action[=].title = "Pertuzumab 840 mg IV (cycle 1), then 420 mg IV q21d"
