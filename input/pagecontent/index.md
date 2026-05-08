@@ -1,5 +1,10 @@
 # Oncology Guideline and Coverage Authorization (OGCA) Implementation Guide
 
+<div class="ogca-logo-bar">
+<img src="images/codex-logo.png" alt="HL7 CodeX FHIR Accelerator" />
+<div class="ogca-logo-tagline">A FHIR Accelerator Program implementation guide<br/>extending Da Vinci CRD / DTR / PAS for oncology prior authorization</div>
+</div>
+
 This implementation guide defines the **Oncology Guideline and Coverage Authorization (OGCA)**
 framework that extends the [Da Vinci Burden Reduction](https://confluence.hl7.org/display/DVP)
 suite — CRD, DTR, and PAS — with oncology-specific capabilities applicable across all cancer
@@ -94,7 +99,9 @@ This IG addresses two connected layers:
 | **EHR / Ordering System** | A single conformant integration delivers guideline-aligned CDS and structured authorization requests across all payers and cancer types, replacing fragmented per-payer builds |
 | **Guideline Authority** | Computable regimen definitions flow directly from publication into clinical decision support and payer coverage evaluation — creating a traceable path from evidence to real-world treatment authorization |
 
+<div style="max-width: 800px;">
 ![OGCA Stakeholder Diagram](ogca-stakeholders.svg)
+</div>
 
 ### Dependencies
 
