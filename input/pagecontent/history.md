@@ -4,7 +4,7 @@
 
 Initial draft release.
 
-- Defined two-layer OCPA framework: pre-order CDS + Da Vinci CRD/DTR/PAS extension
+- Defined two-layer Oncology Guideline and Coverage Authorization (OGCA) framework: pre-order CDS + Da Vinci CRD/DTR/PAS extension
 - Defined `OncologyAntiCancerRegimenPlanDefinition` profile
 - Defined `OncologyAntiCancerRegimenRequestGroup` profile with cycle-day timing and sequential
   phase ordering

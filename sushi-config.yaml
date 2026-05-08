@@ -1,9 +1,9 @@
 id: hl7.fhir.us.codex-ocpa
 canonical: http://hl7.org/fhir/us/codex-ocpa
-name: CodexOCPAIG
-title: OCPA Implementation Guide
+name: CodexOGCAIG
+title: Oncology Guideline and Coverage Authorization (OGCA) Implementation Guide
 description: >-
-  Standards-based oncology prior authorization (OCPA) framework covering all cancer
+  Standards-based Oncology Guideline and Coverage Authorization (OGCA) framework covering all cancer
   types, extending Da Vinci CRD/DTR/PAS with mCODE patient context and computable
   anti-cancer regimen representation. Breast cancer prior authorization is the first
   concrete use case and data requirements implementation.

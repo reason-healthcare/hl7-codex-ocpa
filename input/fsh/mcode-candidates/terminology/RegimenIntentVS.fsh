@@ -6,7 +6,7 @@
 // values)" hierarchy (363675004), verified via reasonhub MCP:
 //   373808002 — Curative - procedure intent (qualifier value)
 //               parent: 262202000 Therapeutic intent
-//   363676003 — Palliative - procedure intent (qualifier value)
+//   363676003 — Palliative intent (qualifier value)
 //               parent: 363675004 Intents
 //   373846009 — Adjuvant - intent (qualifier value)
 //               parent: 262202000 Therapeutic intent
@@ -28,7 +28,7 @@ the SNOMED CT \"Intents (nature of procedure values)\" hierarchy (363675004).
 * ^experimental = true
 
 * $SCT#373808002  "Curative - procedure intent"
-* $SCT#363676003  "Palliative - procedure intent"
+* $SCT#363676003  "Palliative intent"
 * $SCT#373846009  "Adjuvant - intent"
 * $SCT#373847000  "Neoadjuvant intent"
 * $SCT#399707004  "Supportive - procedure intent"

@@ -1,5 +1,5 @@
 // ============================================================
-// Aliases for the OCPA Implementation Guide
+// Aliases for the OGCA Implementation Guide
 // ============================================================
 
 // Standard terminology systems
@@ -33,6 +33,6 @@ Alias: $mCODETumorMarker       = http://hl7.org/fhir/us/mcode/StructureDefinitio
 Alias: $mCODEDiseaseStatus     = http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-disease-status
 Alias: $mCODEECOG              = http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-ecog-performance-status
 
-// OCPA local code systems
+// OGCA local code systems
 Alias: $OcpaCS             = http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes
 Alias: $TreatmentLineCS    = http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs

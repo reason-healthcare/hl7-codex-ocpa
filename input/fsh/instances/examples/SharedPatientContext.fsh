@@ -1,15 +1,15 @@
 // ============================================================
 // SharedPatientContext.fsh
 // Reusable patient, condition, and practitioner instances
-// referenced across all OCPA IG examples.
+// referenced across all OGCA IG examples.
 // ============================================================
 
 // --- Fictional patient: Jane Smith -----------------------------------
-Instance: OCPAPatientExample
+Instance: OGCAPatientExample
 InstanceOf: http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 Usage: #example
 Title: "Example Patient: Jane Smith"
-Description: """Fictional 57-year-old female patient used consistently across all OCPA
+Description: """Fictional 57-year-old female patient used consistently across all OGCA
 IG examples. DO NOT use real patient data."""
 
 * identifier[+].system = "http://hospital.example.org/patients"
@@ -25,11 +25,11 @@ IG examples. DO NOT use real patient data."""
 * address[=].postalCode = "62701"
 
 // --- Fictional oncologist: Dr. Maria Lopez ---------------------------
-Instance: OCPAOncologistExample
+Instance: OGCAOncologistExample
 InstanceOf: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 Usage: #example
 Title: "Example Oncologist: Dr. Maria Lopez"
-Description: "Fictional medical oncologist used across OCPA IG examples."
+Description: "Fictional medical oncologist used across OGCA IG examples."
 
 * identifier[+].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value  = "1234567893"
@@ -39,24 +39,24 @@ Description: "Fictional medical oncologist used across OCPA IG examples."
 * name[=].prefix[+] = "Dr."
 
 // --- Primary breast cancer condition (HER2+, Stage IIB) --------------
-Instance: OCPABreastCancerConditionExample
+Instance: OGCABreastCancerConditionExample
 InstanceOf: http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-primary-cancer-condition
 Usage: #example
 Title: "Example: Primary HER2+ Breast Cancer (Stage IIB)"
 Description: """Invasive ductal carcinoma of right breast, HER2-positive,
-Stage IIB (T2 N1 M0), diagnosed November 2025. Referenced by all OCPA examples
+Stage IIB (T2 N1 M0), diagnosed November 2025. Referenced by all OGCA examples
 depicting Jane Smith's adjuvant treatment course."""
 
 * clinicalStatus  = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * category[+] = http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item
-* code         = $SCT#254837009 "Malignant tumor of breast"
+* code         = $SCT#254837009 "Malignant neoplasm of breast"
 * bodySite[+]  = $SCT#80248007 "Left breast structure (body structure)"
-* subject      = Reference(OCPAPatientExample)
+* subject      = Reference(OGCAPatientExample)
 * onsetDateTime = "2025-11-03"
 
 // --- Primary metastatic breast cancer condition (for Scenario C) -----
-Instance: OCPAMetastaticBreastCancerConditionExample
+Instance: OGCAMetastaticBreastCancerConditionExample
 InstanceOf: http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-primary-cancer-condition
 Usage: #example
 Title: "Example: Metastatic HER2+ Breast Cancer (Stage IV)"
@@ -66,6 +66,6 @@ newly diagnosed Stage IV (de novo). Used in PHD regimen examples."""
 * clinicalStatus  = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
 * category[+] = http://terminology.hl7.org/CodeSystem/condition-category#problem-list-item
-* code         = $SCT#254837009 "Malignant tumor of breast"
-* subject      = Reference(OCPAPatientExample)
+* code         = $SCT#254837009 "Malignant neoplasm of breast"
+* subject      = Reference(OGCAPatientExample)
 * onsetDateTime = "2026-02-10"

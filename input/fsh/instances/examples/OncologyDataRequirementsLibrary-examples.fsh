@@ -25,7 +25,7 @@ ordered regimen, line of therapy, performance status, and prior therapy history.
 * status  = #active
 * experimental = true
 * type    = $LIB-TYPE#asset-collection "Asset Collection"
-* subjectCodeableConcept = $SCT#254837009 "Malignant tumor of breast"
+* subjectCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
 * description = "DataRequirement package for breast cancer PA. Use this Library canonical in the CDS Hooks oncology extension dataRequirements.canonical field."
 
 // ── Diagnosis ─────────────────────────────────────────────────────────────

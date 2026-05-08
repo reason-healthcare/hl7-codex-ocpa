@@ -1,64 +1,165 @@
-# OCPA Implementation Guide
+# Oncology Guideline and Coverage Authorization (OGCA) Implementation Guide
 
-This repository is now set up as a **FHIR Implementation Guide (IG)** project using:
+A FHIR Implementation Guide that extends the [Da Vinci Burden Reduction](https://confluence.hl7.org/display/DVP)
+suite — CRD, DTR, and PAS — with oncology-specific capabilities: a computable anti-cancer regimen
+representation and a structured patient context package for coverage authorization evaluation.
 
-- **[FSH / SUSHI](https://fshschool.org/docs/sushi/)** for authoring
-- **HL7 IG Publisher** for generating the implementation guide
+## Prerequisites
 
-The goal is to build the **Oncology Prior Authorization (OCPA) IG** as a formal FHIR implementation guide.
+| Tool | Version | Purpose |
+|------|---------|---------|
+| Java | 11+ | IG Publisher |
+| Node.js | 18+ | SUSHI (FSH compiler) + diagram generation |
+| npm | 8+ | Dependency management |
+
+## Quick Start
+
+```bash
+# 1. Install Node dependencies (SUSHI + Mermaid CLI)
+npm install
+
+# 2. Download IG Publisher (~100 MB, one-time)
+./ig-build.sh update
+
+# 3. Build the IG
+./ig-build.sh
+```
+
+The full build output lands in `output/index.html`.
+
+## Building
+
+All build operations go through **`ig-build.sh`**:
+
+```
+./ig-build.sh [command] [--no-diagrams] [--no-sushi]
+```
+
+### Commands
+
+| Command | What it does |
+|---------|-------------|
+| *(none)* | **Full build**: diagrams → SUSHI → IG Publisher |
+| `diagrams` | Re-render `.mermaid` source files to SVG only |
+| `sushi` | Run SUSHI FSH compilation only |
+| `publisher` | Run IG Publisher only (no diagrams, no SUSHI) |
+| `nosushi` | Diagrams → IG Publisher, skip SUSHI |
+| `notx` | Full build without terminology server (offline) |
+| `watch` | Full build, then watch for changes |
+| `clean` | Remove `output/`, `temp/`, `template/` |
+| `update` | Download / update `publisher.jar` |
+| `help` | Show usage |
+
+### Options
+
+| Option | Effect |
+|--------|--------|
+| `--no-diagrams` | Skip diagram generation step |
+| `--no-sushi` | Skip SUSHI compilation step |
+
+### Common workflows
+
+```bash
+# Full build
+./ig-build.sh
+
+# Rebuild after editing FSH only (diagrams unchanged)
+./ig-build.sh --no-diagrams
+
+# Rebuild after editing a page only (no FSH, no diagrams changed)
+./ig-build.sh publisher
+
+# Build without network (no terminology server)
+./ig-build.sh notx
+
+# Watch mode — rebuilds automatically on file changes
+./ig-build.sh watch
+
+# Just regenerate diagrams after editing a .mermaid file
+./ig-build.sh diagrams
+
+# Clean and rebuild from scratch
+./ig-build.sh clean && ./ig-build.sh
+```
+
+All commands are also available as npm scripts:
+
+```bash
+npm run build          # Full build
+npm run build:notx     # Build offline
+npm run build:nosushi  # Skip SUSHI
+npm run build:watch    # Watch mode
+npm run diagrams       # Diagrams only
+npm run publisher:update
+```
+
+## Diagrams
+
+Diagrams are authored as plain-text **Mermaid source files** in `input/images/`:
+
+```
+input/images/
+  ogca-stakeholders.mermaid   ← edit this
+  ogca-stakeholders.svg       ← generated, commit this
+  ogca-workflow.mermaid
+  ogca-workflow.svg
+  ogca-cds-hooks.mermaid
+  ogca-cds-hooks.svg
+  mermaid.config.json         ← shared theme/layout config
+```
+
+To update a diagram:
+1. Edit the `.mermaid` file
+2. Run `./ig-build.sh diagrams` (or `npm run diagrams`)
+3. Commit both the `.mermaid` source and the generated `.svg`
+
+Generated SVGs are committed so the IG can be built without Node.js by downstream users.
 
 ## Project Structure
 
-- `sushi-config.yaml` — SUSHI project configuration
-- `ig.ini` — IG Publisher entry point
-- `input/fsh/` — FSH definitions
-- `input/pagecontent/` — narrative IG pages
-- `docs/` — existing project documentation moved out of the repo root
-- `_genonce.sh` — build the IG locally
-- `_updatePublisher.sh` — download/update the IG Publisher jar
+```
+ig-build.sh                    ← main build entry point
+_generate-diagrams.sh          ← Mermaid → SVG renderer
+_genonce.sh                    ← HL7 standard: run IG Publisher once
+_gencontinuous.sh              ← HL7 standard: run IG Publisher in watch mode
+_updatePublisher.sh            ← HL7 standard: download publisher.jar
+_build.sh                      ← HL7 standard: interactive build menu
+sushi-config.yaml              ← SUSHI project configuration and IG metadata
+ig.ini                         ← IG Publisher entry point
+package.json                   ← Node dependencies and npm scripts
+input/
+  fsh/                         ← FSH source (profiles, extensions, value sets, examples)
+    aliases.fsh
+    mcode-candidates/
+      profiles/
+      extensions/
+      terminology/
+    instances/
+      examples/
+  pagecontent/                 ← Narrative IG pages (Markdown)
+  images/                      ← Diagram sources (.mermaid) and generated SVGs
+input-cache/
+  publisher.jar                ← IG Publisher (gitignored, download via ig-build.sh update)
+fsh-generated/                 ← SUSHI output (gitignored)
+output/                        ← IG Publisher output (gitignored)
+docs/                          ← Background analysis and design documents
+```
 
-## Existing Documentation
+## Dependencies
 
-The prior analysis and design documents have been moved to [`./docs`](./docs):
+| Implementation Guide | Version | Role |
+|---|---|---|
+| [US Core](http://hl7.org/fhir/us/core) | 7.0.0 | Base US patient, practitioner, and clinical data profiles |
+| [mCODE](http://hl7.org/fhir/us/mcode) | 4.0.0 | Oncology clinical data foundation |
+| [Da Vinci CRD](http://hl7.org/fhir/us/davinci-crd) | 2.1.0 | Coverage Requirements Discovery |
+| [Da Vinci DTR](http://hl7.org/fhir/us/davinci-dtr) | 2.0.0 | Documentation Templates and Rules |
+| [Da Vinci PAS](http://hl7.org/fhir/us/davinci-pas) | 2.2.1 | Prior Authorization Support |
+
+## Background Documentation
+
+Prior analysis and design documents are in [`./docs`](./docs):
 
 - [`docs/initial-analysis.md`](./docs/initial-analysis.md)
 - [`docs/iteration-2-exec-summary.md`](./docs/iteration-2-exec-summary.md)
 - [`docs/iteration-2-mcode-gaps.md`](./docs/iteration-2-mcode-gaps.md)
 - [`docs/iteration-2-oncology-pa-support-codex.md`](./docs/iteration-2-oncology-pa-support-codex.md)
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js
-- Java
-
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Run SUSHI only
-
-```bash
-npm run sushi
-```
-
-### Build the IG with IG Publisher
-
-```bash
-npm run build
-```
-
-This will:
-1. Run SUSHI to generate FHIR artifacts
-2. Download IG Publisher if needed
-3. Run IG Publisher using `ig.ini`
-
-## Next Authoring Steps
-
-1. Add OCPA profiles, extensions, value sets, and examples in `input/fsh/`
-2. Add narrative guide content in `input/pagecontent/`
-3. Refine package metadata in `sushi-config.yaml`
-4. Add dependencies (for example Da Vinci and mCODE packages) when the formal content is ready

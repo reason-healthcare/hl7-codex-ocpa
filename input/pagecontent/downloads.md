@@ -2,7 +2,7 @@
 
 ### NPM Package
 
-Install the OCPA IG package using the FHIR package manager:
+Install the Oncology Guideline and Coverage Authorization (OGCA) IG package using the FHIR package manager:
 
 ```bash
 # Using the Firely terminal or FHIR-compatible installer

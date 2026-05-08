@@ -1,13 +1,13 @@
 // ============================================================
-// OcpaCodesCS — Local OCPA Code System
+// OcpaCodesCS — Local OGCA Code System
 // Codes that do not yet exist in an external standard system.
 // Each code is a migration candidate for LOINC, SNOMED CT, or mCODE.
 // ============================================================
 
 CodeSystem: OcpaCodesCS
 Id: ocpa-codes
-Title: "OCPA Local Code System"
-Description: """Local codes defined by the OCPA IG for concepts that do not yet have
+Title: "OGCA Local Code System"
+Description: """Local codes defined by the OGCA IG for concepts that do not yet have
 an established representation in LOINC, SNOMED CT, or mCODE. These codes are migration
 candidates and should be retired in favor of standard codes as they become available."""
 
