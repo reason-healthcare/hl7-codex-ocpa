@@ -1,7 +1,7 @@
 # Oncology Guideline and Coverage Authorization (OGCA) Implementation Guide
 
 <div class="ogca-logo-bar">
-<img src="images/codex-logo.png" alt="HL7 CodeX FHIR Accelerator" />
+<img src="codex-logo.png" alt="HL7 CodeX FHIR Accelerator" />
 <div class="ogca-logo-tagline">A FHIR Accelerator Program implementation guide<br/>extending Da Vinci CRD / DTR / PAS for oncology prior authorization</div>
 </div>
 
