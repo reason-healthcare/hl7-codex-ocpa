@@ -5,12 +5,16 @@
   "description": "SUSHI/IG Publisher project for the OCPA Implementation Guide",
   "scripts": {
     "sushi": "sushi .",
-    "build": "PATH=$PWD/node_modules/.bin:$PATH ./_build.sh build",
-    "build:once": "PATH=$PWD/node_modules/.bin:$PATH ./_genonce.sh",
-    "build:watch": "PATH=$PWD/node_modules/.bin:$PATH ./_gencontinuous.sh",
-    "publisher:update": "./_updatePublisher.sh"
+    "diagrams": "bash _generate-diagrams.sh",
+    "build": "bash ig-build.sh",
+    "build:once": "bash ig-build.sh",
+    "build:watch": "bash ig-build.sh watch",
+    "build:notx": "bash ig-build.sh notx",
+    "build:nosushi": "bash ig-build.sh nosushi",
+    "publisher:update": "bash ig-build.sh update"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^11.4.2",
     "fsh-sushi": "3.19.0"
   }
 }

@@ -13,6 +13,10 @@ input-cache/*
 # Node
 node_modules/
 
+# Generated diagram SVGs are intentionally committed so the IG can
+# be built without Node.js. Re-generate with: npm run diagrams
+# input/images/*.svg
+
 # OS generated files #
 ######################
 Thumbs.db
