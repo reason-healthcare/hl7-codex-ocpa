@@ -211,6 +211,10 @@ ul.markdown-toc, div.markdown-toc {
   margin-bottom: 32px;
 }
 
+#segment-footer {
+  margin-top: 48px;
+}
+
 /* --- Images ------------------------------------------------------------------ */
 
 img {
