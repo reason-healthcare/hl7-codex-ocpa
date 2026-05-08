@@ -56,9 +56,97 @@ entries rather than a canonical Library reference. See [Data Requirements Patter
 
 ### CDS Service Discovery
 
-A CDS Service conforming to this IG SHOULD advertise its oncology capabilities in the discovery
-response, including supported regimen profiles, supported data requirements Library profiles, and
-supported cancer types.
+The CDS Hooks discovery endpoint (`GET /cds-services`) is the first point of contact between an
+EHR and a conformant OGCA service. This IG defines two complementary layers for advertising data
+requirements at discovery time, serving different levels of client capability.
+
+#### Layer 1 — `prefetch` (standard EHR compatibility)
+
+A conformant CDS Service **SHALL** include `prefetch` entries derived from each supported
+`OncologyDataRequirementsLibrary`. This ensures that any CDS Hooks-compliant EHR can pre-fetch
+the required patient context without OGCA-specific awareness.
+
+Prefetch query templates are a flattened projection of the `Library.dataRequirement[]` entries —
+each `DataRequirement` with a code filter maps to a FHIR search query keyed by a descriptive name:
+
+```json
+{
+  "services": [{
+    "id": "oncology-crd",
+    "hook": "order-select",
+    "title": "Oncology Coverage Requirements Discovery",
+    "prefetch": {
+      "primaryCancer":     "Condition?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-primary-cancer-disorder-vs",
+      "cancerStage":       "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-observation-codes-vs",
+      "biomarkers":        "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs",
+      "lineOfTherapy":     "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs",
+      "performanceStatus": "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-ecog-performance-status-vs"
+    }
+  }]
+}
+```
+
+#### Layer 2 — `extension` (OGCA-aware clients)
+
+A conformant CDS Service **SHOULD** advertise the canonical URL(s) of supported
+`OncologyDataRequirementsLibrary` instances via the `org.hl7.davinci-crd.oncology` extension on
+the discovery service object. This enables OGCA-aware clients to retrieve the full structured
+`DataRequirement[]` entries before the hook fires.
+
+```json
+{
+  "services": [{
+    "id": "oncology-crd",
+    "hook": "order-select",
+    "title": "Oncology Coverage Requirements Discovery",
+    "prefetch": { "...": "..." },
+    "extension": {
+      "org.hl7.davinci-crd.oncology": {
+        "dataRequirementsLibraries": [
+          {
+            "canonical": "http://hl7.org/fhir/us/codex-ocpa/Library/breast-cancer-pa-data-requirements|1.0.0",
+            "cancerType": {
+              "system": "http://snomed.info/sct",
+              "code": "254837009",
+              "display": "Breast cancer"
+            }
+          }
+        ],
+        "supportedRegimenProfiles": [
+          "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-anticancer-regimen-requestgroup"
+        ]
+      }
+    }
+  }]
+}
+```
+
+An OGCA-aware CDS Client that resolves the advertised Library canonical MAY use the retrieved
+`DataRequirement[]` entries to pre-stage the DTR `Questionnaire`, validate prefetch completeness,
+or negotiate capability with the service before submitting the hook.
+
+#### Relationship between discovery layers and the Library
+
+The `OncologyDataRequirementsLibrary` is the single source of truth. The two discovery layers are
+derivations of it:
+
+```
+OncologyDataRequirementsLibrary.dataRequirement[]
+  ├── prefetch{}      ← flattened FHIR query projection (Layer 1, standard EHRs)
+  └── extension{}     ← canonical pointer to the Library (Layer 2, OGCA-aware clients)
+```
+
+Changes to a Library version propagate to both layers — implementers SHOULD regenerate prefetch
+templates when a new Library version is published.
+
+#### Discovery conformance requirements
+
+| Actor | Requirement |
+|---|---|
+| CDS Service | **SHALL** include `prefetch` entries derived from each supported `OncologyDataRequirementsLibrary` |
+| CDS Service | **SHOULD** advertise Library canonical URL(s) via the `org.hl7.davinci-crd.oncology` discovery extension |
+| CDS Client (standard) | **SHALL** submit prefetch-populated context when pre-fetched data is available |
+| CDS Client (OGCA-aware) | **MAY** fetch the advertised Library to pre-stage DTR or validate prefetch completeness before submitting the hook |
 
 ### Possible CRD Outcomes
 
@@ -69,32 +157,9 @@ supported cancer types.
 | Required context complete but criteria not met | Return PA required or documentation required |
 | Regimen cannot be evaluated | Return coverage/documentation guidance |
 
-```mermaid
-%%{init: {'sequence': {'htmlLabels': false}}}%%
-sequenceDiagram
-  autonumber
-  participant EHR as CRD Client (EHR)
-  participant CRD as CRD Service
-
-  EHR->>CRD: POST /cds-services/oncology-crd-order-select
-  Note over EHR,CRD: context.selections: [RequestGroup/id]<br/>context.draftOrders: Bundle (RequestGroup + draft MedicationRequests)<br/>extension[org.hl7.davinci-crd.oncology]:<br/>  orderedRegimen.reference + regimenDefinition<br/>  dataRequirements.canonical (Library URL)<br/>  patientContextExpectation.mode
-
-  CRD->>CRD: Resolve instantiatesCanonical → PlanDefinition
-  CRD->>CRD: Fetch DataRequirements Library
-  CRD->>CRD: Evaluate context completeness and criteria
-
-  alt Context complete + criteria satisfied
-    CRD-->>EHR: 200 OK — cards: [{summary: "No PA required"}]
-  else Context incomplete
-    CRD-->>EHR: 200 OK — cards: [{summary: "Launch DTR", links: [DTR URL]}]
-  else Context complete, criteria not met
-    CRD-->>EHR: 200 OK — cards: [{summary: "PA required"}]
-  else Regimen cannot be evaluated
-    CRD-->>EHR: 200 OK — cards: [{summary: "Coverage guidance"}]
-  end
-```
+![OGCA CDS Hooks Sequence](ogca-cds-hooks.svg)
 
 ### Examples
 
-See [Example: order-select request](Bundle-example-order-select-request.html) and
-[Example: order-sign request](Bundle-example-order-sign-request.html).
+See [Example: order-select request](Bundle-ExampleOrderSelectBundle.html) and
+[Example: order-sign request](Bundle-ExampleOrderSignBundle.html).
