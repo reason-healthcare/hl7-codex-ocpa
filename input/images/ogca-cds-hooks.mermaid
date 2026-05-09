@@ -4,19 +4,17 @@ sequenceDiagram
   participant EHR as CRD Client (EHR)
   participant CRD as CRD Service
 
-  EHR->>CRD: POST /cds-services/oncology-crd-order-select
-  Note over EHR,CRD: context.selections: [RequestGroup/id]<br/>context.draftOrders: Bundle (RequestGroup + draft MedicationRequests)<br/>extension[org.hl7.davinci-crd.oncology]:<br/>  orderedRegimen.reference + regimenDefinition<br/>  dataRequirements.canonical (Library URL)<br/>  patientContextExpectation.mode
+  EHR->>CRD: POST /cds-services/oncology-crd (order-select / order-sign)
 
-  CRD->>CRD: Resolve instantiatesCanonical → PlanDefinition
-  CRD->>CRD: Fetch DataRequirements Library
+  CRD->>CRD: Resolve regimen + data requirements
   CRD->>CRD: Evaluate context completeness and criteria
 
-  alt Context complete + criteria satisfied
-    CRD-->>EHR: 200 OK — cards: [{summary: "No PA required"}]
+  alt Context complete — criteria met
+    CRD-->>EHR: No PA required / pre-approval
   else Context incomplete
-    CRD-->>EHR: 200 OK — cards: [{summary: "Launch DTR", links: [DTR URL]}]
-  else Context complete, criteria not met
-    CRD-->>EHR: 200 OK — cards: [{summary: "PA required"}]
-  else Regimen cannot be evaluated
-    CRD-->>EHR: 200 OK — cards: [{summary: "Coverage guidance"}]
+    CRD-->>EHR: DTR launch card
+  else Context complete — criteria not met
+    CRD-->>EHR: PA required card
+  else Regimen unrecognised
+    CRD-->>EHR: Coverage guidance card
   end
