@@ -123,3 +123,8 @@ This IG addresses two connected layers:
   - [Breast Cancer PA](breast-cancer-pa.html) — Breast cancer-specific data requirements and gap analysis
 - [Conformance](conformance.html) — Requirements for claiming conformance to this IG
 - [Artifacts](artifacts.html) — All profiles, extensions, value sets, and examples
+
+{% include ip-statements.xhtml %}
+{% include cross-version-analysis.xhtml %}
+{% include dependency-table.xhtml %}
+{% include globals-table.xhtml %}

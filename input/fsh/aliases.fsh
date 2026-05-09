@@ -21,9 +21,9 @@ Alias: $StdStatus       = http://hl7.org/fhir/StructureDefinition/structuredefin
 Alias: $FMM             = http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
 
 // US Core profiles
-Alias: $USCorePatient       = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-Alias: $USCorePractitioner  = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $USCoreCondition     = http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis
+Alias: $USCorePatient       = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|7.0.0
+Alias: $USCorePractitioner  = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|7.0.0
+Alias: $USCoreCondition     = http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis|7.0.0
 
 // mCODE profiles
 Alias: $mCODECancerPatient     = http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-patient

@@ -28,6 +28,8 @@ Description: "Draft MedicationRequest for paclitaxel 80 mg/m² IV weekly in TH r
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#56946 "paclitaxel"
 * dosageInstruction[+].text = "80 mg/m² IV over 1 hour, weekly"
 
@@ -39,6 +41,8 @@ Description: "Draft MedicationRequest for trastuzumab IV weekly in TH regimen."
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#224905 "trastuzumab"
 * dosageInstruction[+].text = "4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly"
 
@@ -50,6 +54,8 @@ Description: "Draft MedicationRequest for doxorubicin 60 mg/m² IV in ddAC phase
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#3639 "doxorubicin"
 * dosageInstruction[+].text = "60 mg/m² IV day 1 of each 14-day cycle"
 
@@ -61,6 +67,8 @@ Description: "Draft MedicationRequest for cyclophosphamide 600 mg/m² IV in ddAC
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#3002 "cyclophosphamide"
 * dosageInstruction[+].text = "600 mg/m² IV day 1 of each 14-day cycle"
 
@@ -72,6 +80,8 @@ Description: "Draft MedicationRequest for paclitaxel 175 mg/m² IV q14d in T pha
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#56946 "paclitaxel"
 * dosageInstruction[+].text = "175 mg/m² IV over 3 hours, day 1 of each 14-day cycle"
 
@@ -79,9 +89,12 @@ Instance: PertuzumabMedRequestPHD
 InstanceOf: http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request
 Usage: #example
 Title: "Example: Pertuzumab MedicationRequest (PHD regimen, draft)"
+Description: "Draft MedicationRequest for pertuzumab IV q21d in PHD regimen."
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCAMetastaticBreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#1298944 "pertuzumab"
 * dosageInstruction[+].text = "840 mg IV cycle 1, then 420 mg IV q21d"
 
@@ -89,9 +102,12 @@ Instance: TrastuzumabMedRequestPHD
 InstanceOf: http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request
 Usage: #example
 Title: "Example: Trastuzumab MedicationRequest (PHD regimen, draft)"
+Description: "Draft MedicationRequest for trastuzumab IV q21d in PHD regimen."
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCAMetastaticBreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#224905 "trastuzumab"
 * dosageInstruction[+].text = "8 mg/kg IV cycle 1, then 6 mg/kg IV q21d"
 
@@ -99,9 +115,12 @@ Instance: DocetaxelMedRequestPHD
 InstanceOf: http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request
 Usage: #example
 Title: "Example: Docetaxel MedicationRequest (PHD regimen, draft)"
+Description: "Draft MedicationRequest for docetaxel 75 mg/m² IV q21d in PHD regimen."
 * status  = #draft
 * intent  = #order
 * subject = Reference(OGCAPatientExample)
+* requester = Reference(OGCAOncologistExample)
+* reasonReference = Reference(OGCAMetastaticBreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#72962 "docetaxel"
 * dosageInstruction[+].text = "75 mg/m² IV day 1 of each 21-day cycle"
 

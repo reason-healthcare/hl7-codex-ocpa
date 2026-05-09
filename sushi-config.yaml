@@ -7,6 +7,16 @@ description: >-
   types, extending Da Vinci CRD/DTR/PAS with mCODE patient context and computable
   anti-cancer regimen representation. Breast cancer prior authorization is the first
   concrete use case and data requirements implementation.
+jurisdiction: urn:iso:std:iso:3166#US "United States of America"
+
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: draft
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
+    valueCode: cic
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
+    valueInteger: 0
+
 status: draft
 version: 0.1.0
 releaseLabel: ci-build

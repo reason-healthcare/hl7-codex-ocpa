@@ -19,6 +19,7 @@ All Must Support elements populated. This is the primary reference example."""
 * status = #final
 * code   = $OcpaCS#line-of-therapy "Line of Therapy"
 * subject = Reference(OGCAPatientExample)
+* performer = Reference(OGCAOncologistExample)
 * focus[+] = Reference(OGCABreastCancerConditionExample)
 * effectivePeriod.start = "2026-01-15"
 * valueCodeableConcept = $TreatmentLineCS#1L "First-line"
@@ -38,6 +39,7 @@ adjuvant TH. Demonstrates second-line metastatic setting."""
 * status = #final
 * code   = $OcpaCS#line-of-therapy "Line of Therapy"
 * subject = Reference(OGCAPatientExample)
+* performer = Reference(OGCAOncologistExample)
 * focus[+] = Reference(OGCAMetastaticBreastCancerConditionExample)
 * effectivePeriod.start = "2027-03-22"
 * valueCodeableConcept = $TreatmentLineCS#2L "Second-line"
@@ -56,6 +58,7 @@ PHD induction in metastatic HER2+ setting. Demonstrates TreatmentLineCS#maintena
 * status = #final
 * code   = $OcpaCS#line-of-therapy "Line of Therapy"
 * subject = Reference(OGCAPatientExample)
+* performer = Reference(OGCAOncologistExample)
 * focus[+] = Reference(OGCAMetastaticBreastCancerConditionExample)
 * effectivePeriod.start = "2027-10-01"
 * valueCodeableConcept = $TreatmentLineCS#maintenance "Maintenance"
