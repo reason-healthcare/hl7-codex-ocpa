@@ -125,6 +125,3 @@ This IG addresses two connected layers:
 - [Artifacts](artifacts.html) — All profiles, extensions, value sets, and examples
 
 {% include ip-statements.xhtml %}
-{% include cross-version-analysis.xhtml %}
-{% include dependency-table.xhtml %}
-{% include globals-table.xhtml %}

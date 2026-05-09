@@ -15,3 +15,7 @@ fhir install hl7.fhir.us.codex-ocpa@current
 - [Definitions (JSON)](definitions.json.zip)
 - [Definitions (XML)](definitions.xml.zip)
 - [Examples (JSON)](examples.json.zip)
+
+{% include cross-version-analysis.xhtml %}
+{% include dependency-table.xhtml %}
+{% include globals-table.xhtml %}
