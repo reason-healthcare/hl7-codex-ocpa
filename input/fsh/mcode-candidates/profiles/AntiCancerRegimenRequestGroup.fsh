@@ -17,7 +17,7 @@ AntiCancerRegimenPlanDefinition when the canonical regimen definition is known.
 Two scheduling patterns are supported in regimen actions:
 
 1. **Cycle-day timing** — Each action (or action.action for phased regimens) uses the
-   standard HL7 extension `http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle`
+   local extension `http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle`
    on action.timingTiming to declare which days of the cycle the drug is administered.
    The action.timingTiming.repeat carries the machine-computable cycle period.
 
@@ -63,7 +63,7 @@ the regimen and locate the associated data requirements Library."""
 * action.title ^short = "Drug name or phase label"
 
 * action.timingTiming MS
-* action.timingTiming ^short = "Cycle period. Use timing-daysOfCycle extension on this element for cycle-day scheduling."
+* action.timingTiming ^short = "Cycle period. Use regimen-days-of-cycle extension on this element for cycle-day scheduling."
 
 * action.relatedAction MS
 * action.relatedAction.actionId 1..1
