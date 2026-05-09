@@ -75,6 +75,9 @@ p {
   margin-bottom: 0.9em;
   max-width: 80ch;
 }
+li {
+  font-size: 14px;
+}
 
 a {
   color: var(--codex-mid);
@@ -228,7 +231,8 @@ img {
 .ogca-logo-bar img,
 .navbar img,
 #segment-header img,
-#segment-footer img {
+#segment-footer img,
+td img {
   display: inline-block;
 }
 
