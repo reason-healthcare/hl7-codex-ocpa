@@ -99,7 +99,7 @@ This IG addresses two connected layers:
 | **Guideline Authority** | Computable regimen definitions flow directly from publication into clinical decision support and payer coverage evaluation — creating a traceable path from evidence to real-world treatment authorization |
 
 <div style="max-width: 800px;">
-![OGCA Stakeholder Diagram](ogca-stakeholders.svg)
+<img src="ogca-stakeholders.svg" alt="OGCA Stakeholder Diagram" style="width:100%;" />
 </div>
 
 ### Dependencies
