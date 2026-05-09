@@ -144,6 +144,15 @@ pre {
   font-size: 13px;
   line-height: 1.55;
   overflow-x: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 12.5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 code {
