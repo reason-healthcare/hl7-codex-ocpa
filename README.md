@@ -1,5 +1,7 @@
 # Oncology Guideline and Coverage Authorization (OGCA) Implementation Guide
 
+> NOTE: For original documentation, [see docs](./docs/README.md)
+
 A FHIR Implementation Guide that extends the [Da Vinci Burden Reduction](https://confluence.hl7.org/display/DVP)
 suite — CRD, DTR, and PAS — with oncology-specific capabilities: a computable anti-cancer regimen
 representation and a structured patient context package for coverage authorization evaluation.
@@ -115,10 +117,31 @@ To update a diagram:
 
 Generated SVGs are committed so the IG can be built without Node.js by downstream users.
 
+## Publishing to GitHub Pages
+
+**`ig-publish.sh`** builds the IG and force-pushes `./output` to the `origin/guide` branch,
+which should be configured as the GitHub Pages source
+(Settings → Pages → Branch: `guide` / root).
+
+```bash
+# Full build then publish
+./ig-publish.sh
+
+# Publish the existing ./output without rebuilding
+./ig-publish.sh --skip-build
+
+# Build but stop before pushing (verify output first)
+./ig-publish.sh --dry-run
+```
+
+> **First-time setup:** run `./ig-publish.sh` once to create the `guide` branch, then
+> enable GitHub Pages on it in the repository settings.
+
 ## Project Structure
 
 ```
 ig-build.sh                    ← main build entry point
+ig-publish.sh                  ← build + force-push output/ to origin/guide (GitHub Pages)
 _generate-diagrams.sh          ← Mermaid → SVG renderer
 _genonce.sh                    ← HL7 standard: run IG Publisher once
 _gencontinuous.sh              ← HL7 standard: run IG Publisher in watch mode
