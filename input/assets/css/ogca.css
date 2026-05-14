@@ -73,7 +73,6 @@ h2::before, h3::before, h4::before, h5::before, h6::before {
 p {
   font-size: 14px;
   margin-bottom: 0.9em;
-  max-width: 80ch;
 }
 li {
   font-size: 14px;

@@ -35,6 +35,7 @@
 <artifact id="CapabilityStatement/ocpa-crd-client" key="CapabilityStatement-ocpa-crd-client" name="Oncology CRD Client Capability Statement"/>
 <artifact id="CapabilityStatement/ocpa-crd-service" key="CapabilityStatement-ocpa-crd-service" name="Oncology CRD Service Capability Statement"/>
 <artifact id="StructureDefinition/oncology-data-requirements-library" key="StructureDefinition-oncology-data-requirements-library" name="Oncology Data Requirements Library"/>
+<artifact id="StructureDefinition/regimen-days-of-cycle" key="StructureDefinition-regimen-days-of-cycle" name="Regimen Days of Cycle"/>
 <artifact id="StructureDefinition/ocpa-regimen-disease-context" key="StructureDefinition-ocpa-regimen-disease-context" name="Regimen Disease Context"/>
 <artifact id="StructureDefinition/ocpa-regimen-intent" key="StructureDefinition-ocpa-regimen-intent" name="Regimen Intent"/>
 <artifact id="ValueSet/regimen-intent-vs" key="ValueSet-regimen-intent-vs" name="Regimen Intent Value Set"/>
@@ -55,4 +56,5 @@
 <page key="toc" name="Table of Contents"/>
 <page key="breast-cancer-pa" name="Use Case 1: Breast Cancer PA"/>
 <page key="use-cases" name="Use Cases and Actors"/>
+<page key="mcode-candidates" name="mCODE Candidates"/>
 </specification>
