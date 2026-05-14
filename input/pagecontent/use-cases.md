@@ -9,6 +9,7 @@
 | **PAS Client** | A system that submits a structured prior authorization request when PA is required after CRD/DTR |
 | **PAS Server** | A payer system that receives and adjudicates the PA request |
 | **Guideline Authority** | An organization (e.g., NCCN, ASCO, internal pathways program) that publishes canonical regimen definitions as computable `PlanDefinition` artifacts |
+{: .table }
 
 ### The Two-Layer Framework
 
@@ -71,7 +72,9 @@ oncology-specific extensions:
 8. PAS (if PA required) submits structured authorization package
    Payer adjudicates and returns decision
 
-![OGCA Two-Layer Workflow](ogca-workflow.svg)
+<div style="display: block; float: none;">
+   <img src="ogca-workflow.svg"/>
+</div>
 
 ### Pre-Conditions
 

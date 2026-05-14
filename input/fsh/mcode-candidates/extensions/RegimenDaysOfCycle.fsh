@@ -32,6 +32,11 @@ pack with an expanded context. See [regimen-model.html](regimen-model.html)."""
 * ^context[0].expression = "Timing"
 * ^context[1].type = #element
 * ^context[1].expression = "PlanDefinition.action"
+* ^purpose = """mCODE Migration Candidate — proposed as a context-expansion request against
+http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle in the HL7 FHIR Extensions pack.
+This artifact is defined in the OGCA IG as a temporary home while that request is processed.
+It is NOT intended to be a permanent artifact of this IG. Canonical URLs will change at
+migration. See the mCODE Candidates page in this IG for the full migration plan."""
 * ^context[2].type = #element
 * ^context[2].expression = "RequestGroup.action"
 

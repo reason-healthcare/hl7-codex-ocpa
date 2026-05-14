@@ -87,6 +87,7 @@ applicable:
 | Performance status | Eligibility for selected regimen |
 | Exceptions / contraindications | Medical necessity and alternative documentation |
 | Ordered regimen | Link patient context to selected anti-cancer regimen instance |
+{: .table }
 
 ### See Also
 

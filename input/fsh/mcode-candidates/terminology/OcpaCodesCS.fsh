@@ -13,6 +13,9 @@ candidates and should be retired in favor of standard codes as they become avail
 
 * ^status = #draft
 * ^experimental = true
+* ^purpose = """mCODE Migration Candidate — individual codes submitted to LOINC and SNOMED CT.
+This code system will be retired once standard codes are assigned. It is NOT intended to
+be a permanent artifact of this IG. See the mCODE Candidates page for the migration plan."""
 * ^caseSensitive = true
 * ^content = #complete
 

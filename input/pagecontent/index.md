@@ -97,8 +97,9 @@ This IG addresses two connected layers:
 | **Health Plan / Payer** | Authorization requests carry the structured clinical evidence — diagnosis, staging, biomarkers, line of therapy — that coverage policy requires, enabling consistent, evidence-grounded determinations |
 | **EHR / Ordering System** | A single conformant integration delivers guideline-aligned CDS and structured authorization requests across all payers and cancer types, replacing fragmented per-payer builds |
 | **Guideline Authority** | Computable regimen definitions flow directly from publication into clinical decision support and payer coverage evaluation — creating a traceable path from evidence to real-world treatment authorization |
+{: .table }
 
-<div style="max-width: 800px;">
+<div style="max-width: 400px;">
 <img src="ogca-stakeholders.svg" alt="OGCA Stakeholder Diagram" style="width:100%;" />
 </div>
 
@@ -111,6 +112,7 @@ This IG addresses two connected layers:
 | [Da Vinci CRD](http://hl7.org/fhir/us/davinci-crd) | 2.1.0 | Coverage Requirements Discovery workflow backbone |
 | [Da Vinci DTR](http://hl7.org/fhir/us/davinci-dtr) | 2.0.0 | Documentation Templates and Rules |
 | [Da Vinci PAS](http://hl7.org/fhir/us/davinci-pas) | 2.2.1 | Prior Authorization Support |
+{: .table }
 
 ### How to Read This Guide
 

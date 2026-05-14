@@ -16,7 +16,8 @@ conditional requirements for systems claiming conformance to this IG.
 
 > For CDS Services claiming conformance to this oncology CRD profile, the service **SHALL** be
 > capable of interpreting the oncology CRD extension and the referenced anti-cancer regimen
-> `RequestGroup` and its instantiated `PlanDefinition`.
+> `RequestGroup`. When `regimenDefinition` is present the service **SHOULD** also resolve the
+> referenced `PlanDefinition`.
 
 ### Extension Shape
 
@@ -24,16 +25,17 @@ The extension key is `org.hl7.davinci-crd.oncology`. It has three components:
 
 | Component | Required | Purpose |
 |---|---|---|
-| `orderedRegimen` | SHALL | Identifies the `RequestGroup` instance and its canonical `PlanDefinition` |
+| `orderedRegimen` | SHALL | Identifies the `RequestGroup` instance; optionally references the canonical `PlanDefinition` when known |
 | `dataRequirements` | SHALL | Identifies the cancer-specific data requirements (canonical or inline) |
 | `patientContextExpectation` | SHOULD | Declares how patient context will be supplied |
+{: .table }
 
-```json
+```jsonc
 "extension": {
   "org.hl7.davinci-crd.oncology": {
     "orderedRegimen": {
       "reference": "RequestGroup/breast-cancer-regimen-001",
-      "regimenDefinition": "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/paclitaxel-trastuzumab-regimen",
+      "regimenDefinition": "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/paclitaxel-trastuzumab-regimen",  // OPTIONAL — omit when PlanDefinition is not available
       "profile": "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-anticancer-regimen-requestgroup"
     },
     "dataRequirements": {
@@ -45,6 +47,21 @@ The extension key is `org.hl7.davinci-crd.oncology`. It has three components:
       "completeContextRequiredForPreApproval": true
     }
   }
+}
+```
+
+#### `orderedRegimen` field details
+
+Only `reference` (the `RequestGroup`) is required in `orderedRegimen`. The
+`regimenDefinition` field carrying the canonical `PlanDefinition` URL is **OPTIONAL** — many
+EHR order-sets do not have a published canonical definition, and a conformant client **MAY**
+omit it. When present, `regimenDefinition` allows the CDS Service to resolve the full
+protocol definition for richer evaluation. The minimum viable payload contains only
+`reference` and, when the profile is known, `profile`:
+
+```json
+"orderedRegimen": {
+  "reference": "RequestGroup/breast-cancer-regimen-001"
 }
 ```
 
@@ -146,6 +163,7 @@ templates when a new Library version is published.
 | CDS Service | **SHOULD** advertise Library canonical URL(s) via the `org.hl7.davinci-crd.oncology` discovery extension |
 | CDS Client (standard) | **SHALL** submit prefetch-populated context when pre-fetched data is available |
 | CDS Client (OGCA-aware) | **MAY** fetch the advertised Library to pre-stage DTR or validate prefetch completeness before submitting the hook |
+{: .table }
 
 ### Possible CRD Outcomes
 
@@ -155,8 +173,13 @@ templates when a new Library version is published.
 | Required context incomplete | Return DTR launch card |
 | Required context complete but criteria not met | Return PA required or documentation required |
 | Regimen cannot be evaluated | Return coverage/documentation guidance |
+{: .table }
 
-![OGCA CDS Hooks Sequence](ogca-cds-hooks.svg)
+
+<div style="max-width: 500px;">
+   <img src="ogca-cds-hooks.svg">
+</div>
+
 
 ### Examples
 

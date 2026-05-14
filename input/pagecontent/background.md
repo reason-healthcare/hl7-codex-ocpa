@@ -72,3 +72,13 @@ This IG fills the identified gaps by defining:
 
 These artifacts are designed as incremental extensions to Da Vinci CRD/DTR/PAS and mCODE, not as
 replacements.
+
+<div class="alert alert-warning" markdown="1">
+**&#x26A0; mCODE Migration Candidates**
+
+Several artifacts defined in this IG — the anti-cancer regimen profiles, treatment-line
+observation, regimen extensions, and related terminology — are proposed for migration into
+mCODE STU5. They are published here as a temporary home to unblock pilots, and are **not**
+intended to be permanent OGCA artifacts. See [mCODE Candidates](mcode-candidates.html) for
+the full list, migration plan, and guidance for implementers.
+</div>

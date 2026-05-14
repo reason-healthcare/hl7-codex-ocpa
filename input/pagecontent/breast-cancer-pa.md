@@ -50,6 +50,7 @@ The `Library.subjectCodeableConcept` is bound to SNOMED CT code
 | **Genomics** | BRCA1/2 status | `mcode-genomic-variant`, `mcode-genomics-report` | Partial | Require germline vs somatic distinction; conditional for PARP inhibitor authorization |
 | **Exceptions** | Contraindication / intolerance | `AllergyIntolerance`, `Condition` | Partial | Define exception profile with reference to avoided drug/regimen |
 | **Exceptions** | Exception documentation | DTR `QuestionnaireResponse` | Generic | Drive from DTR when structured evidence is unavailable |
+{: .table }
 
 ### Priority Gaps
 
@@ -61,6 +62,7 @@ The `Library.subjectCodeableConcept` is bound to SNOMED CT code
 | Staging constraints | PA needs clinical vs pathologic stage, T/N/M, AJCC edition | Breast cancer PA staging slice in `Library.dataRequirement[]` |
 | Biomarker normalization | ER/PR/HER2 observations need PA-ready normalized values | Breast-specific value sets and result normalization rules |
 | Exception documentation | Needed when guideline-concordant care requires exception | DTR `QuestionnaireResponse` + structured exception/contraindication profile |
+{: .table }
 
 ### See Also
 

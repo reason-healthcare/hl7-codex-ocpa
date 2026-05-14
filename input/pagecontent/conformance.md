@@ -26,8 +26,9 @@ A conformant **Oncology CRD Client** (EHR or ordering system):
    therapy regimen is selected or signed.
 2. **SHALL** include the selected anti-cancer regimen as a `RequestGroup` conforming to
    `OncologyAntiCancerRegimenRequestGroup` in `context.draftOrders` and `context.selections`.
-3. **SHALL** populate `RequestGroup.instantiatesCanonical` with the canonical URL of the
-   `OncologyAntiCancerRegimenPlanDefinition` when the definition is known.
+3. **SHOULD** populate `RequestGroup.instantiatesCanonical` with the canonical URL of the
+   `OncologyAntiCancerRegimenPlanDefinition` when the definition is known. Many EHR order-sets
+   do not have a published canonical definition; omitting this field is permitted.
 4. **SHOULD** include instantiated component `MedicationRequest` resources as `RequestGroup`
    action references at `order-sign`.
 5. **SHALL** make available the patient context required by the referenced `DataRequirement`
@@ -37,8 +38,9 @@ A conformant **Oncology CRD Client** (EHR or ordering system):
 
 A conformant **Oncology CRD Service**:
 
-1. **SHALL** be capable of evaluating the selected anti-cancer regimen `RequestGroup` and
-   resolving its instantiated `PlanDefinition`.
+1. **SHALL** be capable of evaluating the selected anti-cancer regimen `RequestGroup`.
+   When `RequestGroup.instantiatesCanonical` is populated, the service **SHOULD** also resolve
+   the referenced `PlanDefinition` to enrich evaluation.
 2. **SHALL** use the referenced or included `DataRequirement` entries to determine whether the
    supplied patient context is sufficient for pre-approval evaluation.
 3. **SHOULD** return a DTR launch card when required patient context is missing.

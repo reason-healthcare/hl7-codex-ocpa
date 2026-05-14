@@ -26,6 +26,10 @@ the SNOMED CT \"Intents (nature of procedure values)\" hierarchy (363675004).
 
 * ^status = #draft
 * ^experimental = true
+* ^purpose = """mCODE Migration Candidate — proposed for mCODE STU5. All codes are sourced from
+SNOMED CT (no local codes required). This value set will reference the mCODE canonical URL
+once adopted. It is NOT intended to be a permanent artifact of this IG. See the mCODE
+Candidates page for the migration plan."""
 
 * $SCT#373808002  "Curative - procedure intent"
 * $SCT#363676003  "Palliative intent"

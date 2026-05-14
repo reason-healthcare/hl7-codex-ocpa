@@ -11,19 +11,23 @@ This IG defines two complementary profiles that separate the *definition* of a r
 ### The PlanDefinition / RequestGroup Separation
 
 ```
-PlanDefinition    ← canonical, reusable regimen protocol (not patient-specific)
+PlanDefinition     ← canonical, reusable regimen protocol (not patient-specific)
        ↑
-       instantiatesCanonical
+  (instantiatesCanonical — OPTIONAL; omit when no canonical definition exists)
        ↑
-RequestGroup      ← patient-specific ordered regimen instance (CDS Hooks payload)
+RequestGroup       ← patient-specific ordered regimen instance (CDS Hooks payload) [REQUIRED]
        ↓
-MedicationRequest / ServiceRequest  ← component orders (available at order-sign)
+MedicationRequest  ← component orders (available at order-sign)
 ```
+
+<br/>
+
 
 | Resource | Profile | Purpose |
 |---|---|---|
 | `PlanDefinition` | `OncologyAntiCancerRegimenPlanDefinition` | Canonical, versioned regimen protocol; published by guideline authority or institution |
-| `RequestGroup` | `OncologyAntiCancerRegimenRequestGroup` | Patient-specific ordered instance; placed in CDS Hooks `draftOrders`; `instantiatesCanonical` references PlanDefinition |
+| `RequestGroup` | `OncologyAntiCancerRegimenRequestGroup` | Patient-specific ordered instance; placed in CDS Hooks `draftOrders`; `instantiatesCanonical` optionally references PlanDefinition when a canonical definition is available |
+{: .table }
 
 ### OncologyAntiCancerRegimenPlanDefinition
 
@@ -37,7 +41,7 @@ The canonical regimen definition carries:
 ### OncologyAntiCancerRegimenRequestGroup
 
 The patient-specific ordered instance carries:
-- `instantiatesCanonical` (Must Support) — canonical URL of the PlanDefinition being ordered
+- `instantiatesCanonical` (Must Support) — canonical URL of the PlanDefinition being ordered, when a published definition exists; **MAY** be omitted when the regimen originates from a local order-set without a canonical definition
 - `action[+]` — ordered components with cycle-day timing and phase sequencing
 
 #### Cycle Day Timing

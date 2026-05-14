@@ -15,6 +15,10 @@ on anti-cancer regimen profiles."""
 
 * ^status = #draft
 * ^experimental = true
+* ^purpose = """mCODE Migration Candidate — proposed for mCODE STU5. This artifact is defined in the
+OGCA IG as a temporary home while a formal mCODE ballot proposal is prepared. It is NOT
+intended to be a permanent artifact of this IG. Canonical URLs will change at migration.
+See the mCODE Candidates page in this IG for the full migration plan."""
 
 * ^context[0].type = #element
 * ^context[0].expression = "PlanDefinition"
