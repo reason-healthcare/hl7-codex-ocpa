@@ -264,8 +264,8 @@ Accept: application/json
 ##### Response
 
 ```jsonc
-HTTP/1.1 200 OK
-Content-Type: application/json
+// HTTP/1.1 200 OK
+// Content-Type: application/json
 
 {
   "services": [
@@ -618,8 +618,8 @@ All `DataRequirement[]` entries in the breast cancer Library are satisfied by th
 The CDS Service returns a success card directly — no DTR required.
 
 ```jsonc
-HTTP/1.1 200 OK
-Content-Type: application/json
+// HTTP/1.1 200 OK
+// Content-Type: application/json
 
 {
   "cards": [
@@ -646,8 +646,8 @@ the pathology report has not yet been filed. The `DataRequirement` for `mcode-tu
 DTR launch card.
 
 ```jsonc
-HTTP/1.1 200 OK
-Content-Type: application/json
+// HTTP/1.1 200 OK
+// Content-Type: application/json
 
 {
   "cards": [
@@ -790,8 +790,8 @@ Content-Type: application/json
 ##### Response — Final Pre-Authorization Determination
 
 ```jsonc
-HTTP/1.1 200 OK
-Content-Type: application/json
+// HTTP/1.1 200 OK
+// Content-Type: application/json
 
 {
   "cards": [
