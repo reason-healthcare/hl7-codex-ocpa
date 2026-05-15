@@ -29,7 +29,7 @@ Da Vinci significantly improves the mechanics of prior authorization, but it ope
   choice upfront, leading to rework and avoidable denials
 - **At the service level, not regimen level** — authorization is per medication, while oncology
   decisions are made at the protocol level
-- **Without clinical equivalence semantics** — no standard way to express preferred vs acceptable
+- **Without clinical equivalence semantics** — no standard way to express approvable vs. non-approvable
   regimen options or step therapy within oncology care
 - **Without an oncology data foundation** — US Core alone does not support staging, biomarkers,
   or treatment context, resulting in heavy DTR burden

@@ -26,29 +26,43 @@ The extension key is `org.hl7.davinci-crd.oncology`. It has three components:
 | Component | Required | Purpose |
 |---|---|---|
 | `orderedRegimen` | SHALL | Identifies the `RequestGroup` instance; optionally references the canonical `PlanDefinition` when known |
-| `dataRequirements` | SHALL | Identifies the cancer-specific data requirements (canonical or inline) |
-| `patientContextExpectation` | SHOULD | Declares how patient context will be supplied |
+| `dataRequirements` | SHOULD | Explicitly identifies the cancer-specific data requirements Library. When absent, the CDS Service resolves the applicable Library from `prefetch.primaryCancer`. Provide this field when the patient has multiple active cancer conditions and disambiguation is needed. |
 {: .table }
 
 ```jsonc
 "extension": {
   "org.hl7.davinci-crd.oncology": {
+    // orderedRegimen is REQUIRED — the CDS Service needs to know what was ordered.
     "orderedRegimen": {
       "reference": "RequestGroup/breast-cancer-regimen-001",
-      "regimenDefinition": "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/paclitaxel-trastuzumab-regimen",  // OPTIONAL — omit when PlanDefinition is not available
-      "profile": "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-anticancer-regimen-requestgroup"
+      "regimenDefinition": "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/paclitaxel-trastuzumab-regimen"  // OPTIONAL — omit when PlanDefinition is not available
     },
+    // dataRequirements is OPTIONAL — include when the patient has multiple active
+    // cancer conditions and the EHR needs to tell the service which one this order
+    // is for. When absent, the service resolves the Library from prefetch.primaryCancer.
     "dataRequirements": {
       "purpose": "pre-approval",
       "canonical": "http://hl7.org/fhir/us/codex-ocpa/Library/breast-cancer-pa-data-requirements|1.0.0"
-    },
-    "patientContextExpectation": {
-      "mode": "prefetch-or-fhir-access",
-      "completeContextRequiredForPreApproval": true
     }
   }
 }
 ```
+
+#### Library Resolution
+
+The CDS Service resolves which `OncologyDataRequirementsLibrary` to apply using the
+following precedence:
+
+1. **`dataRequirements.canonical` present** — use the explicitly provided Library canonical.
+   This is the unambiguous path and is preferred when the EHR can supply it.
+2. **`dataRequirements` absent — single active cancer condition** — read
+   `prefetch.primaryCancer`, extract the cancer type code, and match against the
+   service's internal Library registry. This is the common case for most EHRs, which
+   know the patient's primary cancer from the condition list without needing to
+   populate a custom extension.
+3. **`dataRequirements` absent — multiple active cancer conditions** — the service
+   **SHOULD** return an `info` card asking the EHR to resubmit with `dataRequirements.canonical`
+   populated to disambiguate, rather than guessing which cancer this order is for.
 
 #### `orderedRegimen` field details
 
@@ -176,12 +190,17 @@ templates when a new Library version is published.
 {: .table }
 
 
-<div style="max-width: 500px;">
+<div style="max-width: 700px; margin: 40px 0;">
    <img src="ogca-cds-hooks.svg">
 </div>
 
 
 ### Examples
 
-See [Example: order-select request](Bundle-ExampleOrderSelectBundle.html) and
+For a complete end-to-end walkthrough of all API calls — including the provider-initiated
+SMART launch flow and the automated CDS Hooks PA pipeline — see
+[Workflow Walkthrough](walkthrough.html).
+
+For the FHIR resource-level payloads, see
+[Example: order-select request](Bundle-ExampleOrderSelectBundle.html) and
 [Example: order-sign request](Bundle-ExampleOrderSignBundle.html).

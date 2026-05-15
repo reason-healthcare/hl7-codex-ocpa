@@ -62,6 +62,8 @@ pages:
     title: Regimen Modeling
   cds-hooks-extension.md:
     title: CDS Hooks Oncology Extension
+  walkthrough.md:
+    title: Workflow Walkthrough (Layers 1 & 2)
   data-requirements.md:
     title: Data Requirements Pattern
   breast-cancer-pa.md:
@@ -84,6 +86,7 @@ menu:
   Specification:
     Regimen Modeling: regimen-model.html
     CDS Hooks Extension: cds-hooks-extension.html
+    Workflow Walkthrough: walkthrough.html
     Data Requirements: data-requirements.html
     Breast Cancer PA: breast-cancer-pa.html
     mCODE Candidates: mcode-candidates.html

@@ -22,7 +22,7 @@ based on the patient's specific situation: diagnosis, stage, biomarkers, and lin
 
 This layer:
 - Evaluates patient-specific context against computable clinical guidelines
-- Returns recommended regimens with preferred vs. acceptable options
+- Returns recommended regimens with approvable vs. non-approvable options
 - Increases the probability that the treatment ordered meets payer criteria *before* the order
   is placed
 
