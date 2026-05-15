@@ -172,7 +172,21 @@ Jane Smith. Dr. Lopez selects the result directly in the app:
 > **HER2 status** _(required for trastuzumab coverage)_  
 > \[ IHC 0 \] \[ IHC 1+ \] \[ IHC 2+ \] **\[ IHC 3+ (Positive) \]** \[ ISH Amplified \] \[ ISH Not Amplified \]
 
-The app writes the entered value back to the EHR FHIR server as a new `Observation`
+> **EHR write-back limitation:** Not all EHRs grant SMART apps write access to clinical
+> data. Whether the app can persist entered values as `Observation` resources on the EHR
+> FHIR server depends on the scopes the EHR grants at launch. Two patterns are realistic:
+>
+> - **Write-back supported** — the EHR grants `patient/Observation.write` (or `patient/*.write`)
+>   and the app persists the entered value directly. When order-select fires shortly after,
+>   the prefetch re-execution finds the new Observation and the CDS Service can make a
+>   complete determination without invoking DTR.
+>
+> - **Write-back not supported** — the EHR does not grant write scopes. The app holds the
+>   entered value in session only. The gap remains in the FHIR server, so the CDS Service
+>   will still return a DTR card at order-select time. The app’s value for the session
+>   serves as a convenience pre-fill for the DTR questionnaire rather than a durable record.
+
+Where write-back is supported, the app persists the entered value as an `Observation`
 conforming to `mcode-tumor-marker-test`:
 
 ```
