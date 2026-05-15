@@ -56,5 +56,6 @@
 <page key="toc" name="Table of Contents"/>
 <page key="breast-cancer-pa" name="Use Case 1: Breast Cancer PA"/>
 <page key="use-cases" name="Use Cases and Actors"/>
+<page key="walkthrough" name="Workflow Walkthrough (Layers 1 &amp; 2)"/>
 <page key="mcode-candidates" name="mCODE Candidates"/>
 </specification>
