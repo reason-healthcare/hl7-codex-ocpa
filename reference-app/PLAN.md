@@ -37,11 +37,23 @@ operations and prototype-specific overrides are intercepted before proxying.
 
 ### CQL Execution
 
-CQL is compiled offline to ELM JSON using the CQL-to-ELM translator (Java toolchain).
-The compiled ELM is committed to the repo. The `cql-engine` package wraps
-`cql-execution` + `cql-fhir-data-provider` for runtime evaluation in Node.js. The same
-engine is used by the CRD Service (coverage evaluation) and the CDS SMART App (eligibility
-rules).
+CQL is compiled to ELM JSON using the `rh` CLI (`rh cql compile`) from the
+[Reason Health Rust toolkit](https://github.com/reason-healthcare/rh). This eliminates
+the Java CQL-to-ELM toolchain dependency entirely. The `rh` binary is available as:
+
+- Pre-built binaries for macOS (ARM + Intel), Linux (static musl), Windows
+- Docker image: `ghcr.io/reason-healthcare/rh:latest` (included in Docker Compose)
+
+Compiled ELM JSON is committed to the repo. The `cql-engine` shared package wraps
+`cql-execution` + `cql-fhir-data-provider` for runtime evaluation in Node.js against
+the committed ELM. The same engine is used by the CRD Service (coverage evaluation)
+and the CDS SMART App (eligibility rules).
+
+```bash
+# Compile CQL to ELM JSON (dev/build time via rh binary or Docker)
+rh cql compile BreastCancerGuideline.cql --output BreastCancerGuideline.elm.json
+rh cql compile BreastCancerPayerPolicy.cql --output BreastCancerPayerPolicy.elm.json
+```
 
 ---
 
@@ -53,7 +65,8 @@ rules).
 | Framework | Next.js 14 (App Router) |
 | Styling | Tailwind + shadcn/ui |
 | FHIR types + validation | `@reasonhealth/fhir-zod/r4` — Zod schemas with inferred TypeScript types; replaces `@types/fhir` and standalone Zod FHIR schemas |
-| CQL runtime | `cql-execution` + `cql-fhir-data-provider` |
+| CQL compile | `rh cql compile` (Reason Health Rust CLI, no Java required) |
+| CQL runtime | `cql-execution` + `cql-fhir-data-provider` (evaluates committed ELM JSON) |
 | OAuth | Custom SMART on FHIR (NextAuth.js as base) |
 | FHIR server | HAPI FHIR (Docker) — swappable via env var |
 | Orchestration | Docker Compose |
@@ -152,7 +165,7 @@ HAPI manually → order-select → pre-approved card.
 **Goal:** Rules are computable, not hardcoded.
 
 - Author `BreastCancerGuideline.cql` and `BreastCancerPayerPolicy.cql`
-- Compile both to ELM JSON and commit
+- Compile both to ELM JSON using `rh cql compile` and commit
 - `cql-engine` package: wrapper around `cql-execution` + FHIR data provider wired to proxy
 - CRD Service: replace hardcoded checks with CQL evaluation
 - Library resources updated to include ELM JSON
@@ -262,7 +275,7 @@ ClaimResponse returned with approval.
 
 | Risk | Mitigation |
 |---|---|
-| CQL-to-ELM requires Java toolchain | Pre-compile ELM JSON and commit; runtime is pure Node.js |
+| CQL-to-ELM requires Java toolchain | Use `rh cql compile` (Rust binary) — no JVM needed; Docker image available for CI |
 | SMART auth is complex | Phase 4 is self-contained; `SMART_AUTH_BYPASS` flag for earlier phases |
 | DTR Questionnaire generation is underspecified | Start with static Questionnaire derived from Library; dynamic generation in Phase 8 |
 | Da Vinci PAS Bundle structure is complex | Stub with simplified Bundle in Phase 7; align to full spec in Phase 8 |
