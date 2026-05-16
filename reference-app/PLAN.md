@@ -8,6 +8,53 @@ runnable, demo-quality reference that exercises every interface defined in the I
 
 ---
 
+## Agent Instructions
+
+> **These instructions apply to any AI agent implementing this plan.**
+
+### Task Tracking
+
+Before beginning work on any phase, create or update `reference-app/TASKS.md` with a
+detailed task list for that phase. Tasks must be granular enough that each one represents
+a discrete, verifiable unit of work (a file created, a route implemented, a test passing,
+a config entry added). Do not batch unrelated work into a single task.
+
+**Task list format:**
+
+```markdown
+## Phase N — <Phase Title>
+
+### <Sub-area> (e.g. package name, app name, config)
+- [ ] Task description
+- [ ] Task description
+- [x] Completed task
+```
+
+**Rules:**
+- Mark tasks `[x]` as they are completed — do not remove completed tasks
+- If a task reveals sub-tasks during implementation, add them inline beneath it
+- If a task is blocked or deferred, annotate it: `- [ ] Task _(blocked: reason)_`
+- Add a `### Notes` section to each phase for decisions, deviations, or discoveries
+  made during implementation
+- When a phase is fully complete, add a `**Status: Complete**` line at the top of
+  that phase section
+
+### Before Starting Each Phase
+
+1. Read the full phase description in this PLAN.md
+2. Read the current `TASKS.md` to understand completed work
+3. Expand the phase into granular tasks in `TASKS.md` before writing any code
+4. Confirm the "Done when" criterion is testable as written — if not, clarify it in
+   the `### Notes` section before proceeding
+
+### Commit Discipline
+
+- Commit at logical checkpoints (a package scaffold, a working route, a passing test)
+- Commit messages reference the phase: `Phase 1: scaffold monorepo with Turborepo`
+- Push to `origin/ig` after each commit; merge to `origin/main` at phase completion
+
+---
+
 ## Architecture
 
 ### Monorepo (Turborepo + pnpm)
