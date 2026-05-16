@@ -99,12 +99,12 @@ These CQL Libraries define the rules evaluated over those elements.
 
 | App | Port |
 |---|---|
-| EHR | 3000 |
-| CDS SMART App | 3001 |
-| CRD Service | 3002 |
-| DTR Client | 3003 |
-| PAS Service | 3004 |
-| Payer Backend | 3005 |
+| EHR | 4000 |
+| CDS SMART App | 4001 |
+| CRD Service | 4002 |
+| DTR Client | 4003 |
+| PAS Service | 4004 |
+| Payer Backend | 4005 |
 | HAPI FHIR | 8080 |
 
 ---
