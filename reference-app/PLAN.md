@@ -44,10 +44,36 @@ the Java CQL-to-ELM toolchain dependency entirely. The `rh` binary is available 
 - Pre-built binaries for macOS (ARM + Intel), Linux (static musl), Windows
 - Docker image: `ghcr.io/reason-healthcare/rh:latest` (included in Docker Compose)
 
-Compiled ELM JSON is committed to the repo. The `cql-engine` shared package wraps
-`cql-execution` + `cql-fhir-data-provider` for runtime evaluation in Node.js against
-the committed ELM. The same engine is used by the CRD Service (coverage evaluation)
-and the CDS SMART App (eligibility rules).
+Compiled ELM JSON is committed to the repo.
+
+#### CQL Evaluation — Two-Stage Strategy
+
+The `cql-engine` shared package exposes a stable provider interface so the underlying
+evaluation engine can be swapped without touching application code:
+
+```ts
+// packages/cql-engine/src/index.ts
+export interface CqlEngine {
+  evaluate(elm: ElmJson, context: FhirContext, expression: string): CqlResult
+}
+```
+
+**Stage 1 (Phase 3) — `cql-execution` npm:**  
+Initial implementation uses the `cql-execution` + `cql-fhir-data-provider` npm packages.
+This is a known path, works today, and unblocks the CRD Service and CDS SMART App.
+
+**Stage 2 (Phase 3+ iteration) — `rh-cql` WASM:**  
+`rh-cql` already implements a pure Rust ELM evaluator (`evaluate_elm`,
+`evaluate_elm_with_trace`). Compiling it to WebAssembly via `wasm-pack` produces a WASM
+module that runs natively in both Node.js and the browser — no subprocess, no npm
+dependency on `cql-execution`. The reference app is a direct driver for this work:
+
+- The `CqlEngine` interface is already defined — swapping the implementation is a
+  single-package change with no application-level impact
+- Running CQL evaluation in the browser (CDS SMART App) becomes possible without a
+  server round-trip
+- Advances `rh-cql` WASM support as a maintained side effect, benefiting the broader
+  toolkit
 
 ```bash
 # Compile CQL to ELM JSON (dev/build time via rh binary or Docker)
@@ -66,7 +92,8 @@ rh cql compile BreastCancerPayerPolicy.cql --output BreastCancerPayerPolicy.elm.
 | Styling | Tailwind + shadcn/ui |
 | FHIR types + validation | `@reasonhealth/fhir-zod/r4` — Zod schemas with inferred TypeScript types; replaces `@types/fhir` and standalone Zod FHIR schemas |
 | CQL compile | `rh cql compile` (Reason Health Rust CLI, no Java required) |
-| CQL runtime | `cql-execution` + `cql-fhir-data-provider` (evaluates committed ELM JSON) |
+| CQL runtime (Stage 1) | `cql-execution` + `cql-fhir-data-provider` (Phase 3 initial) |
+| CQL runtime (Stage 2) | `rh-cql` compiled to WASM via `wasm-pack` (Phase 3+ iteration) |
 | OAuth | Custom SMART on FHIR (NextAuth.js as base) |
 | FHIR server | HAPI FHIR (Docker) — swappable via env var |
 | Orchestration | Docker Compose |
@@ -166,9 +193,11 @@ HAPI manually → order-select → pre-approved card.
 
 - Author `BreastCancerGuideline.cql` and `BreastCancerPayerPolicy.cql`
 - Compile both to ELM JSON using `rh cql compile` and commit
-- `cql-engine` package: wrapper around `cql-execution` + FHIR data provider wired to proxy
-- CRD Service: replace hardcoded checks with CQL evaluation
+- `cql-engine` package: implement `CqlEngine` interface backed by `cql-execution` npm
+- CRD Service: replace hardcoded checks with CQL evaluation via `cql-engine`
 - Library resources updated to include ELM JSON
+- **Iteration:** once CQL evaluation is proven, swap `cql-execution` for `rh-cql` WASM
+  module — no application code changes required due to the `CqlEngine` interface
 
 **Done when:** Change HER2 to negative in HAPI → CRD correctly denies. Change back to
 positive → CRD approves. Logic is fully driven by CQL.
@@ -276,6 +305,7 @@ ClaimResponse returned with approval.
 | Risk | Mitigation |
 |---|---|
 | CQL-to-ELM requires Java toolchain | Use `rh cql compile` (Rust binary) — no JVM needed; Docker image available for CI |
+| `cql-execution` npm coverage gaps | `CqlEngine` interface isolates the dependency; swap for `rh-cql` WASM when ready |
 | SMART auth is complex | Phase 4 is self-contained; `SMART_AUTH_BYPASS` flag for earlier phases |
 | DTR Questionnaire generation is underspecified | Start with static Questionnaire derived from Library; dynamic generation in Phase 8 |
 | Da Vinci PAS Bundle structure is complex | Stub with simplified Bundle in Phase 7; align to full spec in Phase 8 |
