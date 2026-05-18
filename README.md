@@ -2,6 +2,8 @@
 
 Site: **https://reason-healthcare.github.io/hl7-codex-ocpa/**
 
+> 💬 **Have feedback?** See the [Feedback Guide](./docs/FEEDBACK.md) for easy ways to submit comments — including options for non-technical reviewers and AI-assisted issue filing.
+
 > NOTE: For original documentation, [see docs](./docs/README.md)
 
 A FHIR Implementation Guide that extends the [Da Vinci Burden Reduction](https://confluence.hl7.org/display/DVP)
