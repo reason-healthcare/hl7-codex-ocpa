@@ -1,0 +1,108 @@
+{
+  "resourceType" : "Library",
+  "id" : "BreastCancerPADataRequirements",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <table class=\"narrative-table\">\n    <tbody>\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Metadata</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Breast Cancer Prior Authorization Data Requirements</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Version</th>\n\n\n\n<td class=\"content-container\">0.1.0</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Experimental</th>\n\n\n\n<td class=\"content-container\">true</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Subject Type</th>\n\n\n\n<td class=\"content-container\">\n    Malignant neoplasm of breast\n\n\n</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Jurisdiction</th>\n\n\n\n<td class=\"content-container\">\n    United States of America\n\n\n</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Steward (Publisher)</th>\n\n\n\n<td class=\"content-container\">HL7 International / Clinical Interoperability Council</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Steward Contact</th>\n\n\n\n<td class=\"content-container\">HL7 International / Clinical Interoperability Council</td>\n\n\n</tr>\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n\n\n<td class=\"content-container\"><div><p>DataRequirement package for breast cancer PA. Use this Library canonical in the CDS Hooks oncology extension dataRequirements.canonical field.</p>\n</div></td>\n\n\n</tr>\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Type</th>\n\n\n\n<td class=\"content-container\">\n    Asset Collection\n\n\n</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Condition\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-primary-cancer-condition.html\">Primary Cancer Condition Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-stage-group.html\">TNM Stage Group Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-primary-tumor-category.html\">TNM Primary Tumor Category Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-regional-nodes-category.html\">TNM Regional Nodes Category Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-distant-metastases-category.html\">TNM Distant Metastases Category Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tumor-marker-test.html\">Tumor Marker Test Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-disease-status.html\">Cancer Disease Status Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: RequestGroup\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"StructureDefinition-anticancer-regimen-requestgroup.html\">Anti-Cancer Regimen RequestGroup</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"StructureDefinition-line-of-therapy-observation.html\">Line of Therapy Observation</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: Observation\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-ecog-performance-status.html\">ECOG Performance Status Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n  <th scope=\"row\" class=\"row-header\">Data Requirement</th>\n  <td class=\"content-container\">\n    <em>Type</em>: MedicationRequest\n    <br/>\n  \n    <em>Profile(s)</em>: \n  \n    <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-related-medication-request.html\">Cancer-Related Medication Request Profile</a>\n    <br/>        \n  \n   \n   \n   \n  </td>\n</tr>\n\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\"><a name=\"parameters\"> </a>Parameters</th>\n\n\n</tr>\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Parameter</th>\n\n\n\n<td class=\"content-container\">None</td>\n\n\n</tr>\n\n\n\n\n\n\n\n<tr>\n  <th colspan=\"2\" scope=\"row\" class=\"row-header\">Generated using version 0.5.4 of the sample-content-ig Liquid templates</th>\n</tr>\n\n    </tbody>\n  </table>\n</div>"
+  },
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements",
+  "version" : "0.1.0",
+  "name" : "BreastCancerPADataRequirements",
+  "title" : "Breast Cancer Prior Authorization Data Requirements",
+  "status" : "active",
+  "experimental" : true,
+  "type" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/library-type",
+      "code" : "asset-collection",
+      "display" : "Asset Collection"
+    }]
+  },
+  "subjectCodeableConcept" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "254837009",
+      "display" : "Malignant neoplasm of breast"
+    }]
+  },
+  "date" : "2026-05-18T11:02:07-04:00",
+  "publisher" : "HL7 International / Clinical Interoperability Council",
+  "contact" : [{
+    "name" : "HL7 International / Clinical Interoperability Council",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cic"
+    },
+    {
+      "system" : "email",
+      "value" : "ciclist@lists.HL7.org"
+    }]
+  }],
+  "description" : "DataRequirement package for breast cancer PA. Use this Library canonical in the CDS Hooks oncology extension dataRequirements.canonical field.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US",
+      "display" : "United States of America"
+    }]
+  }],
+  "dataRequirement" : [{
+    "type" : "Condition",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-primary-cancer-condition"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-stage-group"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-primary-tumor-category"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-regional-nodes-category"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-distant-metastases-category"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"],
+    "codeFilter" : [{
+      "path" : "code",
+      "valueSet" : "http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs"
+    }]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-disease-status"]
+  },
+  {
+    "type" : "RequestGroup",
+    "profile" : ["http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation"]
+  },
+  {
+    "type" : "Observation",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-ecog-performance-status"]
+  },
+  {
+    "type" : "MedicationRequest",
+    "profile" : ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request"]
+  }]
+}

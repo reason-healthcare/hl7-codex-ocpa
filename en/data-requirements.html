@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Data Requirements Pattern - Oncology Guideline and Coverage Authorization (OGCA) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/project.css" rel="stylesheet"/>
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+    <link href="assets/css/hl7.css" rel="stylesheet"/>
+    <link href="assets/css/fhir-ig.css" rel="stylesheet"/>
+    <link href="css/ogca.css" rel="stylesheet"/>
+
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script type="text/javascript" src="assets/js/prism.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+        <div id="hl7-nav">
+          <a id="hl7-logo" data-no-external="true" href="http://hl7.org">
+            <img height="50" alt="Visit the HL7 website" src="assets/images/hl7-logo-header.png"/>
+          </a>
+        </div>
+        <div id="family-nav">
+          <a id="family-logo" data-no-external="true" href="http://hl7.org/fhir"><img height="50" alt="Visit the FHIR website" src="assets/images/fhir-logo-www.png"/> </a>
+        </div>
+        <div id="hl7-search">
+          <a id="hl7-search-lnk" data-no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+        </div>
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">Oncology Guideline and Coverage Authorization (OGCA)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  <span title="">US</span>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="background.html">Background</a>
+  </li>
+  <li>
+    <a href="use-cases.html">Use Cases</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Specification
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="regimen-model.html">Regimen Modeling</a>
+      </li>
+      <li>
+        <a href="cds-hooks-extension.html">CDS Hooks Extension</a>
+      </li>
+      <li>
+        <a href="walkthrough.html">Workflow Walkthrough</a>
+      </li>
+      <li>
+        <a href="data-requirements.html">Data Requirements</a>
+      </li>
+      <li>
+        <a href="breast-cancer-pa.html">Breast Cancer PA</a>
+      </li>
+      <li>
+        <a href="mcode-candidates.html">mCODE Candidates</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="conformance.html">Conformance</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+  <li>
+    <a href="downloads.html">Downloads</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+
+              
+
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Data Requirements Pattern</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Oncology Guideline and Coverage Authorization (OGCA) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='http://hl7.org/fhir/us/codex-ocpa/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Data Requirements Pattern</h2>
+  
+
+
+
+  <table class="colsi" data-fhir="generated">
+    <tr>
+  
+      <td>
+        <i>Page standards status:</i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standards Status">Informative</a>
+        
+      </td>
+  
+  
+      <td id="toggle-change-display" style="text-align: right;border-left-style: hidden" title="Enable this to see changes since the last official release">
+        <label style="margin:0;font-weight:normal" for="showChanges">Highlight text changes?</label>
+  
+        <input style="margin:0" type="checkbox" id="showChanges" onchange="toggleChanges()"/>
+  
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#the-separation-of-concerns" id="markdown-toc-the-separation-of-concerns">The Separation of Concerns</a></li>
+  <li><a href="#datarequirement-entries" id="markdown-toc-datarequirement-entries">DataRequirement Entries</a></li>
+  <li><a href="#oncologydatarequirementslibrary" id="markdown-toc-oncologydatarequirementslibrary">OncologyDataRequirementsLibrary</a></li>
+  <li><a href="#crd-usage" id="markdown-toc-crd-usage">CRD Usage</a></li>
+  <li><a href="#dtr-usage" id="markdown-toc-dtr-usage">DTR Usage</a></li>
+  <li><a href="#requirement-categories" id="markdown-toc-requirement-categories">Requirement Categories</a></li>
+  <li><a href="#see-also" id="markdown-toc-see-also">See Also</a></li>
+</ul>
+
+</div>
+
+<h3 id="overview">Overview</h3>
+
+<p>A key design principle of this IG is that <strong>CRD and DTR are driven by the same data requirements
+artifact</strong>. CRD uses it to determine whether pre-approval can be evaluated. DTR uses it to collect
+or prepopulate missing patient context.</p>
+
+<p>This eliminates the divergence that occurs when CRD rules and DTR questionnaires are based on
+separate logic.</p>
+
+<h3 id="the-separation-of-concerns">The Separation of Concerns</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RequestGroup      ← what is being ordered (patient-specific regimen instance)
+PlanDefinition    ← the canonical regimen definition the RequestGroup instantiates
+Library.dataRequirement[]  ← what patient data is needed to evaluate the order
+Bundle / FHIR API ← the actual patient data supplied or retrieved
+Questionnaire     ← DTR collection instrument for missing data
+</code></pre></div></div>
+
+<h3 id="datarequirement-entries">DataRequirement Entries</h3>
+
+<p>Patient context requirements are expressed using the FHIR <code class="language-plaintext highlighter-rouge">DataRequirement</code> datatype. Each entry
+specifies:</p>
+<ul>
+  <li>Resource type</li>
+  <li>Expected profile(s)</li>
+  <li>Code filters (for Observations requiring specific codes)</li>
+  <li>Date filters and recency rules</li>
+  <li>Must-support elements</li>
+</ul>
+
+<h3 id="oncologydatarequirementslibrary">OncologyDataRequirementsLibrary</h3>
+
+<p>A <code class="language-plaintext highlighter-rouge">Library</code> resource acts as a versioned, governable wrapper for <code class="language-plaintext highlighter-rouge">DataRequirement[]</code> entries.
+The base profile is designed to be <strong>instantiated once per cancer type</strong>. Each instance declares
+the data requirements specific to that cancer's PA evaluation logic.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OncologyDataRequirementsLibrary          ← base profile (cancer-agnostic)
+  ├── BreastCancerPADataRequirementsLibrary  ← Use Case 1 (defined in this IG)
+  ├── LungCancerPADataRequirementsLibrary    ← Use Case 2 (future)
+  ├── ColorectalCancerPADataRequirementsLibrary  ← Use Case 3 (future)
+  ├── LeukemiaPADataRequirementsLibrary      ← Use Case 4 (future)
+  └── ...
+</code></pre></div></div>
+
+<p>The base profile requires <code class="language-plaintext highlighter-rouge">Library.dataRequirement</code> (1..*) and <code class="language-plaintext highlighter-rouge">Library.subject[x]</code> (cancer type).
+Authoring a new cancer-type use case means creating a new <code class="language-plaintext highlighter-rouge">Library</code> instance conforming to this
+base profile with a <code class="language-plaintext highlighter-rouge">subjectCodeableConcept</code> bound to the target cancer type (SNOMED CT) and
+<code class="language-plaintext highlighter-rouge">dataRequirement[]</code> entries reflecting that cancer's PA-relevant clinical data elements.</p>
+
+<h3 id="crd-usage">CRD Usage</h3>
+
+<p>The Library is the single source of truth for what patient data a CRD service requires. At
+discovery time, a conformant CDS Service derives two artifacts from it — a <code class="language-plaintext highlighter-rouge">prefetch</code> map for
+standard EHR clients and a canonical Library reference in the discovery extension for OGCA-aware
+clients. See <a href="cds-hooks-extension.html#cds-service-discovery">CDS Service Discovery</a> for the
+full discovery pattern and conformance requirements.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Clinician selects regimen
+  → RequestGroup (instantiatesCanonical → PlanDefinition)
+  → DataRequirement[] from Library or inline extension
+  → Patient context evaluated (prefetch or FHIR query)
+  → CRD returns cards
+</code></pre></div></div>
+
+<h3 id="dtr-usage">DTR Usage</h3>
+
+<p>The DTR Client uses the same Library to:</p>
+<ol>
+  <li>Select or generate the appropriate <code class="language-plaintext highlighter-rouge">Questionnaire</code></li>
+  <li>Prepopulate known answers from the patient record</li>
+  <li>Collect only the genuinely missing data</li>
+</ol>
+
+<h3 id="requirement-categories">Requirement Categories</h3>
+
+<p>All cancer-specific Library instances SHALL declare requirements covering these categories where
+applicable:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Primary cancer condition</td>
+      <td>Identify the cancer diagnosis being treated</td>
+    </tr>
+    <tr>
+      <td>Stage / extent of disease</td>
+      <td>Determine disease setting and treatment appropriateness</td>
+    </tr>
+    <tr>
+      <td>Biomarkers</td>
+      <td>Cancer-specific treatment selectors</td>
+    </tr>
+    <tr>
+      <td>Treatment setting</td>
+      <td>Adjuvant, neoadjuvant, metastatic, recurrent, maintenance</td>
+    </tr>
+    <tr>
+      <td>Line of therapy</td>
+      <td>Current treatment sequence for sequencing rules</td>
+    </tr>
+    <tr>
+      <td>Prior therapy</td>
+      <td>Prior systemic, surgical, and radiation treatment history</td>
+    </tr>
+    <tr>
+      <td>Performance status</td>
+      <td>Eligibility for selected regimen</td>
+    </tr>
+    <tr>
+      <td>Exceptions / contraindications</td>
+      <td>Medical necessity and alternative documentation</td>
+    </tr>
+    <tr>
+      <td>Ordered regimen</td>
+      <td>Link patient context to selected anti-cancer regimen instance</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="see-also">See Also</h3>
+
+<p><a href="breast-cancer-pa.html">Use Case 1: Breast Cancer Prior Authorization</a> — the first
+cancer-specific <code class="language-plaintext highlighter-rouge">OncologyDataRequirementsLibrary</code> instance, including data requirements matrix,
+staging constraints, and priority gaps.</p>
+
+<p><a href="cds-hooks-extension.html#cds-service-discovery">CDS Service Discovery</a> — how the Library
+drives both the <code class="language-plaintext highlighter-rouge">prefetch</code> map and the OGCA discovery extension, and the conformance requirements
+for CDS Services and Clients.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="assets/js/flags.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <script type="text/javascript" src="assets/js/togglechanges.js"> </script>
+  <script type="text/javascript" src="assets/js/requirements-table.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container" data-fhir="generated">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="http://www.hl7.org/Special/committees/cic">HL7 International / Clinical Interoperability Council</a>.  
+          Package hl7.fhir.us.codex-ocpa#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Generated 
+  <span title="2026-05-18 11:02:00 -0400">
+    2026-05-18
+  </span>
+
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html">QA Report</a>
+                 
+                
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="http://hl7.org/fhir/us/codex-ocpa/history.html">Version History</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" rel="license" href="http://hl7.org/fhir/R4/license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

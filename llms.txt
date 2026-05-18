@@ -1,0 +1,104 @@
+# hl7.fhir.us.codex-ocpa#0.1.0: Oncology Guideline and Coverage Authorization (OGCA)(en)
+
+## Pages
+
+* [Home](en/index.md)
+* [Artifacts Summary](en/artifacts.md)
+* [](en/Condition-OCPABreastCancerConditionExample.md)
+* [](en/Condition-OCPABreastCancerConditionExample.ttl.md)
+* [Conformance](en/conformance.md)
+* [](en/Practitioner-OCPAOncologistExample.md)
+* [](en/Condition-OCPABreastCancerConditionExample.xml.md)
+* [](en/Patient-OCPAPatientExample.ai.md)
+* [](en/Practitioner-OCPAOncologistExample.ttl.md)
+* [](en/Patient-OCPAPatientExample.json.md)
+* [Use Case 1: Breast Cancer PA](en/breast-cancer-pa.md)
+* [](en/Practitioner-OCPAOncologistExample.xml.md)
+* [](en/Practitioner-OCPAOncologistExample.ai.md)
+* [](en/Practitioner-OCPAOncologistExample.json.md)
+* [](en/Condition-OCPAMetastaticBreastCancerConditionExample.change.history.md)
+* [Workflow Walkthrough (Layers 1 & 2)](en/walkthrough.md)
+* [CDS Hooks Oncology Extension](en/cds-hooks-extension.md)
+* [Downloads](en/downloads.md)
+* [](en/Patient-OCPAPatientExample.xml.md)
+* [](en/Condition-OCPABreastCancerConditionExample.json.md)
+* [](en/Condition-OCPABreastCancerConditionExample.change.history.md)
+* [Change Log](en/history.md)
+* [](en/Condition-OCPAMetastaticBreastCancerConditionExample.ai.md)
+* [](en/Patient-OCPAPatientExample.ttl.md)
+* [](en/Condition-OCPAMetastaticBreastCancerConditionExample.md)
+* [Data Requirements Pattern](en/data-requirements.md)
+* [](en/Condition-OCPABreastCancerConditionExample.ai.md)
+* [](en/Condition-OCPAMetastaticBreastCancerConditionExample.json.md)
+* [](en/Patient-OCPAPatientExample.change.history.md)
+* [Background](en/background.md)
+* [](en/docs.md)
+* [Use Cases and Actors](en/use-cases.md)
+* [](en/Patient-OCPAPatientExample.md)
+* [](en/Condition-OCPAMetastaticBreastCancerConditionExample.ttl.md)
+* [Regimen Modeling](en/regimen-model.md)
+* [mCODE Candidates](en/mcode-candidates.md)
+* [](en/Practitioner-OCPAOncologistExample.change.history.md)
+* [](en/Condition-OCPAMetastaticBreastCancerConditionExample.xml.md)
+
+## Resources
+
+### CodeSystems
+
+* [OGCA Local Code System](en/CodeSystem-ocpa-codes.md)
+* [Treatment Line Code System](en/CodeSystem-treatment-line-cs.md)
+
+### ValueSets
+
+* [Regimen Intent Value Set](en/ValueSet-regimen-intent-vs.md)
+* [Treatment Line Value Set](en/ValueSet-treatment-line-vs.md)
+
+### Resource Profiles
+
+* [Anti-Cancer Regimen PlanDefinition](en/StructureDefinition-anticancer-regimen-plandefinition.md)
+* [Anti-Cancer Regimen RequestGroup](en/StructureDefinition-anticancer-regimen-requestgroup.md)
+* [Line of Therapy Observation](en/StructureDefinition-line-of-therapy-observation.md)
+* [Oncology Data Requirements Library](en/StructureDefinition-oncology-data-requirements-library.md)
+
+### Extensions
+
+* [Regimen Disease Context](en/StructureDefinition-ocpa-regimen-disease-context.md)
+* [Regimen Intent](en/StructureDefinition-ocpa-regimen-intent.md)
+* [Regimen Treatment Line](en/StructureDefinition-ocpa-regimen-treatment-line.md)
+* [Regimen Days of Cycle](en/StructureDefinition-regimen-days-of-cycle.md)
+
+### CapabilityStatements
+
+* [Oncology CRD Client Capability Statement](en/CapabilityStatement-ocpa-crd-client.md)
+* [Oncology CRD Service Capability Statement](en/CapabilityStatement-ocpa-crd-service.md)
+
+### ImplementationGuides
+
+* [Oncology Guideline and Coverage Authorization (OGCA)](en/ImplementationGuide-hl7.fhir.us.codex-ocpa.md)
+
+### Examples
+
+* [ExampleOrderSelectBundle (Bundle)](en/Bundle-ExampleOrderSelectBundle.md)
+* [ExampleOrderSignBundle (Bundle)](en/Bundle-ExampleOrderSignBundle.md)
+* [OGCABreastCancerConditionExample (Condition)](en/Condition-OGCABreastCancerConditionExample.md)
+* [OGCAMetastaticBreastCancerConditionExample (Condition)](en/Condition-OGCAMetastaticBreastCancerConditionExample.md)
+* [Breast Cancer Prior Authorization Data Requirements (Library)](en/Library-BreastCancerPADataRequirements.md)
+* [CyclophosphamideMedRequestDDACT (MedicationRequest)](en/MedicationRequest-CyclophosphamideMedRequestDDACT.md)
+* [DocetaxelMedRequestPHD (MedicationRequest)](en/MedicationRequest-DocetaxelMedRequestPHD.md)
+* [DoxorubicinMedRequestDDACT (MedicationRequest)](en/MedicationRequest-DoxorubicinMedRequestDDACT.md)
+* [PaclitaxelMedRequestTH (MedicationRequest)](en/MedicationRequest-PaclitaxelMedRequestTH.md)
+* [PaclitaxelMedRequestTPHase (MedicationRequest)](en/MedicationRequest-PaclitaxelMedRequestTPHase.md)
+* [PertuzumabMedRequestPHD (MedicationRequest)](en/MedicationRequest-PertuzumabMedRequestPHD.md)
+* [TrastuzumabMedRequestPHD (MedicationRequest)](en/MedicationRequest-TrastuzumabMedRequestPHD.md)
+* [TrastuzumabMedRequestTH (MedicationRequest)](en/MedicationRequest-TrastuzumabMedRequestTH.md)
+* [LineOfTherapyFirstLine (Observation)](en/Observation-LineOfTherapyFirstLine.md)
+* [LineOfTherapyMaintenance (Observation)](en/Observation-LineOfTherapyMaintenance.md)
+* [LineOfTherapySecondLine (Observation)](en/Observation-LineOfTherapySecondLine.md)
+* [OGCAPatientExample (Patient)](en/Patient-OGCAPatientExample.md)
+* [ddAC→T: Dose-Dense Doxorubicin/Cyclophosphamide then Paclitaxel — Adjuvant Breast Cancer (PlanDefinition)](en/PlanDefinition-DDACTRegimenDefinition.md)
+* [PHD: Pertuzumab + Trastuzumab + Docetaxel — First-Line Metastatic HER2+ Breast Cancer (PlanDefinition)](en/PlanDefinition-PHDRegimenDefinition.md)
+* [TH: Paclitaxel + Trastuzumab (Weekly) — Adjuvant HER2+ Breast Cancer (PlanDefinition)](en/PlanDefinition-THRegimenDefinition.md)
+* [OGCAOncologistExample (Practitioner)](en/Practitioner-OGCAOncologistExample.md)
+* [DDACTRegimenOrder (RequestGroup)](en/RequestGroup-DDACTRegimenOrder.md)
+* [PHDRegimenOrder (RequestGroup)](en/RequestGroup-PHDRegimenOrder.md)
+* [THRegimenOrder (RequestGroup)](en/RequestGroup-THRegimenOrder.md)

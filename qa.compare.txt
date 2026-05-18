@@ -1,0 +1,143 @@
+CodexOGCAIG : Validation Results
+=========================================
+
+err = 0, warn = 20, info = 32
+$--
+Generated $--. FHIR version $-- for hl7.fhir.us.codex-ocpa#$-- (canonical = http://hl7.org/fhir/us/codex-ocpa)
+ Build Errors : 4 / 1 / 8
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Bundle-ExampleOrderSelectBundle : 0 / 0 / 4
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Bundle-ExampleOrderSignBundle : 0 / 2 / 8
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/CapabilityStatement-ocpa-crd-client : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/CapabilityStatement-ocpa-crd-service : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/CodeSystem-ocpa-codes : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/CodeSystem-treatment-line-cs : 0 / 0 / 3
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Condition-OGCABreastCancerConditionExample : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Condition-OGCAMetastaticBreastCancerConditionExample : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/ImplementationGuide-hl7.fhir.us.codex-ocpa : 0 / 4 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Library-BreastCancerPADataRequirements : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-CyclophosphamideMedRequestDDACT : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-DocetaxelMedRequestPHD : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-DoxorubicinMedRequestDDACT : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-PaclitaxelMedRequestTH : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-PaclitaxelMedRequestTPHase : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-PertuzumabMedRequestPHD : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-TrastuzumabMedRequestPHD : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/MedicationRequest-TrastuzumabMedRequestTH : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Observation-LineOfTherapyFirstLine : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Observation-LineOfTherapyMaintenance : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Observation-LineOfTherapySecondLine : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Patient-OGCAPatientExample : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/PlanDefinition-DDACTRegimenDefinition : 0 / 0 / 3
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/PlanDefinition-PHDRegimenDefinition : 0 / 0 / 3
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/PlanDefinition-THRegimenDefinition : 0 / 0 / 3
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/Practitioner-OGCAOncologistExample : 0 / 1 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/RequestGroup-DDACTRegimenOrder : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/RequestGroup-PHDRegimenOrder : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/RequestGroup-THRegimenOrder : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-anticancer-regimen-plandefinition : 0 / 0 / 2
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-anticancer-regimen-requestgroup : 0 / 0 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-line-of-therapy-observation : 0 / 1 / 4
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-ocpa-regimen-disease-context : 0 / 0 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-ocpa-regimen-intent : 0 / 0 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-ocpa-regimen-treatment-line : 0 / 0 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-oncology-data-requirements-library : 0 / 0 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/StructureDefinition-regimen-days-of-cycle : 0 / 0 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/ValueSet-regimen-intent-vs : 0 / 0 / 1
+ /Users/bkaney/projects/hl7/hl7-codex/fsh-generated/resources/ValueSet-treatment-line-vs : 0 / 0 / 1
+</table>
+== n/a ==
+INFORMATION: en/StructureDefinition-anticancer-regimen-requestgroup.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause: ' A patient-specific ordered anti-cancer therapy regimen instance. This resource is included in the CDS Hooks draftOrders Bundle and referenced in context.selections at order-select and order-sign.  RequestGroup.instantiatesCanonical SHALL be populated with the canonical URL of the AntiCancerRegimenPlanDefinition when the canonical regimen definition is known.  Two scheduling patterns are supported in regimen actions:          Cycle-day timing — Each action (or action.action for phased regimens) uses the local extension http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle on action.timingTiming to declare which days of the cycle the drug is administered. The action.timingTiming.repeat carries the machine-computable cycle period.           Sequential phase ordering — For multi-phase regimens (e.g., AC→T), top-level action groups represent phases and action.relatedAction with relationship = after-end declares that the second phase begins after the first.      mCODE Migration Candidate — This profile is proposed for inclusion in mCODE STU5. It is the MVP artifact for oncology prior authorization: the selected clinical unit passed to the CRD service.  '
+INFORMATION: en/StructureDefinition-line-of-therapy-observation.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause: ' An Observation that documents the ordinal line of systemic anti-cancer therapy a patient is currently receiving or has received for a given cancer diagnosis.  This observation is a required patient data element for oncology prior authorization: most metastatic and recurrent cancer regimen policies are line-of-therapy dependent.  Observation.code uses the local OGCA code system code line-of-therapy as a placeholder. A migration request for a LOINC code will be submitted before mCODE STU5.  Observation.value[x] SHALL be a CodeableConcept drawn from TreatmentLineVS. The focus SHALL reference the primary cancer Condition for which this line applies.  mCODE Migration Candidate — Proposed for inclusion in mCODE STU5.  '
+INFORMATION: en/cds-hooks-extension.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause: 'For CDS Clients claiming conformance to this oncology CRD profile, when an anti-cancer therapy regimen is selected or signed, the client SHALL include the oncology CRD extension in the CDS Hooks request.'
+INFORMATION: en/conformance.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause: 'The key words SHALL, SHOULD, MAY, and SHALL NOT in this specification are to be interpreted as described in RFC 2119.'
+INFORMATION: en/data-requirements.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause: 'All cancer-specific Library instances SHALL declare requirements covering these categories where applicable:'
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 242, column 8: The link 'package.tgz' for "NPM Package" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 243, column 8: The link 'definitions.json.zip' for "Definitions (JSON)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 244, column 8: The link 'definitions.xml.zip' for "Definitions (XML)" cannot be resolved
+ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 245, column 8: The link 'examples.json.zip' for "Examples (JSON)" cannot be resolved
+INFORMATION: en/regimen-model.html: The html source contains the word 'MAY' but it is not in a text phrase marked as a conformance clause: 'instantiatesCanonical (Must Support) — canonical URL of the PlanDefinition being ordered, when a published definition exists; MAY be omitted when the regimen originates from a local order-set without a canonical definition'
+INFORMATION: en/use-cases.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause: 'The EHR SHALL have access to relevant patient context (mCODE-based Observations, Conditions, MedicationRequests)'
+INFORMATION: en/walkthrough.html: The html source contains the word 'MAY' but it is not in a text phrase marked as a conformance clause: '// Lists each supported cancer type Library. An OGCA-aware EHR MAY use this'
+WARNING: IG: The IG is not for the international realm, and it uses SNOMED CT, so it should fix the SCT edition in the expansion parameters
+== fsh-generated/resources/Bundle-ExampleOrderSelectBundle.json ==
+INFORMATION: Bundle/ExampleOrderSelectBundle: Bundle.entry[0].resource/*RequestGroup/THRegimenOrder*/.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+== fsh-generated/resources/Bundle-ExampleOrderSignBundle.json ==
+INFORMATION: Bundle/ExampleOrderSignBundle: Bundle.entry[0].resource/*RequestGroup/THRegimenOrder*/.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+WARNING: Bundle/ExampleOrderSignBundle: Bundle.entry[1].resource/*MedicationRequest/PaclitaxelMedRequestTH*/.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+WARNING: Bundle/ExampleOrderSignBundle: Bundle.entry[2].resource/*MedicationRequest/TrastuzumabMedRequestTH*/.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/CapabilityStatement-ocpa-crd-client.json ==
+WARNING: CapabilityStatement/ocpa-crd-client: CapabilityStatement.implementationGuide[1]: There are multiple different potential matches for the url 'http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2.2.1', found versions: 2.0.0 (from hl7.fhir.us.davinci-crd#2.0.0), 2.1.0 (from hl7.fhir.us.davinci-crd#2.1.0), 2.2.1 (from hl7.fhir.us.davinci-crd#current). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd' to 'http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd|2.2.1'
+== fsh-generated/resources/CapabilityStatement-ocpa-crd-service.json ==
+WARNING: CapabilityStatement/ocpa-crd-service: CapabilityStatement.implementationGuide[1]: There are multiple different potential matches for the url 'http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2.2.1', found versions: 2.0.0 (from hl7.fhir.us.davinci-crd#2.0.0), 2.1.0 (from hl7.fhir.us.davinci-crd#2.1.0), 2.2.1 (from hl7.fhir.us.davinci-crd#current). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd' to 'http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd|2.2.1'
+== fsh-generated/resources/CodeSystem-ocpa-codes.json ==
+INFORMATION: CodeSystem/ocpa-codes: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
+== fsh-generated/resources/CodeSystem-treatment-line-cs.json ==
+INFORMATION: CodeSystem/treatment-line-cs: CodeSystem: Resource is not deprecated, but the description mentions deprecated - check whether it should be deprecated
+INFORMATION: CodeSystem/treatment-line-cs: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
+== fsh-generated/resources/Condition-OGCABreastCancerConditionExample.json ==
+INFORMATION: Condition/OGCABreastCancerConditionExample: Condition.category[0]: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-category|0.5.0
+== fsh-generated/resources/Condition-OGCAMetastaticBreastCancerConditionExample.json ==
+INFORMATION: Condition/OGCAMetastaticBreastCancerConditionExample: Condition.category[0]: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-category|0.5.0
+== fsh-generated/resources/ImplementationGuide-hl7.fhir.us.codex-ocpa.json ==
+WARNING: ImplementationGuide/hl7.fhir.us.codex-ocpa: ImplementationGuide.dependsOn[1]: The ImplementationGuide uses package hl7.fhir.uv.extensions.r4#5.2.0 released on 2025-02-10, but the most recent appropriate version is 5.3.0. This reference is getting old and the more recent version should be considered
+WARNING: ImplementationGuide/hl7.fhir.us.codex-ocpa: ImplementationGuide.dependsOn[2]: The ImplementationGuide uses package hl7.fhir.us.core#7.0.0 released on 2024-05-08, but the most recent appropriate version is 8.0.1. This reference is getting old and the more recent version should be considered
+WARNING: ImplementationGuide/hl7.fhir.us.codex-ocpa: ImplementationGuide.dependsOn[4]: The ImplementationGuide uses package hl7.fhir.us.davinci-crd#2.1.0 released on 2024-12-11, but the most recent appropriate version is 2.2.1. This reference is getting old and the more recent version should be considered
+WARNING: ImplementationGuide/hl7.fhir.us.codex-ocpa: ImplementationGuide.dependsOn[5]: The ImplementationGuide uses package hl7.fhir.us.davinci-dtr#2.0.1 released on 2024-01-11, but the most recent appropriate version is 3.0.1. This reference is getting old and the more recent version should be considered
+== fsh-generated/resources/Library-BreastCancerPADataRequirements.json ==
+INFORMATION: Resource: The resource Library/BreastCancerPADataRequirements could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/MedicationRequest-CyclophosphamideMedRequestDDACT.json ==
+WARNING: MedicationRequest/CyclophosphamideMedRequestDDACT: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/MedicationRequest-DocetaxelMedRequestPHD.json ==
+WARNING: MedicationRequest/DocetaxelMedRequestPHD: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/MedicationRequest-DoxorubicinMedRequestDDACT.json ==
+WARNING: MedicationRequest/DoxorubicinMedRequestDDACT: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/MedicationRequest-PaclitaxelMedRequestTH.json ==
+WARNING: MedicationRequest/PaclitaxelMedRequestTH: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/MedicationRequest-PaclitaxelMedRequestTPHase.json ==
+WARNING: MedicationRequest/PaclitaxelMedRequestTPHase: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/MedicationRequest-PertuzumabMedRequestPHD.json ==
+WARNING: MedicationRequest/PertuzumabMedRequestPHD: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/MedicationRequest-TrastuzumabMedRequestPHD.json ==
+WARNING: MedicationRequest/TrastuzumabMedRequestPHD: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/MedicationRequest-TrastuzumabMedRequestTH.json ==
+WARNING: MedicationRequest/TrastuzumabMedRequestTH: MedicationRequest.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '05062024' could not be found, so the code cannot be validated. Valid versions: 03022026
+== fsh-generated/resources/Observation-LineOfTherapyFirstLine.json ==
+INFORMATION: Observation/LineOfTherapyFirstLine: Observation.code: Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes|0.1.0
+== fsh-generated/resources/Observation-LineOfTherapyMaintenance.json ==
+INFORMATION: Observation/LineOfTherapyMaintenance: Observation.code: Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes|0.1.0
+== fsh-generated/resources/Observation-LineOfTherapySecondLine.json ==
+INFORMATION: Observation/LineOfTherapySecondLine: Observation.code: Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes|0.1.0
+== fsh-generated/resources/Patient-OGCAPatientExample.json ==
+WARNING: Patient/OGCAPatientExample: Patient.meta.profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '7.0.0', found versions: 3.1.1 (from hl7.fhir.us.core#3.1.1), 6.1.0 (from hl7.fhir.us.core#6.1.0), 7.0.0 (from hl7.fhir.us.core#7.0.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient' to 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|7.0.0'
+== fsh-generated/resources/PlanDefinition-DDACTRegimenDefinition.json ==
+INFORMATION: PlanDefinition/DDACTRegimenDefinition: PlanDefinition.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+INFORMATION: Resource: The resource PlanDefinition/DDACTRegimenDefinition could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/PlanDefinition-PHDRegimenDefinition.json ==
+INFORMATION: PlanDefinition/PHDRegimenDefinition: PlanDefinition.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+INFORMATION: Resource: The resource PlanDefinition/PHDRegimenDefinition could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/PlanDefinition-THRegimenDefinition.json ==
+INFORMATION: PlanDefinition/THRegimenDefinition: PlanDefinition.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+INFORMATION: Resource: The resource PlanDefinition/THRegimenDefinition could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated/resources/Practitioner-OGCAOncologistExample.json ==
+WARNING: Practitioner/OGCAOncologistExample: Practitioner.meta.profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '7.0.0', found versions: 3.1.1 (from hl7.fhir.us.core#3.1.1), 6.1.0 (from hl7.fhir.us.core#6.1.0), 7.0.0 (from hl7.fhir.us.core#7.0.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner' to 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|7.0.0'
+== fsh-generated/resources/RequestGroup-DDACTRegimenOrder.json ==
+INFORMATION: RequestGroup/DDACTRegimenOrder: RequestGroup.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+== fsh-generated/resources/RequestGroup-PHDRegimenOrder.json ==
+INFORMATION: RequestGroup/PHDRegimenOrder: RequestGroup.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+== fsh-generated/resources/RequestGroup-THRegimenOrder.json ==
+INFORMATION: RequestGroup/THRegimenOrder: RequestGroup.extension[1].value.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs|0.1.0
+== fsh-generated/resources/StructureDefinition-anticancer-regimen-plandefinition.json ==
+INFORMATION: StructureDefinition/anticancer-regimen-plandefinition: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0-ballot-tc1 is deprecated with the note: 'Use additionalBinding extension or element instead'
+== fsh-generated/resources/StructureDefinition-anticancer-regimen-requestgroup.json ==
+== fsh-generated/resources/StructureDefinition-line-of-therapy-observation.json ==
+INFORMATION: StructureDefinition/line-of-therapy-observation: StructureDefinition.snapshot.element[14].pattern.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes|0.1.0
+INFORMATION: StructureDefinition/line-of-therapy-observation: StructureDefinition.differential.element[3].pattern.ofType(CodeableConcept): Reference to experimental CodeSystem http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes|0.1.0
+INFORMATION: StructureDefinition/line-of-therapy-observation: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
+== fsh-generated/resources/StructureDefinition-ocpa-regimen-disease-context.json ==
+== fsh-generated/resources/StructureDefinition-ocpa-regimen-intent.json ==
+== fsh-generated/resources/StructureDefinition-ocpa-regimen-treatment-line.json ==
+== fsh-generated/resources/StructureDefinition-oncology-data-requirements-library.json ==
+== fsh-generated/resources/StructureDefinition-regimen-days-of-cycle.json ==
+== fsh-generated/resources/ValueSet-regimen-intent-vs.json ==
+== fsh-generated/resources/ValueSet-treatment-line-vs.json ==

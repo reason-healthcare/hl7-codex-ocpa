@@ -1,0 +1,133 @@
+[{
+  "id" : "ocpa-crd-client",
+  "type" : "CapabilityStatement",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/CapabilityStatement/ocpa-crd-client",
+  "version" : "0.1.0",
+  "name" : "OcpaCrdClientCapabilityStatement"
+},
+{
+  "id" : "ocpa-crd-service",
+  "type" : "CapabilityStatement",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/CapabilityStatement/ocpa-crd-service",
+  "version" : "0.1.0",
+  "name" : "OcpaCrdServiceCapabilityStatement"
+},
+{
+  "id" : "ocpa-codes",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes",
+  "version" : "0.1.0",
+  "name" : "OcpaCodesCS"
+},
+{
+  "id" : "treatment-line-cs",
+  "type" : "CodeSystem",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs",
+  "version" : "0.1.0",
+  "name" : "TreatmentLineCS"
+},
+{
+  "id" : "hl7.fhir.us.codex-ocpa",
+  "type" : "ImplementationGuide",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa",
+  "version" : "0.1.0",
+  "name" : "CodexOGCAIG"
+},
+{
+  "id" : "BreastCancerPADataRequirements",
+  "type" : "Library",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements",
+  "version" : "0.1.0",
+  "name" : "BreastCancerPADataRequirements"
+},
+{
+  "id" : "DDACTRegimenDefinition",
+  "type" : "PlanDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/DDACTRegimenDefinition",
+  "version" : "0.1.0",
+  "name" : "DDACTRegimenDefinition"
+},
+{
+  "id" : "PHDRegimenDefinition",
+  "type" : "PlanDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/PHDRegimenDefinition",
+  "version" : "0.1.0",
+  "name" : "PHDRegimenDefinition"
+},
+{
+  "id" : "THRegimenDefinition",
+  "type" : "PlanDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition",
+  "version" : "0.1.0",
+  "name" : "THRegimenDefinition"
+},
+{
+  "id" : "anticancer-regimen-plandefinition",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition",
+  "version" : "0.1.0",
+  "name" : "AntiCancerRegimenPlanDefinition"
+},
+{
+  "id" : "anticancer-regimen-requestgroup",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup",
+  "version" : "0.1.0",
+  "name" : "AntiCancerRegimenRequestGroup"
+},
+{
+  "id" : "line-of-therapy-observation",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation",
+  "version" : "0.1.0",
+  "name" : "LineOfTherapyObservation"
+},
+{
+  "id" : "ocpa-regimen-disease-context",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-disease-context",
+  "version" : "0.1.0",
+  "name" : "RegimenDiseaseContextExtension"
+},
+{
+  "id" : "ocpa-regimen-intent",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-intent",
+  "version" : "0.1.0",
+  "name" : "RegimenIntentExtension"
+},
+{
+  "id" : "ocpa-regimen-treatment-line",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-treatment-line",
+  "version" : "0.1.0",
+  "name" : "RegimenTreatmentLineExtension"
+},
+{
+  "id" : "oncology-data-requirements-library",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library",
+  "version" : "0.1.0",
+  "name" : "OncologyDataRequirementsLibrary"
+},
+{
+  "id" : "regimen-days-of-cycle",
+  "type" : "StructureDefinition",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle",
+  "version" : "0.1.0",
+  "name" : "RegimenDaysOfCycle"
+},
+{
+  "id" : "regimen-intent-vs",
+  "type" : "ValueSet",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/ValueSet/regimen-intent-vs",
+  "version" : "0.1.0",
+  "name" : "RegimenIntentVS"
+},
+{
+  "id" : "treatment-line-vs",
+  "type" : "ValueSet",
+  "url" : "http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs",
+  "version" : "0.1.0",
+  "name" : "TreatmentLineVS"
+}]

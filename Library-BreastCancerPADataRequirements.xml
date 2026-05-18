@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Library xmlns="http://hl7.org/fhir">
+  <id value="BreastCancerPADataRequirements"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml">
+  <table class="narrative-table">
+    <tbody>
+<tr>
+
+
+<th colspan="2" scope="row" class="row-header">Metadata</th>
+
+
+</tr>
+
+<tr>
+
+
+<th scope="row" class="row-header">Title</th>
+
+
+
+<td class="content-container">Breast Cancer Prior Authorization Data Requirements</td>
+
+
+</tr>
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Version</th>
+
+
+
+<td class="content-container">0.1.0</td>
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Experimental</th>
+
+
+
+<td class="content-container">true</td>
+
+
+</tr>
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Subject Type</th>
+
+
+
+<td class="content-container">
+    Malignant neoplasm of breast
+
+
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Jurisdiction</th>
+
+
+
+<td class="content-container">
+    United States of America
+
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Steward (Publisher)</th>
+
+
+
+<td class="content-container">HL7 International / Clinical Interoperability Council</td>
+
+
+</tr>
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Steward Contact</th>
+
+
+
+<td class="content-container">HL7 International / Clinical Interoperability Council</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Description</th>
+
+
+
+<td class="content-container"><div><p>DataRequirement package for breast cancer PA. Use this Library canonical in the CDS Hooks oncology extension dataRequirements.canonical field.</p>
+</div></td>
+
+
+</tr>
+
+
+
+
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Type</th>
+
+
+
+<td class="content-container">
+    Asset Collection
+
+
+</td>
+
+
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Condition
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-primary-cancer-condition.html">Primary Cancer Condition Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-stage-group.html">TNM Stage Group Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-primary-tumor-category.html">TNM Primary Tumor Category Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-regional-nodes-category.html">TNM Regional Nodes Category Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tnm-distant-metastases-category.html">TNM Distant Metastases Category Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-tumor-marker-test.html">Tumor Marker Test Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-disease-status.html">Cancer Disease Status Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: RequestGroup
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="StructureDefinition-anticancer-regimen-requestgroup.html">Anti-Cancer Regimen RequestGroup</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="StructureDefinition-line-of-therapy-observation.html">Line of Therapy Observation</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: Observation
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-ecog-performance-status.html">ECOG Performance Status Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+  <th scope="row" class="row-header">Data Requirement</th>
+  <td class="content-container">
+    <em>Type</em>: MedicationRequest
+    <br/>
+  
+    <em>Profile(s)</em>: 
+  
+    <a href="http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-related-medication-request.html">Cancer-Related Medication Request Profile</a>
+    <br/>        
+  
+   
+   
+   
+  </td>
+</tr>
+
+<tr>
+
+
+<th colspan="2" scope="row" class="row-header"><a name="parameters"> </a>Parameters</th>
+
+
+</tr>
+
+
+<tr>
+
+
+<th scope="row" class="row-header">Parameter</th>
+
+
+
+<td class="content-container">None</td>
+
+
+</tr>
+
+
+
+
+
+
+
+<tr>
+  <th colspan="2" scope="row" class="row-header">Generated using version 0.5.4 of the sample-content-ig Liquid templates</th>
+</tr>
+
+    </tbody>
+  </table>
+</div>
+  </text>
+  <url value="http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements"/>
+  <version value="0.1.0"/>
+  <name value="BreastCancerPADataRequirements"/>
+  <title value="Breast Cancer Prior Authorization Data Requirements"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
+      <code value="asset-collection"/>
+      <display value="Asset Collection"/>
+    </coding>
+  </type>
+  <subjectCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="254837009"/>
+      <display value="Malignant neoplasm of breast"/>
+    </coding>
+  </subjectCodeableConcept>
+  <date value="2026-05-18T11:02:07-04:00"/>
+  <publisher value="HL7 International / Clinical Interoperability Council"/>
+  <contact>
+    <name value="HL7 International / Clinical Interoperability Council"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cic"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="ciclist@lists.HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="DataRequirement package for breast cancer PA. Use this Library canonical in the CDS Hooks oncology extension dataRequirements.canonical field."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <dataRequirement>
+    <type value="Condition"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-primary-cancer-condition"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-stage-group"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-primary-tumor-category"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-regional-nodes-category"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-distant-metastases-category"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"/>
+    <codeFilter>
+      <path value="code"/>
+      <valueSet value="http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs"/>
+    </codeFilter>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-disease-status"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="RequestGroup"/>
+    <profile value="http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-ecog-performance-status"/>
+  </dataRequirement>
+  <dataRequirement>
+    <type value="MedicationRequest"/>
+    <profile value="http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request"/>
+  </dataRequirement>
+</Library>

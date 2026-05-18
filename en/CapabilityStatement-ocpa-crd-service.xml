@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="ocpa-crd-service"/>
+  <language value="en"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: CapabilityStatement ocpa-crd-service</b></p><a name="ocpa-crd-service"> </a><a name="hcocpa-crd-service"> </a><h2 id="title">Oncology CRD Service Capability Statement</h2><ul><li>Implementation Guide Version: 0.1.0 </li><li>FHIR Version: 4.0.1 </li><li>Supported Formats: <code>json</code>, <code>xml</code></li><li>Published on: 2026-05-04 </li><li>Published by: HL7 International / Clinical Interoperability Council </li></ul><blockquote class="impl-note"><p><strong>Note to Implementers: FHIR Capabilities</strong></p><p>Any FHIR capability may be 'allowed' by the system unless explicitly marked as 'SHALL NOT'. A few items are marked as MAY in the Implementation Guide to highlight their potential relevance to the use case.</p></blockquote><h3 id="shallIGs">SHALL Support the Following Implementation Guides</h3><ul><li><a href="index.html">http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa</a></li><li><a href="https://build.fhir.org/ig/HL7/davinci-crd/index.html">http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd</a></li></ul><h2 id="rest">FHIR RESTful Capabilities</h2><div class="panel panel-default"><div class="panel-heading"><h3 id="mode1" class="panel-title">Mode: <code>server</code></h3></div><div class="panel-body"><div><p>A conformant Oncology CRD Service SHALL:</p>
+<ol>
+<li>Be capable of evaluating the selected anti-cancer regimen <code>RequestGroup</code> and resolving its
+instantiated <code>PlanDefinition</code>.</li>
+<li>Use the referenced or included <code>DataRequirement</code> entries to determine whether the supplied
+patient context is sufficient for pre-approval evaluation.</li>
+<li>Return a DTR launch card when required patient context is missing.</li>
+<li>Support at least one cancer-specific <code>Library</code> conforming to <code>OncologyDataRequirementsLibrary</code>.</li>
+</ol>
+</div></div></div><h3 id="resourcesCap1">Capabilities by Resource/Profile</h3><h4 id="resourcesSummary1">Summary</h4><p>The summary table lists the resources that are part of this configuration, and for each resource it lists:</p><ul><li>The relevant profiles (if any)</li><li>The interactions supported by each resource (<b><span class="bg-info">R</span></b>ead, <b><span class="bg-info">S</span></b>earch, <b><span class="bg-info">U</span></b>pdate, and <b><span class="bg-info">C</span></b>reate, are always shown, while <b><span class="bg-info">VR</span></b>ead, <b><span class="bg-info">P</span></b>atch, <b><span class="bg-info">D</span></b>elete, <b><span class="bg-info">H</span></b>istory on <b><span class="bg-info">I</span></b>nstance, or <b><span class="bg-info">H</span></b>istory on <b><span class="bg-info">T</span></b>ype are only present if at least one of the resources has support for them.</li><li><span>The required, recommended, and some optional search parameters (if any). </span></li><li>The linked resources enabled for <code>_include</code></li><li>The other resources enabled for <code>_revinclude</code></li><li>The operations on the resource (if any)</li></ul><div class="table-responsive"><table class="table table-condensed table-hover"><thead><tr><th><b>Resource Type</b></th><th><b>Profile</b></th><th class="text-center"><b title="GET a resource (read interaction)">R</b></th><th class="text-center"><b title="GET all set of resources of the type (search interaction)">S</b></th><th class="text-center"><b title="PUT a new resource version (update interaction)">U</b></th><th class="text-center"><b title="POST a new resource (create interaction)">C</b></th><th><b title="Required and recommended search parameters">Searches</b></th><th><code><b>_include</b></code></th><th><code><b>_revinclude</b></code></th><th><b>Operations</b></th></tr></thead><tbody><tr><td><a href="#RequestGroup1-1">RequestGroup</a></td><td>Supported Profiles<br/>  <a href="StructureDefinition-anticancer-regimen-requestgroup.html">Anti-Cancer Regimen RequestGroup</a></td><td class="text-center">y</td><td class="text-center"/><td class="text-center"/><td class="text-center"/><td/><td/><td/><td/></tr><tr><td><a href="#PlanDefinition1-2">PlanDefinition</a></td><td>Supported Profiles<br/>  <a href="StructureDefinition-anticancer-regimen-plandefinition.html">Anti-Cancer Regimen PlanDefinition</a></td><td class="text-center">y</td><td class="text-center"/><td class="text-center"/><td class="text-center"/><td/><td/><td/><td/></tr><tr><td><a href="#Library1-3">Library</a></td><td>Supported Profiles<br/>  <a href="StructureDefinition-oncology-data-requirements-library.html">Oncology Data Requirements Library</a></td><td class="text-center">y</td><td class="text-center">y</td><td class="text-center"/><td class="text-center"/><td/><td/><td/><td/></tr></tbody></table></div><hr/><div class="panel panel-default"><div class="panel-heading"><h4 id="RequestGroup1-1" class="panel-title"><span style="float: right;">Resource Conformance: unspecified </span>RequestGroup</h4></div><div class="panel-body"><div class="container"><div class="row"><div class="col-lg-4"><span class="lead">Core FHIR Resource</span><br/><a href="http://hl7.org/fhir/R4/requestgroup.html">RequestGroup</a></div><div class="col-lg-4"><span class="lead">Reference Policy</span><br/></div><div class="col-lg-4"><span class="lead">Interaction summary</span><br/><ul><li>Supports <code>read</code>.</li></ul></div></div><p/><div class="row"><div class="col-6"><span class="lead">Supported Profiles</span><p><a href="StructureDefinition-anticancer-regimen-requestgroup.html">Anti-Cancer Regimen RequestGroup</a></p></div></div><p/><div class="row"><div class="col-12"><span class="lead">Documentation</span><blockquote><div><p>SHALL resolve and evaluate RequestGroup resources received in CDS Hooks context.draftOrders.</p>
+</div></blockquote></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h4 id="PlanDefinition1-2" class="panel-title"><span style="float: right;">Resource Conformance: unspecified </span>PlanDefinition</h4></div><div class="panel-body"><div class="container"><div class="row"><div class="col-lg-4"><span class="lead">Core FHIR Resource</span><br/><a href="http://hl7.org/fhir/R4/plandefinition.html">PlanDefinition</a></div><div class="col-lg-4"><span class="lead">Reference Policy</span><br/></div><div class="col-lg-4"><span class="lead">Interaction summary</span><br/><ul><li>Supports <code>read</code>.</li></ul></div></div><p/><div class="row"><div class="col-6"><span class="lead">Supported Profiles</span><p><a href="StructureDefinition-anticancer-regimen-plandefinition.html">Anti-Cancer Regimen PlanDefinition</a></p></div></div><p/><div class="row"><div class="col-12"><span class="lead">Documentation</span><blockquote><div><p>SHALL resolve PlanDefinition referenced by RequestGroup.instantiatesCanonical.</p>
+</div></blockquote></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h4 id="Library1-3" class="panel-title"><span style="float: right;">Resource Conformance: unspecified </span>Library</h4></div><div class="panel-body"><div class="container"><div class="row"><div class="col-lg-4"><span class="lead">Core FHIR Resource</span><br/><a href="http://hl7.org/fhir/R4/library.html">Library</a></div><div class="col-lg-4"><span class="lead">Reference Policy</span><br/></div><div class="col-lg-4"><span class="lead">Interaction summary</span><br/><ul><li>Supports <code>read</code>, <code>search-type</code>.</li></ul></div></div><p/><div class="row"><div class="col-6"><span class="lead">Supported Profiles</span><p><a href="StructureDefinition-oncology-data-requirements-library.html">Oncology Data Requirements Library</a></p></div></div><p/><div class="row"><div class="col-12"><span class="lead">Documentation</span><blockquote><div><p>SHALL support at least one cancer-specific Library conforming to OncologyDataRequirementsLibrary.</p>
+</div></blockquote></div></div></div></div></div></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cic"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom">
+        <valueCanonical value="http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa"/>
+      </extension>
+    </valueCode>
+  </extension>
+  <url value="http://hl7.org/fhir/us/codex-ocpa/CapabilityStatement/ocpa-crd-service"/>
+  <version value="0.1.0"/>
+  <name value="OcpaCrdServiceCapabilityStatement"/>
+  <title value="Oncology CRD Service Capability Statement"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-05-04"/>
+  <publisher value="HL7 International / Clinical Interoperability Council"/>
+  <contact>
+    <name value="HL7 International / Clinical Interoperability Council"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cic"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="ciclist@lists.HL7.org"/>
+    </telecom>
+  </contact>
+  <description value="Capability Statement for systems acting as an **Oncology CRD Service**&#xA;(e.g., a payer or prior-authorization platform).  A conformant service claims support for&#xA;the Da Vinci CRD oncology profile defined in this IG by meeting the requirements below."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <kind value="requirements"/>
+  <fhirVersion value="4.0.1"/>
+  <format value="json"/>
+  <format value="xml"/>
+  <implementationGuide value="http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa"/>
+  <implementationGuide value="http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="A conformant Oncology CRD Service SHALL:&#xA;&#xA;1. Be capable of evaluating the selected anti-cancer regimen `RequestGroup` and resolving its&#xA;   instantiated `PlanDefinition`.&#xA;2. Use the referenced or included `DataRequirement` entries to determine whether the supplied&#xA;   patient context is sufficient for pre-approval evaluation.&#xA;3. Return a DTR launch card when required patient context is missing.&#xA;4. Support at least one cancer-specific `Library` conforming to `OncologyDataRequirementsLibrary`."/>
+    <resource>
+      <type value="RequestGroup"/>
+      <supportedProfile value="http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"/>
+      <documentation value="SHALL resolve and evaluate RequestGroup resources received in CDS Hooks context.draftOrders."/>
+      <interaction>
+        <code value="read"/>
+      </interaction>
+    </resource>
+    <resource>
+      <type value="PlanDefinition"/>
+      <supportedProfile value="http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition"/>
+      <documentation value="SHALL resolve PlanDefinition referenced by RequestGroup.instantiatesCanonical."/>
+      <interaction>
+        <code value="read"/>
+      </interaction>
+    </resource>
+    <resource>
+      <type value="Library"/>
+      <supportedProfile value="http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library"/>
+      <documentation value="SHALL support at least one cancer-specific Library conforming to OncologyDataRequirementsLibrary."/>
+      <interaction>
+        <code value="read"/>
+      </interaction>
+      <interaction>
+        <code value="search-type"/>
+      </interaction>
+    </resource>
+  </rest>
+</CapabilityStatement>

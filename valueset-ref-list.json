@@ -1,0 +1,41 @@
+{
+  "codeSystems" : [{
+    "url" : "http://hl7.org/fhir/ValueSet/subject-type",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "SubjectType",
+    "title" : "Subject type",
+    "description" : "Possible types of subjects.",
+    "systems" : ["http://hl7.org/fhir/resource-types"],
+    "oids" : ["2.16.840.1.113883.4.642.3.775"],
+    "sources" : ["2.16.840.1.113883.4.642.3.775"],
+    "uses" : {
+    },
+    "StructureDefinition-oncology-data-requirements-library.html" : "Oncology Data Requirements Library"
+  },
+  {
+    "url" : "http://hl7.org/fhir/us/codex-ocpa/ValueSet/regimen-intent-vs",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "RegimenIntentVS",
+    "title" : "Regimen Intent Value Set",
+    "description" : "The clinical intent of an anti-cancer regimen. All codes are drawn from\nthe SNOMED CT \\\"Intents (nature of procedure values)\\\" hierarchy (363675004).\n\n**mCODE Migration Candidate** — Proposed for mCODE STU5.",
+    "systems" : ["http://snomed.info/sct"],
+    "uses" : {
+    },
+    "StructureDefinition-ocpa-regimen-intent.html" : "Regimen Intent"
+  },
+  {
+    "url" : "http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "TreatmentLineVS",
+    "title" : "Treatment Line Value Set",
+    "description" : "Codes representing the ordinal line of systemic anti-cancer therapy.\nUsed in LineOfTherapyObservation.valueCodeableConcept and the RegimenTreatmentLine extension.\n\n**mCODE Migration Candidate** — Proposed for mCODE STU5.",
+    "systems" : ["http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation",
+    "StructureDefinition-ocpa-regimen-treatment-line.html" : "Regimen Treatment Line"
+  }]
+}

@@ -1,0 +1,1937 @@
+{
+  "date" : "Mon, 18 May, 2026 11:02:07 -0400",
+  "doco" : "For each file: start is seconds after start activity occurred. Length = milliseconds activity took",
+  "files" : [{
+    "name" : "/fsh-generated/resources/ImplementationGuide-hl7.fhir.us.codex-ocpa.json",
+    "size" : 26629,
+    "processes" : [{
+      "activity" : "load",
+      "start" : 84,
+      "length" : 26
+    },
+    {
+      "activity" : "loadDepInfo",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 85,
+      "length" : 6
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 85,
+      "length" : 100
+    },
+    {
+      "activity" : "validate",
+      "start" : 91,
+      "length" : 5100
+    },
+    {
+      "activity" : "scanForUsageStats",
+      "start" : 99,
+      "length" : 1
+    },
+    {
+      "activity" : "generate1",
+      "start" : 100,
+      "length" : 222
+    },
+    {
+      "activity" : "generate2",
+      "start" : 105,
+      "length" : 316
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 4
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 151,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Bundle-ExampleOrderSelectBundle.json",
+    "size" : 3631,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 5
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 6
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load-configure",
+      "start" : 85,
+      "length" : 3
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 85,
+      "length" : 1611
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 151
+    },
+    {
+      "activity" : "generate1",
+      "start" : 100,
+      "length" : 32
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 49
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Bundle-ExampleOrderSignBundle.json",
+    "size" : 5907,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load-configure",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 9
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 141
+    },
+    {
+      "activity" : "generate1",
+      "start" : 100,
+      "length" : 41
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 82
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 151,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/CapabilityStatement-ocpa-crd-client.json",
+    "size" : 2984,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 4
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 20
+    },
+    {
+      "activity" : "validate",
+      "start" : 91,
+      "length" : 36
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 46
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 41
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/CapabilityStatement-ocpa-crd-service.json",
+    "size" : 2815,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 5
+    },
+    {
+      "activity" : "validate",
+      "start" : 91,
+      "length" : 5
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 45
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 24
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/CodeSystem-ocpa-codes.json",
+    "size" : 1734,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 8
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 5
+    },
+    {
+      "activity" : "validate",
+      "start" : 88,
+      "length" : 44
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 20
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 66
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/CodeSystem-treatment-line-cs.json",
+    "size" : 1772,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 4
+    },
+    {
+      "activity" : "validate",
+      "start" : 88,
+      "length" : 7
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 19
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 52
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Condition-OGCABreastCancerConditionExample.json",
+    "size" : 1242,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 25
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 363
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 18
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 20
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Condition-OGCAMetastaticBreastCancerConditionExample.json",
+    "size" : 1035,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 4
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 26
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 16
+    },
+    {
+      "activity" : "generateExampleZip",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Library-BreastCancerPADataRequirements.json",
+    "size" : 3294,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 10
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 12
+    },
+    {
+      "activity" : "validate",
+      "start" : 96,
+      "length" : 15
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 30
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 14
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-CyclophosphamideMedRequestDDACT.json",
+    "size" : 812,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 8
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 16
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 33
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-DocetaxelMedRequestPHD.json",
+    "size" : 806,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 6
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 27
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-DoxorubicinMedRequestDDACT.json",
+    "size" : 801,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 7
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 26
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-PaclitaxelMedRequestTH.json",
+    "size" : 790,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 6
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 15
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 27
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-PaclitaxelMedRequestTPHase.json",
+    "size" : 816,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 5
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 27
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-PertuzumabMedRequestPHD.json",
+    "size" : 809,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 6
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 25
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-TrastuzumabMedRequestPHD.json",
+    "size" : 812,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 6
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 25
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/MedicationRequest-TrastuzumabMedRequestTH.json",
+    "size" : 815,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 5
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 27
+    },
+    {
+      "activity" : "generateExampleZip",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Observation-LineOfTherapyFirstLine.json",
+    "size" : 938,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 2
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 7
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 41
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Observation-LineOfTherapyMaintenance.json",
+    "size" : 960,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 6
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 13
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 25
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Observation-LineOfTherapySecondLine.json",
+    "size" : 950,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "scanForUsageStats",
+      "start" : 99,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 7
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 14
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 27
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Patient-OGCAPatientExample.json",
+    "size" : 623,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 2
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 11
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 12
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/PlanDefinition-DDACTRegimenDefinition.json",
+    "size" : 3556,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 14
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 27
+    },
+    {
+      "activity" : "validate",
+      "start" : 96,
+      "length" : 634
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 28
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 17
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/PlanDefinition-PHDRegimenDefinition.json",
+    "size" : 2769,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 8
+    },
+    {
+      "activity" : "validate",
+      "start" : 97,
+      "length" : 371
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 21
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 15
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/PlanDefinition-THRegimenDefinition.json",
+    "size" : 2768,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 6
+    },
+    {
+      "activity" : "validate",
+      "start" : 97,
+      "length" : 5
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 21
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 18
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/Practitioner-OGCAOncologistExample.json",
+    "size" : 461,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 1
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 2
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 11
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 10
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/RequestGroup-DDACTRegimenOrder.json",
+    "size" : 3891,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 3
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 60
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 21
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 49
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/RequestGroup-PHDRegimenOrder.json",
+    "size" : 2923,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 2
+    },
+    {
+      "activity" : "validate",
+      "start" : 99,
+      "length" : 410
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 16
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 47
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/RequestGroup-THRegimenOrder.json",
+    "size" : 2762,
+    "processes" : [{
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 2
+    },
+    {
+      "activity" : "validate",
+      "start" : 100,
+      "length" : 79
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 16
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 40
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-anticancer-regimen-plandefinition.json",
+    "size" : 9618,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 6
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 50
+    },
+    {
+      "activity" : "checkR4R4B",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 59
+    },
+    {
+      "activity" : "validate",
+      "start" : 88,
+      "length" : 567
+    },
+    {
+      "activity" : "checkConformanceResources2",
+      "start" : 97,
+      "length" : 541
+    },
+    {
+      "activity" : "scanForUsageStats",
+      "start" : 99,
+      "length" : 2
+    },
+    {
+      "activity" : "generate1",
+      "start" : 101,
+      "length" : 545
+    },
+    {
+      "activity" : "generate2",
+      "start" : 106,
+      "length" : 1581
+    },
+    {
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1598
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 22
+    },
+    {
+      "activity" : "scanProfilesForR5",
+      "start" : 151,
+      "length" : 1
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 151,
+      "length" : 6
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-anticancer-regimen-requestgroup.json",
+    "size" : 8097,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 6
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 32
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 26
+    },
+    {
+      "activity" : "validate",
+      "start" : 89,
+      "length" : 162
+    },
+    {
+      "activity" : "scanForUsageStats",
+      "start" : 99,
+      "length" : 1
+    },
+    {
+      "activity" : "generate1",
+      "start" : 102,
+      "length" : 320
+    },
+    {
+      "activity" : "generate2",
+      "start" : 108,
+      "length" : 447
+    },
+    {
+      "activity" : "generate2",
+      "start" : 112,
+      "length" : 260
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 13
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 151,
+      "length" : 6
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-line-of-therapy-observation.json",
+    "size" : 4778,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 4
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 59
+    },
+    {
+      "activity" : "load-configure",
+      "start" : 85,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 20
+    },
+    {
+      "activity" : "validate",
+      "start" : 89,
+      "length" : 87
+    },
+    {
+      "activity" : "checkConformanceResources",
+      "start" : 97,
+      "length" : 1
+    },
+    {
+      "activity" : "checkConformanceResources2",
+      "start" : 98,
+      "length" : 1
+    },
+    {
+      "activity" : "generate1",
+      "start" : 102,
+      "length" : 276
+    },
+    {
+      "activity" : "generate2",
+      "start" : 108,
+      "length" : 341
+    },
+    {
+      "activity" : "generate2",
+      "start" : 112,
+      "length" : 182
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 8
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 151,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-ocpa-regimen-disease-context.json",
+    "size" : 2731,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 5
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 7
+    },
+    {
+      "activity" : "validate",
+      "start" : 89,
+      "length" : 1615
+    },
+    {
+      "activity" : "generate1",
+      "start" : 102,
+      "length" : 55
+    },
+    {
+      "activity" : "generate2",
+      "start" : 109,
+      "length" : 167
+    },
+    {
+      "activity" : "generate2",
+      "start" : 112,
+      "length" : 20
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 2
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-ocpa-regimen-intent.json",
+    "size" : 2536,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 5
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 72
+    },
+    {
+      "activity" : "validate",
+      "start" : 91,
+      "length" : 25
+    },
+    {
+      "activity" : "generate1",
+      "start" : 102,
+      "length" : 53
+    },
+    {
+      "activity" : "generate2",
+      "start" : 109,
+      "length" : 183
+    },
+    {
+      "activity" : "generate2",
+      "start" : 112,
+      "length" : 21
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-ocpa-regimen-treatment-line.json",
+    "size" : 2987,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 6
+    },
+    {
+      "activity" : "validate",
+      "start" : 91,
+      "length" : 21
+    },
+    {
+      "activity" : "generate1",
+      "start" : 102,
+      "length" : 51
+    },
+    {
+      "activity" : "generate2",
+      "start" : 109,
+      "length" : 198
+    },
+    {
+      "activity" : "generate2",
+      "start" : 112,
+      "length" : 21
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 2
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-oncology-data-requirements-library.json",
+    "size" : 4491,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 4
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 19
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 17
+    },
+    {
+      "activity" : "validate",
+      "start" : 91,
+      "length" : 65
+    },
+    {
+      "activity" : "generate1",
+      "start" : 102,
+      "length" : 164
+    },
+    {
+      "activity" : "generate2",
+      "start" : 109,
+      "length" : 267
+    },
+    {
+      "activity" : "generate2",
+      "start" : 112,
+      "length" : 121
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 6
+    },
+    {
+      "activity" : "scanExamplesForR5",
+      "start" : 151,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/StructureDefinition-regimen-days-of-cycle.json",
+    "size" : 4166,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 2
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 39
+    },
+    {
+      "activity" : "generateSnapshots",
+      "start" : 84,
+      "length" : 8
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 8
+    },
+    {
+      "activity" : "validate",
+      "start" : 91,
+      "length" : 136
+    },
+    {
+      "activity" : "scanForUsageStats",
+      "start" : 99,
+      "length" : 1
+    },
+    {
+      "activity" : "generate1",
+      "start" : 102,
+      "length" : 82
+    },
+    {
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 197
+    },
+    {
+      "activity" : "generate2",
+      "start" : 113,
+      "length" : 34
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 5
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/ValueSet-regimen-intent-vs.json",
+    "size" : 1464,
+    "processes" : [{
+      "activity" : "loadResources",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "load",
+      "start" : 84,
+      "length" : 3
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 87,
+      "length" : 670
+    },
+    {
+      "activity" : "validate",
+      "start" : 88,
+      "length" : 388
+    },
+    {
+      "activity" : "generate1",
+      "start" : 103,
+      "length" : 16
+    },
+    {
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 441
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "fsh-generated/resources/ValueSet-treatment-line-vs.json",
+    "size" : 894,
+    "processes" : [{
+      "activity" : "load",
+      "start" : 84,
+      "length" : 1
+    },
+    {
+      "activity" : "generateNarratives",
+      "start" : 88,
+      "length" : 3
+    },
+    {
+      "activity" : "validate",
+      "start" : 88,
+      "length" : 11
+    },
+    {
+      "activity" : "generate1",
+      "start" : 103,
+      "length" : 13
+    },
+    {
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 63
+    },
+    {
+      "activity" : "generateValidationPack",
+      "start" : 134,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/includes/_append.fragment-css.html",
+    "size" : 133,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 2
+    }]
+  },
+  {
+    "name" : "/input/includes/fragment-css.html",
+    "size" : 270
+  },
+  {
+    "name" : "/fsh-generated/includes/fsh-link-references.md",
+    "size" : 2683,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/fsh-generated/includes/menu.xml",
+    "size" : 1976
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-oncology-data-requirements-library-intro.md",
+    "size" : 661,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-anticancer-regimen-plandefinition-intro.md",
+    "size" : 661
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-anticancer-regimen-requestgroup-intro.md",
+    "size" : 659
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-ocpa-regimen-disease-context-intro.md",
+    "size" : 652,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/intro-notes/CodeSystem-ocpa-codes-intro.md",
+    "size" : 641
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-ocpa-regimen-intent-intro.md",
+    "size" : 643
+  },
+  {
+    "name" : "/input/intro-notes/ValueSet-treatment-line-vs-intro.md",
+    "size" : 643
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-regimen-days-of-cycle-intro.md",
+    "size" : 650,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/intro-notes/CodeSystem-treatment-line-cs-intro.md",
+    "size" : 645
+  },
+  {
+    "name" : "/input/intro-notes/ValueSet-regimen-intent-vs-intro.md",
+    "size" : 643
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-ocpa-regimen-treatment-line-intro.md",
+    "size" : 651
+  },
+  {
+    "name" : "/input/intro-notes/StructureDefinition-line-of-therapy-observation-intro.md",
+    "size" : 654,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/mcode-candidates.md",
+    "size" : 5098
+  },
+  {
+    "name" : "/input/pagecontent/data-requirements.md",
+    "size" : 4369,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/conformance.md",
+    "size" : 3033,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/cds-hooks-extension.md",
+    "size" : 9364,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/history.md",
+    "size" : 716
+  },
+  {
+    "name" : "/input/pagecontent/index.md",
+    "size" : 9407,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/walkthrough.md",
+    "size" : 36598,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 3
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/breast-cancer-pa.md",
+    "size" : 5479
+  },
+  {
+    "name" : "/input/pagecontent/regimen-model.md",
+    "size" : 4138,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/background.md",
+    "size" : 4790,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/pagecontent/downloads.md",
+    "size" : 572
+  },
+  {
+    "name" : "/input/pagecontent/use-cases.md",
+    "size" : 4204,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/template/config",
+    "size" : 0
+  },
+  {
+    "name" : "/template/config/_config.yml",
+    "size" : 140
+  },
+  {
+    "name" : "/input/assets",
+    "size" : 0
+  },
+  {
+    "name" : "/input/assets/css",
+    "size" : 0
+  },
+  {
+    "name" : "/input/assets/css/ogca.css",
+    "size" : 5867
+  },
+  {
+    "name" : "/input/images",
+    "size" : 0
+  },
+  {
+    "name" : "/input/images/codex-logo.png",
+    "size" : 94653,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/images/ogca-cds-hooks.mermaid",
+    "size" : 624
+  },
+  {
+    "name" : "/input/images/ogca-stakeholders.mermaid",
+    "size" : 449,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/images/ogca-stakeholders.svg",
+    "size" : 103729
+  },
+  {
+    "name" : "/input/images/ogca-cds-hooks.svg",
+    "size" : 27445,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/images/ogca-workflow.svg",
+    "size" : 42403,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/images/ogca-workflow.mermaid",
+    "size" : 1669,
+    "processes" : [{
+      "activity" : "validate",
+      "start" : 100,
+      "length" : 1
+    }]
+  },
+  {
+    "name" : "/input/images/mermaid.config.json",
+    "size" : 187
+  },
+  {
+    "name" : "/temp/pages/_includes/artifacts.xml",
+    "size" : 34343,
+    "processes" : [{
+      "activity" : "generate2",
+      "start" : 110,
+      "length" : 2
+    }]
+  }]
+}

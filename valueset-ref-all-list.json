@@ -1,0 +1,526 @@
+{
+  "codeSystems" : [{
+    "url" : "http://hl7.org/fhir/ValueSet/action-cardinality-behavior",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionCardinalityBehavior",
+    "title" : "ActionCardinalityBehavior",
+    "description" : "Defines behavior for an action or a group for how many times that item may be repeated.",
+    "systems" : ["http://hl7.org/fhir/action-cardinality-behavior"],
+    "oids" : ["2.16.840.1.113883.4.642.3.807"],
+    "sources" : ["2.16.840.1.113883.4.642.3.807"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-condition-kind",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionConditionKind",
+    "title" : "ActionConditionKind",
+    "description" : "Defines the kinds of conditions that can appear on actions.",
+    "systems" : ["http://hl7.org/fhir/action-condition-kind"],
+    "oids" : ["2.16.840.1.113883.4.642.3.815"],
+    "sources" : ["2.16.840.1.113883.4.642.3.815"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-grouping-behavior",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionGroupingBehavior",
+    "title" : "ActionGroupingBehavior",
+    "description" : "Defines organization behavior of a group.",
+    "systems" : ["http://hl7.org/fhir/action-grouping-behavior"],
+    "oids" : ["2.16.840.1.113883.4.642.3.799"],
+    "sources" : ["2.16.840.1.113883.4.642.3.799"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-participant-role",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionParticipantRole",
+    "title" : "Action participant role",
+    "description" : "Either a practitioner role or a relationship type.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "http://terminology.hl7.org/CodeSystem/v2-0131",
+    "http://terminology.hl7.org/CodeSystem/practitioner-role",
+    "http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.796"],
+    "sources" : ["2.16.840.1.113883.4.642.3.796"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-participant-type",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionParticipantType",
+    "title" : "ActionParticipantType",
+    "description" : "The type of participant for the action.",
+    "systems" : ["http://hl7.org/fhir/action-participant-type"],
+    "oids" : ["2.16.840.1.113883.4.642.3.811"],
+    "sources" : ["2.16.840.1.113883.4.642.3.811"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-precheck-behavior",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionPrecheckBehavior",
+    "title" : "ActionPrecheckBehavior",
+    "description" : "Defines selection frequency behavior for an action or group.",
+    "systems" : ["http://hl7.org/fhir/action-precheck-behavior"],
+    "oids" : ["2.16.840.1.113883.4.642.3.805"],
+    "sources" : ["2.16.840.1.113883.4.642.3.805"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-relationship-type",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionRelationshipType",
+    "title" : "ActionRelationshipType",
+    "description" : "Defines the types of relationships between actions.",
+    "systems" : ["http://hl7.org/fhir/action-relationship-type"],
+    "oids" : ["2.16.840.1.113883.4.642.3.813"],
+    "sources" : ["2.16.840.1.113883.4.642.3.813"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-required-behavior",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionRequiredBehavior",
+    "title" : "ActionRequiredBehavior",
+    "description" : "Defines expectations around whether an action or action group is required.",
+    "systems" : ["http://hl7.org/fhir/action-required-behavior"],
+    "oids" : ["2.16.840.1.113883.4.642.3.803"],
+    "sources" : ["2.16.840.1.113883.4.642.3.803"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-selection-behavior",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionSelectionBehavior",
+    "title" : "ActionSelectionBehavior",
+    "description" : "Defines selection behavior of a group.",
+    "systems" : ["http://hl7.org/fhir/action-selection-behavior"],
+    "oids" : ["2.16.840.1.113883.4.642.3.801"],
+    "sources" : ["2.16.840.1.113883.4.642.3.801"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/action-type",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ActionType",
+    "title" : "ActionType",
+    "description" : "The type of action to be performed.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/action-type"],
+    "oids" : ["2.16.840.1.113883.4.642.3.809"],
+    "sources" : ["2.16.840.1.113883.4.642.3.809"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/body-site",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "SNOMEDCTBodyStructures",
+    "title" : "SNOMED CT Body Structures",
+    "description" : "This value set includes all codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 442083009 (Anatomical or acquired body site (body structure)).",
+    "systems" : ["http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.141"],
+    "sources" : ["2.16.840.1.113883.4.642.3.141"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/clinical-findings",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "SNOMEDCTClinicalFindings",
+    "title" : "SNOMED CT Clinical Findings",
+    "description" : "This value set includes all the \"Clinical finding\" [SNOMED CT](http://snomed.info/sct) codes - concepts where concept is-a 404684003 (Clinical finding (finding)).",
+    "systems" : ["http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.232"],
+    "sources" : ["2.16.840.1.113883.4.642.3.232"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/condition-code",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "Condition/Problem/DiagnosisCodes",
+    "title" : "Condition/Problem/Diagnosis Codes",
+    "description" : "Example value set for Condition/Problem/Diagnosis codes.",
+    "systems" : ["http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.161"],
+    "sources" : ["2.16.840.1.113883.4.642.3.161"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/data-absent-reason",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "DataAbsentReason",
+    "title" : "DataAbsentReason",
+    "description" : "Used to specify why the normally expected content of the data element is missing.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/data-absent-reason"],
+    "oids" : ["2.16.840.1.113883.4.642.3.5"],
+    "sources" : ["2.16.840.1.113883.4.642.3.5"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/definition-topic",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "DefinitionTopic",
+    "title" : "DefinitionTopic",
+    "description" : "High-level categorization of the definition, used for searching, sorting, and filtering.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/definition-topic"],
+    "oids" : ["2.16.840.1.113883.4.642.3.794"],
+    "sources" : ["2.16.840.1.113883.4.642.3.794"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-oncology-data-requirements-library.html" : "Oncology Data Requirements Library"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/goal-category",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "GoalCategory",
+    "title" : "Goal category",
+    "description" : "Example codes for grouping goals to use for filtering or presentation.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/goal-category"],
+    "oids" : ["2.16.840.1.113883.4.642.3.275"],
+    "sources" : ["2.16.840.1.113883.4.642.3.275"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/goal-priority",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "GoalPriority",
+    "title" : "Goal priority",
+    "description" : "Indicates the level of importance associated with reaching or sustaining a goal.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/goal-priority"],
+    "oids" : ["2.16.840.1.113883.4.642.3.273"],
+    "sources" : ["2.16.840.1.113883.4.642.3.273"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/goal-start-event",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "GoalStartEvent",
+    "title" : "Goal start event",
+    "description" : "Identifies types of events that might trigger the start of a goal.",
+    "systems" : ["http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.279"],
+    "sources" : ["2.16.840.1.113883.4.642.3.279"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/jurisdiction",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "Jurisdiction ValueSet",
+    "title" : "Jurisdiction",
+    "description" : "This value set defines a base set of codes for country, country subdivision and region    for indicating where a resource is intended to be used.   \r\n   \r\n   Note: The codes for countries and country subdivisions are taken from    [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)    while the codes for \"supra-national\" regions are from    [UN Standard country or area codes for statistical use (M49)](http://unstats.un.org/unsd/methods/m49/m49.htm).",
+    "systems" : ["http://unstats.un.org/unsd/methods/m49/m49.htm",
+    "urn:iso:std:iso:3166",
+    "urn:iso:std:iso:3166:-2"],
+    "oids" : ["2.16.840.1.113883.4.642.3.48"],
+    "sources" : ["2.16.840.1.113883.4.642.3.48"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-oncology-data-requirements-library.html" : "Oncology Data Requirements Library"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/languages",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "CommonLanguages",
+    "title" : "Common Languages",
+    "description" : "This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)",
+    "systems" : ["urn:ietf:bcp:47"],
+    "oids" : ["2.16.840.1.113883.4.642.3.20"],
+    "sources" : ["2.16.840.1.113883.4.642.3.20"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup",
+    "StructureDefinition-oncology-data-requirements-library.html" : "Oncology Data Requirements Library"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/library-type",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "LibraryType",
+    "title" : "LibraryType",
+    "description" : "The type of knowledge asset this library contains.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/library-type"],
+    "oids" : ["2.16.840.1.113883.4.642.3.763"],
+    "sources" : ["2.16.840.1.113883.4.642.3.763"],
+    "uses" : {
+    },
+    "StructureDefinition-oncology-data-requirements-library.html" : "Oncology Data Requirements Library"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/observation-category",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ObservationCategoryCodes",
+    "title" : "Observation Category Codes",
+    "description" : "Observation Category codes.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/observation-category"],
+    "oids" : ["2.16.840.1.113883.4.642.3.403"],
+    "sources" : ["2.16.840.1.113883.4.642.3.403"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/observation-codes",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "LOINCCodes",
+    "title" : "LOINC Codes",
+    "description" : "This value set includes all LOINC codes",
+    "systems" : ["http://loinc.org"],
+    "oids" : ["2.16.840.1.113883.4.642.3.396"],
+    "sources" : ["2.16.840.1.113883.4.642.3.396"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/observation-interpretation",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "ObservationInterpretationCodes",
+    "title" : "Observation Interpretation Codes",
+    "description" : "A categorical assessment, providing a rough qualitative interpretation of the observation value,    such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”.    The value set is intended to be for ANY use where coded representation of an interpretation is needed.   \r\n   \r\n   Notes:\r\n   \r\n   This is being communicated in v2.x in OBX-8 (Observation Interpretation), in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR in    Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively    used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts    (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to    the value set and published in a future version.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"],
+    "oids" : ["2.16.840.1.113883.4.642.3.399"],
+    "sources" : ["2.16.840.1.113883.4.642.3.399"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/observation-methods",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ObservationMethods",
+    "title" : "Observation Methods",
+    "description" : "Observation Method codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 272394005 (Technique (qualifier value)) or is-a 129264002 (Action (qualifier value)) or is-a 386053000 (Evaluation procedure(procedure))",
+    "systems" : ["http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.395"],
+    "sources" : ["2.16.840.1.113883.4.642.3.395"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/observation-status",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "ObservationStatus",
+    "title" : "ObservationStatus",
+    "description" : "Codes providing the status of an observation.",
+    "systems" : ["http://hl7.org/fhir/observation-status"],
+    "oids" : ["2.16.840.1.113883.4.642.3.400"],
+    "sources" : ["2.16.840.1.113883.4.642.3.400"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/plan-definition-type",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "PlanDefinitionType",
+    "title" : "PlanDefinitionType",
+    "description" : "The type of PlanDefinition.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/plan-definition-type"],
+    "oids" : ["2.16.840.1.113883.4.642.3.797"],
+    "sources" : ["2.16.840.1.113883.4.642.3.797"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/publication-status",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "PublicationStatus",
+    "title" : "PublicationStatus",
+    "description" : "The lifecycle status of an artifact.",
+    "systems" : ["http://hl7.org/fhir/publication-status"],
+    "oids" : ["2.16.840.1.113883.4.642.3.3"],
+    "sources" : ["2.16.840.1.113883.4.642.3.3"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-oncology-data-requirements-library.html" : "Oncology Data Requirements Library"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/referencerange-appliesto",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ObservationReferenceRangeAppliesToCodes",
+    "title" : "Observation Reference Range Applies To Codes",
+    "description" : "This value set defines a set of codes that can be used to indicate the particular target population the reference range applies to.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v3-Race",
+    "http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.3.407"],
+    "sources" : ["2.16.840.1.113883.4.642.3.407"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/referencerange-meaning",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "ObservationReferenceRangeMeaningCodes",
+    "title" : "Observation Reference Range Meaning Codes",
+    "description" : "This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/referencerange-meaning"],
+    "oids" : ["2.16.840.1.113883.4.642.3.397"],
+    "sources" : ["2.16.840.1.113883.4.642.3.397"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/request-intent",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "RequestIntent",
+    "title" : "RequestIntent",
+    "description" : "Codes indicating the degree of authority/intentionality associated with a request.",
+    "systems" : ["http://hl7.org/fhir/request-intent"],
+    "oids" : ["2.16.840.1.113883.4.642.3.113"],
+    "sources" : ["2.16.840.1.113883.4.642.3.113"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/request-priority",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "RequestPriority",
+    "title" : "Request priority",
+    "description" : "The clinical priority of a diagnostic order.",
+    "systems" : ["http://hl7.org/fhir/request-priority"],
+    "oids" : ["2.16.840.1.113883.4.642.3.115"],
+    "sources" : ["2.16.840.1.113883.4.642.3.115"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/request-status",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "RequestStatus",
+    "title" : "RequestStatus",
+    "description" : "Codes identifying the lifecycle stage of a request.",
+    "systems" : ["http://hl7.org/fhir/request-status"],
+    "oids" : ["2.16.840.1.113883.4.642.3.111"],
+    "sources" : ["2.16.840.1.113883.4.642.3.111"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-requestgroup.html" : "Anti-Cancer Regimen RequestGroup"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/subject-type",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "SubjectType",
+    "title" : "Subject type",
+    "description" : "Possible types of subjects.",
+    "systems" : ["http://hl7.org/fhir/resource-types"],
+    "oids" : ["2.16.840.1.113883.4.642.3.775"],
+    "sources" : ["2.16.840.1.113883.4.642.3.775"],
+    "uses" : {
+    },
+    "StructureDefinition-anticancer-regimen-plandefinition.html" : "Anti-Cancer Regimen PlanDefinition",
+    "StructureDefinition-oncology-data-requirements-library.html" : "Oncology Data Requirements Library"
+  },
+  {
+    "url" : "http://hl7.org/fhir/us/codex-ocpa/ValueSet/regimen-intent-vs",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "RegimenIntentVS",
+    "title" : "Regimen Intent Value Set",
+    "description" : "The clinical intent of an anti-cancer regimen. All codes are drawn from\nthe SNOMED CT \\\"Intents (nature of procedure values)\\\" hierarchy (363675004).\n\n**mCODE Migration Candidate** — Proposed for mCODE STU5.",
+    "systems" : ["http://snomed.info/sct"],
+    "uses" : {
+    },
+    "StructureDefinition-ocpa-regimen-intent.html" : "Regimen Intent"
+  },
+  {
+    "url" : "http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "TreatmentLineVS",
+    "title" : "Treatment Line Value Set",
+    "description" : "Codes representing the ordinal line of systemic anti-cancer therapy.\nUsed in LineOfTherapyObservation.valueCodeableConcept and the RegimenTreatmentLine extension.\n\n**mCODE Migration Candidate** — Proposed for mCODE STU5.",
+    "systems" : ["http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs"],
+    "uses" : {
+    },
+    "StructureDefinition-line-of-therapy-observation.html" : "Line of Therapy Observation",
+    "StructureDefinition-ocpa-regimen-treatment-line.html" : "Regimen Treatment Line"
+  }]
+}

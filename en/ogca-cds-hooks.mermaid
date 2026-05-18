@@ -1,0 +1,20 @@
+%%{init: {'sequence': {'htmlLabels': false}}}%%
+sequenceDiagram
+  autonumber
+  participant EHR as CRD Client (EHR)
+  participant CRD as CRD Service
+
+  EHR->>CRD: POST /cds-services/oncology-crd (order-select / order-sign)
+
+  CRD->>CRD: Resolve regimen + data requirements
+  CRD->>CRD: Evaluate context completeness and criteria
+
+  alt Context complete — criteria met
+    CRD-->>EHR: No PA required / pre-approval
+  else Context incomplete
+    CRD-->>EHR: DTR launch card
+  else Context complete — criteria not met
+    CRD-->>EHR: PA required card
+  else Regimen unrecognised
+    CRD-->>EHR: Coverage guidance card
+  end

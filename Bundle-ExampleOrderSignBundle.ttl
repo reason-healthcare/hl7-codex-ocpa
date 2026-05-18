@@ -1,0 +1,277 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-ocpa/Bundle/ExampleOrderSignBundle> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "ExampleOrderSignBundle"] ; # 
+  fhir:type [ fhir:v "collection"] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [
+       fhir:v "http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder>
+     ] ;
+     fhir:resource ( <http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH>
+     ] ;
+     fhir:resource ( <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH>
+     ] ;
+     fhir:resource ( <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH> )
+  ] ) . # 
+
+<http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder> a fhir:RequestGroup ;
+  fhir:id [ fhir:v "THRegimenOrder"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RequestGroup_THRegimenOrder\"> </a><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup THRegimenOrder</b></p><a name=\"THRegimenOrder\"> </a><a name=\"hcTHRegimenOrder\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-anticancer-regimen-requestgroup.html\">Anti-Cancer Regimen RequestGroup</a></p></div><p><b>Regimen Intent</b>: <span title=\"Codes:{http://snomed.info/sct 373846009}\">Adjuvant - intent</span></p><p><b>Regimen Treatment Line</b>: <span title=\"Codes:{http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs 1L}\">First-line</span></p><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-THRegimenDefinition.html\">TH: Paclitaxel + Trastuzumab (Weekly) — Adjuvant HER2+ Breast Cancer</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Order</p><p><b>subject</b>: <a href=\"Patient-OGCAPatientExample.html\">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>paclitaxel-th-action</blockquote><p><b>title</b>: Paclitaxel 80 mg/m² IV — days 1, 8, 15 of 21-day cycle</p><p><b>timing</b>: Once per 21 days</p><p><b>resource</b>: <a href=\"MedicationRequest-PaclitaxelMedRequestTH.html\">MedicationRequest: status = draft; intent = order; medication[x] = paclitaxel</a></p></blockquote><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>trastuzumab-th-action</blockquote><p><b>title</b>: Trastuzumab IV — days 1, 8, 15 of 21-day cycle</p><p><b>timing</b>: Once per 21 days</p><p><b>resource</b>: <a href=\"MedicationRequest-TrastuzumabMedRequestTH.html\">MedicationRequest: status = draft; intent = order; medication[x] = trastuzumab</a></p></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-intent"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-intent>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:373846009 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "373846009" ] ;
+         fhir:display [ fhir:v "Adjuvant - intent" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-treatment-line"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-treatment-line>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs>
+         ] ;
+         fhir:code [ fhir:v "1L" ] ;
+         fhir:display [ fhir:v "First-line" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:subject [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> ;
+     fhir:reference [ fhir:v "Patient/OGCAPatientExample" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "paclitaxel-th-action" ] ;
+     fhir:title [ fhir:v "Paclitaxel 80 mg/m² IV — days 1, 8, 15 of 21-day cycle" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 1
+           ]
+         ] [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 8
+           ]
+         ] [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 15
+           ]
+         ] ) ;
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle>
+         ]
+       ] ) ;
+       fhir:repeat [
+         fhir:period [ fhir:v "21"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:resource [
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH> ;
+       fhir:reference [ fhir:v "MedicationRequest/PaclitaxelMedRequestTH" ]
+     ]
+  ] [
+     fhir:id [ fhir:v "trastuzumab-th-action" ] ;
+     fhir:title [ fhir:v "Trastuzumab IV — days 1, 8, 15 of 21-day cycle" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 1
+           ]
+         ] [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 8
+           ]
+         ] [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 15
+           ]
+         ] ) ;
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle>
+         ]
+       ] ) ;
+       fhir:repeat [
+         fhir:period [ fhir:v "21"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:resource [
+       fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH> ;
+       fhir:reference [ fhir:v "MedicationRequest/TrastuzumabMedRequestTH" ]
+     ]
+  ] ) . # 
+
+<http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH> a fhir:Us, fhir:MedicationRequest ;
+  fhir:id [ fhir:v "PaclitaxelMedRequestTH"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_PaclitaxelMedRequestTH\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest PaclitaxelMedRequestTH</b></p><a name=\"PaclitaxelMedRequestTH\"> </a><a name=\"hcPaclitaxelMedRequestTH\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-related-medication-request.html\">Cancer-Related Medication Request Profile</a></p></div><p><b>status</b>: Draft</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 56946}\">paclitaxel</span></p><p><b>subject</b>: <a href=\"Patient-OGCAPatientExample.html\">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><p><b>requester</b>: <a href=\"Practitioner-OGCAOncologistExample.html\">Practitioner Maria Lopez (official)</a></p><p><b>reasonReference</b>: <a href=\"Condition-OGCABreastCancerConditionExample.html\">Condition Malignant neoplasm of breast</a></p><h3>DosageInstructions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Text</b></td></tr><tr><td style=\"display: none\">*</td><td>80 mg/m² IV over 1 hour, weekly</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:medication [
+     a fhir:CodeableConcept ;
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ;
+         fhir:l <http://www.nlm.nih.gov/research/umls/rxnorm>
+       ] ;
+       fhir:code [ fhir:v "56946" ] ;
+       fhir:display [ fhir:v "paclitaxel" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> ;
+     fhir:reference [ fhir:v "Patient/OGCAPatientExample" ]
+  ] ; # 
+  fhir:requester [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Practitioner/OGCAOncologistExample> ;
+     fhir:reference [ fhir:v "Practitioner/OGCAOncologistExample" ]
+  ] ; # 
+  fhir:reasonReference ( [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Condition/OGCABreastCancerConditionExample> ;
+     fhir:reference [ fhir:v "Condition/OGCABreastCancerConditionExample" ]
+  ] ) ; # 
+  fhir:dosageInstruction ( [
+     fhir:text [ fhir:v "80 mg/m² IV over 1 hour, weekly" ]
+  ] ) . # 
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH> a fhir:Us, fhir:MedicationRequest ;
+  fhir:id [ fhir:v "TrastuzumabMedRequestTH"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"MedicationRequest_TrastuzumabMedRequestTH\"> </a><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest TrastuzumabMedRequestTH</b></p><a name=\"TrastuzumabMedRequestTH\"> </a><a name=\"hcTrastuzumabMedRequestTH\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-related-medication-request.html\">Cancer-Related Medication Request Profile</a></p></div><p><b>status</b>: Draft</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 224905}\">trastuzumab</span></p><p><b>subject</b>: <a href=\"Patient-OGCAPatientExample.html\">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><p><b>requester</b>: <a href=\"Practitioner-OGCAOncologistExample.html\">Practitioner Maria Lopez (official)</a></p><p><b>reasonReference</b>: <a href=\"Condition-OGCABreastCancerConditionExample.html\">Condition Malignant neoplasm of breast</a></p><h3>DosageInstructions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Text</b></td></tr><tr><td style=\"display: none\">*</td><td>4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:medication [
+     a fhir:CodeableConcept ;
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ;
+         fhir:l <http://www.nlm.nih.gov/research/umls/rxnorm>
+       ] ;
+       fhir:code [ fhir:v "224905" ] ;
+       fhir:display [ fhir:v "trastuzumab" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> ;
+     fhir:reference [ fhir:v "Patient/OGCAPatientExample" ]
+  ] ; # 
+  fhir:requester [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Practitioner/OGCAOncologistExample> ;
+     fhir:reference [ fhir:v "Practitioner/OGCAOncologistExample" ]
+  ] ; # 
+  fhir:reasonReference ( [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Condition/OGCABreastCancerConditionExample> ;
+     fhir:reference [ fhir:v "Condition/OGCABreastCancerConditionExample" ]
+  ] ) ; # 
+  fhir:dosageInstruction ( [
+     fhir:text [ fhir:v "4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly" ]
+  ] ) . # 
+
+<http://hl7.org/fhir/us/codex-ocpa/Practitioner/OGCAOncologistExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Condition/OGCABreastCancerConditionExample> a fhir:Us .
+
+# -------------------------------------------------------------------------------------
+

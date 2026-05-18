@@ -1,0 +1,59 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH> a fhir:MedicationRequest ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "TrastuzumabMedRequestTH"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: MedicationRequest TrastuzumabMedRequestTH</b></p><a name=\"TrastuzumabMedRequestTH\"> </a><a name=\"hcTrastuzumabMedRequestTH\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/mcode/STU4/StructureDefinition-mcode-cancer-related-medication-request.html\">Cancer-Related Medication Request Profile</a></p></div><p><b>status</b>: Draft</p><p><b>intent</b>: Order</p><p><b>medication</b>: <span title=\"Codes:{http://www.nlm.nih.gov/research/umls/rxnorm 224905}\">trastuzumab</span></p><p><b>subject</b>: <a href=\"Patient-OGCAPatientExample.html\">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><p><b>requester</b>: <a href=\"Practitioner-OGCAOncologistExample.html\">Practitioner Maria Lopez (official)</a></p><p><b>reasonReference</b>: <a href=\"Condition-OGCABreastCancerConditionExample.html\">Condition Malignant neoplasm of breast</a></p><h3>DosageInstructions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Text</b></td></tr><tr><td style=\"display: none\">*</td><td>4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:medication [
+     a fhir:CodeableConcept ;
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://www.nlm.nih.gov/research/umls/rxnorm"^^xsd:anyURI ;
+         fhir:l <http://www.nlm.nih.gov/research/umls/rxnorm>
+       ] ;
+       fhir:code [ fhir:v "224905" ] ;
+       fhir:display [ fhir:v "trastuzumab" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> ;
+     fhir:reference [ fhir:v "Patient/OGCAPatientExample" ]
+  ] ; # 
+  fhir:requester [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Practitioner/OGCAOncologistExample> ;
+     fhir:reference [ fhir:v "Practitioner/OGCAOncologistExample" ]
+  ] ; # 
+  fhir:reasonReference ( [
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/Condition/OGCABreastCancerConditionExample> ;
+     fhir:reference [ fhir:v "Condition/OGCABreastCancerConditionExample" ]
+  ] ) ; # 
+  fhir:dosageInstruction ( [
+     fhir:text [ fhir:v "4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly" ]
+  ] ) . # 
+
+<http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Practitioner/OGCAOncologistExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Condition/OGCABreastCancerConditionExample> a fhir:Us .
+
+# -------------------------------------------------------------------------------------
+

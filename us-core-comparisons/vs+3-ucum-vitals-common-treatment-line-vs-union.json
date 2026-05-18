@@ -1,0 +1,68 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "6b35eb34-eb74-4389-8320-d6cb0b5ad66d-8",
+  "url" : "http://hl7.org/fhir/comparison/ValueSet/6b35eb34-eb74-4389-8320-d6cb0b5ad66d-8",
+  "name" : "UnionVitalSignsUnitsAndTreatmentLineVS",
+  "title" : "Union of Vital Signs Units And Treatment Line Value Set",
+  "status" : "draft",
+  "date" : "2026-05-18T11:03:45-04:00",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US",
+      "display" : "United States of America"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "concept" : [{
+        "code" : "%",
+        "display" : "percent"
+      },
+      {
+        "code" : "cm",
+        "display" : "centimeter"
+      },
+      {
+        "code" : "[in_i]",
+        "display" : "inch (international)"
+      },
+      {
+        "code" : "kg",
+        "display" : "kilogram"
+      },
+      {
+        "code" : "g",
+        "display" : "gram"
+      },
+      {
+        "code" : "[lb_av]",
+        "display" : "pound (US and British)"
+      },
+      {
+        "code" : "Cel",
+        "display" : "degree Celsius"
+      },
+      {
+        "code" : "[degF]",
+        "display" : "degree Fahrenheit"
+      },
+      {
+        "code" : "mm[Hg]",
+        "display" : "millimeter of mercury"
+      },
+      {
+        "code" : "/min",
+        "display" : "per minute"
+      },
+      {
+        "code" : "kg/m2",
+        "display" : "kilogram / (meter ^ 2)"
+      },
+      {
+        "code" : "m2",
+        "display" : "square meter"
+      }]
+    }]
+  }
+}
