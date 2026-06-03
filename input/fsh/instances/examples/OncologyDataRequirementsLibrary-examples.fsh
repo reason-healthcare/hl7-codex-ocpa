@@ -18,7 +18,7 @@ pre-approval eligibility and DTR uses to collect or prepopulate missing document
 Covers: primary cancer condition, TNM staging, ER/PR/HER2 biomarkers, disease status,
 ordered regimen, line of therapy, performance status, and prior therapy history."""
 
-* url     = "http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements"
+* url     = "http://hl7.org/fhir/us/codex-mopa/Library/BreastCancerPADataRequirements"
 * version = "1.0.0"
 * name    = "BreastCancerPADataRequirements"
 * title   = "Breast Cancer Prior Authorization Data Requirements"
@@ -68,11 +68,11 @@ ordered regimen, line of therapy, performance status, and prior therapy history.
 
 // ── Ordered anti-cancer regimen ───────────────────────────────────────────
 * dataRequirement[+].type    = #RequestGroup
-* dataRequirement[=].profile[+] = "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"
+* dataRequirement[=].profile[+] = "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup"
 
 // ── Line of therapy ───────────────────────────────────────────────────────
 * dataRequirement[+].type    = #Observation
-* dataRequirement[=].profile[+] = "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation"
+* dataRequirement[=].profile[+] = "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/line-of-therapy-observation"
 
 // ── Performance status (ECOG) ─────────────────────────────────────────────
 * dataRequirement[+].type    = #Observation

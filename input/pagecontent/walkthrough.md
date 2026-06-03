@@ -1,7 +1,8 @@
+{:.no_toc}
 
 ### Overview
 
-This page traces the concrete API calls involved in two OGCA workflows for the same clinical
+This page traces the concrete API calls involved in two MOPA workflows for the same clinical
 scenario, corresponding to the two-layer framework defined in [Use Cases and Actors](use-cases.html).
 
 **Layer 1** (optional) is provider-driven pre-order CDS: a SMART app launched from the EHR
@@ -65,7 +66,7 @@ active primary cancer condition to determine which `OncologyDataRequirementsLibr
 ##### App reads primary cancer condition
 
 ```
-GET https://ehr.example.org/fhir/Condition?patient=OGCAPatientExample
+GET https://ehr.example.org/fhir/Condition?patient=MOPAPatientExample
     &code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-primary-cancer-disorder-vs
     &clinical-status=active
 Accept: application/fhir+json
@@ -87,7 +88,7 @@ Authorization: Bearer <smart-access-token>
 ```
 
 The app uses cancer type code `254837009` to fetch the breast cancer Library. It either has
-the canonical pre-configured per cancer type, or queries the OGCA service by subject code:
+the canonical pre-configured per cancer type, or queries the MOPA service by subject code:
 
 ```
 // Option A — pre-configured canonical
@@ -110,34 +111,34 @@ in parallel where possible.
 
 // TNM stage group
 GET https://ehr.example.org/fhir/Observation
-    ?patient=OGCAPatientExample
+    ?patient=MOPAPatientExample
     &_profile=http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-stage-group
     &_sort=-date&_count=1
 Authorization: Bearer <smart-access-token>
 
 // Tumor markers (ER, PR, HER2)
 GET https://ehr.example.org/fhir/Observation
-    ?patient=OGCAPatientExample
+    ?patient=MOPAPatientExample
     &code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs
     &_sort=-date
 Authorization: Bearer <smart-access-token>
 
 // ECOG performance status
 GET https://ehr.example.org/fhir/Observation
-    ?patient=OGCAPatientExample
+    ?patient=MOPAPatientExample
     &_profile=http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-ecog-performance-status
     &_sort=-date&_count=1
 Authorization: Bearer <smart-access-token>
 
 // Line of therapy
 GET https://ehr.example.org/fhir/Observation
-    ?patient=OGCAPatientExample
-    &_profile=http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation
+    ?patient=MOPAPatientExample
+    &_profile=http://hl7.org/fhir/us/codex-mopa/StructureDefinition/line-of-therapy-observation
 Authorization: Bearer <smart-access-token>
 
 // Prior systemic therapy
 GET https://ehr.example.org/fhir/MedicationRequest
-    ?patient=OGCAPatientExample
+    ?patient=MOPAPatientExample
     &_profile=http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-related-medication-request
     &status=completed,stopped
 Authorization: Bearer <smart-access-token>
@@ -199,7 +200,7 @@ Authorization: Bearer <smart-access-token>
   "meta": { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"] },
   "status": "final",
   "code": { "coding": [{ "system": "http://loinc.org", "code": "85319-2", "display": "HER2 [Presence] in Breast cancer specimen by Immune stain" }] },
-  "subject": { "reference": "Patient/OGCAPatientExample" },
+  "subject": { "reference": "Patient/MOPAPatientExample" },
   "effectiveDateTime": "2026-05-15",
   "valueCodeableConcept": {
     "coding": [{ "system": "http://snomed.info/sct", "code": "10828004", "display": "Positive (qualifier value)" }]
@@ -249,7 +250,7 @@ Step 4  POST /cds-services/oncology-crd  ← order-sign fires (full MedicationRe
 
 #### Step 1 — Discovery: Disease Is Unknown
 
-The EHR contacts the OGCA CDS Service at startup or configuration time — **before any
+The EHR contacts the MOPA CDS Service at startup or configuration time — **before any
 patient is selected and before any regimen is being ordered.** The service returns a static
 discovery document. At this point the EHR has no idea what cancer type the next patient will
 have.
@@ -282,28 +283,28 @@ Accept: application/json
         "primaryCancer":     "Condition?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-primary-cancer-disorder-vs",
         "cancerStage":       "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-observation-codes-vs",
         "biomarkers":        "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs",
-        "lineOfTherapy":     "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs",
+        "lineOfTherapy":     "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
         "performanceStatus": "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-ecog-performance-status-vs",
         "priorTherapy":      "MedicationRequest?patient={{context.patientId}}&status=completed,stopped"
       },
 
-      // Layer 2 — OGCA extension (OGCA-aware clients only).
-      // Lists each supported cancer type Library. An OGCA-aware EHR MAY use this
+      // Layer 2 — MOPA extension (MOPA-aware clients only).
+      // Lists each supported cancer type Library. An MOPA-aware EHR MAY use this
       // to supply dataRequirements.canonical when disambiguating multiple active cancers.
       "extension": {
         "org.hl7.davinci-crd.oncology": {
           "dataRequirementsLibraries": [
             {
-              "canonical": "http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements|1.0.0",
+              "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/BreastCancerPADataRequirements|1.0.0",
               "cancerType": { "system": "http://snomed.info/sct", "code": "254837009", "display": "Malignant neoplasm of breast" }
             },
             {
-              "canonical": "http://hl7.org/fhir/us/codex-ocpa/Library/LungCancerPADataRequirements|1.0.0",
+              "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/LungCancerPADataRequirements|1.0.0",
               "cancerType": { "system": "http://snomed.info/sct", "code": "363358000", "display": "Malignant tumor of lung" }
             }
           ],
           "supportedRegimenProfiles": [
-            "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"
+            "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup"
           ]
         }
       }
@@ -361,8 +362,8 @@ Content-Type: application/json
 
   // ── Standard CDS Hooks context ────────────────────────────────────────────
   "context": {
-    "userId":      "Practitioner/OGCAOncologistExample",
-    "patientId":   "OGCAPatientExample",
+    "userId":      "Practitioner/MOPAOncologistExample",
+    "patientId":   "MOPAPatientExample",
     "encounterId": "encounter-20260515-001",
 
     // At order-select only the RequestGroup is in selections; MedicationRequests
@@ -380,28 +381,28 @@ Content-Type: application/json
             "id":                    "THRegimenOrder",
             "status":                "draft",
             "intent":                "order",
-            "subject":               { "reference": "Patient/OGCAPatientExample" },
+            "subject":               { "reference": "Patient/MOPAPatientExample" },
             // instantiatesCanonical links back to the protocol definition.
             // The CDS Service MAY fetch the PlanDefinition for richer evaluation.
-            "instantiatesCanonical": ["http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition"],
+            "instantiatesCanonical": ["http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"],
             "extension": [
               {
-                "url": "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-intent",
+                "url": "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent",
                 "valueCodeableConcept": {
                   "coding": [{ "system": "http://snomed.info/sct", "code": "373846009", "display": "Adjuvant - intent" }]
                 }
               },
               {
-                "url": "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-treatment-line",
+                "url": "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line",
                 "valueCodeableConcept": {
-                  "coding": [{ "system": "http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs", "code": "1L", "display": "First-line" }]
+                  "coding": [{ "system": "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs", "code": "1L", "display": "First-line" }]
                 }
               },
               {
-                // regimenDiseaseContext: OPTIONAL. An OGCA-aware EHR MAY populate this
+                // regimenDiseaseContext: OPTIONAL. An MOPA-aware EHR MAY populate this
                 // to make the disease context explicit on the RequestGroup. The CDS Service
                 // does NOT require it — it reads the cancer type from prefetch.primaryCancer.
-                "url": "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-disease-context",
+                "url": "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-disease-context",
                 "valueCodeableConcept": {
                   "coding": [{ "system": "http://snomed.info/sct", "code": "254837009", "display": "Malignant neoplasm of breast" }]
                 }
@@ -437,12 +438,12 @@ Content-Type: application/json
       "entry": [{
         "resource": {
           "resourceType":       "Condition",
-          "id":                 "OGCABreastCancerConditionExample",
+          "id":                 "MOPABreastCancerConditionExample",
           "meta":               { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-primary-cancer-condition"] },
           "clinicalStatus":     { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/condition-clinical", "code": "active" }] },
           "verificationStatus": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status", "code": "confirmed" }] },
           "code":               { "coding": [{ "system": "http://snomed.info/sct", "code": "254837009", "display": "Malignant neoplasm of breast" }] },
-          "subject":            { "reference": "Patient/OGCAPatientExample" },
+          "subject":            { "reference": "Patient/MOPAPatientExample" },
           "onsetDateTime":      "2025-11-03"
         }
       }]
@@ -459,7 +460,7 @@ Content-Type: application/json
           "meta":         { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-stage-group"] },
           "status":       "final",
           "code":         { "coding": [{ "system": "http://loinc.org", "code": "21908-9", "display": "Stage group.clinical Cancer" }] },
-          "subject":      { "reference": "Patient/OGCAPatientExample" },
+          "subject":      { "reference": "Patient/MOPAPatientExample" },
           "effectiveDateTime": "2025-11-10",
           "valueCodeableConcept": {
             "coding": [{ "system": "http://snomed.info/sct", "code": "1228882005", "display": "American Joint Commission on Cancer stage IIB (qualifier value)" }]
@@ -480,7 +481,7 @@ Content-Type: application/json
             "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"] },
             "status": "final",
             "code":   { "coding": [{ "system": "http://loinc.org", "code": "85319-2", "display": "HER2 [Presence] in Breast cancer specimen by Immune stain" }] },
-            "subject": { "reference": "Patient/OGCAPatientExample" },
+            "subject": { "reference": "Patient/MOPAPatientExample" },
             "effectiveDateTime": "2025-11-12",
             "valueCodeableConcept": {
               "coding": [{ "system": "http://snomed.info/sct", "code": "10828004", "display": "Positive (qualifier value)" }]
@@ -493,7 +494,7 @@ Content-Type: application/json
             "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"] },
             "status": "final",
             "code":   { "coding": [{ "system": "http://loinc.org", "code": "85337-4", "display": "Estrogen receptor Ag [Presence] in Breast cancer specimen by Immune stain" }] },
-            "subject": { "reference": "Patient/OGCAPatientExample" },
+            "subject": { "reference": "Patient/MOPAPatientExample" },
             "effectiveDateTime": "2025-11-12",
             "valueCodeableConcept": {
               "coding": [{ "system": "http://snomed.info/sct", "code": "260385009", "display": "Negative (qualifier value)" }]
@@ -506,7 +507,7 @@ Content-Type: application/json
             "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"] },
             "status": "final",
             "code":   { "coding": [{ "system": "http://loinc.org", "code": "85339-0", "display": "Progesterone receptor Ag [Presence] in Breast cancer specimen by Immune stain" }] },
-            "subject": { "reference": "Patient/OGCAPatientExample" },
+            "subject": { "reference": "Patient/MOPAPatientExample" },
             "effectiveDateTime": "2025-11-12",
             "valueCodeableConcept": {
               "coding": [{ "system": "http://snomed.info/sct", "code": "260385009", "display": "Negative (qualifier value)" }]
@@ -524,12 +525,12 @@ Content-Type: application/json
       "entry": [{
         "resource": {
           "resourceType": "Observation",
-          "meta":   { "profile": ["http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation"] },
+          "meta":   { "profile": ["http://hl7.org/fhir/us/codex-mopa/StructureDefinition/line-of-therapy-observation"] },
           "status": "final",
-          "code":   { "coding": [{ "system": "http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes", "code": "line-of-therapy", "display": "Line of Therapy" }] },
-          "subject": { "reference": "Patient/OGCAPatientExample" },
+          "code":   { "coding": [{ "system": "http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes", "code": "line-of-therapy", "display": "Line of Therapy" }] },
+          "subject": { "reference": "Patient/MOPAPatientExample" },
           "valueCodeableConcept": {
-            "coding": [{ "system": "http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs", "code": "1L", "display": "First-line" }]
+            "coding": [{ "system": "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs", "code": "1L", "display": "First-line" }]
           }
         }
       }]
@@ -546,7 +547,7 @@ Content-Type: application/json
           "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-ecog-performance-status"] },
           "status": "final",
           "code":   { "coding": [{ "system": "http://loinc.org", "code": "89247-1", "display": "ECOG Performance Status score" }] },
-          "subject": { "reference": "Patient/OGCAPatientExample" },
+          "subject": { "reference": "Patient/MOPAPatientExample" },
           "effectiveDateTime": "2026-05-10",
           "valueInteger": 1
         }
@@ -561,7 +562,7 @@ Content-Type: application/json
     }
   },
 
-  // ── OGCA oncology extension ───────────────────────────────────────────────
+  // ── MOPA oncology extension ───────────────────────────────────────────────
   // orderedRegimen (REQUIRED) identifies the draft RequestGroup.
   // dataRequirements (OPTIONAL) — omitted here: Jane Smith has a single active
   // cancer condition so the service resolves the Library unambiguously from
@@ -572,7 +573,7 @@ Content-Type: application/json
       "orderedRegimen": {
         "reference": "RequestGroup/THRegimenOrder",
         // regimenDefinition is OPTIONAL.
-        "regimenDefinition": "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition"
+        "regimenDefinition": "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"
       }
     }
   }
@@ -629,7 +630,7 @@ The CDS Service returns a success card directly — no DTR required.
       "indicator": "success",
       "detail":    "Adjuvant TH (paclitaxel + trastuzumab) for HER2-positive Stage IIB breast cancer meets coverage criteria. HER2 IHC positivity confirmed. No prior authorization required for this regimen in the adjuvant first-line setting.",
       "source": {
-        "label": "OGCA Coverage Decision Support",
+        "label": "MOPA Coverage Decision Support",
         "url":   "https://cds.example.org",
         "icon":  "https://cds.example.org/logo.png"
       }
@@ -657,7 +658,7 @@ DTR launch card.
       "indicator": "warning",
       "detail":    "HER2 receptor status is required to evaluate trastuzumab coverage. No HER2 result was found in the patient record. Please provide HER2 test results via the prior authorization documentation form.",
       "source": {
-        "label": "OGCA Coverage Decision Support",
+        "label": "MOPA Coverage Decision Support",
         "url":   "https://cds.example.org"
       },
       "links": [
@@ -665,7 +666,7 @@ DTR launch card.
           "label": "Complete Prior Authorization Documentation (DTR)",
           "url":   "https://dtr.example.org/launch?iss=https%3A%2F%2Fehr.example.org%2Ffhir&launch=eyJwYXRpZW50IjoiT0dDQVBhdGllbnRFeGFtcGxlIiwibGlicmFyeSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvdXMvY29kZXgtb2NwYS9MaWJyYXJ5L0JyZWFzdENhbmNlclBBRGF0YVJlcXVpcmVtZW50c3wxLjAuMCJ9",
           "type":  "smart",
-          "appContext": "{\"library\":\"http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements|1.0.0\",\"regimen\":\"RequestGroup/THRegimenOrder\",\"missingRequirements\":[\"mcode-tumor-marker-test (HER2)\"]}"
+          "appContext": "{\"library\":\"http://hl7.org/fhir/us/codex-mopa/Library/BreastCancerPADataRequirements|1.0.0\",\"regimen\":\"RequestGroup/THRegimenOrder\",\"missingRequirements\":[\"mcode-tumor-marker-test (HER2)\"]}"
         }
       ]
     }
@@ -715,8 +716,8 @@ Content-Type: application/json
   "fhirAuthorization": { "...": "..." },
 
   "context": {
-    "userId":    "Practitioner/OGCAOncologistExample",
-    "patientId": "OGCAPatientExample",
+    "userId":    "Practitioner/MOPAOncologistExample",
+    "patientId": "MOPAPatientExample",
 
     "draftOrders": {
       "resourceType": "Bundle",
@@ -732,7 +733,7 @@ Content-Type: application/json
             "id":           "PaclitaxelMedRequestTH",
             "status":       "draft",
             "intent":       "order",
-            "subject":      { "reference": "Patient/OGCAPatientExample" },
+            "subject":      { "reference": "Patient/MOPAPatientExample" },
             "medicationCodeableConcept": {
               "coding": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "code": "56946", "display": "paclitaxel" }]
             },
@@ -745,7 +746,7 @@ Content-Type: application/json
             "id":           "TrastuzumabMedRequestTH",
             "status":       "draft",
             "intent":       "order",
-            "subject":      { "reference": "Patient/OGCAPatientExample" },
+            "subject":      { "reference": "Patient/MOPAPatientExample" },
             "medicationCodeableConcept": {
               "coding": [{ "system": "http://www.nlm.nih.gov/research/umls/rxnorm", "code": "224905", "display": "trastuzumab" }]
             },
@@ -780,7 +781,7 @@ Content-Type: application/json
     "org.hl7.davinci-crd.oncology": {
       "orderedRegimen": {
         "reference":         "RequestGroup/THRegimenOrder",
-        "regimenDefinition": "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition"
+        "regimenDefinition": "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"
       }
     }
   }
@@ -801,7 +802,7 @@ Content-Type: application/json
       "indicator": "success",
       "detail":    "Adjuvant TH (paclitaxel + trastuzumab) for HER2-positive (IHC 3+) Stage IIB breast cancer is approved for coverage. Confirmed HER2 positivity, Stage IIB disease, ECOG PS 1, no prior HER2-directed therapy, first-line adjuvant intent.",
       "source": {
-        "label": "OGCA Coverage Decision Support",
+        "label": "MOPA Coverage Decision Support",
         "url":   "https://cds.example.org"
       }
     }
@@ -813,7 +814,7 @@ Content-Type: application/json
       "resource": {
         "resourceType": "Coverage",
         "status":       "active",
-        "subscriber":   { "reference": "Patient/OGCAPatientExample" },
+        "subscriber":   { "reference": "Patient/MOPAPatientExample" },
         "payor":        [{ "display": "Example Health Plan" }]
       }
     }

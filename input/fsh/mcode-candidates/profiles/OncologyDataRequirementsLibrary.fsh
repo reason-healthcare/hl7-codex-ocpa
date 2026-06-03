@@ -28,9 +28,9 @@ from this base profile and bind Library.subjectCodeableConcept to the target can
 * ^status = #draft
 * ^experimental = true
 * ^purpose = """mCODE Migration Candidate — proposed for mCODE STU5. This artifact is defined in the
-OGCA IG as a temporary home while a formal mCODE ballot proposal is prepared. It is NOT
+MOPA IG as a temporary home while a formal mCODE ballot proposal is prepared. It is NOT
 intended to be a permanent artifact of this IG. Canonical URLs will change at migration.
-See the mCODE Candidates page in this IG for the full migration plan."""
+See the mCODE Gap Proposals page in this IG for the full proposal backlog."""
 * ^extension[$StdStatus].valueCode = #draft
 * ^extension[$FMM].valueInteger = 0
 

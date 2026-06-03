@@ -1,5 +1,5 @@
 // ============================================================
-// Aliases for the OGCA Implementation Guide
+// Aliases for the MOPA Implementation Guide
 // ============================================================
 
 // Standard terminology systems
@@ -17,7 +17,7 @@ Alias: $OBS-CAT         = http://terminology.hl7.org/CodeSystem/observation-cate
 
 // Standard HL7 extensions
 Alias: $DaysOfCycleOfficial  = http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle
-Alias: $DaysOfCycle          = http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle
+Alias: $DaysOfCycle          = http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle
 Alias: $StdStatus       = http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
 Alias: $FMM             = http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
 
@@ -34,6 +34,6 @@ Alias: $mCODETumorMarker       = http://hl7.org/fhir/us/mcode/StructureDefinitio
 Alias: $mCODEDiseaseStatus     = http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-cancer-disease-status
 Alias: $mCODEECOG              = http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-ecog-performance-status
 
-// OGCA local code systems
-Alias: $OcpaCS             = http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes
-Alias: $TreatmentLineCS    = http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs
+// MOPA local code systems
+Alias: $OcpaCS             = http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes
+Alias: $TreatmentLineCS    = http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs

@@ -1,4 +1,3 @@
-
 ### Actors
 
 | Actor | Description |
@@ -28,6 +27,10 @@ This layer:
 
 This layer is **provider-driven**, **guideline-informed**, and focuses on selecting the right
 treatment upfront.
+
+The upstream standards proposals for this workflow are collected on the
+[Da Vinci Gap Proposals](davinci-gap-proposals.html) and
+[mCODE Gap Proposals](mcode-gap-proposals.html) pages.
 
 #### Layer 2 — Structured Authorization Exchange (Da Vinci CRD → DTR → PAS)
 
@@ -73,7 +76,7 @@ oncology-specific extensions:
    Payer adjudicates and returns decision
 
 <div style="display: block; float: none;">
-   <img src="ogca-workflow.svg"/>
+   <img src="mopa-workflow.svg"/>
 </div>
 
 ### Pre-Conditions

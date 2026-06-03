@@ -1,12 +1,11 @@
-id: hl7.fhir.us.codex-ocpa
-canonical: http://hl7.org/fhir/us/codex-ocpa
-name: CodexOGCAIG
-title: Oncology Guideline and Coverage Authorization (OGCA)
+id: hl7.fhir.us.codex-mopa
+canonical: http://hl7.org/fhir/us/codex-mopa
+name: MOPAIG
+title: MOPA — Medical Oncology Prior Authorization
 description: >-
-  Standards-based Oncology Guideline and Coverage Authorization (OGCA) framework covering all cancer
-  types, extending Da Vinci CRD/DTR/PAS with mCODE patient context and computable
-  anti-cancer regimen representation. Breast cancer prior authorization is the first
-  concrete use case and data requirements implementation.
+  Informative Medical Oncology Prior Authorization (MOPA) framework covering all cancer types and
+  documenting upstream proposal gaps for Da Vinci CRD/DTR/PAS and mCODE. The guide uses breast
+  cancer prior authorization as the first concrete use case and data requirements implementation.
 jurisdiction: urn:iso:std:iso:3166#US "United States of America"
 
 extension:
@@ -68,8 +67,10 @@ pages:
     title: Data Requirements Pattern
   breast-cancer-pa.md:
     title: "Use Case 1: Breast Cancer PA"
-  mcode-candidates.md:
-    title: mCODE Candidates
+  davinci-gap-proposals.md:
+    title: Da Vinci Gap Proposals
+  mcode-gap-proposals.md:
+    title: mCODE Gap Proposals
   conformance.md:
     title: Conformance
   artifacts.html:
@@ -82,14 +83,17 @@ pages:
 menu:
   Home: index.html
   Background: background.html
-  Use Cases: use-cases.html
+  Use Cases: 
+    Background: use-cases.html
+    Use Case 1 - Breast Cancer PA: breast-cancer-pa.html
   Specification:
-    Regimen Modeling: regimen-model.html
-    CDS Hooks Extension: cds-hooks-extension.html
+    1-Regimen Modeling: regimen-model.html
+    2-CDS Hooks Extension: cds-hooks-extension.html
+    3-Data Requirements: data-requirements.html
     Workflow Walkthrough: walkthrough.html
-    Data Requirements: data-requirements.html
-    Breast Cancer PA: breast-cancer-pa.html
-    mCODE Candidates: mcode-candidates.html
+  Gaps in Specs:
+    Da Vinci Gap Proposals: davinci-gap-proposals.html
+    mCODE Gap Proposals: mcode-gap-proposals.html
   Conformance: conformance.html
   Artifacts: artifacts.html
   Downloads: downloads.html

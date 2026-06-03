@@ -9,4 +9,4 @@ ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 216, col
 ERROR: en/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 217, column 8: The link 'examples.json.zip' for "Examples (JSON)" cannot be resolved
 
 # Jira spec file does not exist yet — required only before ballot or publication, not ci-build.
-ERROR: There is no jira specification file defined with the expected name of FHIR-us-codex-ocpa in the xml folder of the  https://github.com/HL7/Jira-Spec-Artifacts project.  This must exist before ballot or publication.
+ERROR: There is no jira specification file defined with the expected name of FHIR-us-codex-mopa in the xml folder of the  https://github.com/HL7/Jira-Spec-Artifacts project.  This must exist before ballot or publication.

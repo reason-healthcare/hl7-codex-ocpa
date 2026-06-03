@@ -13,10 +13,14 @@ Elements marked **Must Support** (MS) in this IG SHALL be interpreted as follows
 - A system that produces a resource SHALL populate Must Support elements when the relevant data
   is known and available.
 
-### Claiming Conformance
+### Implementation Expectations
 
-A system claims conformance to this IG by declaring conformance to the applicable actor role and
-meeting all corresponding SHALL requirements below.
+This guide is informative, so it does not establish a formal conformance claim for the IG itself.
+The statements below describe the expected behavior of systems that adopt the MOPA artifacts and
+patterns.
+
+A system implementing these patterns does so by declaring the applicable actor role and meeting
+the corresponding expectations below.
 
 ### Oncology CRD Client
 

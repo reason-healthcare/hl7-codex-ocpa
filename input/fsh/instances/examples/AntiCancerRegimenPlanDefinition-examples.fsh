@@ -21,7 +21,7 @@ Description: """Canonical definition of weekly Paclitaxel (80 mg/m² IV) plus Tr
 cancer. Demonstrates RegimenIntentExtension (adjuvant), RegimenTreatmentLineExtension
 (first-line), and RegimenDiseaseContextExtension."""
 
-* url     = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition"
+* url     = "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"
 * version = "1.0.0"
 * name    = "THRegimenDefinition"
 * title   = "TH: Paclitaxel + Trastuzumab (Weekly) — Adjuvant HER2+ Breast Cancer"
@@ -62,7 +62,7 @@ cyclophosphamide (600 mg/m²) q14d × 4 cycles (AC phase), followed by paclitaxe
 (175 mg/m²) q14d × 4 cycles (T phase) for adjuvant breast cancer. Demonstrates
 sequential phase ordering using action.relatedAction with relationship = after-end."""
 
-* url     = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/DDACTRegimenDefinition"
+* url     = "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/DDACTRegimenDefinition"
 * version = "1.0.0"
 * name    = "DDACTRegimenDefinition"
 * title   = "ddAC→T: Dose-Dense Doxorubicin/Cyclophosphamide then Paclitaxel — Adjuvant Breast Cancer"
@@ -119,7 +119,7 @@ Description: """Canonical definition of pertuzumab (840 mg loading, then 420 mg 
 trastuzumab (8 mg/kg loading, then 6 mg/kg IV) plus docetaxel (75 mg/m² IV), every 21 days,
 for first-line metastatic HER2-positive breast cancer. Demonstrates palliative intent."""
 
-* url     = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/PHDRegimenDefinition"
+* url     = "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/PHDRegimenDefinition"
 * version = "1.0.0"
 * name    = "PHDRegimenDefinition"
 * title   = "PHD: Pertuzumab + Trastuzumab + Docetaxel — First-Line Metastatic HER2+ Breast Cancer"

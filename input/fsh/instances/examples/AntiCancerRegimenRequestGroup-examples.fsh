@@ -27,9 +27,9 @@ Title: "Example: Paclitaxel MedicationRequest (TH regimen, draft)"
 Description: "Draft MedicationRequest for paclitaxel 80 mg/m² IV weekly in TH regimen."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCABreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#56946 "paclitaxel"
 * dosageInstruction[+].text = "80 mg/m² IV over 1 hour, weekly"
 
@@ -40,9 +40,9 @@ Title: "Example: Trastuzumab MedicationRequest (TH regimen, draft)"
 Description: "Draft MedicationRequest for trastuzumab IV weekly in TH regimen."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCABreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#224905 "trastuzumab"
 * dosageInstruction[+].text = "4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly"
 
@@ -53,9 +53,9 @@ Title: "Example: Doxorubicin MedicationRequest (ddAC→T regimen, draft)"
 Description: "Draft MedicationRequest for doxorubicin 60 mg/m² IV in ddAC phase."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCABreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#3639 "doxorubicin"
 * dosageInstruction[+].text = "60 mg/m² IV day 1 of each 14-day cycle"
 
@@ -66,9 +66,9 @@ Title: "Example: Cyclophosphamide MedicationRequest (ddAC→T regimen, draft)"
 Description: "Draft MedicationRequest for cyclophosphamide 600 mg/m² IV in ddAC phase."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCABreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#3002 "cyclophosphamide"
 * dosageInstruction[+].text = "600 mg/m² IV day 1 of each 14-day cycle"
 
@@ -79,9 +79,9 @@ Title: "Example: Paclitaxel MedicationRequest (T phase, ddAC→T regimen, draft)
 Description: "Draft MedicationRequest for paclitaxel 175 mg/m² IV q14d in T phase."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCABreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPABreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#56946 "paclitaxel"
 * dosageInstruction[+].text = "175 mg/m² IV over 3 hours, day 1 of each 14-day cycle"
 
@@ -92,9 +92,9 @@ Title: "Example: Pertuzumab MedicationRequest (PHD regimen, draft)"
 Description: "Draft MedicationRequest for pertuzumab IV q21d in PHD regimen."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCAMetastaticBreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPAMetastaticBreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#1298944 "pertuzumab"
 * dosageInstruction[+].text = "840 mg IV cycle 1, then 420 mg IV q21d"
 
@@ -105,9 +105,9 @@ Title: "Example: Trastuzumab MedicationRequest (PHD regimen, draft)"
 Description: "Draft MedicationRequest for trastuzumab IV q21d in PHD regimen."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCAMetastaticBreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPAMetastaticBreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#224905 "trastuzumab"
 * dosageInstruction[+].text = "8 mg/kg IV cycle 1, then 6 mg/kg IV q21d"
 
@@ -118,9 +118,9 @@ Title: "Example: Docetaxel MedicationRequest (PHD regimen, draft)"
 Description: "Draft MedicationRequest for docetaxel 75 mg/m² IV q21d in PHD regimen."
 * status  = #draft
 * intent  = #order
-* subject = Reference(OGCAPatientExample)
-* requester = Reference(OGCAOncologistExample)
-* reasonReference = Reference(OGCAMetastaticBreastCancerConditionExample)
+* subject = Reference(MOPAPatientExample)
+* requester = Reference(MOPAOncologistExample)
+* reasonReference = Reference(MOPAMetastaticBreastCancerConditionExample)
 * medicationCodeableConcept = $RxNorm#72962 "docetaxel"
 * dosageInstruction[+].text = "75 mg/m² IV day 1 of each 21-day cycle"
 
@@ -144,8 +144,8 @@ reference example for AntiCancerRegimenRequestGroup."""
 
 * status = #draft
 * intent = #order
-* subject = Reference(OGCAPatientExample)
-* instantiatesCanonical = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition"
+* subject = Reference(MOPAPatientExample)
+* instantiatesCanonical = "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"
 * extension[regimenIntent].valueCodeableConcept = $SCT#373846009 "Adjuvant - intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
 
@@ -182,8 +182,8 @@ phase ordering with action.relatedAction relationship = after-end."""
 
 * status = #draft
 * intent = #order
-* subject = Reference(OGCAPatientExample)
-* instantiatesCanonical = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/DDACTRegimenDefinition"
+* subject = Reference(MOPAPatientExample)
+* instantiatesCanonical = "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/DDACTRegimenDefinition"
 * extension[regimenIntent].valueCodeableConcept = $SCT#373846009 "Adjuvant - intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
 
@@ -237,8 +237,8 @@ Demonstrates palliative intent and first-line metastatic treatment setting."""
 
 * status = #draft
 * intent = #order
-* subject = Reference(OGCAPatientExample)
-* instantiatesCanonical = "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/PHDRegimenDefinition"
+* subject = Reference(MOPAPatientExample)
+* instantiatesCanonical = "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/PHDRegimenDefinition"
 * extension[regimenIntent].valueCodeableConcept = $SCT#363676003 "Palliative intent"
 * extension[regimenTreatmentLine].valueCodeableConcept = $TreatmentLineCS#1L "First-line"
 

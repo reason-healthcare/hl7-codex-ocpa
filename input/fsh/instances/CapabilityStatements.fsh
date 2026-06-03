@@ -1,6 +1,6 @@
 // ============================================================
 // CapabilityStatements.fsh
-// Two CapabilityStatement instances for the OGCA IG:
+// Two CapabilityStatement instances for the MOPA IG:
 //   1. ocpa-crd-client  — Oncology CRD Client (EHR / ordering system)
 //   2. ocpa-crd-service — Oncology CRD Service (payer / PA platform)
 //
@@ -28,7 +28,7 @@ the Da Vinci CRD oncology profile defined in this IG by meeting the requirements
 * format[+]  = #json
 * format[+]  = #xml
 
-* implementationGuide[+] = "http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa"
+* implementationGuide[+] = "http://hl7.org/fhir/us/codex-mopa/ImplementationGuide/hl7.fhir.us.codex-mopa"
 * implementationGuide[+] = "http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd"
 
 * rest[+].mode = #client
@@ -47,7 +47,7 @@ A conformant Oncology CRD Client SHALL:
 
 * rest[=].resource[+].type = #RequestGroup
 * rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"
+    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup"
 * rest[=].resource[=].documentation =
     "SHALL include a conformant RequestGroup in context.draftOrders at order-select and order-sign."
 * rest[=].resource[=].interaction[+].code = #read
@@ -55,14 +55,14 @@ A conformant Oncology CRD Client SHALL:
 
 * rest[=].resource[+].type = #PlanDefinition
 * rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition"
+    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-plandefinition"
 * rest[=].resource[=].documentation =
     "SHOULD support read of the PlanDefinition referenced by RequestGroup.instantiatesCanonical."
 * rest[=].resource[=].interaction[+].code = #read
 
 * rest[=].resource[+].type = #Library
 * rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library"
+    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/oncology-data-requirements-library"
 * rest[=].resource[=].documentation =
     "SHALL make available the Library referenced in the oncology CDS Hooks extension dataRequirements."
 * rest[=].resource[=].interaction[+].code = #read
@@ -87,7 +87,7 @@ the Da Vinci CRD oncology profile defined in this IG by meeting the requirements
 * format[+]  = #json
 * format[+]  = #xml
 
-* implementationGuide[+] = "http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa"
+* implementationGuide[+] = "http://hl7.org/fhir/us/codex-mopa/ImplementationGuide/hl7.fhir.us.codex-mopa"
 * implementationGuide[+] = "http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd"
 
 * rest[+].mode = #server
@@ -104,21 +104,21 @@ A conformant Oncology CRD Service SHALL:
 
 * rest[=].resource[+].type = #RequestGroup
 * rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"
+    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup"
 * rest[=].resource[=].documentation =
     "SHALL resolve and evaluate RequestGroup resources received in CDS Hooks context.draftOrders."
 * rest[=].resource[=].interaction[+].code = #read
 
 * rest[=].resource[+].type = #PlanDefinition
 * rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition"
+    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-plandefinition"
 * rest[=].resource[=].documentation =
     "SHALL resolve PlanDefinition referenced by RequestGroup.instantiatesCanonical."
 * rest[=].resource[=].interaction[+].code = #read
 
 * rest[=].resource[+].type = #Library
 * rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library"
+    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/oncology-data-requirements-library"
 * rest[=].resource[=].documentation =
     "SHALL support at least one cancer-specific Library conforming to OncologyDataRequirementsLibrary."
 * rest[=].resource[=].interaction[+].code = #read

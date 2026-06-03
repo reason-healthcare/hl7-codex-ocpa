@@ -23,7 +23,7 @@ system should be deprecated."""
 * ^experimental = true
 * ^purpose = """mCODE Migration Candidate — proposed for adoption in mCODE STU5 or as a SNOMED CT
 extension request. Once standard codes are available this code system will be deprecated.
-It is NOT intended to be a permanent artifact of this IG. See the mCODE Candidates page
+It is NOT intended to be a permanent artifact of this IG. See the mCODE Gap Proposals page
 for the migration plan."""
 * ^caseSensitive = true
 * ^content = #complete

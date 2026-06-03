@@ -24,7 +24,7 @@ but individual MedicationRequests are still draft and are not required."""
 
 * type = #collection
 
-* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder"
+* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-mopa/RequestGroup/THRegimenOrder"
 * entry[=].resource = THRegimenOrder
 
 
@@ -42,11 +42,11 @@ companion MedicationRequests are present."""
 
 * type = #collection
 
-* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder"
+* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-mopa/RequestGroup/THRegimenOrder"
 * entry[=].resource = THRegimenOrder
 
-* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH"
+* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-mopa/MedicationRequest/PaclitaxelMedRequestTH"
 * entry[=].resource = PaclitaxelMedRequestTH
 
-* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH"
+* entry[+].fullUrl  = "http://hl7.org/fhir/us/codex-mopa/MedicationRequest/TrastuzumabMedRequestTH"
 * entry[=].resource = TrastuzumabMedRequestTH

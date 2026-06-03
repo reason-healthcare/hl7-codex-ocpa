@@ -15,6 +15,6 @@ Used in LineOfTherapyObservation.valueCodeableConcept and the RegimenTreatmentLi
 * ^experimental = true
 * ^purpose = """mCODE Migration Candidate — proposed for mCODE STU5. Will bind to SNOMED CT or
 successor codes once TreatmentLineCS migrates. It is NOT intended to be a permanent
-artifact of this IG. See the mCODE Candidates page for the migration plan."""
+artifact of this IG. See the mCODE Gap Proposals page for the full proposal backlog."""
 
 * include codes from system $TreatmentLineCS

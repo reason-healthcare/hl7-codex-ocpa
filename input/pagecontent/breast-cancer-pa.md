@@ -1,7 +1,6 @@
-
 ### Context
 
-This page defines **Use Case 1** — the first concrete instantiation of the OGCA data requirements
+This page defines **Use Case 1** — the first concrete instantiation of the MOPA data requirements
 pattern for a specific cancer type. It serves as the template for subsequent use cases (lung,
 colorectal, hematologic malignancies, and others). Each future use case follows the same structure:
 a cancer-specific `OncologyDataRequirementsLibrary` derivative with its own `dataRequirement[]`
@@ -68,4 +67,6 @@ The `Library.subjectCodeableConcept` is bound to SNOMED CT code
 
 - [Regimen Modeling](regimen-model.html) — `RequestGroup` and `PlanDefinition` profiles
 - [Data Requirements Pattern](data-requirements.html) — Library pattern and CRD/DTR reuse
+- [Da Vinci Gap Proposals](davinci-gap-proposals.html) — CRD, DTR, and PAS backlog items
+- [mCODE Gap Proposals](mcode-gap-proposals.html) — data model backlog items
 - [mCODE STU4](http://hl7.org/fhir/us/mcode) — mCODE profiles referenced throughout

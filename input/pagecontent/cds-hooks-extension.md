@@ -35,14 +35,14 @@ The extension key is `org.hl7.davinci-crd.oncology`. It has three components:
     // orderedRegimen is REQUIRED — the CDS Service needs to know what was ordered.
     "orderedRegimen": {
       "reference": "RequestGroup/breast-cancer-regimen-001",
-      "regimenDefinition": "http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/paclitaxel-trastuzumab-regimen"  // OPTIONAL — omit when PlanDefinition is not available
+      "regimenDefinition": "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/paclitaxel-trastuzumab-regimen"  // OPTIONAL — omit when PlanDefinition is not available
     },
     // dataRequirements is OPTIONAL — include when the patient has multiple active
     // cancer conditions and the EHR needs to tell the service which one this order
     // is for. When absent, the service resolves the Library from prefetch.primaryCancer.
     "dataRequirements": {
       "purpose": "pre-approval",
-      "canonical": "http://hl7.org/fhir/us/codex-ocpa/Library/breast-cancer-pa-data-requirements|1.0.0"
+      "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/breast-cancer-pa-data-requirements|1.0.0"
     }
   }
 }
@@ -87,14 +87,14 @@ entries rather than a canonical Library reference. See [Data Requirements Patter
 ### CDS Service Discovery
 
 The CDS Hooks discovery endpoint (`GET /cds-services`) is the first point of contact between an
-EHR and a conformant OGCA service. This IG defines two complementary layers for advertising data
+EHR and a conformant MOPA service. This IG defines two complementary layers for advertising data
 requirements at discovery time, serving different levels of client capability.
 
 #### Layer 1 — `prefetch` (standard EHR compatibility)
 
 A conformant CDS Service **SHALL** include `prefetch` entries derived from each supported
 `OncologyDataRequirementsLibrary`. This ensures that any CDS Hooks-compliant EHR can pre-fetch
-the required patient context without OGCA-specific awareness.
+the required patient context without MOPA-specific awareness.
 
 Prefetch query templates are a flattened projection of the `Library.dataRequirement[]` entries —
 each `DataRequirement` with a code filter maps to a FHIR search query keyed by a descriptive name:
@@ -109,18 +109,18 @@ each `DataRequirement` with a code filter maps to a FHIR search query keyed by a
       "primaryCancer":     "Condition?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-primary-cancer-disorder-vs",
       "cancerStage":       "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-observation-codes-vs",
       "biomarkers":        "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs",
-      "lineOfTherapy":     "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs",
+      "lineOfTherapy":     "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
       "performanceStatus": "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-ecog-performance-status-vs"
     }
   }]
 }
 ```
 
-#### Layer 2 — `extension` (OGCA-aware clients)
+#### Layer 2 — `extension` (MOPA-aware clients)
 
 A conformant CDS Service **SHOULD** advertise the canonical URL(s) of supported
 `OncologyDataRequirementsLibrary` instances via the `org.hl7.davinci-crd.oncology` extension on
-the discovery service object. This enables OGCA-aware clients to retrieve the full structured
+the discovery service object. This enables MOPA-aware clients to retrieve the full structured
 `DataRequirement[]` entries before the hook fires.
 
 ```json
@@ -134,7 +134,7 @@ the discovery service object. This enables OGCA-aware clients to retrieve the fu
       "org.hl7.davinci-crd.oncology": {
         "dataRequirementsLibraries": [
           {
-            "canonical": "http://hl7.org/fhir/us/codex-ocpa/Library/breast-cancer-pa-data-requirements|1.0.0",
+            "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/breast-cancer-pa-data-requirements|1.0.0",
             "cancerType": {
               "system": "http://snomed.info/sct",
               "code": "254837009",
@@ -143,7 +143,7 @@ the discovery service object. This enables OGCA-aware clients to retrieve the fu
           }
         ],
         "supportedRegimenProfiles": [
-          "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-anticancer-regimen-requestgroup"
+          "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-anticancer-regimen-requestgroup"
         ]
       }
     }
@@ -151,7 +151,7 @@ the discovery service object. This enables OGCA-aware clients to retrieve the fu
 }
 ```
 
-An OGCA-aware CDS Client that resolves the advertised Library canonical MAY use the retrieved
+An MOPA-aware CDS Client that resolves the advertised Library canonical MAY use the retrieved
 `DataRequirement[]` entries to pre-stage the DTR `Questionnaire`, validate prefetch completeness,
 or negotiate capability with the service before submitting the hook.
 
@@ -163,7 +163,7 @@ derivations of it:
 ```
 OncologyDataRequirementsLibrary.dataRequirement[]
   ├── prefetch{}      ← flattened FHIR query projection (Layer 1, standard EHRs)
-  └── extension{}     ← canonical pointer to the Library (Layer 2, OGCA-aware clients)
+  └── extension{}     ← canonical pointer to the Library (Layer 2, MOPA-aware clients)
 ```
 
 Changes to a Library version propagate to both layers — implementers SHOULD regenerate prefetch
@@ -176,7 +176,7 @@ templates when a new Library version is published.
 | CDS Service | **SHALL** include `prefetch` entries derived from each supported `OncologyDataRequirementsLibrary` |
 | CDS Service | **SHOULD** advertise Library canonical URL(s) via the `org.hl7.davinci-crd.oncology` discovery extension |
 | CDS Client (standard) | **SHALL** submit prefetch-populated context when pre-fetched data is available |
-| CDS Client (OGCA-aware) | **MAY** fetch the advertised Library to pre-stage DTR or validate prefetch completeness before submitting the hook |
+| CDS Client (MOPA-aware) | **MAY** fetch the advertised Library to pre-stage DTR or validate prefetch completeness before submitting the hook |
 {: .table }
 
 ### Possible CRD Outcomes
@@ -191,7 +191,7 @@ templates when a new Library version is published.
 
 
 <div style="max-width: 700px; margin: 40px 0;">
-   <img src="ogca-cds-hooks.svg">
+   <img src="mopa-cds-hooks.svg">
 </div>
 
 

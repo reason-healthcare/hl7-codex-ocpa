@@ -52,7 +52,7 @@ base profile with a `subjectCodeableConcept` bound to the target cancer type (SN
 
 The Library is the single source of truth for what patient data a CRD service requires. At
 discovery time, a conformant CDS Service derives two artifacts from it — a `prefetch` map for
-standard EHR clients and a canonical Library reference in the discovery extension for OGCA-aware
+standard EHR clients and a canonical Library reference in the discovery extension for MOPA-aware
 clients. See [CDS Service Discovery](cds-hooks-extension.html#cds-service-discovery) for the
 full discovery pattern and conformance requirements.
 
@@ -96,5 +96,5 @@ cancer-specific `OncologyDataRequirementsLibrary` instance, including data requi
 staging constraints, and priority gaps.
 
 [CDS Service Discovery](cds-hooks-extension.html#cds-service-discovery) — how the Library
-drives both the `prefetch` map and the OGCA discovery extension, and the conformance requirements
+drives both the `prefetch` map and the MOPA discovery extension, and the conformance requirements
 for CDS Services and Clients.

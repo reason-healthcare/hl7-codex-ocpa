@@ -18,7 +18,7 @@ therapy a patient is currently receiving or has received for a given cancer diag
 This observation is a required patient data element for oncology prior authorization:
 most metastatic and recurrent cancer regimen policies are line-of-therapy dependent.
 
-Observation.code uses the local OGCA code system code `line-of-therapy` as a placeholder.
+Observation.code uses the local MOPA code system code `line-of-therapy` as a placeholder.
 A migration request for a LOINC code will be submitted before mCODE STU5.
 
 Observation.value[x] SHALL be a CodeableConcept drawn from TreatmentLineVS.
@@ -29,9 +29,9 @@ The focus SHALL reference the primary cancer Condition for which this line appli
 * ^status = #draft
 * ^experimental = true
 * ^purpose = """mCODE Migration Candidate — proposed for mCODE STU5. This artifact is defined in the
-OGCA IG as a temporary home while a formal mCODE ballot proposal is prepared. It is NOT
+MOPA IG as a temporary home while a formal mCODE ballot proposal is prepared. It is NOT
 intended to be a permanent artifact of this IG. Canonical URLs will change at migration.
-See the mCODE Candidates page in this IG for the full migration plan."""
+See the mCODE Gap Proposals page in this IG for the full proposal backlog."""
 * ^extension[$StdStatus].valueCode = #draft
 * ^extension[$FMM].valueInteger = 0
 
@@ -41,7 +41,7 @@ See the mCODE Candidates page in this IG for the full migration plan."""
 * category MS
 * category = $OBS-CAT#therapy "Therapy"
 
-// Observation code — local OGCA placeholder pending LOINC assignment
+// Observation code — local MOPA placeholder pending LOINC assignment
 * code 1..1 MS
 * code = $OcpaCS#line-of-therapy "Line of Therapy"
 * code ^short = "Identifies this as a line-of-therapy observation"

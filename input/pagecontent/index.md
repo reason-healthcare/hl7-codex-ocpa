@@ -1,14 +1,12 @@
 
-<div class="ogca-logo-bar">
-<img src="codex-logo.png" alt="HL7 CodeX FHIR Accelerator" />
-<div class="ogca-logo-tagline">A FHIR Accelerator Program implementation guide<br/>extending Da Vinci CRD / DTR / PAS for oncology prior authorization</div>
-</div>
+This implementation guide defines the **Medical Oncology Prior Authorization (MOPA)** framework.
+It is intentionally **informative**: it documents the oncology PA workflow, the gaps in Da Vinci
+CRD/DTR/PAS and mCODE, and the upstream proposals needed to close those gaps.
 
-This implementation guide defines the **Oncology Guideline and Coverage Authorization (OGCA)**
-framework that extends the [Da Vinci Burden Reduction](https://confluence.hl7.org/display/DVP)
-suite — CRD, DTR, and PAS — with oncology-specific capabilities applicable across all cancer
-types: a computable anti-cancer regimen representation and a structured patient context package
-for authorization evaluation.
+<div class="mopa-logo-bar">
+<img src="codex-logo.png" alt="HL7 CodeX FHIR Accelerator" />
+<div class="mopa-logo-tagline">A FHIR Accelerator Program implementation guide<br/>extending Da Vinci CRD / DTR / PAS for oncology prior authorization</div>
+</div>
 
 ### The Problem
 
@@ -33,8 +31,13 @@ This IG addresses two connected layers:
    ordered regimen and required patient context (diagnosis, staging, biomarkers, line of therapy)
    to the coverage decision service as structured, computable data.
 
+For the upstream standards work items, see:
+
+- [Da Vinci Gap Proposals](davinci-gap-proposals.html)
+- [mCODE Gap Proposals](mcode-gap-proposals.html)
+
 <div style="border:2px solid #555; border-radius:6px; padding:16px; margin:1.2em 0; font-family:inherit; max-width:800px;">
-<div style="text-align:center; font-weight:bold; font-size:1.1em; margin-bottom:14px;">The OGCA Framework</div>
+<div style="text-align:center; font-weight:bold; font-size:1.1em; margin-bottom:14px;">The MOPA Framework</div>
 <div style="display:flex; gap:12px; margin-bottom:10px;">
 <div style="flex:1; border:2px solid #5b9bd5; border-radius:4px; padding:10px;">
 <div style="font-weight:bold; text-align:center; margin-bottom:8px;">Optional Pre-order CDS</div>
@@ -100,7 +103,7 @@ This IG addresses two connected layers:
 {: .table }
 
 <div style="max-width: 400px;">
-<img src="ogca-stakeholders.svg" alt="OGCA Stakeholder Diagram" style="width:100%;" />
+<img src="mopa-stakeholders.svg" alt="MOPA Stakeholder Diagram" style="width:100%;" />
 </div>
 
 ### Dependencies
@@ -118,6 +121,8 @@ This IG addresses two connected layers:
 
 - [Background](background.html) — Clinical problem, regulatory context, and gaps in existing standards
 - [Use Cases and Actors](use-cases.html) — The two-layer workflow, system actors, and actor responsibilities
+- [Da Vinci Gap Proposals](davinci-gap-proposals.html) — CRD, DTR, and PAS proposals derived from the gap analysis
+- [mCODE Gap Proposals](mcode-gap-proposals.html) — Data model proposals derived from the gap analysis
 - **Specification:**
   - [Regimen Modeling](regimen-model.html) — How anti-cancer regimens are represented as FHIR `PlanDefinition` and `RequestGroup`
   - [CDS Hooks Oncology Extension](cds-hooks-extension.html) — The CDS Hooks extension for oncology CRD

@@ -1,11 +1,11 @@
 
 ### NPM Package
 
-Install the Oncology Guideline and Coverage Authorization (OGCA) IG package using the FHIR package manager:
+Install the Oncology Guideline and Coverage Authorization (MOPA) IG package using the FHIR package manager:
 
 ```bash
 ## Using the Firely terminal or FHIR-compatible installer
-fhir install hl7.fhir.us.codex-ocpa@current
+fhir install hl7.fhir.us.codex-mopa@current
 ```
 
 ### Downloadable Artifacts

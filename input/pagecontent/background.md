@@ -71,14 +71,16 @@ This IG fills the identified gaps by defining:
    designed to be replicated for lung, colorectal, hematologic, and other cancer types
 
 These artifacts are designed as incremental extensions to Da Vinci CRD/DTR/PAS and mCODE, not as
-replacements.
+replacements. The specific gaps are carried forward as explicit backlog items on the
+[Da Vinci Gap Proposals](davinci-gap-proposals.html) and [mCODE Gap Proposals](mcode-gap-proposals.html)
+pages.
 
 <div class="alert alert-warning" markdown="1">
-**&#x26A0; mCODE Migration Candidates**
+**&#x26A0; mCODE Gap Proposals**
 
 Several artifacts defined in this IG — the anti-cancer regimen profiles, treatment-line
 observation, regimen extensions, and related terminology — are proposed for migration into
 mCODE STU5. They are published here as a temporary home to unblock pilots, and are **not**
-intended to be permanent OGCA artifacts. See [mCODE Candidates](mcode-candidates.html) for
+intended to be permanent MOPA artifacts. See [mCODE Gap Proposals](mcode-gap-proposals.html) for
 the full list, migration plan, and guidance for implementers.
 </div>

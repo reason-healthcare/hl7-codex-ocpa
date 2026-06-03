@@ -17,7 +17,7 @@ AntiCancerRegimenPlanDefinition when the canonical regimen definition is known.
 Two scheduling patterns are supported in regimen actions:
 
 1. **Cycle-day timing** — Each action (or action.action for phased regimens) uses the
-   local extension `http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle`
+   local extension `http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle`
    on action.timingTiming to declare which days of the cycle the drug is administered.
    The action.timingTiming.repeat carries the machine-computable cycle period.
 
@@ -32,9 +32,9 @@ passed to the CRD service."""
 * ^status = #draft
 * ^experimental = true
 * ^purpose = """mCODE Migration Candidate — proposed for mCODE STU5. This artifact is defined in the
-OGCA IG as a temporary home while a formal mCODE ballot proposal is prepared. It is NOT
+MOPA IG as a temporary home while a formal mCODE ballot proposal is prepared. It is NOT
 intended to be a permanent artifact of this IG. Canonical URLs will change at migration.
-See the mCODE Candidates page in this IG for the full migration plan."""
+See the mCODE Gap Proposals page in this IG for the full proposal backlog."""
 * ^extension[$StdStatus].valueCode = #draft
 * ^extension[$FMM].valueInteger = 0
 

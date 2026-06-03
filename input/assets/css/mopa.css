@@ -1,5 +1,5 @@
 /* =============================================================================
-   OGCA IG — Custom styles
+   MOPA IG — Custom styles
    Brand: HL7 Codex (brandguide.hl7.org/2025/07/27/codex/)
    Loaded after project.css via input/includes/_append.fragment-css.html
    ============================================================================= */
@@ -236,7 +236,7 @@ img {
 }
 
 /* restore inline for icons and logo-bar images that live inside flex/inline contexts */
-.ogca-logo-bar img,
+.mopa-logo-bar img,
 .navbar img,
 #segment-header img,
 #segment-footer img,
@@ -246,7 +246,7 @@ td img {
 
 /* --- Codex logo bar (index page) --------------------------------------------- */
 
-.ogca-logo-bar {
+.mopa-logo-bar {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -255,13 +255,19 @@ td img {
   margin-bottom: 1.4em;
 }
 
-.ogca-logo-bar img {
+.mopa-logo-bar img {
   height: 52px;
   width: auto;
 }
 
-.ogca-logo-bar .ogca-logo-tagline {
+.mopa-logo-bar .mopa-logo-tagline {
   font-size: 0.88em;
   color: #5a6a7a;
   line-height: 1.4;
 }
+
+#da-vinci-gap-proposals ~ .markdown-toc,
+#mcode-gap-proposals ~ .markdown-toc,
+#use-cases-and-actors ~ .markdown-toc { display: none; }
+
+
