@@ -29,7 +29,11 @@ Add a regimen `PlanDefinition` profile. This profile would represent anti-cancer
 
 **Examples**
 
-Anti-cancer order-set definitions published by a guideline authority (NCCN, ASCO, or institutional pathways programs).
+Canonical regimen definitions from this IG:
+
+- [TH Regimen Definition](PlanDefinition-THRegimenDefinition.html) — Paclitaxel + Trastuzumab (adjuvant HER2+)
+- [ddAC→T Regimen Definition](PlanDefinition-DDACTRegimenDefinition.html) — Dose-dense AC then Paclitaxel
+- [PHD Regimen Definition](PlanDefinition-PHDRegimenDefinition.html) — Pertuzumab + Trastuzumab + Docetaxel (metastatic HER2+)
 
 **Target destination**
 
@@ -51,7 +55,13 @@ Add a regimen `RequestGroup` profile that carries the instantiated regimen defin
 
 **Examples**
 
-Breast cancer regimen instance created during CRD order-select with patient-specific context (diagnosis, stage, biomarkers, line of therapy).
+Patient-specific regimen orders from this IG (CRD order-select context):
+
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Patient instance: Jane Smith, adjuvant HER2+ breast cancer
+- [ddAC→T Regimen Order](RequestGroup-DDACTRegimenOrder.html) — Sequential phase ordering pattern
+- [PHD Regimen Order](RequestGroup-PHDRegimenOrder.html) — Metastatic HER2+ with three-agent regimen
+
+Also see: [CDS Hooks order-select Bundle](Bundle-ExampleOrderSelectBundle.html) — Full oncology context payload
 
 **Target destination**
 
@@ -73,7 +83,11 @@ Add a line-of-therapy observation plus value set that captures the treatment seq
 
 **Examples**
 
-First-line metastatic breast cancer; second-line after progression; third-line and beyond.
+Line of therapy observations from this IG:
+
+- [First-Line Adjuvant](Observation-LineOfTherapyFirstLine.html) — Jane Smith, first-line adjuvant treatment
+- [Second-Line After Progression](Observation-LineOfTherapySecondLine.html) — Second-line metastatic
+- [Maintenance Therapy](Observation-LineOfTherapyMaintenance.html) — Ongoing maintenance line designation
 
 **Target destination**
 
@@ -95,7 +109,11 @@ Add a regimen intent extension and value set to capture curative, adjuvant, neoa
 
 **Examples**
 
-Curative (early-stage disease); adjuvant (post-surgery); neoadjuvant (pre-surgery); palliative (life-prolonging); prophylactic (risk reduction).
+Regimen intent is demonstrated across the regimen PlanDefinition examples in this IG:
+
+- [TH Regimen Definition](PlanDefinition-THRegimenDefinition.html) — adjuvant intent
+- [ddAC→T Regimen Definition](PlanDefinition-DDACTRegimenDefinition.html) — adjuvant intent
+- [PHD Regimen Definition](PlanDefinition-PHDRegimenDefinition.html) — palliative/metastatic intent
 
 **Target destination**
 
@@ -117,7 +135,10 @@ Add a regimen treatment-line extension that captures the therapy sequence in the
 
 **Examples**
 
-Line 1 versus line 2 therapy in metastatic disease; line selection guided by NCCN pathway recommendations.
+Treatment line is captured in both regimen PlanDefinition and RequestGroup examples:
+
+- [TH Regimen Definition](PlanDefinition-THRegimenDefinition.html) — first-line treatment
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — patient-specific first-line instance
 
 **Target destination**
 
@@ -139,7 +160,10 @@ Add a regimen disease-context extension that captures cancer type, stage, molecu
 
 **Examples**
 
-ER-positive metastatic breast cancer; HER2-positive early-stage disease; triple-negative breast cancer; hormone-receptor-positive/HER2-negative (HR+/HER2-).
+Disease context examples across the regimen definitions:
+
+- [TH Regimen Definition](PlanDefinition-THRegimenDefinition.html) — breast cancer (ER+/HER2+)
+- [PHD Regimen Definition](PlanDefinition-PHDRegimenDefinition.html) — metastatic HER2+ breast cancer
 
 **Target destination**
 
@@ -161,7 +185,9 @@ Add an oncology `Library` pattern that carries `dataRequirement[]` references to
 
 **Examples**
 
-`OncologyDataRequirementsLibrary` defining observations for biopsy, imaging, biomarkers, and line of therapy; breast cancer-specific derivatives extending the base library.
+Oncology data requirements Library pattern from this IG:
+
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Full oncology PA data requirements for breast cancer, including observations for staging, biomarkers, and line of therapy
 
 **Target destination**
 
@@ -183,7 +209,10 @@ Add normalized biomarker result guidance and profiling to standardize biomarker 
 
 **Examples**
 
-Breast cancer biomarker normalization rules for ER (IHC 1+, 2+, 3+; FISH positive), PR (IHC scoring), HER2 (0, 1+, 2+, 3+; ISH 0, 1+, 2+, 3+; HER2-low).
+Biomarker normalization context is demonstrated in the breast cancer PA examples. See:
+
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — HER2+ patient context with biomarker references
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Biomarker observation data requirements
 
 **Target destination**
 

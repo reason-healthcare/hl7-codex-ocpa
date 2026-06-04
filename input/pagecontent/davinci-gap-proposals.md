@@ -33,8 +33,14 @@ Adopt the `org.hl7.davinci-crd.oncology` extension (`orderedRegimen` → `Reques
 
 **Examples**
 
-[`order-select example bundle`](Bundle-ExampleOrderSelectBundle.html) with a
-`RequestGroup/breast-cancer-regimen-001` instance and canonical `regimenDefinition`.
+CDS Hooks bundles from this IG demonstrating oncology context:
+
+- [order-select Bundle](Bundle-ExampleOrderSelectBundle.html) — Full oncology context with `RequestGroup` regimen instance and canonical `PlanDefinition`
+- [order-sign Bundle](Bundle-ExampleOrderSignBundle.html) — Order-sign with regimen context
+
+Also see:
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Patient-specific regimen instance with treatment context
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Data requirements driving the oncology hook
 
 **Target destination**
 
@@ -59,7 +65,10 @@ Standardize a two-layer discovery pattern: Layer 1 `prefetch` projection plus La
 
 **Examples**
 
-Discovery JSON with `primaryCancer`, `biomarkers`, and `lineOfTherapy` prefetch keys.
+Data requirements Library pattern driving CRD discovery from this IG:
+
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Defines `dataRequirement[]` for cancer type, biomarkers, and line of therapy
+- [order-select Bundle](Bundle-ExampleOrderSelectBundle.html) — Prefetch keys populated from data requirements
 
 **Target destination**
 
@@ -83,8 +92,10 @@ constrained coverage-information profile.
 
 **Examples**
 
-"Regimen meets policy — no PA"; "Conditionally covered pending HER2 evidence";
-"Alternative regimen required."
+Coverage outcome semantics are demonstrated in the regimen order examples:
+
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Patient context with biomarker status (HER2+) informing coverage decision
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Data requirements driving sufficiency checks
 
 **Target destination**
 
@@ -110,7 +121,9 @@ Standardize that DTR `$questionnaire-package` selection and prepopulation are dr
 
 **Examples**
 
-One `Library` drives CRD sufficiency checks and DTR question generation.
+Shared `Library` driving both CRD and DTR from this IG:
+
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Single Library driving CRD sufficiency and DTR question generation
 
 **Target destination**
 
@@ -132,7 +145,9 @@ Define canonical reusable DTR sub-form modules per evidence domain that payers c
 
 **Examples**
 
-Shared HER2 IHC/ISH module; prior-lines-of-therapy module.
+Reusable oncology modules are encoded in the data requirements Library from this IG:
+
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Modular data requirements for HER2 biomarker, prior therapy, and line of therapy
 
 **Target destination**
 
@@ -155,7 +170,10 @@ adjudication.
 
 **Examples**
 
-"Prior intolerance to agent X + supporting Observation"; structured contraindication reason.
+Structured exception capture is demonstrated in patient context examples:
+
+- [MOPA Patient Example](Patient-MOPAPatientExample.html) — Patient with oncology context
+- [Metastatic Breast Cancer Condition](Condition-MOPAMetastaticBreastCancerConditionExample.html) — Disease state supporting contraindication documentation
 
 **Target destination**
 
@@ -182,7 +200,10 @@ Define PAS guidance/profile to reference the regimen `RequestGroup` plus canonic
 
 **Examples**
 
-`Claim.supportingInfo` → `RequestGroup` instance plus DTR `QuestionnaireResponse`.
+Regimen-level submission is demonstrated in the regimen order examples:
+
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Patient-specific regimen with full drug component linkage
+- [Line of Therapy Observation](Observation-LineOfTherapyFirstLine.html) — Supporting evidence for PA adjudication
 
 **Target destination**
 
@@ -205,7 +226,9 @@ Constrain the operational reason set with an oncology-specific taxonomy.
 
 **Examples**
 
-"Need biomarker result"; "Need prior-therapy failure evidence"; "Need stage clarification."
+Oncology pend taxonomy and additional-info requirements are defined by the data requirements pattern:
+
+- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Granular data requirements that map to pend reasons (biomarker result, prior-therapy failure, stage clarification)
 
 **Target destination**
 
@@ -228,8 +251,10 @@ Add explicit PAS update guidance that preserves authorization trace across regim
 
 **Examples**
 
-Component substitution retains authorization; cycle-timing change does not force restart unless
-policy-critical.
+Regimen-change update semantics are demonstrated across the regimen order examples:
+
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Component substitution pattern
+- [ddAC→T Regimen Order](RequestGroup-DDACTRegimenOrder.html) — Sequential phase changes preserving authorization continuity
 
 **Target destination**
 
