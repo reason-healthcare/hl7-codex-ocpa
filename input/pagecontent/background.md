@@ -56,7 +56,9 @@ foundation that both providers and payers rely on.
 
 This creates the opportunity for a **baseline approval layer**, where treatments that adhere to
 guideline-defined criteria can be automatically recognized as appropriate for authorization,
-reducing variability across payers.
+reducing variability across payers. However, coverage adjudication and benefit determination are
+out of scope for this IG; payers make independent coverage decisions based on their policies.
+This IG enables the structured information exchange that supports such decisions.
 
 ### Relationship to This IG
 
