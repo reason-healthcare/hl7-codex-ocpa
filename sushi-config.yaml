@@ -84,7 +84,7 @@ menu:
   Home: index.html
   Background: background.html
   Use Cases: 
-    Background: use-cases.html
+    Use Cases and Actors: use-cases.html
     Use Case 1 - Breast Cancer PA: breast-cancer-pa.html
   Specification:
     1-Regimen Modeling: regimen-model.html
