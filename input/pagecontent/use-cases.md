@@ -21,9 +21,8 @@ based on the patient's specific situation: diagnosis, stage, biomarkers, and lin
 
 This layer:
 - Evaluates patient-specific context against computable clinical guidelines
-- Returns recommended regimens with approvable vs. non-approvable options
-- Increases the probability that the treatment ordered meets payer criteria *before* the order
-  is placed
+- Returns guideline-aligned regimen recommendations
+- Surfaces clinical decision support at the moment of ordering
 
 This layer is **provider-driven**, **guideline-informed**, and focuses on selecting the right
 treatment upfront.
