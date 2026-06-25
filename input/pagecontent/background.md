@@ -25,8 +25,8 @@ that oncology drug authorization actually requires.
 #### Da Vinci CRD / DTR / PAS
 
 Da Vinci significantly improves the mechanics of prior authorization, but it operates:
-- **Reactively (post-order)** — starting after order selection with no ability to guide regimen
-  choice upfront, leading to rework and avoidable denials
+- **Reactively (post-order)** — starting after order selection with little information on payer
+  policies upfront, leading to rework and delayed notification of coverage decisions
 - **At the service level, not regimen level** — CRD hooks (`order-select`/`order-sign`) are
   defined around individual order resources (`MedicationRequest`, `ServiceRequest`); there is no
   standard way to submit a `RequestGroup` as the primary PA unit, even though oncology
