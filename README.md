@@ -1,6 +1,6 @@
-# Oncology Guideline and Coverage Authorization (OGCA) Implementation Guide
+# Medical Oncology Prior Authorization (MOPA) Implementation Guide
 
-Site: **https://reason-healthcare.github.io/hl7-codex-ocpa/**
+Site: **https://reason-healthcare.github.io/hl7-codex-mopa/**
 
 > 💬 **Have feedback?** See the [Feedback Guide](./docs/FEEDBACK.md) for easy ways to submit comments — including options for non-technical reviewers and AI-assisted issue filing.
 
@@ -105,12 +105,12 @@ Diagrams are authored as plain-text **Mermaid source files** in `input/images/`:
 
 ```
 input/images/
-  ogca-stakeholders.mermaid   ← edit this
-  ogca-stakeholders.svg       ← generated, commit this
-  ogca-workflow.mermaid
-  ogca-workflow.svg
-  ogca-cds-hooks.mermaid
-  ogca-cds-hooks.svg
+  mopa-stakeholders.mermaid   ← edit this
+  mopa-stakeholders.svg       ← generated, commit this
+  mopa-workflow.mermaid
+  mopa-workflow.svg
+  mopa-cds-hooks.mermaid
+  mopa-cds-hooks.svg
   mermaid.config.json         ← shared theme/layout config
 ```
 
@@ -123,7 +123,7 @@ Generated SVGs are committed so the IG can be built without Node.js by downstrea
 
 ## Publishing to GitHub Pages
 
-The published IG is available at: **https://reason-healthcare.github.io/hl7-codex-ocpa/**
+The published IG is available at: **https://reason-healthcare.github.io/hl7-codex-mopa/**
 
 **`ig-publish.sh`** builds the IG and force-pushes `./output` to the `origin/guide` branch,
 which should be configured as the GitHub Pages source

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ciUrl="http://hl7.org/fhir/us/codex-ocpa" defaultVersion="current" defaultWorkgroup="cic" url="http://hl7.org/fhir/us/codex-mopa">
-<version code="current" url="http://hl7.org/fhir/us/codex-ocpa"/>
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ciUrl="http://hl7.org/fhir/us/codex-mopa" defaultVersion="current" defaultWorkgroup="cic" url="http://hl7.org/fhir/us/codex-mopa">
+<version code="current" url="http://hl7.org/fhir/us/codex-mopa"/>
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
