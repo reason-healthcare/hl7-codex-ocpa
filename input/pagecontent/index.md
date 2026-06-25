@@ -97,8 +97,8 @@ For the upstream standards work items, see:
 | **Oncology Practice / Clinician** | Clinical guideline-aligned recommendations surface at the moment of ordering — structuring the treatment decision in a way that moves through authorization without friction |
 | **Cancer Patient** | Clinical guideline-appropriate treatment is authorized faster because the clinical evidence supporting the decision arrives at the payer in a structured, computable form |
 | **Health Plan / Payer** | Authorization requests carry the structured clinical evidence — diagnosis, staging, biomarkers, line of therapy — that coverage policy requires, enabling consistent, evidence-grounded determinations |
-| **EHR / Ordering System** | A single conformant integration delivers guideline-aligned CDS and structured authorization requests across all payers and cancer types, replacing fragmented per-payer builds |
-| **Guideline Authority** | Computable regimen definitions flow directly from publication into clinical decision support and payer coverage evaluation — creating a traceable path from evidence to real-world treatment authorization |
+| **EHR / Ordering System** | A single conformant integration delivers clinical guideline-aligned CDS and structured authorization requests across all payers and cancer types, replacing fragmented per-payer builds |
+| **Clinical Guideline Authority** | Computable regimen definitions flow directly from publication into clinical decision support and payer coverage evaluation — creating a traceable path from evidence to real-world treatment authorization |
 {: .table }
 
 <div style="max-width: 400px;">
