@@ -23,7 +23,7 @@ requirements to prescription drugs — including chemotherapeutics and anti-canc
 
 This IG addresses two connected layers:
 
-1. **Optional pre-order CDS** — guideline-aligned regimen recommendations surfaced in the EHR
+1. **Optional pre-order CDS** — clinical guideline-aligned regimen recommendations surfaced in the EHR
    before an order is placed
 
 2. **Structured authorization exchange** — a standard Da Vinci CRD workflow where the payer
@@ -94,8 +94,8 @@ For the upstream standards work items, see:
 
 | Stakeholder | Benefit |
 |---|---|
-| **Oncology Practice / Clinician** | Guideline-aligned recommendations surface at the moment of ordering — structuring the treatment decision in a way that moves through authorization without friction |
-| **Cancer Patient** | Guideline-appropriate treatment is authorized faster because the clinical evidence supporting the decision arrives at the payer in a structured, computable form |
+| **Oncology Practice / Clinician** | Clinical guideline-aligned recommendations surface at the moment of ordering — structuring the treatment decision in a way that moves through authorization without friction |
+| **Cancer Patient** | Clinical guideline-appropriate treatment is authorized faster because the clinical evidence supporting the decision arrives at the payer in a structured, computable form |
 | **Health Plan / Payer** | Authorization requests carry the structured clinical evidence — diagnosis, staging, biomarkers, line of therapy — that coverage policy requires, enabling consistent, evidence-grounded determinations |
 | **EHR / Ordering System** | A single conformant integration delivers guideline-aligned CDS and structured authorization requests across all payers and cancer types, replacing fragmented per-payer builds |
 | **Guideline Authority** | Computable regimen definitions flow directly from publication into clinical decision support and payer coverage evaluation — creating a traceable path from evidence to real-world treatment authorization |
