@@ -229,7 +229,7 @@ from the EHR.
 Step 1  POST /cds-services/oncology-crd  ← order-select fires
           ↳ 1a: CRD service reads RequestGroup from draftOrders
           ↳ 1b: CRD service queries EHR FHIR server (using fhirAuthorization)
-          ↳ 1c: Response A — pre-approved (all context present)
+          ↳ 1c: Response A — Authorization Satisfied (all context present)
           ↳ 1c: Response B — DTR required (HER2 status missing from EHR)
 Step 2  DTR questionnaire launched (Response B path only)
 Step 3  POST /cds-services/oncology-crd  ← order-sign fires (full MedicationRequests)
@@ -393,13 +393,14 @@ On receipt of the query results, the CDS Service evaluates:
 
 3. All criteria satisfied → evaluate coverage rules
    → TH adjuvant for HER2+ Stage IIB breast cancer: covered per Guideline Authority
-   → Pre-approval granted
+   → Authorization Satisfied
 ```
 
-##### Step 1c Response A — Pre-Approved (All Context Present)
+##### Step 1c Response A — Authorization Satisfied (All Context Present)
 
-All required oncology context was retrieved from the EHR FHIR server.
-The CDS Service returns a success card directly — no DTR required.
+All required oncology context was retrieved from the EHR FHIR server and all PA criteria
+were met. While prior authorization would typically be needed, the conditions evaluated by
+prior authorization have already been evaluated and therefore prior authorization can be bypassed.
 
 ```jsonc
 // HTTP/1.1 200 OK
@@ -409,9 +410,9 @@ The CDS Service returns a success card directly — no DTR required.
   "cards": [
     {
       "uuid":      "card-e7f1a2b3-4c5d-6e7f-8a9b-0c1d2e3f4a5b",
-      "summary":   "TH Regimen: Pre-Authorization Not Required",
+      "summary":   "TH Regimen: Authorization Satisfied",
       "indicator": "success",
-      "detail":    "Adjuvant TH (paclitaxel + trastuzumab) for HER2-positive Stage IIB breast cancer meets coverage criteria. HER2 IHC positivity confirmed. No prior authorization required for this regimen in the adjuvant first-line setting.",
+      "detail":    "Adjuvant TH (paclitaxel + trastuzumab) for HER2-positive Stage IIB breast cancer: while prior authorization would typically be required, the prior authorization conditions have been evaluated and prior authorization can be bypassed. HER2 IHC positivity confirmed, Stage IIB, first-line adjuvant.",
       "source": {
         "label": "MOPA Coverage Decision Support",
         "url":   "https://cds.example.org",
@@ -540,7 +541,7 @@ Content-Type: application/json
 The CRD service re-queries the EHR FHIR server using `fhirAuthorization`. In the Response B path,
 the HER2 Observation saved by DTR is now present on the EHR server.
 
-##### Response — Final Pre-Authorization Determination
+##### Response — Authorization Satisfied
 
 ```jsonc
 // HTTP/1.1 200 OK
@@ -550,9 +551,9 @@ the HER2 Observation saved by DTR is now present on the EHR server.
   "cards": [
     {
       "uuid":      "card-9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d",
-      "summary":   "TH Regimen: Pre-Authorization Approved",
+      "summary":   "TH Regimen: Authorization Satisfied",
       "indicator": "success",
-      "detail":    "Adjuvant TH (paclitaxel + trastuzumab) for HER2-positive (IHC 3+) Stage IIB breast cancer is approved for coverage. Confirmed HER2 positivity, Stage IIB disease, ECOG PS 1, no prior HER2-directed therapy, first-line adjuvant intent.",
+      "detail":    "Adjuvant TH (paclitaxel + trastuzumab) for HER2-positive (IHC 3+) Stage IIB breast cancer: while prior authorization would typically be required, the prior authorization conditions have been evaluated and prior authorization can be bypassed. Confirmed HER2 positivity (IHC 3+), Stage IIB disease, ECOG PS 1, no prior HER2-directed therapy, first-line adjuvant intent.",
       "source": {
         "label": "MOPA Coverage Decision Support",
         "url":   "https://cds.example.org"
@@ -562,7 +563,7 @@ the HER2 Observation saved by DTR is now present on the EHR server.
   "systemActions": [
     {
       "type":        "create",
-      "description": "Record prior authorization approval",
+      "description": "Record authorization satisfied",
       "resource": {
         "resourceType": "Coverage",
         "status":       "active",

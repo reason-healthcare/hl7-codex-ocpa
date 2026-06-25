@@ -80,7 +80,7 @@ Upon receiving the hook, the CRD service:
 
 | Condition | CRD Response |
 |---|---|
-| Required context complete + criteria satisfied | No PA required, pre-approval, or silent success |
+| Required context complete + criteria satisfied | **Authorization Satisfied** — PA conditions have been evaluated and PA can be bypassed |
 | Required context retrievable but criteria not met | Return PA required or documentation required |
 | Required context not yet available in EHR | Return DTR launch card to collect missing data |
 | Regimen cannot be evaluated | Return coverage/documentation guidance |

@@ -3,7 +3,7 @@
 | Actor | Description |
 |---|---|
 | **Oncology CRD Client** | An EHR or ordering system that invokes CDS Hooks `order-select` or `order-sign` during anti-cancer regimen ordering |
-| **Oncology CRD Service** | A payer coverage decision service that evaluates the ordered regimen by querying the EHR's FHIR API for required patient context, returning cards or pre-approval status |
+| **Oncology CRD Service** | A payer coverage decision service that evaluates the ordered regimen by querying the EHR's FHIR API for required patient context, returning cards or an Authorization Satisfied result |
 | **DTR Client** | A system that collects missing patient context using questionnaires when the CRD service could not retrieve sufficient data from the EHR FHIR server |
 | **PAS Client** | A system that submits a structured prior authorization request when PA is required after CRD/DTR |
 | **PAS Server** | A payer system that receives and adjudicates the PA request |
@@ -60,7 +60,7 @@ Once a regimen is selected, the workflow uses the standard Da Vinci CRD/DTR/PAS 
      oncology context (cancer condition, staging, biomarkers, line of therapy, etc.)
    - Evaluates retrieved context against coverage policy
 
-   IF context sufficient + criteria satisfied → pre-approval or no PA required
+   IF context sufficient + criteria satisfied → Authorization Satisfied (PA bypassed)
    IF context incomplete in EHR → return DTR launch card
    IF context complete but criteria not met → return PA required card
 
