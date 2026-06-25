@@ -14,7 +14,7 @@ upstream proposal for mCODE STU5 consideration, with breast cancer PA used as th
 | MOPA-MC-004 | Regimen intent not explicit | Add regimen intent extension + VS | `RegimenIntentExtension`, `RegimenIntentVS` |
 | MOPA-MC-005 | Treatment line as a regimen attribute missing | Add regimen treatment-line extension | `RegimenTreatmentLineExtension` |
 | MOPA-MC-006 | Disease context not bound to regimen | Add regimen disease-context extension | `RegimenDiseaseContextExtension` |
-| MOPA-MC-007 | No oncology PA data-requirements packaging | Add oncology data-requirements Library pattern | `OncologyDataRequirementsLibrary` |
+| MOPA-MC-007 | No oncology PA data-requirements packaging | Add oncology data-requirements pattern for cancer-type clinical data elements | `OncologyDataRequirementsLibrary` |
 | MOPA-MC-008 | Biomarker results not PA-normalized | Add normalized biomarker result guidance / profiling | Breast cancer PA guidance |
 
 ### MOPA-MC-001 — Regimen definition

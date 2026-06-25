@@ -12,7 +12,7 @@ guideline-concordant regimen options before an order is placed.
 **Layer 2** is the automated structured authorization exchange: the CDS Hooks pipeline that
 fires during order entry and drives CRD → DTR → PAS as needed.
 
-Both layers share the same `OncologyDataRequirementsLibrary` as their single source of truth.
+Both layers share the same oncology data categories as the basis for clinical evaluation.
 
 ### Clinical Scenario
 
@@ -28,8 +28,7 @@ Both layers share the same `OncologyDataRequirementsLibrary` as their single sou
 The SMART app is the primary CDS tool for the provider. It is launched directly from the
 EHR when the provider clicks a CDS button in the patient chart. It has three responsibilities:
 
-1. **Data review** — query the FHIR server for all data elements required by the applicable
-   `OncologyDataRequirementsLibrary` and display what is present
+1. **Data review** — query the FHIR server for relevant oncology data elements and display what is present
 2. **Data collection** — allow the provider to enter or confirm any missing elements inline
 3. **Regimen options** — present guideline-concordant anticancer regimen options based on the
    complete clinical context
@@ -58,10 +57,10 @@ The app completes the SMART OAuth flow and obtains an access token scoped to the
 patient. The SMART App Launch specification governs this exchange and it is not reproduced
 here.
 
-#### Step 2 — Cancer Type Identification and Library Fetch
+#### Step 2 — Cancer Type Identification
 
 With a patient-scoped access token, the app queries the EHR FHIR server for the patient's
-active primary cancer condition to determine which `OncologyDataRequirementsLibrary` applies.
+active primary cancer condition to determine which oncology data categories apply.
 
 ##### App reads primary cancer condition
 
@@ -87,24 +86,12 @@ Authorization: Bearer <smart-access-token>
 }
 ```
 
-The app uses cancer type code `254837009` to fetch the breast cancer Library. It either has
-the canonical pre-configured per cancer type, or queries the MOPA service by subject code:
-
-```
-// Option A — pre-configured canonical
-GET https://cds.example.org/Library/BreastCancerPADataRequirements
-
-// Option B — FHIR search by cancer type
-GET https://cds.example.org/Library?subject:coding=http://snomed.info/sct|254837009
-```
-
-The Library response (see [Data Requirements Pattern](data-requirements.html)) provides the
-`DataRequirement[]` entries the app will now query against.
+The app uses the cancer type to determine which oncology data elements to query next.
 
 #### Step 3 — Data Element Queries
 
-For each `DataRequirement` in the Library, the app queries the EHR FHIR server. These run
-in parallel where possible.
+For each oncology data category relevant to breast cancer, the app queries the EHR FHIR server.
+These run in parallel where possible.
 
 ```
 // Primary cancer condition (already retrieved in Step 2 — reused)
@@ -151,7 +138,7 @@ description, not an API call.
 
 ##### Phase 1 — Data Review
 
-Each `DataRequirement` is shown with its current value or a missing indicator:
+Each relevant oncology data element is shown with its current value or a missing indicator:
 
 | Data Element | Value | Source |
 |---|---|---|
@@ -179,7 +166,7 @@ Jane Smith. Dr. Lopez selects the result directly in the app:
 >
 > - **Write-back supported** — the EHR grants `patient/Observation.write` (or `patient/*.write`)
 >   and the app persists the entered value directly. When order-select fires shortly after,
->   the prefetch re-execution finds the new Observation and the CDS Service can make a
+>   the CRD service queries the EHR FHIR server and finds the new Observation, allowing a
 >   complete determination without invoking DTR.
 >
 > - **Write-back not supported** — the EHR does not grant write scopes. The app holds the
@@ -230,117 +217,31 @@ into the CDS Hooks workflow described in Layer 2.
 
 ### Layer 2 — Structured Authorization Exchange (CDS Hooks)
 
-This is the automated pipeline that fires during order entry. The EHR sends a standard
-prefetch payload with every hook call. The CDS Service uses the patient's primary cancer
-condition — returned in that prefetch — to select the applicable Library internally. No
-cancer-type-specific configuration is required from the EHR.
+This is the automated pipeline that fires during order entry. The EHR fires a standard CDS Hooks
+request containing the ordered `RequestGroup` and — when available — `fhirAuthorization`
+credentials. The CRD service uses those credentials to query the EHR FHIR server directly for
+the oncology patient context it needs. No special extension or prefetch configuration is required
+from the EHR.
 
 #### API Call Sequence
 
 ```
-Step 1  GET /cds-services                ← EHR registers service at startup (disease: UNKNOWN)
-Step 2  POST /cds-services/oncology-crd  ← order-select fires
-          ↳ 2a: CDS Service resolves Library from prefetch.primaryCancer
-          ↳ 2b: CDS evaluates prefetch vs. DataRequirement[]
-          ↳ 2c: Response A — pre-approved (prefetch complete)
-          ↳ 2c: Response B — DTR required (HER2 status missing)
-Step 3  DTR questionnaire launched (Response B path only)
-Step 4  POST /cds-services/oncology-crd  ← order-sign fires (full MedicationRequests)
+Step 1  POST /cds-services/oncology-crd  ← order-select fires
+          ↳ 1a: CRD service reads RequestGroup from draftOrders
+          ↳ 1b: CRD service queries EHR FHIR server (using fhirAuthorization)
+          ↳ 1c: Response A — pre-approved (all context present)
+          ↳ 1c: Response B — DTR required (HER2 status missing from EHR)
+Step 2  DTR questionnaire launched (Response B path only)
+Step 3  POST /cds-services/oncology-crd  ← order-sign fires (full MedicationRequests)
 ```
 
-#### Step 1 — Discovery: Disease Is Unknown
-
-The EHR contacts the MOPA CDS Service at startup or configuration time — **before any
-patient is selected and before any regimen is being ordered.** The service returns a static
-discovery document. At this point the EHR has no idea what cancer type the next patient will
-have.
-
-##### Request
-
-```
-GET https://cds.example.org/cds-services
-Accept: application/json
-```
-
-##### Response
-
-```jsonc
-// HTTP/1.1 200 OK
-// Content-Type: application/json
-
-{
-  "services": [
-    {
-      "id": "oncology-crd",
-      "hook": "order-select",
-      "title": "Oncology Coverage Requirements Discovery",
-      "description": "Evaluates anti-cancer regimen orders against payer coverage criteria using mCODE patient context.",
-
-      // Layer 1 — prefetch templates (superset across ALL supported cancer types).
-      // The EHR executes these queries for every patient regardless of cancer type.
-      // The service consumes only what the per-invocation Library requires.
-      "prefetch": {
-        "primaryCancer":     "Condition?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-primary-cancer-disorder-vs",
-        "cancerStage":       "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-observation-codes-vs",
-        "biomarkers":        "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs",
-        "lineOfTherapy":     "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
-        "performanceStatus": "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-ecog-performance-status-vs",
-        "priorTherapy":      "MedicationRequest?patient={{context.patientId}}&status=completed,stopped"
-      },
-
-      // Layer 2 — MOPA extension (MOPA-aware clients only).
-      // Lists each supported cancer type Library. An MOPA-aware EHR MAY use this
-      // to supply dataRequirements.canonical when disambiguating multiple active cancers.
-      "extension": {
-        "org.hl7.davinci-crd.oncology": {
-          "dataRequirementsLibraries": [
-            {
-              "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/BreastCancerPADataRequirements|1.0.0",
-              "cancerType": { "system": "http://snomed.info/sct", "code": "254837009", "display": "Malignant neoplasm of breast" }
-            },
-            {
-              "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/LungCancerPADataRequirements|1.0.0",
-              "cancerType": { "system": "http://snomed.info/sct", "code": "363358000", "display": "Malignant tumor of lung" }
-            }
-          ],
-          "supportedRegimenProfiles": [
-            "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup"
-          ]
-        }
-      }
-    },
-
-    // The same service registers on order-sign using the same id, enabling updated
-    // guidance after all MedicationRequests are finalised (CDS Hooks "update stale
-    // guidance" pattern).
-    {
-      "id": "oncology-crd",
-      "hook": "order-sign",
-      "title": "Oncology Coverage Requirements Discovery",
-      "description": "Final PA determination at order signing.",
-      "prefetch": { "...": "..." },
-      "extension": { "...": "..." }
-    }
-  ]
-}
-```
-
-> **Key point:** The EHR stores this discovery document and is now configured. It does not
-> need to determine which Library applies for any given patient — that is the CDS Service's
-> responsibility, resolved at invocation time from the prefetch primary cancer condition.
-
----
-
-#### Step 2 — order-select
+#### Step 1 — order-select
 
 Dr. Lopez selects the **TH regimen** from the oncology order-set. The EHR creates a draft
-`RequestGroup` and fires `order-select`. The EHR executes the prefetch templates — including
-`primaryCancer` — against the patient's FHIR server. The patient's confirmed breast cancer
-condition is returned in that bundle. **This is the signal the CDS Service uses to identify
-the applicable Library.** The EHR does not need to know which Library applies; it simply
-sends the standard prefetch payload configured at discovery time.
+`RequestGroup` and fires `order-select` with standard CDS Hooks context and FHIR authorization.
+The CRD service will query back to the EHR FHIR server using the provided access token.
 
-##### Step 2b — order-select Hook Request
+##### Step 1b — order-select Hook Request
 
 ```
 POST https://cds.example.org/cds-services/oncology-crd
@@ -399,9 +300,8 @@ Content-Type: application/json
                 }
               },
               {
-                // regimenDiseaseContext: OPTIONAL. An MOPA-aware EHR MAY populate this
-                // to make the disease context explicit on the RequestGroup. The CDS Service
-                // does NOT require it — it reads the cancer type from prefetch.primaryCancer.
+                // regimenDiseaseContext: OPTIONAL. An EHR MAY populate this
+                // to make the disease context explicit on the RequestGroup.
                 "url": "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-disease-context",
                 "valueCodeableConcept": {
                   "coding": [{ "system": "http://snomed.info/sct", "code": "254837009", "display": "Malignant neoplasm of breast" }]
@@ -424,198 +324,81 @@ Content-Type: application/json
     }
   },
 
-  // ── Prefetch ──────────────────────────────────────────────────────────────
-  // Templates are the same for every patient — the EHR does not need to know
-  // in advance that this patient has breast cancer.
-  "prefetch": {
-
-    // Primary cancer condition: confirmed breast cancer — THIS is what the CDS
-    // Service reads to resolve the applicable Library.
-    "primaryCancer": {
-      "resourceType": "Bundle",
-      "type": "searchset",
-      "total": 1,
-      "entry": [{
-        "resource": {
-          "resourceType":       "Condition",
-          "id":                 "MOPABreastCancerConditionExample",
-          "meta":               { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-primary-cancer-condition"] },
-          "clinicalStatus":     { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/condition-clinical", "code": "active" }] },
-          "verificationStatus": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status", "code": "confirmed" }] },
-          "code":               { "coding": [{ "system": "http://snomed.info/sct", "code": "254837009", "display": "Malignant neoplasm of breast" }] },
-          "subject":            { "reference": "Patient/MOPAPatientExample" },
-          "onsetDateTime":      "2025-11-03"
-        }
-      }]
-    },
-
-    // Cancer staging: Stage IIB (T2 N1 M0)
-    "cancerStage": {
-      "resourceType": "Bundle",
-      "type": "searchset",
-      "total": 1,
-      "entry": [{
-        "resource": {
-          "resourceType": "Observation",
-          "meta":         { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tnm-stage-group"] },
-          "status":       "final",
-          "code":         { "coding": [{ "system": "http://loinc.org", "code": "21908-9", "display": "Stage group.clinical Cancer" }] },
-          "subject":      { "reference": "Patient/MOPAPatientExample" },
-          "effectiveDateTime": "2025-11-10",
-          "valueCodeableConcept": {
-            "coding": [{ "system": "http://snomed.info/sct", "code": "1228882005", "display": "American Joint Commission on Cancer stage IIB (qualifier value)" }]
-          }
-        }
-      }]
-    },
-
-    // Biomarkers: HER2 positive, ER negative, PR negative
-    "biomarkers": {
-      "resourceType": "Bundle",
-      "type": "searchset",
-      "total": 3,
-      "entry": [
-        {
-          "resource": {
-            "resourceType": "Observation",
-            "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"] },
-            "status": "final",
-            "code":   { "coding": [{ "system": "http://loinc.org", "code": "85319-2", "display": "HER2 [Presence] in Breast cancer specimen by Immune stain" }] },
-            "subject": { "reference": "Patient/MOPAPatientExample" },
-            "effectiveDateTime": "2025-11-12",
-            "valueCodeableConcept": {
-              "coding": [{ "system": "http://snomed.info/sct", "code": "10828004", "display": "Positive (qualifier value)" }]
-            }
-          }
-        },
-        {
-          "resource": {
-            "resourceType": "Observation",
-            "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"] },
-            "status": "final",
-            "code":   { "coding": [{ "system": "http://loinc.org", "code": "85337-4", "display": "Estrogen receptor Ag [Presence] in Breast cancer specimen by Immune stain" }] },
-            "subject": { "reference": "Patient/MOPAPatientExample" },
-            "effectiveDateTime": "2025-11-12",
-            "valueCodeableConcept": {
-              "coding": [{ "system": "http://snomed.info/sct", "code": "260385009", "display": "Negative (qualifier value)" }]
-            }
-          }
-        },
-        {
-          "resource": {
-            "resourceType": "Observation",
-            "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-tumor-marker-test"] },
-            "status": "final",
-            "code":   { "coding": [{ "system": "http://loinc.org", "code": "85339-0", "display": "Progesterone receptor Ag [Presence] in Breast cancer specimen by Immune stain" }] },
-            "subject": { "reference": "Patient/MOPAPatientExample" },
-            "effectiveDateTime": "2025-11-12",
-            "valueCodeableConcept": {
-              "coding": [{ "system": "http://snomed.info/sct", "code": "260385009", "display": "Negative (qualifier value)" }]
-            }
-          }
-        }
-      ]
-    },
-
-    // Line of therapy: first-line
-    "lineOfTherapy": {
-      "resourceType": "Bundle",
-      "type": "searchset",
-      "total": 1,
-      "entry": [{
-        "resource": {
-          "resourceType": "Observation",
-          "meta":   { "profile": ["http://hl7.org/fhir/us/codex-mopa/StructureDefinition/line-of-therapy-observation"] },
-          "status": "final",
-          "code":   { "coding": [{ "system": "http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes", "code": "line-of-therapy", "display": "Line of Therapy" }] },
-          "subject": { "reference": "Patient/MOPAPatientExample" },
-          "valueCodeableConcept": {
-            "coding": [{ "system": "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs", "code": "1L", "display": "First-line" }]
-          }
-        }
-      }]
-    },
-
-    // ECOG performance status: PS 1
-    "performanceStatus": {
-      "resourceType": "Bundle",
-      "type": "searchset",
-      "total": 1,
-      "entry": [{
-        "resource": {
-          "resourceType": "Observation",
-          "meta":   { "profile": ["http://hl7.org/fhir/us/mcode/StructureDefinition/mcode-ecog-performance-status"] },
-          "status": "final",
-          "code":   { "coding": [{ "system": "http://loinc.org", "code": "89247-1", "display": "ECOG Performance Status score" }] },
-          "subject": { "reference": "Patient/MOPAPatientExample" },
-          "effectiveDateTime": "2026-05-10",
-          "valueInteger": 1
-        }
-      }]
-    },
-
-    // Prior therapy: none on record (first-line adjuvant)
-    "priorTherapy": {
-      "resourceType": "Bundle",
-      "type": "searchset",
-      "total": 0
-    }
-  },
-
-  // ── MOPA oncology extension ───────────────────────────────────────────────
-  // orderedRegimen (REQUIRED) identifies the draft RequestGroup.
-  // dataRequirements (OPTIONAL) — omitted here: Jane Smith has a single active
-  // cancer condition so the service resolves the Library unambiguously from
-  // prefetch.primaryCancer. Include dataRequirements.canonical only when the
-  // patient has multiple active cancer conditions.
-  "extension": {
-    "org.hl7.davinci-crd.oncology": {
-      "orderedRegimen": {
-        "reference": "RequestGroup/THRegimenOrder",
-        // regimenDefinition is OPTIONAL.
-        "regimenDefinition": "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"
-      }
-    }
-  }
 }
 ```
 
-##### Step 2c — CDS Service Evaluation Logic
+##### Step 1b — CRD Service Queries EHR FHIR Server
 
-On receipt of the hook call, the CDS Service executes the following evaluation:
+Upon receiving the hook, the CRD service uses the `fhirAuthorization` access token to query
+the EHR directly for required oncology context:
 
 ```
-1. Resolve Library (precedence order):
-   a. extension.dataRequirements.canonical present? → use it directly
-   b. absent → read prefetch.primaryCancer bundle:
-        total=1, code=254837009 "Malignant neoplasm of breast"
-        → single active cancer → match against internal Library registry
-        → select BreastCancerPADataRequirements|1.0.0
-   c. absent AND multiple active cancers in prefetch.primaryCancer?
-        → return info card requesting dataRequirements.canonical disambiguation
+// 1. Primary cancer condition
+GET https://ehr.example.org/fhir/Condition
+    ?patient=MOPAPatientExample
+    &code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-primary-cancer-disorder-vs
+    &clinical-status=active
+Authorization: Bearer <bearer-token>
+// Response: breast cancer (SNOMED 254837009), active, confirmed
 
-2. For each DataRequirement[] in the resolved Library:
-   → Check whether the corresponding prefetch key is populated and non-null
-   → For Observation requirements: verify at least one result matches the
-     required profile and code filter
+// 2. Cancer stage
+GET https://ehr.example.org/fhir/Observation
+    ?patient=MOPAPatientExample
+    &code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-observation-codes-vs
+    &_sort=-date&_count=1
+// Response: Stage IIB (T2 N1 M0)
 
-3. Evaluate coverage criteria:
+// 3. Biomarkers
+GET https://ehr.example.org/fhir/Observation
+    ?patient=MOPAPatientExample
+    &code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs
+// Response: HER2 IHC 3+ (positive), ER negative, PR negative
+
+// 4. Line of therapy
+GET https://ehr.example.org/fhir/Observation
+    ?patient=MOPAPatientExample
+    &code:in=http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs
+// Response: First-line
+
+// 5. Performance status
+GET https://ehr.example.org/fhir/Observation
+    ?patient=MOPAPatientExample
+    &code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-ecog-performance-status-vs
+    &_sort=-date&_count=1
+// Response: ECOG PS 1
+
+// 6. Prior therapy
+GET https://ehr.example.org/fhir/MedicationRequest
+    ?patient=MOPAPatientExample
+    &status=completed,stopped
+// Response: empty — no prior systemic therapy
+```
+
+##### Step 1c — CDS Service Evaluation Logic
+
+On receipt of the query results, the CDS Service evaluates:
+
+```
+1. Identify cancer type from Condition query:
+   → code=254837009 "Malignant neoplasm of breast" → breast cancer evaluation
+
+2. Evaluate coverage criteria against retrieved context:
    → Diagnosis confirmed (mcode-primary-cancer-condition): ✓
    → Stage IIB (T2 N1 M0) present: ✓
    → HER2 positive by IHC: ✓  ← key criterion for trastuzumab authorization
    → ER−/PR− confirmed: ✓
    → ECOG PS 1: ✓
-   → No prior HER2-directed therapy: ✓ (prior therapy bundle empty)
+   → No prior HER2-directed therapy: ✓ (prior therapy empty)
    → Line of therapy: first-line adjuvant: ✓
 
-4. All DataRequirement[] entries satisfied → evaluate coverage rules
+3. All criteria satisfied → evaluate coverage rules
    → TH adjuvant for HER2+ Stage IIB breast cancer: covered per Guideline Authority
    → Pre-approval granted
 ```
 
-##### Step 2c Response A — Pre-Approved (All Context Present)
+##### Step 1c Response A — Pre-Approved (All Context Present)
 
-All `DataRequirement[]` entries in the breast cancer Library are satisfied by the prefetch.
+All required oncology context was retrieved from the EHR FHIR server.
 The CDS Service returns a success card directly — no DTR required.
 
 ```jsonc
@@ -639,12 +422,11 @@ The CDS Service returns a success card directly — no DTR required.
 }
 ```
 
-##### Step 2c Response B — DTR Required (HER2 Status Missing)
+##### Step 1c Response B — DTR Required (HER2 Status Missing)
 
-In this alternate scenario, the biomarkers prefetch bundle returned no HER2 observation —
-the pathology report has not yet been filed. The `DataRequirement` for `mcode-tumor-marker-test`
-(HER2 code filter) is unsatisfied. The service cannot confirm HER2 positivity and returns a
-DTR launch card.
+In this alternate scenario, the CRD service queried the EHR FHIR server for biomarkers
+but found no HER2 Observation — the pathology report has not yet been filed. The service
+cannot confirm HER2 positivity and returns a DTR launch card.
 
 ```jsonc
 // HTTP/1.1 200 OK
@@ -664,9 +446,9 @@ DTR launch card.
       "links": [
         {
           "label": "Complete Prior Authorization Documentation (DTR)",
-          "url":   "https://dtr.example.org/launch?iss=https%3A%2F%2Fehr.example.org%2Ffhir&launch=eyJwYXRpZW50IjoiT0dDQVBhdGllbnRFeGFtcGxlIiwibGlicmFyeSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvdXMvY29kZXgtb2NwYS9MaWJyYXJ5L0JyZWFzdENhbmNlclBBRGF0YVJlcXVpcmVtZW50c3wxLjAuMCJ9",
+          "url":   "https://dtr.example.org/launch?iss=https%3A%2F%2Fehr.example.org%2Ffhir&launch=<launch-token>",
           "type":  "smart",
-          "appContext": "{\"library\":\"http://hl7.org/fhir/us/codex-mopa/Library/BreastCancerPADataRequirements|1.0.0\",\"regimen\":\"RequestGroup/THRegimenOrder\",\"missingRequirements\":[\"mcode-tumor-marker-test (HER2)\"]}"
+          "appContext": "{\"regimen\":\"RequestGroup/THRegimenOrder\",\"missingData\":[\"mcode-tumor-marker-test (HER2)\"]}"
         }
       ]
     }
@@ -674,17 +456,13 @@ DTR launch card.
 }
 ```
 
-> **Note on `appContext`:** Passed through to the DTR SMART app at launch. Carries the Library
-> canonical, regimen reference, and unsatisfied `DataRequirement[]` entries so DTR can
-> pre-populate the questionnaire and focus on only the genuinely missing data.
-
 ---
 
-#### Step 3 — DTR Questionnaire (Response B Path Only)
+#### Step 2 — DTR Questionnaire (Response B Path Only)
 
 Dr. Lopez clicks "Complete Prior Authorization Documentation." The DTR SMART app launches
-within the EHR, resolves the Library from `appContext`, and pre-populates all answers
-derivable from the patient record. The only unanswered item is HER2 status.
+within the EHR and pre-populates all answers derivable from the patient record. The only
+unanswered item is HER2 status.
 
 Dr. Lopez enters HER2 IHC 3+ (positive). The DTR app saves a `QuestionnaireResponse` to
 the EHR's FHIR server and signals completion.
@@ -694,12 +472,12 @@ full here.
 
 ---
 
-#### Step 4 — order-sign: Final Determination
+#### Step 3 — order-sign: Final Determination
 
 Dr. Lopez reviews the order and clicks **Sign**. The EHR fires `order-sign`. The key
 difference from `order-select`: all companion `MedicationRequest` resources are now
-finalised and included in `context.draftOrders`. In the Response B path, the prefetch
-re-execution now finds the HER2 observation saved by DTR.
+finalised and included in `context.draftOrders`. In the Response B path, the CRD service
+re-queries the EHR FHIR server and now finds the HER2 Observation saved by DTR.
 
 ##### Request (abbreviated — changes from order-select highlighted)
 
@@ -755,38 +533,12 @@ Content-Type: application/json
         }
       ]
     }
-  },
-
-  "prefetch": {
-    "primaryCancer":     { "...": "..." },
-    "cancerStage":       { "...": "..." },
-    "biomarkers": {
-      "resourceType": "Bundle",
-      "type": "searchset",
-      "total": 3,
-      "entry": [
-        // HER2 IHC positive — now present (filed by DTR in Response B path)
-        { "resource": { "resourceType": "Observation", "code": { "coding": [{ "system": "http://loinc.org", "code": "85319-2" }] }, "valueCodeableConcept": { "coding": [{ "system": "http://snomed.info/sct", "code": "10828004", "display": "Positive" }] } } },
-        { "resource": { "...": "..." } },  // ER negative
-        { "resource": { "...": "..." } }   // PR negative
-      ]
-    },
-    "lineOfTherapy":     { "...": "..." },
-    "performanceStatus": { "...": "..." },
-    "priorTherapy":      { "...": "..." }
-  },
-
-  // Extension identical to order-select
-  "extension": {
-    "org.hl7.davinci-crd.oncology": {
-      "orderedRegimen": {
-        "reference":         "RequestGroup/THRegimenOrder",
-        "regimenDefinition": "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"
-      }
-    }
   }
 }
 ```
+
+The CRD service re-queries the EHR FHIR server using `fhirAuthorization`. In the Response B path,
+the HER2 Observation saved by DTR is now present on the EHR server.
 
 ##### Response — Final Pre-Authorization Determination
 
@@ -831,22 +583,20 @@ for NSCLC), the only differences in the CDS Hooks flow would be:
 
 | Field | Breast cancer | Lung cancer |
 |---|---|---|
-| `prefetch.primaryCancer` code | SNOMED 254837009 | SNOMED 363358000 |
-| Library resolved by service | `BreastCancerPADataRequirements\|1.0.0` | `LungCancerPADataRequirements\|1.0.0` |
-| Evaluated `DataRequirement[]` | ER/PR/HER2, TNM breast staging | EGFR/ALK/PD-L1, TNM lung staging |
-| Prefetch templates executed | Same superset templates | Same superset templates |
+| Primary cancer Condition code | SNOMED 254837009 | SNOMED 363358000 |
+| Oncology queries issued | ER/PR/HER2, TNM breast staging | EGFR/ALK/PD-L1, TNM lung staging |
 | DTR questionnaire (if needed) | Breast cancer PA form | Lung cancer PA form |
-| `dataRequirements.canonical` | Omitted (single cancer) | Omitted (single cancer) |
 {: .table }
 
-The prefetch templates, the hook registration, and the service endpoint are identical. The
-service selects the correct Library internally from `prefetch.primaryCancer`. The EHR
-requires no cancer-type-specific configuration.
+The hook request, the service endpoint, and the `fhirAuthorization` mechanism are identical.
+The CRD service determines the applicable cancer type from its Condition query and selects
+the appropriate coverage evaluation logic internally. The EHR requires no cancer-type-specific
+configuration.
 
 ---
 
 #### See Also
 
-- [CDS Hooks Oncology Extension](cds-hooks-extension.html) — extension shape, discovery layers, and conformance requirements  
-- [Data Requirements Pattern](data-requirements.html) — Library structure and CRD/DTR reuse  
+- [CRD Workflow](cds-hooks-extension.html) — how the CRD service queries back and conformance requirements
+- [Data Requirements](data-requirements.html) — oncology data categories queried during CRD evaluation
 - [Use Case 1: Breast Cancer PA](breast-cancer-pa.html) — clinical data requirements for this scenario

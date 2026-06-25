@@ -3,8 +3,8 @@
 This page defines **Use Case 1** — the first concrete instantiation of the MOPA data requirements
 pattern for a specific cancer type. It serves as the template for subsequent use cases (lung,
 colorectal, hematologic malignancies, and others). Each future use case follows the same structure:
-a cancer-specific `OncologyDataRequirementsLibrary` derivative with its own `dataRequirement[]`
-entries, mCODE coverage assessment, gap analysis, and recommended profiles.
+a cancer-specific set of data requirements with mCODE coverage assessment, gap analysis, and
+recommended profiles.
 
 ### Scope
 

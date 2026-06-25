@@ -35,14 +35,12 @@ the Da Vinci CRD oncology profile defined in this IG by meeting the requirements
 * rest[=].documentation = """
 A conformant Oncology CRD Client SHALL:
 
-1. Include the `org.hl7.davinci-crd.oncology` CDS Hooks extension when an anti-cancer therapy
-   regimen is selected or signed.
-2. Include the selected anti-cancer regimen as a `RequestGroup` conforming to
+1. Include the selected anti-cancer regimen as a `RequestGroup` conforming to
    `OncologyAntiCancerRegimenRequestGroup` in `context.draftOrders` and `context.selections`.
-3. Populate `RequestGroup.instantiatesCanonical` with the canonical URL of the
+2. Populate `RequestGroup.instantiatesCanonical` with the canonical URL of the
    `OncologyAntiCancerRegimenPlanDefinition` when the definition is known.
-4. Make available the patient context required by the referenced `DataRequirement` entries
-   through prefetch, FHIR API access, or an included patient context Bundle.
+3. Provide `fhirAuthorization` in the CDS Hooks request when available, to allow the CRD
+   service to query patient context directly from the EHR FHIR server.
 """
 
 * rest[=].resource[+].type = #RequestGroup
@@ -60,12 +58,23 @@ A conformant Oncology CRD Client SHALL:
     "SHOULD support read of the PlanDefinition referenced by RequestGroup.instantiatesCanonical."
 * rest[=].resource[=].interaction[+].code = #read
 
-* rest[=].resource[+].type = #Library
-* rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/oncology-data-requirements-library"
+* rest[=].resource[+].type = #Condition
 * rest[=].resource[=].documentation =
-    "SHALL make available the Library referenced in the oncology CDS Hooks extension dataRequirements."
+    "SHALL expose Condition resources (mCODE primary cancer) for CRD service queries."
 * rest[=].resource[=].interaction[+].code = #read
+* rest[=].resource[=].interaction[+].code = #search-type
+
+* rest[=].resource[+].type = #Observation
+* rest[=].resource[=].documentation =
+    "SHALL expose Observation resources (staging, biomarkers, line of therapy, performance status) for CRD service queries."
+* rest[=].resource[=].interaction[+].code = #read
+* rest[=].resource[=].interaction[+].code = #search-type
+
+* rest[=].resource[+].type = #MedicationRequest
+* rest[=].resource[=].documentation =
+    "SHOULD expose MedicationRequest resources (prior therapy) for CRD service queries."
+* rest[=].resource[=].interaction[+].code = #read
+* rest[=].resource[=].interaction[+].code = #search-type
 
 
 // ─── 2. Oncology CRD Service ─────────────────────────────────────────────────
@@ -94,12 +103,12 @@ the Da Vinci CRD oncology profile defined in this IG by meeting the requirements
 * rest[=].documentation = """
 A conformant Oncology CRD Service SHALL:
 
-1. Be capable of evaluating the selected anti-cancer regimen `RequestGroup` and resolving its
-   instantiated `PlanDefinition`.
-2. Use the referenced or included `DataRequirement` entries to determine whether the supplied
-   patient context is sufficient for pre-approval evaluation.
-3. Return a DTR launch card when required patient context is missing.
-4. Support at least one cancer-specific `Library` conforming to `OncologyDataRequirementsLibrary`.
+1. Be capable of evaluating the selected anti-cancer regimen `RequestGroup` and optionally
+   resolving its instantiated `PlanDefinition`.
+2. Use `fhirAuthorization` — when provided in the CDS Hooks request — to query the EHR FHIR
+   server for required oncology patient context (cancer condition, staging, biomarkers, line
+   of therapy, performance status, prior therapy).
+3. Return a DTR launch card when required context is not available from the EHR FHIR server.
 """
 
 * rest[=].resource[+].type = #RequestGroup
@@ -113,13 +122,20 @@ A conformant Oncology CRD Service SHALL:
 * rest[=].resource[=].supportedProfile[+] =
     "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-plandefinition"
 * rest[=].resource[=].documentation =
-    "SHALL resolve PlanDefinition referenced by RequestGroup.instantiatesCanonical."
+    "SHOULD resolve PlanDefinition referenced by RequestGroup.instantiatesCanonical."
 * rest[=].resource[=].interaction[+].code = #read
 
-* rest[=].resource[+].type = #Library
-* rest[=].resource[=].supportedProfile[+] =
-    "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/oncology-data-requirements-library"
+* rest[=].resource[+].type = #Condition
 * rest[=].resource[=].documentation =
-    "SHALL support at least one cancer-specific Library conforming to OncologyDataRequirementsLibrary."
-* rest[=].resource[=].interaction[+].code = #read
+    "SHALL query Condition (primary cancer condition) from EHR FHIR server when fhirAuthorization is provided."
+* rest[=].resource[=].interaction[+].code = #search-type
+
+* rest[=].resource[+].type = #Observation
+* rest[=].resource[=].documentation =
+    "SHALL query Observation (staging, biomarkers, line of therapy, performance status) from EHR FHIR server."
+* rest[=].resource[=].interaction[+].code = #search-type
+
+* rest[=].resource[+].type = #MedicationRequest
+* rest[=].resource[=].documentation =
+    "SHOULD query MedicationRequest (prior therapy) from EHR FHIR server when relevant."
 * rest[=].resource[=].interaction[+].code = #search-type
