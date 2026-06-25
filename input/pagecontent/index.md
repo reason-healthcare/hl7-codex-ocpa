@@ -24,8 +24,7 @@ requirements to prescription drugs — including chemotherapeutics and anti-canc
 This IG addresses two connected layers:
 
 1. **Optional pre-order CDS** — guideline-aligned regimen recommendations surfaced in the EHR
-   before an order is placed, increasing the likelihood that the treatment ordered meets coverage
-   criteria.
+   before an order is placed
 
 2. **Structured authorization exchange** — a standard Da Vinci CRD workflow where the payer
    CRD service uses FHIR authorization (when provided) to query the EHR for required oncology
