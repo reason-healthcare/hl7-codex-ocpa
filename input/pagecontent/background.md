@@ -62,13 +62,13 @@ This IG fills the identified gaps by defining:
 
 1. A **computable anti-cancer regimen representation** — `PlanDefinition` (canonical protocol)
    and `RequestGroup` (patient-specific ordered instance)
-2. A **CDS Hooks oncology extension** for `order-select` / `order-sign` that carries the regimen
-   and required patient context to the coverage decision service
-3. A **data requirements Library pattern** that drives both CRD pre-approval evaluation and DTR
-   documentation collection from the same artifact
-4. A **cancer-specific data requirements package** pattern — `OncologyDataRequirementsLibrary` —
-   with breast cancer PA as the first concrete implementation (`BreastCancerPADataRequirementsLibrary`),
-   designed to be replicated for lung, colorectal, hematologic, and other cancer types
+2. A **standard Da Vinci CRD workflow** for oncology — the payer CRD service uses FHIR
+   authorization to query the EHR for required oncology context at the time of ordering
+3. A **defined set of oncology data categories** (cancer condition, staging, biomarkers, line of
+   therapy, performance status, prior therapy) that the CRD service queries and that DTR collects
+   when data is missing from the EHR
+4. A **cancer-specific data requirements pattern** with breast cancer PA as the first concrete
+   implementation, designed to be replicated for lung, colorectal, hematologic, and other cancer types
 
 These artifacts are designed as incremental extensions to Da Vinci CRD/DTR/PAS and mCODE, not as
 replacements. The specific gaps are carried forward as explicit backlog items on the

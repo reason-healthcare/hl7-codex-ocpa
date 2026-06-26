@@ -60,7 +60,7 @@ pages:
   regimen-model.md:
     title: Regimen Modeling
   cds-hooks-extension.md:
-    title: CDS Hooks Oncology Extension
+    title: CRD Workflow
   walkthrough.md:
     title: Workflow Walkthrough (Layers 1 & 2)
   data-requirements.md:
@@ -88,7 +88,7 @@ menu:
     Use Case 1 - Breast Cancer PA: breast-cancer-pa.html
   Specification:
     1-Regimen Modeling: regimen-model.html
-    2-CDS Hooks Extension: cds-hooks-extension.html
+    2-CRD Workflow: cds-hooks-extension.html
     3-Data Requirements: data-requirements.html
     Workflow Walkthrough: walkthrough.html
   Gaps in Specs:

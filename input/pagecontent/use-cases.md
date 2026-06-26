@@ -3,8 +3,8 @@
 | Actor | Description |
 |---|---|
 | **Oncology CRD Client** | An EHR or ordering system that invokes CDS Hooks `order-select` or `order-sign` during anti-cancer regimen ordering |
-| **Oncology CRD Service** | A coverage decision service that evaluates the ordered regimen and required patient context, returning cards or pre-approval status |
-| **DTR Client** | A system that collects missing patient context using questionnaires driven by the data requirements Library |
+| **Oncology CRD Service** | A payer coverage decision service that evaluates the ordered regimen by querying the EHR's FHIR API for required patient context, returning cards or an Authorization Satisfied result |
+| **DTR Client** | A system that collects missing patient context using questionnaires when the CRD service could not retrieve sufficient data from the EHR FHIR server |
 | **PAS Client** | A system that submits a structured prior authorization request when PA is required after CRD/DTR |
 | **PAS Server** | A payer system that receives and adjudicates the PA request |
 | **Guideline Authority** | An organization (e.g., NCCN, ASCO, internal pathways program) that publishes canonical regimen definitions as computable `PlanDefinition` artifacts |
@@ -16,14 +16,13 @@ This IG defines two connected layers that together address the full oncology PA 
 
 #### Layer 1 — Pre-Order Clinical Decision Support (optional)
 
-Before a clinician places an order, the EHR surfaces guideline-aligned regimen recommendations
+Before a clinician places an order, the EHR surfaces clinical guideline-aligned regimen recommendations
 based on the patient's specific situation: diagnosis, stage, biomarkers, and line of therapy.
 
 This layer:
 - Evaluates patient-specific context against computable clinical guidelines
-- Returns recommended regimens with approvable vs. non-approvable options
-- Increases the probability that the treatment ordered meets payer criteria *before* the order
-  is placed
+- Returns recommended regimens with clinical guideline-aligned options
+- Surfaces clinically relevant regimen choices before the order is placed
 
 This layer is **provider-driven**, **guideline-informed**, and focuses on selecting the right
 treatment upfront.
@@ -34,12 +33,11 @@ The upstream standards proposals for this workflow are collected on the
 
 #### Layer 2 — Structured Authorization Exchange (Da Vinci CRD → DTR → PAS)
 
-Once a regimen is selected, the workflow uses the Da Vinci CRD/DTR/PAS sequence with
-oncology-specific extensions:
+Once a regimen is selected, the workflow uses the standard Da Vinci CRD/DTR/PAS sequence:
 
-- **CRD** evaluates the ordered `RequestGroup` regimen instance, using the cancer-specific data
-  requirements Library to determine whether pre-approval can be granted
-- **DTR** uses the same data requirements to collect or prepopulate missing patient context
+- **CRD** receives the ordered `RequestGroup` and — if provided FHIR authorization — queries the
+  EHR's FHIR server directly for the oncology patient context required to evaluate the order
+- **DTR** collects any missing data the CRD service could not retrieve from the EHR FHIR server
 - **PAS** submits the structured authorization package when PA is still required
 
 ### Workflow: Complete Oncology PA Sequence
@@ -47,27 +45,28 @@ oncology-specific extensions:
 1. Clinician opens patient chart and begins treatment planning
 
 2. [Optional] Pre-order CDS evaluates patient context and returns
-   guideline-aligned regimen options before order selection
+   clinical guideline-aligned regimen options before order selection
 
 3. Clinician selects anti-cancer regimen → EHR creates draft RequestGroup
    (RequestGroup.instantiatesCanonical → PlanDefinition regimen definition)
 
-4. EHR invokes CDS Hooks order-select with oncology extension:
-   - Selected RequestGroup in context.selections and draftOrders
-   - Oncology extension identifying regimen and data requirements Library
+4. EHR fires standard CDS Hooks `order-select`:
+   - Selected `RequestGroup` in `context.selections` and `context.draftOrders`
+   - `fhirAuthorization` included when EHR FHIR access is available
 
 5. CRD Service evaluates:
-   - Is required patient context complete?
-   - Does the regimen meet guideline / policy criteria?
+   - Reads the `RequestGroup` to identify the ordered regimen
+   - If `fhirAuthorization` is provided, queries the EHR FHIR server for required
+     oncology context (cancer condition, staging, biomarkers, line of therapy, etc.)
+   - Evaluates retrieved context against coverage policy
 
-   IF complete + criteria satisfied → pre-approval or no PA required
-   IF context incomplete → return DTR launch card
-   IF complete but criteria not met → return PA required card
+   IF context sufficient + criteria satisfied → Authorization Satisfied (PA bypassed)
+   IF context incomplete in EHR → return DTR launch card
+   IF context complete but criteria not met → return PA required card
 
-6. DTR (if launched) uses data requirements Library to:
-   - Select or generate questionnaire
-   - Prepopulate known patient data
-   - Collect missing documentation
+6. DTR (if launched) uses the oncology questionnaire to:
+   - Prepopulate known patient data from the EHR
+   - Collect missing documentation not found via FHIR query
 
 7. At order-sign, EHR includes instantiated component MedicationRequest resources
    in the RequestGroup actions
@@ -86,8 +85,8 @@ For the full workflow to operate:
   MedicationRequests)
 - A canonical regimen definition (`OncologyAntiCancerRegimenPlanDefinition`) SHOULD be available
   for the ordered regimen
-- The CRD Service SHALL have access to a cancer-specific data requirements Library
-  (e.g., `BreastCancerPADataRequirementsLibrary`)
+- The EHR SHOULD provide `fhirAuthorization` in the CDS Hooks request so the CRD service can
+  query patient context directly
 
 ### Relationship to Da Vinci
 

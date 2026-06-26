@@ -180,8 +180,8 @@ docs/                          ← Background analysis and design documents
 |---|---|---|
 | [US Core](http://hl7.org/fhir/us/core) | 7.0.0 | Base US patient, practitioner, and clinical data profiles |
 | [mCODE](http://hl7.org/fhir/us/mcode) | 4.0.0 | Oncology clinical data foundation |
-| [Da Vinci CRD](http://hl7.org/fhir/us/davinci-crd) | 2.1.0 | Coverage Requirements Discovery |
-| [Da Vinci DTR](http://hl7.org/fhir/us/davinci-dtr) | 2.0.0 | Documentation Templates and Rules |
+| [Da Vinci CRD](http://hl7.org/fhir/us/davinci-crd) | 2.2.1 | Coverage Requirements Discovery |
+| [Da Vinci DTR](http://hl7.org/fhir/us/davinci-dtr) | 2.2.0 | Documentation Templates and Rules |
 | [Da Vinci PAS](http://hl7.org/fhir/us/davinci-pas) | 2.2.1 | Prior Authorization Support |
 
 ## Background Documentation

@@ -27,9 +27,9 @@ This IG addresses two connected layers:
    before an order is placed, increasing the likelihood that the treatment ordered meets coverage
    criteria.
 
-2. **Structured authorization exchange** — a CDS Hooks extension for oncology CRD that carries the
-   ordered regimen and required patient context (diagnosis, staging, biomarkers, line of therapy)
-   to the coverage decision service as structured, computable data.
+2. **Structured authorization exchange** — a standard Da Vinci CRD workflow where the payer
+   CRD service uses FHIR authorization (when provided) to query the EHR for required oncology
+   patient context (diagnosis, staging, biomarkers, line of therapy) directly.
 
 For the upstream standards work items, see:
 
@@ -76,8 +76,8 @@ For the upstream standards work items, see:
 **In scope:**
 - All oncology cancer types (solid tumors and hematologic malignancies)
 - Anti-cancer regimen representation as a first-class FHIR artifact
-- CDS Hooks extension for oncology `order-select` and `order-sign`
-- Patient context data requirements for oncology PA evaluation
+- Standard Da Vinci CRD workflow for oncology — payer queries EHR FHIR API for required context
+- Patient context data categories for oncology PA evaluation
 - **Use Case 1: Breast cancer prior authorization** — the first concrete data requirements
   implementation, serving as the template for other cancer types
 
@@ -125,8 +125,8 @@ For the upstream standards work items, see:
 - [mCODE Gap Proposals](mcode-gap-proposals.html) — Data model proposals derived from the gap analysis
 - **Specification:**
   - [Regimen Modeling](regimen-model.html) — How anti-cancer regimens are represented as FHIR `PlanDefinition` and `RequestGroup`
-  - [CDS Hooks Oncology Extension](cds-hooks-extension.html) — The CDS Hooks extension for oncology CRD
-  - [Data Requirements Pattern](data-requirements.html) — The `Library`-based patient context package for CRD and DTR
+  - [CRD Workflow](cds-hooks-extension.html) — How the payer CRD service queries the EHR FHIR API for oncology context
+  - [Data Requirements](data-requirements.html) — The oncology data categories queried during CRD evaluation
   - [Breast Cancer PA](breast-cancer-pa.html) — Breast cancer-specific data requirements and gap analysis
 - [Conformance](conformance.html) — Requirements for claiming conformance to this IG
 - [Artifacts](artifacts.html) — All profiles, extensions, value sets, and examples

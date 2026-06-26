@@ -1,206 +1,104 @@
 
 ### Overview
 
-This IG defines an oncology-specific extension for CDS Hooks `order-select` and `order-sign`
-hooks, used within Da Vinci CRD. The extension carries the ordered regimen identity and the
-cancer-specific data requirements needed for coverage evaluation.
+This IG describes how the Da Vinci CRD workflow is used for oncology prior authorization.
+No custom CDS Hooks extensions are defined. Instead, the payer CRD service uses standard
+CDS Hooks mechanisms — specifically FHIR API access provided via `fhirAuthorization` — to
+query the EHR's FHIR server directly for the oncology patient context it requires.
 
-### Conformance Intent
+This approach keeps the EHR-side integration simple and standard: the EHR fires the
+standard `order-select` and `order-sign` hooks with the `RequestGroup` in `draftOrders`,
+and the CRD service does the work of fetching what it needs.
 
-Base CDS Hooks and Da Vinci CRD are not modified. This IG defines a CRD oncology **profile**:
-conditional requirements for systems claiming conformance to this IG.
+### How the CRD Service Obtains Patient Context
 
-> For CDS Clients claiming conformance to this oncology CRD profile, when an anti-cancer therapy
-> regimen is selected or signed, the client **SHALL** include the oncology CRD extension in the
-> CDS Hooks request.
+When a CDS Hooks request includes a `fhirAuthorization` object, the CRD service **MAY**
+use the provided access token to query the EHR's FHIR server directly for the oncology
+facts it requires to evaluate the ordered regimen.
 
-> For CDS Services claiming conformance to this oncology CRD profile, the service **SHALL** be
-> capable of interpreting the oncology CRD extension and the referenced anti-cancer regimen
-> `RequestGroup`. When `regimenDefinition` is present the service **SHOULD** also resolve the
-> referenced `PlanDefinition`.
+The CRD service queries for the same clinical data elements that would otherwise be
+collected via DTR — the difference is that the payer queries them directly rather than
+asking the clinician to re-enter them. This is opaque to the standard CDS Hooks API:
+the EHR does not need to know which resources the payer will query.
 
-### Extension Shape
+Relevant data categories the CRD service typically queries:
 
-The extension key is `org.hl7.davinci-crd.oncology`. It has three components:
-
-| Component | Required | Purpose |
+| Data Category | FHIR Resource | Key Filters |
 |---|---|---|
-| `orderedRegimen` | SHALL | Identifies the `RequestGroup` instance; optionally references the canonical `PlanDefinition` when known |
-| `dataRequirements` | SHOULD | Explicitly identifies the cancer-specific data requirements Library. When absent, the CDS Service resolves the applicable Library from `prefetch.primaryCancer`. Provide this field when the patient has multiple active cancer conditions and disambiguation is needed. |
+| Primary cancer condition | `Condition` | mCODE primary cancer ValueSet, active status |
+| Cancer stage | `Observation` | mCODE staging codes |
+| Biomarkers | `Observation` | mCODE tumor marker ValueSet |
+| Line of therapy | `Observation` | MOPA treatment-line ValueSet |
+| Performance status | `Observation` | mCODE ECOG/Karnofsky codes |
+| Prior therapy | `MedicationRequest` / `Procedure` | Completed anti-cancer treatments |
 {: .table }
 
-```jsonc
-"extension": {
-  "org.hl7.davinci-crd.oncology": {
-    // orderedRegimen is REQUIRED — the CDS Service needs to know what was ordered.
-    "orderedRegimen": {
-      "reference": "RequestGroup/breast-cancer-regimen-001",
-      "regimenDefinition": "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/paclitaxel-trastuzumab-regimen"  // OPTIONAL — omit when PlanDefinition is not available
-    },
-    // dataRequirements is OPTIONAL — include when the patient has multiple active
-    // cancer conditions and the EHR needs to tell the service which one this order
-    // is for. When absent, the service resolves the Library from prefetch.primaryCancer.
-    "dataRequirements": {
-      "purpose": "pre-approval",
-      "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/breast-cancer-pa-data-requirements|1.0.0"
-    }
-  }
-}
-```
+### CDS Hooks Request Shape
 
-#### Library Resolution
+No custom extension is required. The EHR fires a standard CRD hook with:
 
-The CDS Service resolves which `OncologyDataRequirementsLibrary` to apply using the
-following precedence:
-
-1. **`dataRequirements.canonical` present** — use the explicitly provided Library canonical.
-   This is the unambiguous path and is preferred when the EHR can supply it.
-2. **`dataRequirements` absent — single active cancer condition** — read
-   `prefetch.primaryCancer`, extract the cancer type code, and match against the
-   service's internal Library registry. This is the common case for most EHRs, which
-   know the patient's primary cancer from the condition list without needing to
-   populate a custom extension.
-3. **`dataRequirements` absent — multiple active cancer conditions** — the service
-   **SHOULD** return an `info` card asking the EHR to resubmit with `dataRequirements.canonical`
-   populated to disambiguate, rather than guessing which cancer this order is for.
-
-#### `orderedRegimen` field details
-
-Only `reference` (the `RequestGroup`) is required in `orderedRegimen`. The
-`regimenDefinition` field carrying the canonical `PlanDefinition` URL is **OPTIONAL** — many
-EHR order-sets do not have a published canonical definition, and a conformant client **MAY**
-omit it. When present, `regimenDefinition` allows the CDS Service to resolve the full
-protocol definition for richer evaluation. The minimum viable payload contains only
-`reference` and, when the profile is known, `profile`:
-
-```json
-"orderedRegimen": {
-  "reference": "RequestGroup/breast-cancer-regimen-001"
-}
-```
-
-### Inline Data Requirements Option
-
-For pilots or simpler implementations, `dataRequirements` may include inline `DataRequirement`
-entries rather than a canonical Library reference. See [Data Requirements Pattern](data-requirements.html).
-
-### CDS Service Discovery
-
-The CDS Hooks discovery endpoint (`GET /cds-services`) is the first point of contact between an
-EHR and a conformant MOPA service. This IG defines two complementary layers for advertising data
-requirements at discovery time, serving different levels of client capability.
-
-#### Layer 1 — `prefetch` (standard EHR compatibility)
-
-A conformant CDS Service **SHALL** include `prefetch` entries derived from each supported
-`OncologyDataRequirementsLibrary`. This ensures that any CDS Hooks-compliant EHR can pre-fetch
-the required patient context without MOPA-specific awareness.
-
-Prefetch query templates are a flattened projection of the `Library.dataRequirement[]` entries —
-each `DataRequirement` with a code filter maps to a FHIR search query keyed by a descriptive name:
+- `context.patientId` — identifies the patient
+- `context.selections` and `context.draftOrders` — includes the `RequestGroup` conforming to `OncologyAntiCancerRegimenRequestGroup`
+- `fhirAuthorization` — FHIR access credentials the CRD service uses to query back (when available)
 
 ```json
 {
-  "services": [{
-    "id": "oncology-crd",
-    "hook": "order-select",
-    "title": "Oncology Coverage Requirements Discovery",
-    "prefetch": {
-      "primaryCancer":     "Condition?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-primary-cancer-disorder-vs",
-      "cancerStage":       "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-observation-codes-vs",
-      "biomarkers":        "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-tumor-marker-test-vs",
-      "lineOfTherapy":     "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
-      "performanceStatus": "Observation?patient={{context.patientId}}&code:in=http://hl7.org/fhir/us/mcode/ValueSet/mcode-ecog-performance-status-vs"
+  "hook": "order-select",
+  "hookInstance": "...",
+  "context": {
+    "userId": "Practitioner/DrLopez",
+    "patientId": "MOPAPatientExample",
+    "selections": ["RequestGroup/THRegimenOrder"],
+    "draftOrders": {
+      "resourceType": "Bundle",
+      "entry": [{ "resource": { "resourceType": "RequestGroup", "id": "THRegimenOrder", "..." } }]
     }
-  }]
+  },
+  "fhirAuthorization": {
+    "access_token": "...",
+    "token_type": "Bearer",
+    "expires_in": 300,
+    "scope": "patient/Condition.read patient/Observation.read patient/MedicationRequest.read",
+    "subject": "cds-service"
+  },
+  "fhirServer": "https://ehr.example.org/fhir"
 }
 ```
 
-#### Layer 2 — `extension` (MOPA-aware clients)
+### CRD Service Evaluation Flow
 
-A conformant CDS Service **SHOULD** advertise the canonical URL(s) of supported
-`OncologyDataRequirementsLibrary` instances via the `org.hl7.davinci-crd.oncology` extension on
-the discovery service object. This enables MOPA-aware clients to retrieve the full structured
-`DataRequirement[]` entries before the hook fires.
+Upon receiving the hook, the CRD service:
 
-```json
-{
-  "services": [{
-    "id": "oncology-crd",
-    "hook": "order-select",
-    "title": "Oncology Coverage Requirements Discovery",
-    "prefetch": { "...": "..." },
-    "extension": {
-      "org.hl7.davinci-crd.oncology": {
-        "dataRequirementsLibraries": [
-          {
-            "canonical": "http://hl7.org/fhir/us/codex-mopa/Library/breast-cancer-pa-data-requirements|1.0.0",
-            "cancerType": {
-              "system": "http://snomed.info/sct",
-              "code": "254837009",
-              "display": "Breast cancer"
-            }
-          }
-        ],
-        "supportedRegimenProfiles": [
-          "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-anticancer-regimen-requestgroup"
-        ]
-      }
-    }
-  }]
-}
-```
-
-An MOPA-aware CDS Client that resolves the advertised Library canonical MAY use the retrieved
-`DataRequirement[]` entries to pre-stage the DTR `Questionnaire`, validate prefetch completeness,
-or negotiate capability with the service before submitting the hook.
-
-#### Relationship between discovery layers and the Library
-
-The `OncologyDataRequirementsLibrary` is the single source of truth. The two discovery layers are
-derivations of it:
-
-```
-OncologyDataRequirementsLibrary.dataRequirement[]
-  ├── prefetch{}      ← flattened FHIR query projection (Layer 1, standard EHRs)
-  └── extension{}     ← canonical pointer to the Library (Layer 2, MOPA-aware clients)
-```
-
-Changes to a Library version propagate to both layers — implementers SHOULD regenerate prefetch
-templates when a new Library version is published.
-
-#### Discovery conformance requirements
-
-| Actor | Requirement |
-|---|---|
-| CDS Service | **SHALL** include `prefetch` entries derived from each supported `OncologyDataRequirementsLibrary` |
-| CDS Service | **SHOULD** advertise Library canonical URL(s) via the `org.hl7.davinci-crd.oncology` discovery extension |
-| CDS Client (standard) | **SHALL** submit prefetch-populated context when pre-fetched data is available |
-| CDS Client (MOPA-aware) | **MAY** fetch the advertised Library to pre-stage DTR or validate prefetch completeness before submitting the hook |
-{: .table }
+1. Reads the `RequestGroup` from `context.draftOrders` to identify the ordered regimen
+2. If `RequestGroup.instantiatesCanonical` is populated, optionally resolves the canonical
+   `PlanDefinition` for richer protocol-level evaluation
+3. Uses `fhirAuthorization` to query the EHR FHIR server for the required oncology facts
+4. Evaluates the regimen against its coverage policy using the retrieved context
+5. Returns the appropriate CRD response card(s)
 
 ### Possible CRD Outcomes
 
 | Condition | CRD Response |
 |---|---|
-| Required context complete + criteria satisfied | No PA required, pre-approval, or silent success |
-| Required context incomplete | Return DTR launch card |
-| Required context complete but criteria not met | Return PA required or documentation required |
+| Required context complete + criteria satisfied | **Authorization Satisfied** — PA conditions have been evaluated and PA can be bypassed |
+| Required context retrievable but criteria not met | Return PA required or documentation required |
+| Required context not yet available in EHR | Return DTR launch card to collect missing data |
 | Regimen cannot be evaluated | Return coverage/documentation guidance |
 {: .table }
 
+### Conformance Requirements
 
-<div style="max-width: 700px; margin: 40px 0;">
-   <img src="mopa-cds-hooks.svg">
-</div>
-
+| Actor | Requirement |
+|---|---|
+| **Oncology CRD Client** | **SHALL** include the `RequestGroup` in `context.draftOrders` conforming to `OncologyAntiCancerRegimenRequestGroup` |
+| **Oncology CRD Client** | **SHOULD** provide `fhirAuthorization` so the CRD service can query for patient context |
+| **Oncology CRD Service** | **SHALL** be capable of evaluating the `RequestGroup` to identify the ordered regimen |
+| **Oncology CRD Service** | **SHOULD** use `fhirAuthorization` to query the EHR for required oncology facts when provided |
+| **Oncology CRD Service** | **SHALL** return a DTR launch card when required context is not available via FHIR query |
+{: .table }
 
 ### Examples
 
-For a complete end-to-end walkthrough of all API calls — including the provider-initiated
-SMART launch flow and the automated CDS Hooks PA pipeline — see
-[Workflow Walkthrough](walkthrough.html).
+For a complete end-to-end walkthrough see [Workflow Walkthrough](walkthrough.html).
 
-For the FHIR resource-level payloads, see
-[Example: order-select request](Bundle-ExampleOrderSelectBundle.html) and
-[Example: order-sign request](Bundle-ExampleOrderSignBundle.html).
+For the `RequestGroup` payload, see [Example: TH Regimen Order](RequestGroup-THRegimenOrder.html).

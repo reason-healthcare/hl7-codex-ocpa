@@ -46,7 +46,7 @@
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
 <page key="background" name="Background"/>
-<page key="cds-hooks-extension" name="CDS Hooks Oncology Extension"/>
+<page key="cds-hooks-extension" name="CRD Workflow"/>
 <page key="history" name="Change Log"/>
 <page key="conformance" name="Conformance"/>
 <page key="davinci-gap-proposals" name="Da Vinci Gap Proposals"/>
