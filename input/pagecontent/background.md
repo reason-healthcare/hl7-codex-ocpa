@@ -27,8 +27,10 @@ that oncology drug authorization actually requires.
 Da Vinci significantly improves the mechanics of prior authorization, but it operates:
 - **Reactively (post-order)** — starting after order selection with no ability to guide regimen
   choice upfront, leading to rework and avoidable denials
-- **At the service level, not regimen level** — authorization is per medication, while oncology
-  decisions are made at the protocol level
+- **At the service level, not regimen level** — CRD hooks (`order-select`/`order-sign`) are
+  defined around individual order resources (`MedicationRequest`, `ServiceRequest`); there is no
+  standard way to submit a `RequestGroup` as the primary PA unit, even though oncology
+  authorization is evaluated at the protocol (regimen) level, not per-medication
 - **Without clinical equivalence semantics** — no standard way to express approvable vs. non-approvable
   regimen options or step therapy within oncology care
 - **Without an oncology data foundation** — US Core alone does not support staging, biomarkers,

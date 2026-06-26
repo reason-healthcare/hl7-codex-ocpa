@@ -7,6 +7,7 @@ Each item is written as an upstream proposal for HL7 work group consideration.
 | ID | Target | Proposal |
 |---|---|---|
 | MOPA-DV-CRD-001 | CRD | Oncology coverage outcome semantics |
+| MOPA-DV-CRD-002 | CRD | `RequestGroup` as the PA unit in CRD hooks |
 | MOPA-DV-DTR-001 | DTR | Structured exception / contraindication capture |
 | MOPA-DV-PAS-001 | PAS | Regimen-level structured submission |
 | MOPA-DV-PAS-002 | PAS | Oncology pend / additional-info taxonomy |
@@ -25,7 +26,10 @@ guideline-concordant, needs DTR, PA required, or alternative required.
 **Proposed solution**
 
 Define an oncology outcome classification for CRD responses, either as response codes or a
-constrained coverage-information profile.
+constrained coverage-information profile. The "Authorization Satisfied" outcome — where PA
+conditions have already been evaluated and PA can be bypassed — should be a first-class
+computable result, distinct from "no PA required" (never required) vs. "PA bypassed" (required
+but conditions already met).
 
 **Examples**
 
@@ -41,6 +45,38 @@ Coverage outcome semantics are demonstrated in the regimen order examples:
 **Disposition path**
 
 CRD work group issue and response-card model discussion.
+
+#### MOPA-DV-CRD-002 — `RequestGroup` as the PA unit in CRD hooks
+
+**Problem**
+
+CRD `order-select` and `order-sign` hooks are defined around individual order resources
+(`MedicationRequest`, `ServiceRequest`, `DeviceRequest`). Oncology prior authorization is
+evaluated at the **regimen level** — the entire multi-drug protocol (`RequestGroup`) is the
+unit being authorized, not individual medications within it. There is no standard way for a
+CRD hook to carry a `RequestGroup` as the primary PA subject, and no guidance on how a CRD
+service should evaluate authorization at regimen scope rather than per-medication.
+
+**Proposed solution**
+
+Define guidance for including a `RequestGroup` in `context.draftOrders` and `context.selections`
+as the primary authorization unit, with the CRD service evaluating the regimen as a whole.
+Clarify that component `MedicationRequest` resources within the `RequestGroup` actions are
+subordinate to the regimen-level authorization decision, not independent PA subjects.
+
+**Examples**
+
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Patient-specific regimen instance as the PA unit
+- [CRD Workflow](cds-hooks-extension.html) — How the `RequestGroup` is placed in `context.draftOrders`
+
+**Target destination**
+
+Da Vinci CRD IG — hook context guidance and `RequestGroup` support.
+
+**Disposition path**
+
+CRD work group review; may require a hook definition amendment or a new oncology-specific
+hook context profile.
 
 ### DTR
 
