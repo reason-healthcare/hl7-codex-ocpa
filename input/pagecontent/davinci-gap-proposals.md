@@ -1,22 +1,28 @@
 This page captures the workflow and exchange gaps identified for Da Vinci CRD, DTR, and PAS.
 Each item is written as an upstream proposal for HL7 work group consideration.
 
+**Must-have** items are blocking — the MOPA workflow cannot function without them being addressed
+upstream. **Nice-to-have** items improve interoperability and operational quality but are not
+blocking for a pilot implementation.
+
 **Summary**
 
 
-| ID | Target | Proposal |
-|---|---|---|
-| MOPA-DV-CRD-001 | CRD | Oncology coverage outcome semantics |
-| MOPA-DV-CRD-002 | CRD | `RequestGroup` as the PA unit in CRD hooks |
-| MOPA-DV-DTR-001 | DTR | Structured exception / contraindication capture |
-| MOPA-DV-PAS-001 | PAS | Regimen-level structured submission |
-| MOPA-DV-PAS-002 | PAS | Oncology pend / additional-info taxonomy |
-| MOPA-DV-PAS-003 | PAS | Regimen-change update semantics |
+| ID | Target | Proposal | Priority |
+|---|---|---|---|
+| MOPA-DV-CRD-001 | CRD | Oncology coverage outcome semantics | **Must-have** |
+| MOPA-DV-CRD-002 | CRD | `RequestGroup` as the PA unit in CRD hooks | **Must-have** |
+| MOPA-DV-DTR-001 | DTR | Structured exception / contraindication capture | Nice-to-have |
+| MOPA-DV-PAS-001 | PAS | Regimen-level structured submission | **Must-have** |
+| MOPA-DV-PAS-002 | PAS | Oncology pend / additional-info taxonomy | Nice-to-have |
+| MOPA-DV-PAS-003 | PAS | Regimen-change update semantics | Nice-to-have |
 
 ### CRD
 
 
 #### MOPA-DV-CRD-001 — Oncology coverage outcome semantics
+
+**Priority: Must-have**
 
 **Problem**
 
@@ -47,6 +53,8 @@ Coverage outcome semantics are demonstrated in the regimen order examples:
 CRD work group issue and response-card model discussion.
 
 #### MOPA-DV-CRD-002 — `RequestGroup` as the PA unit in CRD hooks
+
+**Priority: Must-have**
 
 **Problem**
 
@@ -83,6 +91,8 @@ hook context profile.
 
 #### MOPA-DV-DTR-001 — Structured exception / contraindication capture
 
+**Priority: Nice-to-have**
+
 **Problem**
 
 Medical-necessity exceptions arrive as free text or attachments.
@@ -112,6 +122,8 @@ DTR work group and payer implementation feedback loop.
 
 #### MOPA-DV-PAS-001 — Regimen-level structured submission
 
+**Priority: Must-have**
+
 **Problem**
 
 PAS `Claim.supportingInfo` can carry resources, but regimen identity and linkage are not
@@ -139,6 +151,8 @@ PAS work group and claim submission profile discussion.
 
 #### MOPA-DV-PAS-002 — Oncology pend / additional-info taxonomy
 
+**Priority: Nice-to-have**
+
 **Problem**
 
 PEND and additional-info reasons are operationally variable and not granular enough for oncology
@@ -163,6 +177,8 @@ Oncology pend taxonomy and additional-info requirements are defined by the data 
 PAS work group and payer operations review.
 
 #### MOPA-DV-PAS-003 — Regimen-change update semantics
+
+**Priority: Nice-to-have**
 
 **Problem**
 
