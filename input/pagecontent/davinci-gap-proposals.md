@@ -12,7 +12,8 @@ blocking for a pilot implementation.
 |---|---|---|---|
 | MOPA-DV-CRD-001 | CRD | Oncology coverage outcome semantics | **Must-have** |
 | MOPA-DV-CRD-002 | CRD | `RequestGroup` as the PA unit in CRD hooks | **Must-have** |
-| MOPA-DV-DTR-001 | DTR | Structured exception / contraindication capture | Nice-to-have |
+| MOPA-DV-DTR-001 | DTR | `RequestGroup` as the order subject in DTR | **Must-have** |
+| MOPA-DV-DTR-002 | DTR | Structured exception / contraindication capture | Nice-to-have |
 | MOPA-DV-PAS-001 | PAS | Regimen-level structured submission | **Must-have** |
 | MOPA-DV-PAS-002 | PAS | Oncology pend / additional-info taxonomy | Nice-to-have |
 | MOPA-DV-PAS-003 | PAS | Regimen-change update semantics | Nice-to-have |
@@ -89,7 +90,47 @@ hook context profile.
 ### DTR
 
 
-#### MOPA-DV-DTR-001 — Structured exception / contraindication capture
+#### MOPA-DV-DTR-001 — `RequestGroup` as the order subject in DTR
+
+**Priority: Must-have**
+
+**Problem**
+
+DTR's `$questionnaire-package` operation selects a questionnaire based on an `order` parameter
+tied to a specific order resource type (`MedicationRequest`, `ServiceRequest`, etc.). The
+`QuestionnaireResponse` produced by DTR is likewise linked back to the individual order. For
+oncology, the authorization subject is the regimen (`RequestGroup`), not the individual
+`MedicationRequest` components within it. There is currently no standard way to:
+
+- Pass a `RequestGroup` as the `order` parameter to `$questionnaire-package`
+- Associate the completed `QuestionnaireResponse` with the `RequestGroup` as the
+  authorization unit
+- Ensure the DTR launch context carries the correct regimen reference when CRD returns
+  a DTR launch card for a regimen-level decision
+
+**Proposed solution**
+
+Extend DTR guidance to support `RequestGroup` as a valid order subject for
+`$questionnaire-package` and `QuestionnaireResponse` linkage. Define how the DTR launch
+context (via `appContext` on the CRD card) carries the `RequestGroup` reference, and how
+the resulting `QuestionnaireResponse` is associated with the regimen rather than individual
+component medications.
+
+**Examples**
+
+- [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Regimen instance that is the DTR subject when HER2 status is missing
+- [CRD Workflow](cds-hooks-extension.html) — DTR launch card returned when context is incomplete
+
+**Target destination**
+
+Da Vinci DTR IG — `$questionnaire-package` operation definition and launch context guidance.
+
+**Disposition path**
+
+DTR work group review; likely requires an amendment to the `$questionnaire-package` operation
+parameters and the DTR launch context specification.
+
+#### MOPA-DV-DTR-002 — Structured exception / contraindication capture
 
 **Priority: Nice-to-have**
 
