@@ -13,7 +13,7 @@ referenced by AntiCancerRegimenRequestGroup instances via RequestGroup.instantia
 
 A regimen definition describes the protocol — component drugs, timing, cycle structure,
 sequential phase ordering — and carries the clinical context attributes (intent, treatment
-line, disease context) needed for CRD pre-approval evaluation.
+line, disease context) that the CRD service uses when evaluating the ordered regimen.
 
 **mCODE Migration Candidate** — This profile is proposed for inclusion in mCODE STU5.
 It addresses the gap documented in the mCODE gap analysis: mCODE does not currently

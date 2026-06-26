@@ -6,8 +6,10 @@
 //   B — order-sign: TH regimen with all companion MedicationRequests
 //       (represents the richer payload sent at sign time)
 //
-// Both Bundles are type = collection and correspond to the
-// context.draftOrders Bundle described in Da Vinci CRD.
+// Both Bundles are type = collection and are placed in context.draftOrders
+// of the CDS Hooks request. The CRD service reads the RequestGroup from
+// this bundle to identify the ordered regimen, then queries the EHR FHIR
+// server (via fhirAuthorization) for required oncology patient context.
 // ============================================================
 
 // ─── A: order-select Bundle ─────────────────────────────────────────────────

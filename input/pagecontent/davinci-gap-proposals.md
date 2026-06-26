@@ -32,11 +32,12 @@ guideline-concordant, needs DTR, PA required, or alternative required.
 
 **Proposed solution**
 
-Define an oncology outcome classification for CRD responses, either as response codes or a
-constrained coverage-information profile. The "Authorization Satisfied" outcome — where PA
-conditions have already been evaluated and PA can be bypassed — should be a first-class
-computable result, distinct from "no PA required" (never required) vs. "PA bypassed" (required
-but conditions already met).
+Define an oncology outcome classification for CRD responses. The key states to express computably:
+
+- **Authorization Satisfied** — PA conditions have been evaluated by the CRD service and PA can be bypassed (the regimen meets coverage criteria). This is distinct from "no PA required" (PA is categorically never required for this service).
+- **DTR required** — context is incomplete; launch DTR to collect missing documentation
+- **PA required** — context is complete but criteria are not met; submit via PAS
+- **Cannot evaluate** — the CRD service lacks sufficient information to make a determination
 
 **Examples**
 

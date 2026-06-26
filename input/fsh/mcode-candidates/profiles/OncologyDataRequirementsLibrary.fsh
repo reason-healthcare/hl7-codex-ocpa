@@ -8,20 +8,16 @@ Parent: Library
 Id: oncology-data-requirements-library
 Title: "Oncology Data Requirements Library"
 Description: """A versioned, governable package of FHIR DataRequirement entries that
-declares the patient context required to evaluate an anti-cancer therapy regimen for
-prior authorization.
+declares the patient context categories relevant for evaluating an anti-cancer therapy
+regimen for prior authorization.
 
-CRD uses this Library to determine whether the supplied patient context is sufficient
-for pre-approval evaluation. DTR uses the same Library to select or generate a
-questionnaire and prepopulate known data. This shared-artifact pattern eliminates
-the divergence that occurs when CRD rules and DTR questionnaires are based on
-separate logic.
+This artifact serves as a canonical reference for the clinical data elements a CRD
+service should query when evaluating a given cancer type, and that DTR should collect
+when those elements are missing from the EHR. Each DataRequirement entry declares one
+category of patient data (e.g., cancer staging, biomarker status, line of therapy).
 
-The Library is referenced from the CDS Hooks oncology extension via
-dataRequirements.canonical, or provided inline as DataRequirement[].
-
-Cancer-specific instances (e.g., BreastCancerPADataRequirements) derive their content
-from this base profile and bind Library.subjectCodeableConcept to the target cancer type.
+Cancer-specific instances (e.g., BreastCancerPADataRequirements) derive from this base
+profile and bind Library.subjectCodeableConcept to the target cancer type.
 
 **mCODE Migration Candidate** — This profile is proposed for inclusion in mCODE STU5."""
 
@@ -44,7 +40,7 @@ See the mCODE Gap Proposals page in this IG for the full proposal backlog."""
 * subjectCodeableConcept ^short = "Cancer type for which these data requirements apply (e.g., SNOMED CT 254837009 for breast cancer)"
 * subjectCodeableConcept ^binding.description = "A SNOMED CT code for the target cancer type"
 
-// Versioning is important for stable canonical references from CDS Hooks extension
+// Versioning supports stable canonical references
 * version 1..1 MS
 * name MS
 * title 1..1 MS
@@ -52,10 +48,11 @@ See the mCODE Gap Proposals page in this IG for the full proposal backlog."""
 
 // The requirements themselves — this is the core content
 * dataRequirement 1..* MS
-* dataRequirement ^short = "Individual patient data requirements for CRD evaluation and DTR collection"
-* dataRequirement ^definition = """Each DataRequirement entry declares one category of patient data needed to evaluate
-the regimen for prior authorization. CRD checks whether this data is present. DTR
-collects it if absent. Requirements SHOULD use mCODE profiles where available."""
+* dataRequirement ^short = "Individual patient data categories for CRD evaluation and DTR collection"
+* dataRequirement ^definition = """Each DataRequirement entry declares one category of patient data relevant
+to evaluating the regimen for prior authorization. The CRD service queries for this data
+from the EHR FHIR server. DTR collects it if absent. Requirements SHOULD use mCODE
+profiles where available."""
 
 // Related artifacts (canonical regimen definitions this Library applies to)
 * relatedArtifact MS

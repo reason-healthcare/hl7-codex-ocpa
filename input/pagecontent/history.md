@@ -3,12 +3,16 @@
 
 Initial draft release.
 
-- Defined two-layer Oncology Guideline and Coverage Authorization (MOPA) framework: pre-order CDS + Da Vinci CRD/DTR/PAS extension
+- Defined two-layer Medical Oncology Prior Authorization (MOPA) framework: pre-order CDS + Da Vinci CRD/DTR/PAS
 - Defined `OncologyAntiCancerRegimenPlanDefinition` profile
 - Defined `OncologyAntiCancerRegimenRequestGroup` profile with cycle-day timing and sequential
   phase ordering
-- Defined CDS Hooks oncology extension for `order-select` / `order-sign`
-- Defined `OncologyDataRequirementsLibrary` base profile
-- Defined `BreastCancerPADataRequirementsLibrary` as the lead cancer-specific instance
+- Defined CRD workflow: payer CRD service uses `fhirAuthorization` to query EHR FHIR server
+  directly for required oncology context (no custom CDS Hooks extension)
+- Defined "Authorization Satisfied" as the computable CRD success outcome
+- Defined `OncologyDataRequirementsLibrary` base profile (mCODE STU5 migration candidate)
+- Defined `BreastCancerPADataRequirements` as the lead cancer-specific Library instance
 - Added breast cancer PA data requirements matrix with mCODE gap analysis
 - Added conformance statements for Oncology CRD Client and Service
+- Documented must-have Da Vinci gaps: CRD-001 (outcome semantics), CRD-002 (`RequestGroup`
+  as PA unit in hooks), DTR-001 (`RequestGroup` as order subject in DTR), PAS-001 (regimen-level submission)

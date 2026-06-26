@@ -2,9 +2,9 @@
 // OncologyDataRequirementsLibrary-examples.fsh
 // 1 instance: BreastCancerPADataRequirements
 //   The first cancer-specific Library derived from OncologyDataRequirementsLibrary.
-//   Declares all patient data requirements for breast cancer PA evaluation.
-//   Used by CRD to assess pre-approval eligibility and by DTR to drive
-//   questionnaire generation and prepopulation.
+//   Declares the clinical data categories relevant for breast cancer PA evaluation.
+//   The CRD service queries these categories from the EHR FHIR server.
+//   DTR collects any categories not found in the EHR.
 // ============================================================
 
 Instance: BreastCancerPADataRequirements
@@ -12,8 +12,8 @@ InstanceOf: OncologyDataRequirementsLibrary
 Usage: #example
 Title: "Example Data Requirements Library: Breast Cancer Prior Authorization"
 Description: """Cancer-specific data requirements Library for breast cancer prior
-authorization evaluation. Declares the patient data elements that CRD uses to determine
-pre-approval eligibility and DTR uses to collect or prepopulate missing documentation.
+authorization evaluation. Declares the patient data categories that the CRD service
+queries from the EHR FHIR server and that DTR collects when missing.
 
 Covers: primary cancer condition, TNM staging, ER/PR/HER2 biomarkers, disease status,
 ordered regimen, line of therapy, performance status, and prior therapy history."""
@@ -26,7 +26,7 @@ ordered regimen, line of therapy, performance status, and prior therapy history.
 * experimental = true
 * type    = $LIB-TYPE#asset-collection "Asset Collection"
 * subjectCodeableConcept = $SCT#254837009 "Malignant neoplasm of breast"
-* description = "DataRequirement package for breast cancer PA. Use this Library canonical in the CDS Hooks oncology extension dataRequirements.canonical field."
+* description = "DataRequirement categories for breast cancer PA evaluation. The CRD service queries these categories from the EHR FHIR server when evaluating a breast cancer regimen order."
 
 // ── Diagnosis ─────────────────────────────────────────────────────────────
 * dataRequirement[+].type    = #Condition

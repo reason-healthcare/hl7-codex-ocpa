@@ -37,10 +37,10 @@ dependencies:
     version: 4.0.0
     id: fhirmcode
   hl7.fhir.us.davinci-crd:
-    version: 2.1.0
+    version: 2.2.1
     id: davinciCRD
   hl7.fhir.us.davinci-dtr:
-    version: 2.0.1
+    version: 2.2.0
     id: davinciDTR
   hl7.fhir.us.davinci-pas:
     version: 2.2.1
@@ -64,7 +64,7 @@ pages:
   walkthrough.md:
     title: Workflow Walkthrough (Layers 1 & 2)
   data-requirements.md:
-    title: Data Requirements Pattern
+    title: Data Requirements
   breast-cancer-pa.md:
     title: "Use Case 1: Breast Cancer PA"
   davinci-gap-proposals.md:

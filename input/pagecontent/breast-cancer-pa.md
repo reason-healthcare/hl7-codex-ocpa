@@ -25,12 +25,12 @@ for breast cancer PA is **not** basic staging representation. The gap is PA-spec
 - How staging is linked to the primary breast cancer condition and evidence source
 - How to distinguish **current disease state** from historical diagnosis stage
 
-### BreastCancerPADataRequirementsLibrary
+### Breast Cancer PA Data Requirements
 
-The `Library.subjectCodeableConcept` is bound to SNOMED CT code
+The breast cancer PA use case targets SNOMED CT code
 `254837009 "Malignant tumor of breast"`.
 
-#### Required DataRequirement categories
+#### Required data categories
 
 | Category | Requirement group | mCODE basis | Coverage | Gap / Action |
 |---|---|---|---|---|
@@ -58,7 +58,7 @@ The `Library.subjectCodeableConcept` is bound to SNOMED CT code
 | Regimen as first-class object | Oncology PA is regimen-centered, not drug-order-centered | `OncologyAntiCancerRegimenRequestGroup` (MVP) + `OncologyAntiCancerRegimenPlanDefinition` |
 | Line of therapy | Required for metastatic sequencing and payer policy | `OncologyLineOfTherapy` Observation or regimen extension |
 | Treatment setting | Most breast cancer logic branches by setting | `regimenIntent` / `treatmentSetting` extension on PlanDefinition |
-| Staging constraints | PA needs clinical vs pathologic stage, T/N/M, AJCC edition | Breast cancer PA staging slice in `Library.dataRequirement[]` |
+| Staging constraints | PA needs clinical vs pathologic stage, T/N/M, AJCC edition | Breast cancer PA staging guidance |
 | Biomarker normalization | ER/PR/HER2 observations need PA-ready normalized values | Breast-specific value sets and result normalization rules |
 | Exception documentation | Needed when guideline-concordant care requires exception | DTR `QuestionnaireResponse` + structured exception/contraindication profile |
 {: .table }
@@ -66,7 +66,7 @@ The `Library.subjectCodeableConcept` is bound to SNOMED CT code
 ### See Also
 
 - [Regimen Modeling](regimen-model.html) — `RequestGroup` and `PlanDefinition` profiles
-- [Data Requirements Pattern](data-requirements.html) — Library pattern and CRD/DTR reuse
+- [Data Requirements](data-requirements.html) — Oncology data categories queried during CRD evaluation
 - [Da Vinci Gap Proposals](davinci-gap-proposals.html) — CRD, DTR, and PAS backlog items
 - [mCODE Gap Proposals](mcode-gap-proposals.html) — data model backlog items
 - [mCODE STU4](http://hl7.org/fhir/us/mcode) — mCODE profiles referenced throughout

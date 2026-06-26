@@ -14,7 +14,7 @@ upstream proposal for mCODE STU5 consideration, with breast cancer PA used as th
 | MOPA-MC-004 | Regimen intent not explicit | Add regimen intent extension + VS | `RegimenIntentExtension`, `RegimenIntentVS` |
 | MOPA-MC-005 | Treatment line as a regimen attribute missing | Add regimen treatment-line extension | `RegimenTreatmentLineExtension` |
 | MOPA-MC-006 | Disease context not bound to regimen | Add regimen disease-context extension | `RegimenDiseaseContextExtension` |
-| MOPA-MC-007 | No oncology PA data-requirements packaging | Add oncology data-requirements pattern for cancer-type clinical data elements | `OncologyDataRequirementsLibrary` |
+| MOPA-MC-007 | No oncology PA data categories pattern | Add oncology data categories pattern for cancer-type PA evaluation | `OncologyDataRequirementsLibrary` |
 | MOPA-MC-008 | Biomarker results not PA-normalized | Add normalized biomarker result guidance / profiling | Breast cancer PA guidance |
 
 ### MOPA-MC-001 — Regimen definition
@@ -173,29 +173,34 @@ mCODE STU5 regimen extension `RegimenDiseaseContextExtension`.
 
 mCODE extension proposal and context modeling review for oncology domain.
 
-### MOPA-MC-007 — Data requirements Library pattern
+### MOPA-MC-007 — Oncology PA data categories pattern
 
 **Problem**
 
-mCODE has no oncology prior authorization data-requirements packaging pattern.
+mCODE has no standard pattern for declaring which specific observations and conditions are
+required for a given cancer type's prior authorization evaluation. Implementers building
+oncology CRD services have no mCODE-grounded way to enumerate the clinical data categories
+(staging, biomarkers, line of therapy, etc.) relevant to a specific cancer PA decision.
 
 **Proposed solution**
 
-Add an oncology `Library` pattern that carries `dataRequirement[]` references to the specific observations and conditions needed for PA evaluation.
+Add an oncology data categories pattern to mCODE — either as a `Library`-based `DataRequirement[]`
+packaging artifact or as structured canonical guidance — that declares per-cancer-type clinical
+data elements needed for PA evaluation. This would give CRD service implementers a
+standards-grounded reference for what to query when evaluating a given cancer type.
 
 **Examples**
 
-Oncology data requirements Library pattern from this IG:
-
-- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Full oncology PA data requirements for breast cancer, including observations for staging, biomarkers, and line of therapy
+- [Breast Cancer PA](breast-cancer-pa.html) — Data categories for breast cancer PA: diagnosis, staging, ER/PR/HER2, line of therapy, performance status, prior therapy
+- [Data Requirements](data-requirements.html) — MOPA's current data categories table
 
 **Target destination**
 
-mCODE STU5 library/profile pattern for oncology data-requirements.
+mCODE STU5 — oncology data categories pattern for PA evaluation.
 
 **Disposition path**
 
-mCODE library authoring proposal and implementation guidance for data-requirements-driven workflows.
+mCODE clinical informatics review; coordinate with Da Vinci CRD/DTR work groups.
 
 ### MOPA-MC-008 — Biomarker normalization
 
@@ -212,7 +217,7 @@ Add normalized biomarker result guidance and profiling to standardize biomarker 
 Biomarker normalization context is demonstrated in the breast cancer PA examples. See:
 
 - [TH Regimen Order](RequestGroup-THRegimenOrder.html) — HER2+ patient context with biomarker references
-- [Breast Cancer PA Data Requirements](Library-BreastCancerPADataRequirements.html) — Biomarker observation data requirements
+- [Breast Cancer PA](breast-cancer-pa.html) — Biomarker data categories for PA evaluation
 
 **Target destination**
 
@@ -234,5 +239,5 @@ rather than as an mCODE migration candidate.
 - [Da Vinci Gap Proposals](davinci-gap-proposals.html) — CRD/DTR/PAS workflow and exchange proposals
 - [Use Cases and Actors](use-cases.html) — Two-layer workflow framework for oncology PA
 - [Regimen Modeling](regimen-model.html) — Anti-cancer regimen as `PlanDefinition` and `RequestGroup`
-- [CDS Hooks Oncology Extension](cds-hooks-extension.html) — CDS Hooks extension for oncology CRD
-- [Data Requirements Pattern](data-requirements.html) — Library-based data requirements for CRD/DTR
+- [CRD Workflow](cds-hooks-extension.html) — How the CRD service queries the EHR for oncology context
+- [Data Requirements](data-requirements.html) — Oncology data categories queried during CRD evaluation
