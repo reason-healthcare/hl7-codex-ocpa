@@ -8,10 +8,10 @@ Initial draft release.
 - Defined `OncologyAntiCancerRegimenRequestGroup` profile with cycle-day timing and sequential
   phase ordering
 - Defined CRD workflow: payer CRD service uses `fhirAuthorization` to query EHR FHIR server
-  directly for required oncology context (no custom CDS Hooks extension)
+  directly for required oncology context
 - Defined "Authorization Satisfied" as the computable CRD success outcome
-- Defined `OncologyDataRequirementsLibrary` base profile (mCODE STU5 migration candidate)
-- Defined `BreastCancerPADataRequirements` as the lead cancer-specific Library instance
+- Documented oncology data categories for CRD evaluation (no Library-driven discovery
+  pattern — the CRD service queries the EHR FHIR server directly)
 - Added breast cancer PA data requirements matrix with mCODE gap analysis
 - Added conformance statements for Oncology CRD Client and Service
 - Documented must-have Da Vinci gaps: CRD-001 (outcome semantics), CRD-002 (`RequestGroup`

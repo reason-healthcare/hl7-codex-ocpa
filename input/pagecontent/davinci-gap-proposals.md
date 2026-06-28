@@ -48,7 +48,7 @@ Coverage outcome semantics are demonstrated in the regimen order examples:
 
 **Target destination**
 
-[CRD Workflow](cds-hooks-extension.html).
+[CRD Workflow](cds-workflow.html).
 
 **Disposition path**
 
@@ -77,7 +77,7 @@ subordinate to the regimen-level authorization decision, not independent PA subj
 **Examples**
 
 - [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Patient-specific regimen instance as the PA unit
-- [CRD Workflow](cds-hooks-extension.html) — How the `RequestGroup` is placed in `context.draftOrders`
+- [CRD Workflow](cds-workflow.html) — How the `RequestGroup` is placed in `context.draftOrders`
 
 **Target destination**
 
@@ -120,7 +120,7 @@ component medications.
 **Examples**
 
 - [TH Regimen Order](RequestGroup-THRegimenOrder.html) — Regimen instance that is the DTR subject when HER2 status is missing
-- [CRD Workflow](cds-hooks-extension.html) — DTR launch card returned when context is incomplete
+- [CRD Workflow](cds-workflow.html) — DTR launch card returned when context is incomplete
 
 **Target destination**
 

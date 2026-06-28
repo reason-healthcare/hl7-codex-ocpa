@@ -2,9 +2,9 @@
 ### Overview
 
 This IG describes how the Da Vinci CRD workflow is used for oncology prior authorization.
-No custom CDS Hooks extensions are defined. Instead, the payer CRD service uses standard
-CDS Hooks mechanisms — specifically FHIR API access provided via `fhirAuthorization` — to
-query the EHR's FHIR server directly for the oncology patient context it requires.
+The payer CRD service uses standard CDS Hooks mechanisms — specifically FHIR API access
+provided via `fhirAuthorization` — to query the EHR's FHIR server directly for the oncology
+patient context it requires.
 
 This approach keeps the EHR-side integration simple and standard: the EHR fires the
 standard `order-select` and `order-sign` hooks with the `RequestGroup` in `draftOrders`,
@@ -35,7 +35,7 @@ Relevant data categories the CRD service typically queries:
 
 ### CDS Hooks Request Shape
 
-No custom extension is required. The EHR fires a standard CRD hook with:
+The EHR fires a standard CRD hook with:
 
 - `context.patientId` — identifies the patient
 - `context.selections` and `context.draftOrders` — includes the `RequestGroup` conforming to `OncologyAntiCancerRegimenRequestGroup`

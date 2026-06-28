@@ -5,8 +5,8 @@ This page defines the oncology patient data categories that are relevant for pri
 evaluation. These categories inform what the CRD service queries via FHIR when it receives
 a FHIR access token in the CDS Hooks `fhirAuthorization` object.
 
-This IG does not define a pushed bundle or a Library-driven discovery pattern. The CRD
-service retrieves data directly from the EHR's FHIR server using standard FHIR search queries.
+The CRD service retrieves data directly from the EHR's FHIR server using standard
+FHIR search queries.
 
 ### The Separation of Concerns
 

@@ -598,6 +598,6 @@ configuration.
 
 #### See Also
 
-- [CRD Workflow](cds-hooks-extension.html) — how the CRD service queries back and conformance requirements
+- [CRD Workflow](cds-workflow.html) — how the CRD service queries back and conformance requirements
 - [Data Requirements](data-requirements.html) — oncology data categories queried during CRD evaluation
 - [Use Case 1: Breast Cancer PA](breast-cancer-pa.html) — clinical data requirements for this scenario

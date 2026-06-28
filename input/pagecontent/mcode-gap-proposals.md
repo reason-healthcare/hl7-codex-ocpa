@@ -14,7 +14,7 @@ upstream proposal for mCODE STU5 consideration, with breast cancer PA used as th
 | MOPA-MC-004 | Regimen intent not explicit | Add regimen intent extension + VS | `RegimenIntentExtension`, `RegimenIntentVS` |
 | MOPA-MC-005 | Treatment line as a regimen attribute missing | Add regimen treatment-line extension | `RegimenTreatmentLineExtension` |
 | MOPA-MC-006 | Disease context not bound to regimen | Add regimen disease-context extension | `RegimenDiseaseContextExtension` |
-| MOPA-MC-007 | No oncology PA data categories pattern | Add oncology data categories pattern for cancer-type PA evaluation | `OncologyDataRequirementsLibrary` |
+| MOPA-MC-007 | No oncology PA data categories pattern | Add oncology data categories pattern for cancer-type PA evaluation | _(no repo artifact — see [Data Requirements](data-requirements.html))_ |
 | MOPA-MC-008 | Biomarker results not PA-normalized | Add normalized biomarker result guidance / profiling | Breast cancer PA guidance |
 
 ### MOPA-MC-001 — Regimen definition
@@ -184,10 +184,11 @@ oncology CRD services have no mCODE-grounded way to enumerate the clinical data 
 
 **Proposed solution**
 
-Add an oncology data categories pattern to mCODE — either as a `Library`-based `DataRequirement[]`
-packaging artifact or as structured canonical guidance — that declares per-cancer-type clinical
-data elements needed for PA evaluation. This would give CRD service implementers a
-standards-grounded reference for what to query when evaluating a given cancer type.
+Add an oncology data categories pattern to mCODE — as structured canonical guidance
+that declares per-cancer-type clinical data elements needed for PA evaluation. This would
+give CRD service implementers a standards-grounded reference for what to query when
+evaluating a given cancer type. MOPA documents the categories in this IG's
+[Data Requirements](data-requirements.html) page; mCODE STU5 would formalize them.
 
 **Examples**
 
@@ -239,5 +240,5 @@ rather than as an mCODE migration candidate.
 - [Da Vinci Gap Proposals](davinci-gap-proposals.html) — CRD/DTR/PAS workflow and exchange proposals
 - [Use Cases and Actors](use-cases.html) — Two-layer workflow framework for oncology PA
 - [Regimen Modeling](regimen-model.html) — Anti-cancer regimen as `PlanDefinition` and `RequestGroup`
-- [CRD Workflow](cds-hooks-extension.html) — How the CRD service queries the EHR for oncology context
+- [CRD Workflow](cds-workflow.html) — How the CRD service queries the EHR for oncology context
 - [Data Requirements](data-requirements.html) — Oncology data categories queried during CRD evaluation

@@ -11,7 +11,6 @@ Alias: $RxNorm     = http://www.nlm.nih.gov/research/umls/rxnorm
 
 // HL7 FHIR terminology
 Alias: $PD-TYPE         = http://terminology.hl7.org/CodeSystem/plan-definition-type
-Alias: $LIB-TYPE        = http://terminology.hl7.org/CodeSystem/library-type
 Alias: $RQ-INTENT       = http://hl7.org/fhir/request-intent
 Alias: $OBS-CAT         = http://terminology.hl7.org/CodeSystem/observation-category
 

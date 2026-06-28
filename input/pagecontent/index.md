@@ -125,7 +125,7 @@ For the upstream standards work items, see:
 - [mCODE Gap Proposals](mcode-gap-proposals.html) — Data model proposals derived from the gap analysis
 - **Specification:**
   - [Regimen Modeling](regimen-model.html) — How anti-cancer regimens are represented as FHIR `PlanDefinition` and `RequestGroup`
-  - [CRD Workflow](cds-hooks-extension.html) — How the payer CRD service queries the EHR FHIR API for oncology context
+  - [CRD Workflow](cds-workflow.html) — How the payer CRD service queries the EHR FHIR API for oncology context
   - [Data Requirements](data-requirements.html) — The oncology data categories queried during CRD evaluation
   - [Breast Cancer PA](breast-cancer-pa.html) — Breast cancer-specific data requirements and gap analysis
 - [Conformance](conformance.html) — Requirements for claiming conformance to this IG
