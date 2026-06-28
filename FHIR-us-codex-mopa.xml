@@ -6,7 +6,6 @@
 <artifactPageExtension value="-mappings"/>
 <artifact id="StructureDefinition/anticancer-regimen-plandefinition" key="StructureDefinition-anticancer-regimen-plandefinition" name="Anti-Cancer Regimen PlanDefinition"/>
 <artifact id="StructureDefinition/anticancer-regimen-requestgroup" key="StructureDefinition-anticancer-regimen-requestgroup" name="Anti-Cancer Regimen RequestGroup"/>
-<artifact id="Library/BreastCancerPADataRequirements" key="Library-BreastCancerPADataRequirements" name="Example Data Requirements Library: Breast Cancer Prior Authorization"/>
 <artifact id="Practitioner/MOPAOncologistExample" key="Practitioner-MOPAOncologistExample" name="Example Oncologist: Dr. Maria Lopez"/>
 <artifact id="Patient/MOPAPatientExample" key="Patient-MOPAPatientExample" name="Example Patient: Jane Smith"/>
 <artifact id="PlanDefinition/PHDRegimenDefinition" key="PlanDefinition-PHDRegimenDefinition" name="Example Regimen Definition: PHD (Pertuzumab + Trastuzumab + Docetaxel)"/>
@@ -34,7 +33,6 @@
 <artifact id="CodeSystem/ocpa-codes" key="CodeSystem-ocpa-codes" name="MOPA Local Code System"/>
 <artifact id="CapabilityStatement/ocpa-crd-client" key="CapabilityStatement-ocpa-crd-client" name="Oncology CRD Client Capability Statement"/>
 <artifact id="CapabilityStatement/ocpa-crd-service" key="CapabilityStatement-ocpa-crd-service" name="Oncology CRD Service Capability Statement"/>
-<artifact id="StructureDefinition/oncology-data-requirements-library" key="StructureDefinition-oncology-data-requirements-library" name="Oncology Data Requirements Library"/>
 <artifact id="StructureDefinition/regimen-days-of-cycle" key="StructureDefinition-regimen-days-of-cycle" name="Regimen Days of Cycle"/>
 <artifact id="StructureDefinition/ocpa-regimen-disease-context" key="StructureDefinition-ocpa-regimen-disease-context" name="Regimen Disease Context"/>
 <artifact id="StructureDefinition/ocpa-regimen-intent" key="StructureDefinition-ocpa-regimen-intent" name="Regimen Intent"/>
@@ -46,7 +44,7 @@
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
 <page key="background" name="Background"/>
-<page key="cds-hooks-extension" name="CRD Workflow"/>
+<page key="cds-workflow" name="CRD Workflow"/>
 <page key="history" name="Change Log"/>
 <page key="conformance" name="Conformance"/>
 <page key="davinci-gap-proposals" name="Da Vinci Gap Proposals"/>
