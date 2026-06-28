@@ -10,7 +10,7 @@ blocking for a pilot implementation.
 
 | ID | Target | Proposal | Priority |
 |---|---|---|---|
-| MOPA-DV-CRD-001 | CRD | Oncology coverage outcome semantics | **Must-have** |
+| MOPA-DV-CRD-001 | CRD | Oncology coverage outcome semantics | Nice-to-have |
 | MOPA-DV-CRD-002 | CRD | `RequestGroup` as the PA unit in CRD hooks | **Must-have** |
 | MOPA-DV-DTR-001 | DTR | `RequestGroup` as the order subject in DTR | **Must-have** |
 | MOPA-DV-DTR-002 | DTR | Structured exception / contraindication capture | Nice-to-have |
@@ -23,7 +23,7 @@ blocking for a pilot implementation.
 
 #### MOPA-DV-CRD-001 — Oncology coverage outcome semantics
 
-**Priority: Must-have**
+**Priority: Nice-to-have**
 
 **Problem**
 
