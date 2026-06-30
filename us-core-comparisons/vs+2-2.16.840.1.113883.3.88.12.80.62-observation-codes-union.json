@@ -1,0 +1,103 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "69c81d96-0cd2-4412-a714-cad0a764e4db-5",
+  "url" : "http://hl7.org/fhir/comparison/ValueSet/69c81d96-0cd2-4412-a714-cad0a764e4db-5",
+  "name" : "UnionVitalSignResultTypeAndLOINCCodes",
+  "title" : "Union of Vital Sign Result Type And LOINC Codes",
+  "status" : "active",
+  "date" : "2026-06-30T11:51:42-04:00",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "concept" : [{
+        "code" : "2708-6",
+        "display" : "Oxygen saturation in Arterial blood"
+      },
+      {
+        "code" : "29463-7",
+        "display" : "Body weight"
+      },
+      {
+        "code" : "3140-1",
+        "display" : "Body surface area Derived from formula"
+      },
+      {
+        "code" : "3150-0",
+        "display" : "Inhaled oxygen concentration"
+      },
+      {
+        "code" : "3151-8",
+        "display" : "Inhaled oxygen flow rate"
+      },
+      {
+        "code" : "39156-5",
+        "display" : "Body mass index (BMI) [Ratio]"
+      },
+      {
+        "code" : "59408-5",
+        "display" : "Oxygen saturation in Arterial blood by Pulse oximetry"
+      },
+      {
+        "code" : "59575-1",
+        "display" : "Body mass index (BMI) [Percentile] Per age"
+      },
+      {
+        "code" : "59576-9",
+        "display" : "Body mass index (BMI) [Percentile] Per age and sex"
+      },
+      {
+        "code" : "77606-2",
+        "display" : "Weight-for-length Per age and sex"
+      },
+      {
+        "code" : "8287-5",
+        "display" : "Head Occipital-frontal circumference by Tape measure"
+      },
+      {
+        "code" : "8289-1",
+        "display" : "Head Occipital-frontal circumference Percentile"
+      },
+      {
+        "code" : "8302-2",
+        "display" : "Body height"
+      },
+      {
+        "code" : "8306-3",
+        "display" : "Body height --lying"
+      },
+      {
+        "code" : "8310-5",
+        "display" : "Body temperature"
+      },
+      {
+        "code" : "8462-4",
+        "display" : "Diastolic blood pressure"
+      },
+      {
+        "code" : "8478-0",
+        "display" : "Mean blood pressure"
+      },
+      {
+        "code" : "8480-6",
+        "display" : "Systolic blood pressure"
+      },
+      {
+        "code" : "8867-4",
+        "display" : "Heart rate"
+      },
+      {
+        "code" : "9279-1",
+        "display" : "Respiratory rate"
+      },
+      {
+        "code" : "9843-4",
+        "display" : "Head Occipital-frontal circumference"
+      }]
+    }]
+  }
+}

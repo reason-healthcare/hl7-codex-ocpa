@@ -1,0 +1,148 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "292f5131-5155-4dd6-adba-967a03863120",
+  "meta" : {
+    "lastUpdated" : "2026-06-30T11:36:35.517-04:00"
+  },
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-treatment-line-cs.html\">codesystem Treatment Line Code System v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\"> </button></span></p><p>This value set contains 4 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-1L\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-1L\">1L</a></td><td>First-line</td><td>The first line of systemic anti-cancer therapy for this indication.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;1L&quot;, &quot;display&quot;: &quot;First-line&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;1L&quot;&gt;&lt;display value=&quot;First-line&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-2L\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-2L\">2L</a></td><td>Second-line</td><td>The second line of systemic anti-cancer therapy; administered after first-line therapy failure, progression, or intolerance.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;2L&quot;, &quot;display&quot;: &quot;Second-line&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;2L&quot;&gt;&lt;display value=&quot;Second-line&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-3L-plus\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-3L-plus\">3L-plus</a></td><td>Third-line or later</td><td>The third or any subsequent line of systemic anti-cancer therapy.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;3L-plus&quot;, &quot;display&quot;: &quot;Third-line or later&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;3L-plus&quot;&gt;&lt;display value=&quot;Third-line or later&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-maintenance\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-maintenance\">maintenance</a></td><td>Maintenance</td><td>Maintenance therapy administered to prolong response after induction or consolidation treatment.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;maintenance&quot;, &quot;display&quot;: &quot;Maintenance&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;maintenance&quot;&gt;&lt;display value=&quot;Maintenance&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
+      "version" : "0.1.0",
+      "name" : "TreatmentLineVS",
+      "title" : "Treatment Line Value Set",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-06-30T11:36:35-04:00",
+      "jurisdiction" : [{
+        "coding" : [{
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US",
+          "display" : "United States of America"
+        }]
+      }],
+      "expansion" : {
+        "identifier" : "urn:uuid:db90f9eb-bd5c-4c7a-976b-a72aff667b37",
+        "timestamp" : "2026-06-30T11:54:58-04:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "1L",
+          "display" : "First-line"
+        },
+        {
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "2L",
+          "display" : "Second-line"
+        },
+        {
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "3L-plus",
+          "display" : "Third-line or later"
+        },
+        {
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "maintenance",
+          "display" : "Maintenance"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" data-fhir=\"generated\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-treatment-line-cs.html\">codesystem Treatment Line Code System v0.1.0 (CodeSystem)</a><span class=\"copy-text-inline\"><button data-clipboard-text=\"http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs|0.1.0\" title=\"Click to Copy URL\" class=\"btn-copy\"> </button></span></p><p>This value set contains 4 concepts</p><table class=\"codes\" data-fhir=\"generated\"><tr><td><b>System</b></td><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display (en)</b></td><td><b>Definition</b></td><td><b>JSON</b></td><td><b>XML</b></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-1L\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-1L\">1L</a></td><td>First-line</td><td>The first line of systemic anti-cancer therapy for this indication.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;1L&quot;, &quot;display&quot;: &quot;First-line&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;1L&quot;&gt;&lt;display value=&quot;First-line&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-2L\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-2L\">2L</a></td><td>Second-line</td><td>The second line of systemic anti-cancer therapy; administered after first-line therapy failure, progression, or intolerance.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;2L&quot;, &quot;display&quot;: &quot;Second-line&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;2L&quot;&gt;&lt;display value=&quot;Second-line&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-3L-plus\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-3L-plus\">3L-plus</a></td><td>Third-line or later</td><td>The third or any subsequent line of systemic anti-cancer therapy.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;3L-plus&quot;, &quot;display&quot;: &quot;Third-line or later&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;3L-plus&quot;&gt;&lt;display value=&quot;Third-line or later&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr><tr><td><a name=\"x-http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs-maintenance\"> </a><code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code></td><td style=\"white-space:nowrap\">\u00a0\u00a0<a href=\"CodeSystem-treatment-line-cs.html#treatment-line-cs-maintenance\">maintenance</a></td><td>Maintenance</td><td>Maintenance therapy administered to prolong response after induction or consolidation treatment.</td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"{&quot;system&quot;: &quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;maintenance&quot;, &quot;display&quot;: &quot;Maintenance&quot;}\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td><td><span class=\"copy-text-inline\"><button data-clipboard-text=\"&lt;coding&gt;&lt;system value=&quot;http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;maintenance&quot;&gt;&lt;display value=&quot;Maintenance&quot;&gt;&lt;/coding&gt;\" title=\"Click to Copy as Coding\" class=\"btn-copy\"> </button></span></td></tr></table></div>"
+      },
+      "url" : "http://hl7.org/fhir/us/codex-mopa/ValueSet/treatment-line-vs",
+      "version" : "0.1.0",
+      "name" : "TreatmentLineVS",
+      "title" : "Treatment Line Value Set",
+      "status" : "draft",
+      "experimental" : true,
+      "date" : "2026-06-30T11:36:35-04:00",
+      "jurisdiction" : [{
+        "coding" : [{
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US",
+          "display" : "United States of America"
+        }]
+      }],
+      "expansion" : {
+        "identifier" : "urn:uuid:db90f9eb-bd5c-4c7a-976b-a72aff667b37",
+        "timestamp" : "2026-06-30T11:54:58-04:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs|0.1.0"
+        }],
+        "contains" : [{
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "1L",
+          "display" : "First-line"
+        },
+        {
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "2L",
+          "display" : "Second-line"
+        },
+        {
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "3L-plus",
+          "display" : "Third-line or later"
+        },
+        {
+          "system" : "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs",
+          "code" : "maintenance",
+          "display" : "Maintenance"
+        }]
+      }
+    }
+  }]
+}

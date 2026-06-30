@@ -1,0 +1,2812 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa> a fhir:ImplementationGuide ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "hl7.fhir.us.codex-ocpa"] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide hl7.fhir.us.codex-ocpa</b></p><a name=\"hl7.fhir.us.codex-ocpa\"> </a><a name=\"hchl7.fhir.us.codex-ocpa\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: en</p></div><h2>MOPAIG</h2><p>The official URL for this implementation guide is: </p><pre>http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa</pre><div><p>Informative Medical Oncology Prior Authorization (MOPA) framework covering all cancer types and documenting upstream proposal gaps for Da Vinci CRD/DTR/PAS and mCODE. The guide uses breast cancer prior authorization as the first concrete use case and data requirements implementation.</p>\n</div></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+     ] ;
+     fhir:value [
+       a fhir:Code ;
+       fhir:v "draft"
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-wg>
+     ] ;
+     fhir:value [
+       a fhir:Code ;
+       fhir:v "cic"
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm>
+     ] ;
+     fhir:value [
+       a fhir:Integer ;
+       fhir:v 0
+     ]
+  ] ) ; # 
+  fhir:url [
+     fhir:v "http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/codex-ocpa/ImplementationGuide/hl7.fhir.us.codex-ocpa>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "MOPAIG"] ; # 
+  fhir:title [ fhir:v "MOPA — Medical Oncology Prior Authorization"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2026-06-03T09:47:12-04:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "HL7 International / Clinical Interoperability Council"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "HL7 International / Clinical Interoperability Council" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://www.hl7.org/Special/committees/cic" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "ciclist@lists.HL7.org" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Informative Medical Oncology Prior Authorization (MOPA) framework covering all cancer types and documenting upstream proposal gaps for Da Vinci CRD/DTR/PAS and mCODE. The guide uses breast cancer prior authorization as the first concrete use case and data requirements implementation."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ;
+         fhir:l <urn:iso:std:iso:3166>
+       ] ;
+       fhir:code [ fhir:v "US" ] ;
+       fhir:display [ fhir:v "United States of America" ]
+     ] )
+  ] ) ; # 
+  fhir:packageId [ fhir:v "hl7.fhir.us.codex-ocpa"] ; # 
+  fhir:license [ fhir:v "CC0-1.0"] ; # 
+  fhir:fhirVersion ( [ fhir:v "4.0.1"] ) ; # 
+  fhir:dependsOn ( [
+     fhir:id [ fhir:v "hl7tx" ] ;
+     fhir:extension ( [
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment>
+       ] ;
+       fhir:value [
+         a fhir:Markdown ;
+         fhir:v "Automatically added as a dependency - all IGs depend on HL7 Terminology"
+       ]
+     ] ) ;
+     fhir:uri [
+       fhir:v "http://terminology.hl7.org/ImplementationGuide/hl7.terminology"^^xsd:anyURI ;
+       fhir:l <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.terminology.r4" ] ;
+     fhir:version [ fhir:v "7.1.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7_fhir_uv_extensions_r4" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.uv.extensions.r4" ] ;
+     fhir:version [ fhir:v "5.2.0" ]
+  ] [
+     fhir:id [ fhir:v "hl7fhiruscore" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.us.core" ] ;
+     fhir:version [ fhir:v "7.0.0" ]
+  ] [
+     fhir:id [ fhir:v "fhirmcode" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.us.mcode" ] ;
+     fhir:version [ fhir:v "4.0.0" ]
+  ] [
+     fhir:id [ fhir:v "davinciCRD" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/davinci-crd/ImplementationGuide/hl7.fhir.us.davinci-crd>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.us.davinci-crd" ] ;
+     fhir:version [ fhir:v "2.1.0" ]
+  ] [
+     fhir:id [ fhir:v "davinciDTR" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/us/davinci-dtr/ImplementationGuide/hl7.fhir.us.davinci-dtr"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/davinci-dtr/ImplementationGuide/hl7.fhir.us.davinci-dtr>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.us.davinci-dtr" ] ;
+     fhir:version [ fhir:v "2.0.1" ]
+  ] [
+     fhir:id [ fhir:v "davinciPAS" ] ;
+     fhir:uri [
+       fhir:v "http://hl7.org/fhir/us/davinci-pas/ImplementationGuide/hl7.fhir.us.davinci-pas"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/davinci-pas/ImplementationGuide/hl7.fhir.us.davinci-pas>
+     ] ;
+     fhir:packageId [ fhir:v "hl7.fhir.us.davinci-pas" ] ;
+     fhir:version [ fhir:v "2.2.1" ]
+  ] ) ; # 
+  fhir:definition [
+     fhir:extension ( [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "copyrightyear"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "2026+"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "releaselabel"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ci-build"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "show-inherited-invariants"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "false"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-history"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "http://hl7.org/fhir/us/codex-ocpa/history.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "autoload-resources"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-qa"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/qa"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-temp"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/pages"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-output"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "output"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "path-suppressed-warnings"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/ignoreWarnings.txt"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-html"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-md"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page-md.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-contact"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-context"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-copyright"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-jurisdiction"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-license"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-publisher"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-version"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "apply-wg"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "active-tables"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "fmm-definition"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "http://hl7.org/fhir/versions.html#maturity"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "propagate-status"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "excludelogbinaryformat"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "tabbed-snapshots"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "i18n-default-lang"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "en"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency>
+       ] ;
+       fhir:value [
+         a fhir:Code ;
+         fhir:v "hl7.fhir.uv.tools.r4#1.1.2"
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "copyrightyear"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "2026+"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "releaselabel"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ci-build"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "show-inherited-invariants"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "false"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-history"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "http://hl7.org/fhir/us/codex-ocpa/history.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "autoload-resources"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-liquid"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/liquid"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-qa"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/qa"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-temp"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "temp/pages"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-output"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "output"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "path-suppressed-warnings"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "input/ignoreWarnings.txt"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "template-html"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "template-md"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "template-page-md.html"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-contact"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-context"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-copyright"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-jurisdiction"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-license"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-publisher"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-version"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "apply-wg"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "active-tables"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "fmm-definition"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "http://hl7.org/fhir/versions.html#maturity"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "propagate-status"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "excludelogbinaryformat"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "tabbed-snapshots"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "true"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "code"^^xsd:anyURI ;
+           fhir:l fhir:code
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "i18n-default-lang"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "value"^^xsd:anyURI ;
+           fhir:l fhir:value
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "en"
+         ]
+       ] ) ;
+       fhir:url [
+         fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-parameter>
+       ]
+     ] ) ;
+     fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition> ;
+         fhir:reference [ fhir:v "StructureDefinition/anticancer-regimen-plandefinition" ]
+       ] ;
+       fhir:name [ fhir:v "Anti-Cancer Regimen PlanDefinition" ] ;
+       fhir:description [ fhir:v "A canonical, reusable anti-cancer therapy regimen definition represented\nas a FHIR PlanDefinition order set. This resource is NOT patient-specific; it is\nreferenced by AntiCancerRegimenRequestGroup instances via RequestGroup.instantiatesCanonical.\n\nA regimen definition describes the protocol — component drugs, timing, cycle structure,\nsequential phase ordering — and carries the clinical context attributes (intent, treatment\nline, disease context) needed for CRD pre-approval evaluation.\n\n**mCODE Migration Candidate** — This profile is proposed for inclusion in mCODE STU5.\nIt addresses the gap documented in the mCODE gap analysis: mCODE does not currently\nrepresent anti-cancer regimens as first-class, computable entities." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup> ;
+         fhir:reference [ fhir:v "StructureDefinition/anticancer-regimen-requestgroup" ]
+       ] ;
+       fhir:name [ fhir:v "Anti-Cancer Regimen RequestGroup" ] ;
+       fhir:description [ fhir:v "A patient-specific ordered anti-cancer therapy regimen instance.\nThis resource is included in the CDS Hooks draftOrders Bundle and referenced in\ncontext.selections at order-select and order-sign.\n\nRequestGroup.instantiatesCanonical SHALL be populated with the canonical URL of the\nAntiCancerRegimenPlanDefinition when the canonical regimen definition is known.\n\nTwo scheduling patterns are supported in regimen actions:\n\n1. **Cycle-day timing** — Each action (or action.action for phased regimens) uses the\n   local extension `http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle`\n   on action.timingTiming to declare which days of the cycle the drug is administered.\n   The action.timingTiming.repeat carries the machine-computable cycle period.\n\n2. **Sequential phase ordering** — For multi-phase regimens (e.g., AC→T),\n   top-level action groups represent phases and action.relatedAction with\n   relationship = after-end declares that the second phase begins after the first.\n\n**mCODE Migration Candidate** — This profile is proposed for inclusion in mCODE STU5.\nIt is the MVP artifact for oncology prior authorization: the selected clinical unit\npassed to the CRD service." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Library"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements> ;
+         fhir:reference [ fhir:v "Library/BreastCancerPADataRequirements" ]
+       ] ;
+       fhir:name [ fhir:v "Example Data Requirements Library: Breast Cancer Prior Authorization" ] ;
+       fhir:description [ fhir:v "Cancer-specific data requirements Library for breast cancer prior\nauthorization evaluation. Declares the patient data elements that CRD uses to determine\npre-approval eligibility and DTR uses to collect or prepopulate missing documentation.\n\nCovers: primary cancer condition, TNM staging, ER/PR/HER2 biomarkers, disease status,\nordered regimen, line of therapy, performance status, and prior therapy history." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Practitioner"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Practitioner/OGCAOncologistExample> ;
+         fhir:reference [ fhir:v "Practitioner/OGCAOncologistExample" ]
+       ] ;
+       fhir:name [ fhir:v "Example Oncologist: Dr. Maria Lopez" ] ;
+       fhir:description [ fhir:v "Fictional medical oncologist used across OGCA IG examples." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Patient"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> ;
+         fhir:reference [ fhir:v "Patient/OGCAPatientExample" ]
+       ] ;
+       fhir:name [ fhir:v "Example Patient: Jane Smith" ] ;
+       fhir:description [ fhir:v "Fictional 57-year-old female patient used consistently across all OGCA\nIG examples. DO NOT use real patient data." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/DDACTRegimenDefinition> ;
+         fhir:reference [ fhir:v "PlanDefinition/DDACTRegimenDefinition" ]
+       ] ;
+       fhir:name [ fhir:v "Example Regimen Definition: ddAC→T (Dose-Dense AC then Paclitaxel)" ] ;
+       fhir:description [ fhir:v "Canonical definition of dose-dense doxorubicin (60 mg/m²) plus\ncyclophosphamide (600 mg/m²) q14d × 4 cycles (AC phase), followed by paclitaxel\n(175 mg/m²) q14d × 4 cycles (T phase) for adjuvant breast cancer. Demonstrates\nsequential phase ordering using action.relatedAction with relationship = after-end." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/PHDRegimenDefinition> ;
+         fhir:reference [ fhir:v "PlanDefinition/PHDRegimenDefinition" ]
+       ] ;
+       fhir:name [ fhir:v "Example Regimen Definition: PHD (Pertuzumab + Trastuzumab + Docetaxel)" ] ;
+       fhir:description [ fhir:v "Canonical definition of pertuzumab (840 mg loading, then 420 mg IV) plus\ntrastuzumab (8 mg/kg loading, then 6 mg/kg IV) plus docetaxel (75 mg/m² IV), every 21 days,\nfor first-line metastatic HER2-positive breast cancer. Demonstrates palliative intent." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "PlanDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition> ;
+         fhir:reference [ fhir:v "PlanDefinition/THRegimenDefinition" ]
+       ] ;
+       fhir:name [ fhir:v "Example Regimen Definition: TH (Paclitaxel + Trastuzumab, Weekly)" ] ;
+       fhir:description [ fhir:v "Canonical definition of weekly Paclitaxel (80 mg/m² IV) plus Trastuzumab\n(4 mg/kg loading, then 2 mg/kg IV) for 12 weeks in adjuvant HER2-positive early breast\ncancer. Demonstrates RegimenIntentExtension (adjuvant), RegimenTreatmentLineExtension\n(first-line), and RegimenDiseaseContextExtension." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "RequestGroup"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/RequestGroup/DDACTRegimenOrder> ;
+         fhir:reference [ fhir:v "RequestGroup/DDACTRegimenOrder" ]
+       ] ;
+       fhir:name [ fhir:v "Example Regimen Order: ddAC→T (Jane Smith, Adjuvant) — Sequential Phases" ] ;
+       fhir:description [ fhir:v "Patient-specific draft ddAC→T order for Jane Smith. AC phase (doxorubicin +\ncyclophosphamide q14d x4) followed by T phase (paclitaxel q14d x4). Demonstrates sequential\nphase ordering with action.relatedAction relationship = after-end." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "RequestGroup"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/RequestGroup/PHDRegimenOrder> ;
+         fhir:reference [ fhir:v "RequestGroup/PHDRegimenOrder" ]
+       ] ;
+       fhir:name [ fhir:v "Example Regimen Order: PHD (Jane Smith, First-Line Metastatic HER2+)" ] ;
+       fhir:description [ fhir:v "Patient-specific draft PHD regimen order for Jane Smith, first-line\nmetastatic HER2+ breast cancer. Pertuzumab + Trastuzumab + Docetaxel q21d.\nDemonstrates palliative intent and first-line metastatic treatment setting." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "RequestGroup"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder> ;
+         fhir:reference [ fhir:v "RequestGroup/THRegimenOrder" ]
+       ] ;
+       fhir:name [ fhir:v "Example Regimen Order: TH (Jane Smith, Adjuvant HER2+) — Typical" ] ;
+       fhir:description [ fhir:v "Patient-specific draft ordered TH regimen for Jane Smith at order-select.\ninstantiatesCanonical references THRegimenDefinition. All Must Support elements populated.\nDemonstrates timing-daysOfCycle (days 1, 8, 15 of a 21-day cycle) and is the primary\nreference example for AntiCancerRegimenRequestGroup." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Bundle/ExampleOrderSelectBundle> ;
+         fhir:reference [ fhir:v "Bundle/ExampleOrderSelectBundle" ]
+       ] ;
+       fhir:name [ fhir:v "Example: CDS Hooks order-select draftOrders Bundle (TH regimen)" ] ;
+       fhir:description [ fhir:v "Collection Bundle placed in context.draftOrders of an\norder-select CDS Hooks request.  At order-select the RequestGroup is present\nbut individual MedicationRequests are still draft and are not required." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Bundle"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Bundle/ExampleOrderSignBundle> ;
+         fhir:reference [ fhir:v "Bundle/ExampleOrderSignBundle" ]
+       ] ;
+       fhir:name [ fhir:v "Example: CDS Hooks order-sign draftOrders Bundle (TH regimen)" ] ;
+       fhir:description [ fhir:v "Collection Bundle placed in context.draftOrders of an\norder-sign CDS Hooks request.  At order-sign the RequestGroup plus all\ncompanion MedicationRequests are present." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/CyclophosphamideMedRequestDDACT> ;
+         fhir:reference [ fhir:v "MedicationRequest/CyclophosphamideMedRequestDDACT" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Cyclophosphamide MedicationRequest (ddAC→T regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for cyclophosphamide 600 mg/m² IV in ddAC phase." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/DocetaxelMedRequestPHD> ;
+         fhir:reference [ fhir:v "MedicationRequest/DocetaxelMedRequestPHD" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Docetaxel MedicationRequest (PHD regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for docetaxel 75 mg/m² IV q21d in PHD regimen." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/DoxorubicinMedRequestDDACT> ;
+         fhir:reference [ fhir:v "MedicationRequest/DoxorubicinMedRequestDDACT" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Doxorubicin MedicationRequest (ddAC→T regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for doxorubicin 60 mg/m² IV in ddAC phase." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Observation/LineOfTherapyFirstLine> ;
+         fhir:reference [ fhir:v "Observation/LineOfTherapyFirstLine" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Line of Therapy — First-Line Adjuvant (Jane Smith)" ] ;
+       fhir:description [ fhir:v "First-line adjuvant systemic anti-cancer therapy for Jane Smith's\nStage IIB HER2+ breast cancer, beginning January 2026 with the TH regimen.\nAll Must Support elements populated. This is the primary reference example." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Observation/LineOfTherapyMaintenance> ;
+         fhir:reference [ fhir:v "Observation/LineOfTherapyMaintenance" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Line of Therapy — Maintenance (Jane Smith, Post-PHD Response)" ] ;
+       fhir:description [ fhir:v "Maintenance trastuzumab therapy for Jane Smith following response to\nPHD induction in metastatic HER2+ setting. Demonstrates TreatmentLineCS#maintenance." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Observation"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Observation/LineOfTherapySecondLine> ;
+         fhir:reference [ fhir:v "Observation/LineOfTherapySecondLine" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Line of Therapy — Second-Line Metastatic (Jane Smith)" ] ;
+       fhir:description [ fhir:v "Second-line systemic anti-cancer therapy for Jane Smith after disease\nrecurrence with metastatic spread (liver) in March 2027, 14 months after completing\nadjuvant TH. Demonstrates second-line metastatic setting." ] ;
+       fhir:example [
+         a fhir:Canonical ;
+         fhir:v "http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation>
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Condition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Condition/OGCAMetastaticBreastCancerConditionExample> ;
+         fhir:reference [ fhir:v "Condition/OGCAMetastaticBreastCancerConditionExample" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Metastatic HER2+ Breast Cancer (Stage IV)" ] ;
+       fhir:description [ fhir:v "Metastatic HER2-positive breast cancer with liver and bone involvement,\nnewly diagnosed Stage IV (de novo). Used in PHD regimen examples." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTPHase> ;
+         fhir:reference [ fhir:v "MedicationRequest/PaclitaxelMedRequestTPHase" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Paclitaxel MedicationRequest (T phase, ddAC→T regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for paclitaxel 175 mg/m² IV q14d in T phase." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH> ;
+         fhir:reference [ fhir:v "MedicationRequest/PaclitaxelMedRequestTH" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Paclitaxel MedicationRequest (TH regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for paclitaxel 80 mg/m² IV weekly in TH regimen." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PertuzumabMedRequestPHD> ;
+         fhir:reference [ fhir:v "MedicationRequest/PertuzumabMedRequestPHD" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Pertuzumab MedicationRequest (PHD regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for pertuzumab IV q21d in PHD regimen." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "Condition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/Condition/OGCABreastCancerConditionExample> ;
+         fhir:reference [ fhir:v "Condition/OGCABreastCancerConditionExample" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Primary HER2+ Breast Cancer (Stage IIB)" ] ;
+       fhir:description [ fhir:v "Invasive ductal carcinoma of right breast, HER2-positive,\nStage IIB (T2 N1 M0), diagnosed November 2025. Referenced by all OGCA examples\ndepicting Jane Smith's adjuvant treatment course." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestPHD> ;
+         fhir:reference [ fhir:v "MedicationRequest/TrastuzumabMedRequestPHD" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Trastuzumab MedicationRequest (PHD regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for trastuzumab IV q21d in PHD regimen." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "MedicationRequest"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH> ;
+         fhir:reference [ fhir:v "MedicationRequest/TrastuzumabMedRequestTH" ]
+       ] ;
+       fhir:name [ fhir:v "Example: Trastuzumab MedicationRequest (TH regimen, draft)" ] ;
+       fhir:description [ fhir:v "Draft MedicationRequest for trastuzumab IV weekly in TH regimen." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation> ;
+         fhir:reference [ fhir:v "StructureDefinition/line-of-therapy-observation" ]
+       ] ;
+       fhir:name [ fhir:v "Line of Therapy Observation" ] ;
+       fhir:description [ fhir:v "An Observation that documents the ordinal line of systemic anti-cancer\ntherapy a patient is currently receiving or has received for a given cancer diagnosis.\n\nThis observation is a required patient data element for oncology prior authorization:\nmost metastatic and recurrent cancer regimen policies are line-of-therapy dependent.\n\nObservation.code uses the local OGCA code system code `line-of-therapy` as a placeholder.\nA migration request for a LOINC code will be submitted before mCODE STU5.\n\nObservation.value[x] SHALL be a CodeableConcept drawn from TreatmentLineVS.\nThe focus SHALL reference the primary cancer Condition for which this line applies.\n\n**mCODE Migration Candidate** — Proposed for inclusion in mCODE STU5." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes> ;
+         fhir:reference [ fhir:v "CodeSystem/ocpa-codes" ]
+       ] ;
+       fhir:name [ fhir:v "OGCA Local Code System" ] ;
+       fhir:description [ fhir:v "Local codes defined by the OGCA IG for concepts that do not yet have\nan established representation in LOINC, SNOMED CT, or mCODE. These codes are migration\ncandidates and should be retired in favor of standard codes as they become available." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CapabilityStatement"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/CapabilityStatement/ocpa-crd-client> ;
+         fhir:reference [ fhir:v "CapabilityStatement/ocpa-crd-client" ]
+       ] ;
+       fhir:name [ fhir:v "Oncology CRD Client Capability Statement" ] ;
+       fhir:description [ fhir:v "Capability Statement for systems acting as an **Oncology CRD Client**\n(e.g., an EHR or oncology ordering system).  A conformant client claims support for\nthe Da Vinci CRD oncology profile defined in this IG by meeting the requirements below." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CapabilityStatement"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/CapabilityStatement/ocpa-crd-service> ;
+         fhir:reference [ fhir:v "CapabilityStatement/ocpa-crd-service" ]
+       ] ;
+       fhir:name [ fhir:v "Oncology CRD Service Capability Statement" ] ;
+       fhir:description [ fhir:v "Capability Statement for systems acting as an **Oncology CRD Service**\n(e.g., a payer or prior-authorization platform).  A conformant service claims support for\nthe Da Vinci CRD oncology profile defined in this IG by meeting the requirements below." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library> ;
+         fhir:reference [ fhir:v "StructureDefinition/oncology-data-requirements-library" ]
+       ] ;
+       fhir:name [ fhir:v "Oncology Data Requirements Library" ] ;
+       fhir:description [ fhir:v "A versioned, governable package of FHIR DataRequirement entries that\ndeclares the patient context required to evaluate an anti-cancer therapy regimen for\nprior authorization.\n\nCRD uses this Library to determine whether the supplied patient context is sufficient\nfor pre-approval evaluation. DTR uses the same Library to select or generate a\nquestionnaire and prepopulate known data. This shared-artifact pattern eliminates\nthe divergence that occurs when CRD rules and DTR questionnaires are based on\nseparate logic.\n\nThe Library is referenced from the CDS Hooks oncology extension via\ndataRequirements.canonical, or provided inline as DataRequirement[].\n\nCancer-specific instances (e.g., BreastCancerPADataRequirements) derive their content\nfrom this base profile and bind Library.subjectCodeableConcept to the target cancer type.\n\n**mCODE Migration Candidate** — This profile is proposed for inclusion in mCODE STU5." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle> ;
+         fhir:reference [ fhir:v "StructureDefinition/regimen-days-of-cycle" ]
+       ] ;
+       fhir:name [ fhir:v "Regimen Days of Cycle" ] ;
+       fhir:description [ fhir:v "Specifies the days within a repeating treatment cycle on which a\nregimen action is to be performed. Semantically identical to the HL7 core extension\n[timing-daysOfCycle](http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle),\nbut with context broadened to `Timing` so it can be applied to nested\n`RequestGroup.action.action` elements used in phased multi-agent regimens.\n\nThe cycle length is expressed via `Timing.repeat.period` / `Timing.repeat.periodUnit`\non the same element. Day numbering starts at 1 (day 1 = first day of cycle 1).\n\nThis extension is a migration candidate for inclusion in the HL7 FHIR Extensions\npack with an expanded context. See [regimen-model.html](regimen-model.html)." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-disease-context> ;
+         fhir:reference [ fhir:v "StructureDefinition/ocpa-regimen-disease-context" ]
+       ] ;
+       fhir:name [ fhir:v "Regimen Disease Context" ] ;
+       fhir:description [ fhir:v "Identifies the cancer type or specific cancer condition for which this\nanti-cancer regimen is defined. May be a coded value (e.g., SNOMED CT cancer concept)\nfor use on canonical PlanDefinition definitions, or a reference to the patient's primary\ncancer Condition for use on RequestGroup instances.\n\n**mCODE Migration Candidate** — Proposed for inclusion in mCODE STU5 as an extension\non anti-cancer regimen profiles." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-intent> ;
+         fhir:reference [ fhir:v "StructureDefinition/ocpa-regimen-intent" ]
+       ] ;
+       fhir:name [ fhir:v "Regimen Intent" ] ;
+       fhir:description [ fhir:v "The clinical intent of the anti-cancer regimen (e.g., curative,\npalliative, adjuvant, neoadjuvant, supportive). Applies to both the canonical regimen\ndefinition (PlanDefinition) and the patient-specific ordered instance (RequestGroup).\n\n**mCODE Migration Candidate** — Proposed for inclusion in mCODE STU5 as an extension\non anti-cancer regimen profiles." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/ValueSet/regimen-intent-vs> ;
+         fhir:reference [ fhir:v "ValueSet/regimen-intent-vs" ]
+       ] ;
+       fhir:name [ fhir:v "Regimen Intent Value Set" ] ;
+       fhir:description [ fhir:v "The clinical intent of an anti-cancer regimen. All codes are drawn from\nthe SNOMED CT \\\"Intents (nature of procedure values)\\\" hierarchy (363675004).\n\n**mCODE Migration Candidate** — Proposed for mCODE STU5." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "StructureDefinition:extension"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-treatment-line> ;
+         fhir:reference [ fhir:v "StructureDefinition/ocpa-regimen-treatment-line" ]
+       ] ;
+       fhir:name [ fhir:v "Regimen Treatment Line" ] ;
+       fhir:description [ fhir:v "The ordinal line of systemic anti-cancer therapy for which this\nregimen is defined (e.g., first-line, second-line, maintenance). Applies to both the\ncanonical regimen definition (PlanDefinition) and the patient-specific ordered instance\n(RequestGroup).\n\nNote: This extension captures the regimen's *designed* treatment line. To document the\npatient's *current* line of therapy as a clinical observation, use LineOfTherapyObservation.\n\n**mCODE Migration Candidate** — Proposed for inclusion in mCODE STU5 as an extension\non anti-cancer regimen profiles." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs> ;
+         fhir:reference [ fhir:v "CodeSystem/treatment-line-cs" ]
+       ] ;
+       fhir:name [ fhir:v "Treatment Line Code System" ] ;
+       fhir:description [ fhir:v "Ordinal codes representing the line of systemic anti-cancer therapy.\nThese codes are used in the TreatmentLineVS value set and on the LineOfTherapyObservation\nand regimen profiles.\n\n**mCODE Migration Candidate** — These codes are proposed for adoption in mCODE STU5\nor as a SNOMED CT extension request. Once standard codes are available, this code\nsystem should be deprecated." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/resource-information>
+         ] ;
+         fhir:value [
+           a fhir:String ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:l <http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs> ;
+         fhir:reference [ fhir:v "ValueSet/treatment-line-vs" ]
+       ] ;
+       fhir:name [ fhir:v "Treatment Line Value Set" ] ;
+       fhir:description [ fhir:v "Codes representing the ordinal line of systemic anti-cancer therapy.\nUsed in LineOfTherapyObservation.valueCodeableConcept and the RegimenTreatmentLine extension.\n\n**mCODE Migration Candidate** — Proposed for mCODE STU5." ] ;
+       fhir:example [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] ) ;
+     fhir:page [
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+         ] ;
+         fhir:value [
+           a fhir:Code ;
+           fhir:v "informative"
+         ]
+       ] [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+         ] ;
+         fhir:value [
+           a fhir:Url ;
+           fhir:v "toc.html"^^xsd:anyURI ;
+           fhir:l fhir:toc.html
+         ]
+       ] ) ;
+       fhir:name [
+         a fhir:Url ;
+         fhir:v "toc.html"^^xsd:anyURI ;
+         fhir:l fhir:toc.html
+       ] ;
+       fhir:title [ fhir:v "Table of Contents" ] ;
+       fhir:generation [ fhir:v "html" ] ;
+       fhir:page ( [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "index.html"^^xsd:anyURI ;
+             fhir:l fhir:index.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "index.html"^^xsd:anyURI ;
+           fhir:l fhir:index.html
+         ] ;
+         fhir:title [ fhir:v "Home" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "background.html"^^xsd:anyURI ;
+             fhir:l fhir:background.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "background.html"^^xsd:anyURI ;
+           fhir:l fhir:background.html
+         ] ;
+         fhir:title [ fhir:v "Background" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "use-cases.html"^^xsd:anyURI ;
+             fhir:l fhir:use-cases.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "use-cases.html"^^xsd:anyURI ;
+           fhir:l fhir:use-cases.html
+         ] ;
+         fhir:title [ fhir:v "Use Cases and Actors" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "regimen-model.html"^^xsd:anyURI ;
+             fhir:l fhir:regimen-model.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "regimen-model.html"^^xsd:anyURI ;
+           fhir:l fhir:regimen-model.html
+         ] ;
+         fhir:title [ fhir:v "Regimen Modeling" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "cds-hooks-extension.html"^^xsd:anyURI ;
+             fhir:l fhir:cds-hooks-extension.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "cds-hooks-extension.html"^^xsd:anyURI ;
+           fhir:l fhir:cds-hooks-extension.html
+         ] ;
+         fhir:title [ fhir:v "CDS Hooks Oncology Extension" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "walkthrough.html"^^xsd:anyURI ;
+             fhir:l fhir:walkthrough.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "walkthrough.html"^^xsd:anyURI ;
+           fhir:l fhir:walkthrough.html
+         ] ;
+         fhir:title [ fhir:v "Workflow Walkthrough (Layers 1 & 2)" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "data-requirements.html"^^xsd:anyURI ;
+             fhir:l fhir:data-requirements.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "data-requirements.html"^^xsd:anyURI ;
+           fhir:l fhir:data-requirements.html
+         ] ;
+         fhir:title [ fhir:v "Data Requirements Pattern" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "breast-cancer-pa.html"^^xsd:anyURI ;
+             fhir:l fhir:breast-cancer-pa.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "breast-cancer-pa.html"^^xsd:anyURI ;
+           fhir:l fhir:breast-cancer-pa.html
+         ] ;
+         fhir:title [ fhir:v "Use Case 1: Breast Cancer PA" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "davinci-gap-proposals.html"^^xsd:anyURI ;
+             fhir:l fhir:davinci-gap-proposals.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "davinci-gap-proposals.html"^^xsd:anyURI ;
+           fhir:l fhir:davinci-gap-proposals.html
+         ] ;
+         fhir:title [ fhir:v "Da Vinci Gap Proposals" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "mcode-gap-proposals.html"^^xsd:anyURI ;
+             fhir:l fhir:mcode-gap-proposals.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "mcode-gap-proposals.html"^^xsd:anyURI ;
+           fhir:l fhir:mcode-gap-proposals.html
+         ] ;
+         fhir:title [ fhir:v "mCODE Gap Proposals" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "conformance.html"^^xsd:anyURI ;
+             fhir:l fhir:conformance.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "conformance.html"^^xsd:anyURI ;
+           fhir:l fhir:conformance.html
+         ] ;
+         fhir:title [ fhir:v "Conformance" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "artifacts.html"^^xsd:anyURI ;
+             fhir:l fhir:artifacts.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "artifacts.html"^^xsd:anyURI ;
+           fhir:l fhir:artifacts.html
+         ] ;
+         fhir:title [ fhir:v "Artifacts Summary" ] ;
+         fhir:generation [ fhir:v "html" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "downloads.html"^^xsd:anyURI ;
+             fhir:l fhir:downloads.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "downloads.html"^^xsd:anyURI ;
+           fhir:l fhir:downloads.html
+         ] ;
+         fhir:title [ fhir:v "Downloads" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+           ] ;
+           fhir:value [
+             a fhir:Code ;
+             fhir:v "informative"
+           ]
+         ] [
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/tools/StructureDefinition/ig-page-name>
+           ] ;
+           fhir:value [
+             a fhir:Url ;
+             fhir:v "history.html"^^xsd:anyURI ;
+             fhir:l fhir:history.html
+           ]
+         ] ) ;
+         fhir:name [
+           a fhir:Url ;
+           fhir:v "history.html"^^xsd:anyURI ;
+           fhir:l fhir:history.html
+         ] ;
+         fhir:title [ fhir:v "Change Log" ] ;
+         fhir:generation [ fhir:v "markdown" ]
+       ] )
+     ] ;
+     fhir:parameter ( [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/capabilities" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/examples" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/extensions" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/models" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/operations" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/profiles" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/vocabulary" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/maps" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/testing" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/history" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "fsh-generated/resources" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "template/config" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "input/assets" ]
+     ] [
+       fhir:code [ fhir:v "path-pages" ] ;
+       fhir:value [ fhir:v "input/images" ]
+     ] [
+       fhir:code [ fhir:v "path-tx-cache" ] ;
+       fhir:value [ fhir:v "input-cache/txcache" ]
+     ] )
+  ] . # 
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-plandefinition> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/anticancer-regimen-requestgroup> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Library/BreastCancerPADataRequirements> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Practitioner/OGCAOncologistExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Patient/OGCAPatientExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/DDACTRegimenDefinition> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/PHDRegimenDefinition> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/PlanDefinition/THRegimenDefinition> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/RequestGroup/DDACTRegimenOrder> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/RequestGroup/PHDRegimenOrder> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/RequestGroup/THRegimenOrder> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Bundle/ExampleOrderSelectBundle> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Bundle/ExampleOrderSignBundle> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/CyclophosphamideMedRequestDDACT> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/DocetaxelMedRequestPHD> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/DoxorubicinMedRequestDDACT> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Observation/LineOfTherapyFirstLine> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Observation/LineOfTherapyMaintenance> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Observation/LineOfTherapySecondLine> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Condition/OGCAMetastaticBreastCancerConditionExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTPHase> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PaclitaxelMedRequestTH> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/PertuzumabMedRequestPHD> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/Condition/OGCABreastCancerConditionExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestPHD> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/MedicationRequest/TrastuzumabMedRequestTH> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/line-of-therapy-observation> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/CodeSystem/ocpa-codes> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/CapabilityStatement/ocpa-crd-client> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/CapabilityStatement/ocpa-crd-service> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/oncology-data-requirements-library> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/regimen-days-of-cycle> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-disease-context> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-intent> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/ValueSet/regimen-intent-vs> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/StructureDefinition/ocpa-regimen-treatment-line> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/CodeSystem/treatment-line-cs> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-ocpa/ValueSet/treatment-line-vs> a fhir:Us .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>CRD Workflow - MOPA — Medical Oncology Prior Authorization v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/project.css" rel="stylesheet"/>
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+    <link href="assets/css/hl7.css" rel="stylesheet"/>
+    <link href="assets/css/fhir-ig.css" rel="stylesheet"/>
+    <link href="css/mopa.css" rel="stylesheet"/>
+
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script type="text/javascript" src="assets/js/prism.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+        <div id="hl7-nav">
+          <a id="hl7-logo" data-no-external="true" href="http://hl7.org">
+            <img height="50" alt="Visit the HL7 website" src="assets/images/hl7-logo-header.png"/>
+          </a>
+        </div>
+        <div id="family-nav">
+          <a id="family-logo" data-no-external="true" href="http://hl7.org/fhir"><img height="50" alt="Visit the FHIR website" src="assets/images/fhir-logo-www.png"/> </a>
+        </div>
+        <div id="hl7-search">
+          <a id="hl7-search-lnk" data-no-external="true" href="searchform.html"><img alt="Search FHIR" src="assets/images/search.png"/></a>
+        </div>
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">MOPA — Medical Oncology Prior Authorization</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  <span title="">US</span>
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="background.html">Background</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Use Cases
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="use-cases.html">Use Cases and Actors</a>
+      </li>
+      <li>
+        <a href="breast-cancer-pa.html">Use Case 1 - Breast Cancer PA</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Specification
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="regimen-model.html">1-Regimen Modeling</a>
+      </li>
+      <li>
+        <a href="cds-workflow.html">2-CRD Workflow</a>
+      </li>
+      <li>
+        <a href="data-requirements.html">3-Data Requirements</a>
+      </li>
+      <li>
+        <a href="walkthrough.html">Workflow Walkthrough</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Gaps in Specs
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="davinci-gap-proposals.html">Da Vinci Gap Proposals</a>
+      </li>
+      <li>
+        <a href="mcode-gap-proposals.html">mCODE Gap Proposals</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="conformance.html">Conformance</a>
+  </li>
+  <li>
+    <a href="artifacts.html">Artifacts</a>
+  </li>
+  <li>
+    <a href="downloads.html">Downloads</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+
+              
+
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>CRD Workflow</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">MOPA — Medical Oncology Prior Authorization - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='http://hl7.org/fhir/us/codex-mopa/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>CRD Workflow</h2>
+  
+
+
+
+  <table class="colsi" data-fhir="generated">
+    <tr>
+  
+      <td>
+        <i>Page standards status:</i> <a href="http://hl7.org/fhir/R4/versions.html#std-process" title="Standards Status">Informative</a>
+        
+      </td>
+  
+  
+      <td id="toggle-change-display" style="text-align: right;border-left-style: hidden" title="Enable this to see changes since the last official release">
+        <label style="margin:0;font-weight:normal" for="showChanges">Highlight text changes?</label>
+  
+        <input style="margin:0" type="checkbox" id="showChanges" onchange="toggleChanges()"/>
+  
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#how-the-crd-service-obtains-patient-context" id="markdown-toc-how-the-crd-service-obtains-patient-context">How the CRD Service Obtains Patient Context</a></li>
+  <li><a href="#cds-hooks-request-shape" id="markdown-toc-cds-hooks-request-shape">CDS Hooks Request Shape</a></li>
+  <li><a href="#crd-service-evaluation-flow" id="markdown-toc-crd-service-evaluation-flow">CRD Service Evaluation Flow</a></li>
+  <li><a href="#possible-crd-outcomes" id="markdown-toc-possible-crd-outcomes">Possible CRD Outcomes</a></li>
+  <li><a href="#conformance-requirements" id="markdown-toc-conformance-requirements">Conformance Requirements</a></li>
+  <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
+</ul>
+
+</div>
+
+<h3 id="overview">Overview</h3>
+
+<p>This IG describes how the Da Vinci CRD workflow is used for oncology prior authorization.
+The payer CRD service uses standard CDS Hooks mechanisms — specifically FHIR API access
+provided via <code class="language-plaintext highlighter-rouge">fhirAuthorization</code> — to query the EHR's FHIR server directly for the oncology
+patient context it requires.</p>
+
+<p>This approach keeps the EHR-side integration simple and standard: the EHR fires the
+standard <code class="language-plaintext highlighter-rouge">order-select</code> and <code class="language-plaintext highlighter-rouge">order-sign</code> hooks with the <code class="language-plaintext highlighter-rouge">RequestGroup</code> in <code class="language-plaintext highlighter-rouge">draftOrders</code>,
+and the CRD service does the work of fetching what it needs.</p>
+
+<h3 id="how-the-crd-service-obtains-patient-context">How the CRD Service Obtains Patient Context</h3>
+
+<p>When a CDS Hooks request includes a <code class="language-plaintext highlighter-rouge">fhirAuthorization</code> object, the CRD service <strong>MAY</strong>
+use the provided access token to query the EHR's FHIR server directly for the oncology
+facts it requires to evaluate the ordered regimen.</p>
+
+<p>The CRD service queries for the same clinical data elements that would otherwise be
+collected via DTR — the difference is that the payer queries them directly rather than
+asking the clinician to re-enter them. This is opaque to the standard CDS Hooks API:
+the EHR does not need to know which resources the payer will query.</p>
+
+<p>Relevant data categories the CRD service typically queries:</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Data Category</th>
+      <th>FHIR Resource</th>
+      <th>Key Filters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Primary cancer condition</td>
+      <td><code class="language-plaintext highlighter-rouge">Condition</code></td>
+      <td>mCODE primary cancer ValueSet, active status</td>
+    </tr>
+    <tr>
+      <td>Cancer stage</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation</code></td>
+      <td>mCODE staging codes</td>
+    </tr>
+    <tr>
+      <td>Biomarkers</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation</code></td>
+      <td>mCODE tumor marker ValueSet</td>
+    </tr>
+    <tr>
+      <td>Line of therapy</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation</code></td>
+      <td>MOPA treatment-line ValueSet</td>
+    </tr>
+    <tr>
+      <td>Performance status</td>
+      <td><code class="language-plaintext highlighter-rouge">Observation</code></td>
+      <td>mCODE ECOG/Karnofsky codes</td>
+    </tr>
+    <tr>
+      <td>Prior therapy</td>
+      <td><code class="language-plaintext highlighter-rouge">MedicationRequest</code> / <code class="language-plaintext highlighter-rouge">Procedure</code></td>
+      <td>Completed anti-cancer treatments</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cds-hooks-request-shape">CDS Hooks Request Shape</h3>
+
+<p>The EHR fires a standard CRD hook with:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">context.patientId</code> — identifies the patient</li>
+  <li><code class="language-plaintext highlighter-rouge">context.selections</code> and <code class="language-plaintext highlighter-rouge">context.draftOrders</code> — includes the <code class="language-plaintext highlighter-rouge">RequestGroup</code> conforming to <code class="language-plaintext highlighter-rouge">OncologyAntiCancerRegimenRequestGroup</code></li>
+  <li><code class="language-plaintext highlighter-rouge">fhirAuthorization</code> — FHIR access credentials the CRD service uses to query back (when available)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"hook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order-select"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"hookInstance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Practitioner/DrLopez"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOPAPatientExample"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"selections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"RequestGroup/THRegimenOrder"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"draftOrders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestGroup"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THRegimenOrder"</span><span class="p">,</span><span class="w"> </span><span class="s2">"..."</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"fhirAuthorization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patient/Condition.read patient/Observation.read patient/MedicationRequest.read"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cds-service"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"fhirServer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://ehr.example.org/fhir"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="crd-service-evaluation-flow">CRD Service Evaluation Flow</h3>
+
+<p>Upon receiving the hook, the CRD service:</p>
+
+<ol>
+  <li>Reads the <code class="language-plaintext highlighter-rouge">RequestGroup</code> from <code class="language-plaintext highlighter-rouge">context.draftOrders</code> to identify the ordered regimen</li>
+  <li>If <code class="language-plaintext highlighter-rouge">RequestGroup.instantiatesCanonical</code> is populated, optionally resolves the canonical
+<code class="language-plaintext highlighter-rouge">PlanDefinition</code> for richer protocol-level evaluation</li>
+  <li>Uses <code class="language-plaintext highlighter-rouge">fhirAuthorization</code> to query the EHR FHIR server for the required oncology facts</li>
+  <li>Evaluates the regimen against its coverage policy using the retrieved context</li>
+  <li>Returns the appropriate CRD response card(s)</li>
+</ol>
+
+<h3 id="possible-crd-outcomes">Possible CRD Outcomes</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Condition</th>
+      <th>CRD Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Required context complete + criteria satisfied</td>
+      <td><strong>Authorization Satisfied</strong> — PA conditions have been evaluated and PA can be bypassed</td>
+    </tr>
+    <tr>
+      <td>Required context retrievable but criteria not met</td>
+      <td>Return PA required or documentation required</td>
+    </tr>
+    <tr>
+      <td>Required context not yet available in EHR</td>
+      <td>Return DTR launch card to collect missing data</td>
+    </tr>
+    <tr>
+      <td>Regimen cannot be evaluated</td>
+      <td>Return coverage/documentation guidance</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="conformance-requirements">Conformance Requirements</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Actor</th>
+      <th>Requirement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Oncology CRD Client</strong></td>
+      <td><strong>SHALL</strong> include the <code class="language-plaintext highlighter-rouge">RequestGroup</code> in <code class="language-plaintext highlighter-rouge">context.draftOrders</code> conforming to <code class="language-plaintext highlighter-rouge">OncologyAntiCancerRegimenRequestGroup</code></td>
+    </tr>
+    <tr>
+      <td><strong>Oncology CRD Client</strong></td>
+      <td><strong>SHOULD</strong> provide <code class="language-plaintext highlighter-rouge">fhirAuthorization</code> so the CRD service can query for patient context</td>
+    </tr>
+    <tr>
+      <td><strong>Oncology CRD Service</strong></td>
+      <td><strong>SHALL</strong> be capable of evaluating the <code class="language-plaintext highlighter-rouge">RequestGroup</code> to identify the ordered regimen</td>
+    </tr>
+    <tr>
+      <td><strong>Oncology CRD Service</strong></td>
+      <td><strong>SHOULD</strong> use <code class="language-plaintext highlighter-rouge">fhirAuthorization</code> to query the EHR for required oncology facts when provided</td>
+    </tr>
+    <tr>
+      <td><strong>Oncology CRD Service</strong></td>
+      <td><strong>SHALL</strong> return a DTR launch card when required context is not available via FHIR query</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="examples">Examples</h3>
+
+<p>For a complete end-to-end walkthrough see <a href="walkthrough.html">Workflow Walkthrough</a>.</p>
+
+<p>For the <code class="language-plaintext highlighter-rouge">RequestGroup</code> payload, see <a href="RequestGroup-THRegimenOrder.html">Example: TH Regimen Order</a>.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="assets/js/flags.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <script type="text/javascript" src="assets/js/togglechanges.js"> </script>
+  <script type="text/javascript" src="assets/js/requirements-table.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container" data-fhir="generated">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="http://www.hl7.org/Special/committees/cic">HL7 International / Clinical Interoperability Council</a>.  
+          Package hl7.fhir.us.codex-mopa#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Generated 
+  <span title="2026-06-30 11:36:00 -0400">
+    2026-06-30
+  </span>
+
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html">QA Report</a>
+                 
+                
+                 | <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="http://hl7.org/fhir/us/codex-mopa/history.html">Version History</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" rel="license" href="http://hl7.org/fhir/R4/license.html"><img style="border-style: none;" alt="CC0" src="cc0.png"/></a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

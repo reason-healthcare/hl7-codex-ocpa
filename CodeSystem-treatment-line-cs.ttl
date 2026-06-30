@@ -1,0 +1,101 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "treatment-line-cs"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem treatment-line-cs</b></p><a name=\"treatment-line-cs\"> </a><a name=\"hctreatment-line-cs\"> </a><p>This case-sensitive code system <code>http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">1L<a name=\"treatment-line-cs-1L\"> </a></td><td>First-line</td><td>The first line of systemic anti-cancer therapy for this indication.</td></tr><tr><td style=\"white-space:nowrap\">2L<a name=\"treatment-line-cs-2L\"> </a></td><td>Second-line</td><td>The second line of systemic anti-cancer therapy; administered after first-line therapy failure, progression, or intolerance.</td></tr><tr><td style=\"white-space:nowrap\">3L-plus<a name=\"treatment-line-cs-3L-plus\"> </a></td><td>Third-line or later</td><td>The third or any subsequent line of systemic anti-cancer therapy.</td></tr><tr><td style=\"white-space:nowrap\">maintenance<a name=\"treatment-line-cs-maintenance\"> </a></td><td>Maintenance</td><td>Maintenance therapy administered to prolong response after induction or consolidation treatment.</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-wg>
+     ] ;
+     fhir:value [
+       a fhir:Code ;
+       fhir:v "cic"
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status>
+     ] ;
+     fhir:value [
+       a fhir:Code ;
+       fhir:v "informative" ;
+       fhir:extension ( [
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom>
+         ] ;
+         fhir:value [
+           a fhir:Canonical ;
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/ImplementationGuide/hl7.fhir.us.codex-mopa"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/ImplementationGuide/hl7.fhir.us.codex-mopa>
+         ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:url [
+     fhir:v "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TreatmentLineCS"] ; # 
+  fhir:title [ fhir:v "Treatment Line Code System"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-06-30T11:36:35-04:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "HL7 International / Clinical Interoperability Council"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "HL7 International / Clinical Interoperability Council" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://www.hl7.org/Special/committees/cic" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "ciclist@lists.HL7.org" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Ordinal codes representing the line of systemic anti-cancer therapy.\nThese codes are used in the TreatmentLineVS value set and on the LineOfTherapyObservation\nand regimen profiles.\n\n**mCODE Migration Candidate** — These codes are proposed for adoption in mCODE STU5\nor as a SNOMED CT extension request. Once standard codes are available, this code\nsystem should be deprecated."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ;
+         fhir:l <urn:iso:std:iso:3166>
+       ] ;
+       fhir:code [ fhir:v "US" ] ;
+       fhir:display [ fhir:v "United States of America" ]
+     ] )
+  ] ) ; # 
+  fhir:purpose [ fhir:v "mCODE Migration Candidate — proposed for adoption in mCODE STU5 or as a SNOMED CT\nextension request. Once standard codes are available this code system will be deprecated.\nIt is NOT intended to be a permanent artifact of this IG. See the mCODE Gap Proposals page\nfor the migration plan."] ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "4"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "1L" ] ;
+     fhir:display [ fhir:v "First-line" ] ;
+     fhir:definition [ fhir:v "The first line of systemic anti-cancer therapy for this indication." ]
+  ] [
+     fhir:code [ fhir:v "2L" ] ;
+     fhir:display [ fhir:v "Second-line" ] ;
+     fhir:definition [ fhir:v "The second line of systemic anti-cancer therapy; administered after first-line therapy failure, progression, or intolerance." ]
+  ] [
+     fhir:code [ fhir:v "3L-plus" ] ;
+     fhir:display [ fhir:v "Third-line or later" ] ;
+     fhir:definition [ fhir:v "The third or any subsequent line of systemic anti-cancer therapy." ]
+  ] [
+     fhir:code [ fhir:v "maintenance" ] ;
+     fhir:display [ fhir:v "Maintenance" ] ;
+     fhir:definition [ fhir:v "Maintenance therapy administered to prolong response after induction or consolidation treatment." ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

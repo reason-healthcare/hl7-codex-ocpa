@@ -1,0 +1,156 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition> a fhir:PlanDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "THRegimenDefinition"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-plandefinition"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-plandefinition>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <table class=\"narrative-table\">\n    <tbody>\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Metadata</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">TH: Paclitaxel + Trastuzumab (Weekly) — Adjuvant HER2+ Breast Cancer</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Version</th>\n\n\n\n<td class=\"content-container\">0.1.0</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Experimental</th>\n\n\n\n<td class=\"content-container\">true</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Subject Type</th>\n\n\n\n<td class=\"content-container\">\n    Malignant neoplasm of breast\n\n\n</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Jurisdiction</th>\n\n\n\n<td class=\"content-container\">\n    United States of America\n\n\n</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Steward (Publisher)</th>\n\n\n\n<td class=\"content-container\">HL7 International / Clinical Interoperability Council</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Steward Contact</th>\n\n\n\n<td class=\"content-container\">HL7 International / Clinical Interoperability Council</td>\n\n\n</tr>\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n\n\n<td class=\"content-container\"><div><p>Weekly Paclitaxel + Trastuzumab for 12 weeks; standard adjuvant regimen for early HER2+ breast cancer.</p>\n</div></td>\n\n\n</tr>\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Type</th>\n\n\n\n<td class=\"content-container\">\n    Order Set\n\n\n</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Action</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">paclitaxel-th</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Paclitaxel 80 mg/m² IV — Day 1 of each 7-day cycle</td>\n\n\n</tr>\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n\n\n<td class=\"content-container\">Paclitaxel 80 mg/m² IV over 1 hour, weekly (day 1 of 7-day cycle) x12 doses</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Count 12  times, Once per 7 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Action</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">trastuzumab-th</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Trastuzumab 4 mg/kg (loading) then 2 mg/kg IV weekly</td>\n\n\n</tr>\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n\n\n<td class=\"content-container\">Trastuzumab 4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly (day 1 of 7-day cycle) x11 doses</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Count 12  times, Once per 7 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n  <th colspan=\"2\" scope=\"row\" class=\"row-header\">Generated using version 0.5.4 of the sample-content-ig Liquid templates</th>\n</tr>\n\n    </tbody>\n  </table>\n</div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:373846009 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "373846009" ] ;
+         fhir:display [ fhir:v "Adjuvant - intent" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs>
+         ] ;
+         fhir:code [ fhir:v "1L" ] ;
+         fhir:display [ fhir:v "First-line" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-disease-context"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-disease-context>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:254837009 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "254837009" ] ;
+         fhir:display [ fhir:v "Malignant neoplasm of breast" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:url [
+     fhir:v "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/PlanDefinition/THRegimenDefinition>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "THRegimenDefinition"] ; # 
+  fhir:title [ fhir:v "TH: Paclitaxel + Trastuzumab (Weekly) — Adjuvant HER2+ Breast Cancer"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/plan-definition-type"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/plan-definition-type>
+       ] ;
+       fhir:code [ fhir:v "order-set" ] ;
+       fhir:display [ fhir:v "Order Set" ]
+     ] )
+  ] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:subject [
+     a fhir:CodeableConcept ;
+     fhir:coding ( [
+       a sct:254837009 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "254837009" ] ;
+       fhir:display [ fhir:v "Malignant neoplasm of breast" ]
+     ] )
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-30T11:36:35-04:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "HL7 International / Clinical Interoperability Council"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "HL7 International / Clinical Interoperability Council" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://www.hl7.org/Special/committees/cic" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "ciclist@lists.HL7.org" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Weekly Paclitaxel + Trastuzumab for 12 weeks; standard adjuvant regimen for early HER2+ breast cancer."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ;
+         fhir:l <urn:iso:std:iso:3166>
+       ] ;
+       fhir:code [ fhir:v "US" ] ;
+       fhir:display [ fhir:v "United States of America" ]
+     ] )
+  ] ) ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "paclitaxel-th" ] ;
+     fhir:title [ fhir:v "Paclitaxel 80 mg/m² IV — Day 1 of each 7-day cycle" ] ;
+     fhir:description [ fhir:v "Paclitaxel 80 mg/m² IV over 1 hour, weekly (day 1 of 7-day cycle) x12 doses" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:repeat [
+         fhir:count [ fhir:v "12"^^xsd:positiveInteger ] ;
+         fhir:period [ fhir:v "7"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ]
+  ] [
+     fhir:id [ fhir:v "trastuzumab-th" ] ;
+     fhir:title [ fhir:v "Trastuzumab 4 mg/kg (loading) then 2 mg/kg IV weekly" ] ;
+     fhir:description [ fhir:v "Trastuzumab 4 mg/kg IV loading dose week 1, then 2 mg/kg IV weekly (day 1 of 7-day cycle) x11 doses" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:repeat [
+         fhir:count [ fhir:v "12"^^xsd:positiveInteger ] ;
+         fhir:period [ fhir:v "7"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

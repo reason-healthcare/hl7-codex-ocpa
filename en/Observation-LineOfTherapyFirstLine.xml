@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="LineOfTherapyFirstLine"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/codex-mopa/StructureDefinition/line-of-therapy-observation"/>
+  </meta>
+  <language value="en"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation LineOfTherapyFirstLine</b></p><a name="LineOfTherapyFirstLine"> </a><a name="hcLineOfTherapyFirstLine"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-line-of-therapy-observation.html">Line of Therapy Observation</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title="Codes:{http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes line-of-therapy}">Line of Therapy</span></p><p><b>subject</b>: <a href="Patient-MOPAPatientExample.html">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><p><b>focus</b>: <a href="Condition-MOPABreastCancerConditionExample.html">Condition Malignant neoplasm of breast</a></p><p><b>effective</b>: 2026-01-15 --&gt; (ongoing)</p><p><b>performer</b>: <a href="Practitioner-MOPAOncologistExample.html">Practitioner Maria Lopez (official)</a></p><p><b>value</b>: <span title="Codes:{http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs 1L}">First-line</span></p></div>
+  </text>
+  <status value="final"/>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes"/>
+      <code value="line-of-therapy"/>
+      <display value="Line of Therapy"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/MOPAPatientExample"/>
+  </subject>
+  <focus>
+    <reference value="Condition/MOPABreastCancerConditionExample"/>
+  </focus>
+  <effectivePeriod>
+    <start value="2026-01-15"/>
+  </effectivePeriod>
+  <performer>
+    <reference value="Practitioner/MOPAOncologistExample"/>
+  </performer>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs"/>
+      <code value="1L"/>
+      <display value="First-line"/>
+    </coding>
+  </valueCodeableConcept>
+</Observation>

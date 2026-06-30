@@ -1,0 +1,189 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-mopa/PlanDefinition/DDACTRegimenDefinition> a fhir:PlanDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "DDACTRegimenDefinition"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-plandefinition"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-plandefinition>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <table class=\"narrative-table\">\n    <tbody>\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">Metadata</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">ddAC→T: Dose-Dense Doxorubicin/Cyclophosphamide then Paclitaxel — Adjuvant Breast Cancer</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Version</th>\n\n\n\n<td class=\"content-container\">0.1.0</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Experimental</th>\n\n\n\n<td class=\"content-container\">true</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Subject Type</th>\n\n\n\n<td class=\"content-container\">\n    Malignant neoplasm of breast\n\n\n</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Jurisdiction</th>\n\n\n\n<td class=\"content-container\">\n    United States of America\n\n\n</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Steward (Publisher)</th>\n\n\n\n<td class=\"content-container\">HL7 International / Clinical Interoperability Council</td>\n\n\n</tr>\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Steward Contact</th>\n\n\n\n<td class=\"content-container\">HL7 International / Clinical Interoperability Council</td>\n\n\n</tr>\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Description</th>\n\n\n\n<td class=\"content-container\"><div><p>Dose-dense AC x4 cycles (q14d) followed by paclitaxel x4 cycles (q14d). Standard adjuvant regimen.</p>\n</div></td>\n\n\n</tr>\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Type</th>\n\n\n\n<td class=\"content-container\">\n    Order Set\n\n\n</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Action</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">ac-phase</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">AC Phase — Doxorubicin + Cyclophosphamide (q14d × 4 cycles)</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Count 4  times, Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Sub-Action (Parent Action ID: ac-phase)</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">doxorubicin-ac</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Doxorubicin 60 mg/m² IV — Day 1 of each 14-day cycle</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n      \n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Sub-Action</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">doxorubicin-ac</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Doxorubicin 60 mg/m² IV — Day 1 of each 14-day cycle</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n    \n  \n    \n      \n      \n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Sub-Action (Parent Action ID: ac-phase)</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">cyclophosphamide-ac</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Cyclophosphamide 600 mg/m² IV — Day 1 of each 14-day cycle</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n      \n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Sub-Action</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">cyclophosphamide-ac</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Cyclophosphamide 600 mg/m² IV — Day 1 of each 14-day cycle</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n    \n  \n\n\n\n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Action</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">t-phase</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">T Phase — Paclitaxel (q14d × 4 cycles)</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Count 4  times, Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n      \n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Sub-Action (Parent Action ID: t-phase)</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">paclitaxel-t</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Paclitaxel 175 mg/m² IV — Day 1 of each 14-day cycle</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n      \n<tr>\n\n\n<th colspan=\"2\" scope=\"row\" class=\"row-header\">PlanDefinition Sub-Action</th>\n\n\n</tr>\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Id</th>\n\n\n\n<td class=\"content-container\">paclitaxel-t</td>\n\n\n</tr>\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Title</th>\n\n\n\n<td class=\"content-container\">Paclitaxel 175 mg/m² IV — Day 1 of each 14-day cycle</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n\n<tr>\n\n\n<th scope=\"row\" class=\"row-header\">Timing</th>\n\n\n\n<td class=\"content-container\">Once per 14 days</td>\n\n\n</tr>\n\n\n\n\n\n\n\n\n\n\n\n\n    \n  \n\n\n\n\n\n<tr>\n  <th colspan=\"2\" scope=\"row\" class=\"row-header\">Generated using version 0.5.4 of the sample-content-ig Liquid templates</th>\n</tr>\n\n    </tbody>\n  </table>\n</div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:373846009 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "373846009" ] ;
+         fhir:display [ fhir:v "Adjuvant - intent" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs>
+         ] ;
+         fhir:code [ fhir:v "1L" ] ;
+         fhir:display [ fhir:v "First-line" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-disease-context"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-disease-context>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:254837009 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "254837009" ] ;
+         fhir:display [ fhir:v "Malignant neoplasm of breast" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:url [
+     fhir:v "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/DDACTRegimenDefinition"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/PlanDefinition/DDACTRegimenDefinition>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "DDACTRegimenDefinition"] ; # 
+  fhir:title [ fhir:v "ddAC→T: Dose-Dense Doxorubicin/Cyclophosphamide then Paclitaxel — Adjuvant Breast Cancer"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/plan-definition-type"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/plan-definition-type>
+       ] ;
+       fhir:code [ fhir:v "order-set" ] ;
+       fhir:display [ fhir:v "Order Set" ]
+     ] )
+  ] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:subject [
+     a fhir:CodeableConcept ;
+     fhir:coding ( [
+       a sct:254837009 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "254837009" ] ;
+       fhir:display [ fhir:v "Malignant neoplasm of breast" ]
+     ] )
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-30T11:36:35-04:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "HL7 International / Clinical Interoperability Council"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "HL7 International / Clinical Interoperability Council" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://www.hl7.org/Special/committees/cic" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "ciclist@lists.HL7.org" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Dose-dense AC x4 cycles (q14d) followed by paclitaxel x4 cycles (q14d). Standard adjuvant regimen."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ;
+         fhir:l <urn:iso:std:iso:3166>
+       ] ;
+       fhir:code [ fhir:v "US" ] ;
+       fhir:display [ fhir:v "United States of America" ]
+     ] )
+  ] ) ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "ac-phase" ] ;
+     fhir:title [ fhir:v "AC Phase — Doxorubicin + Cyclophosphamide (q14d × 4 cycles)" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:repeat [
+         fhir:count [ fhir:v "4"^^xsd:positiveInteger ] ;
+         fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:action ( [
+       fhir:id [ fhir:v "doxorubicin-ac" ] ;
+       fhir:title [ fhir:v "Doxorubicin 60 mg/m² IV — Day 1 of each 14-day cycle" ] ;
+       fhir:timing [
+         a fhir:Timing ;
+         fhir:repeat [
+           fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "d" ]
+         ]
+       ]
+     ] [
+       fhir:id [ fhir:v "cyclophosphamide-ac" ] ;
+       fhir:title [ fhir:v "Cyclophosphamide 600 mg/m² IV — Day 1 of each 14-day cycle" ] ;
+       fhir:timing [
+         a fhir:Timing ;
+         fhir:repeat [
+           fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "d" ]
+         ]
+       ]
+     ] )
+  ] [
+     fhir:id [ fhir:v "t-phase" ] ;
+     fhir:title [ fhir:v "T Phase — Paclitaxel (q14d × 4 cycles)" ] ;
+     fhir:relatedAction ( [
+       fhir:actionId [ fhir:v "ac-phase" ] ;
+       fhir:relationship [ fhir:v "after-end" ]
+     ] ) ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:repeat [
+         fhir:count [ fhir:v "4"^^xsd:positiveInteger ] ;
+         fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:action ( [
+       fhir:id [ fhir:v "paclitaxel-t" ] ;
+       fhir:title [ fhir:v "Paclitaxel 175 mg/m² IV — Day 1 of each 14-day cycle" ] ;
+       fhir:timing [
+         a fhir:Timing ;
+         fhir:repeat [
+           fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "d" ]
+         ]
+       ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

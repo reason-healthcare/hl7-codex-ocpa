@@ -1,0 +1,169 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-mopa/RequestGroup/PHDRegimenOrder> a fhir:RequestGroup ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "PHDRegimenOrder"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup PHDRegimenOrder</b></p><a name=\"PHDRegimenOrder\"> </a><a name=\"hcPHDRegimenOrder\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-anticancer-regimen-requestgroup.html\">Anti-Cancer Regimen RequestGroup</a></p></div><p><b>Regimen Intent</b>: <span title=\"Codes:{http://snomed.info/sct 363676003}\">Palliative intent</span></p><p><b>Regimen Treatment Line</b>: <span title=\"Codes:{http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs 1L}\">First-line</span></p><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-PHDRegimenDefinition.html\">PHD: Pertuzumab + Trastuzumab + Docetaxel — First-Line Metastatic HER2+ Breast Cancer</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Order</p><p><b>subject</b>: <a href=\"Patient-MOPAPatientExample.html\">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>pertuzumab-phd-action</blockquote><p><b>title</b>: Pertuzumab IV day 1 q21d</p><p><b>timing</b>: Once per 21 days</p><p><b>resource</b>: <a href=\"MedicationRequest-PertuzumabMedRequestPHD.html\">MedicationRequest: status = draft; intent = order; medication[x] = pertuzumab</a></p></blockquote><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>trastuzumab-phd-action</blockquote><p><b>title</b>: Trastuzumab IV day 1 q21d</p><p><b>timing</b>: Once per 21 days</p><p><b>resource</b>: <a href=\"MedicationRequest-TrastuzumabMedRequestPHD.html\">MedicationRequest: status = draft; intent = order; medication[x] = trastuzumab</a></p></blockquote><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>docetaxel-phd-action</blockquote><p><b>title</b>: Docetaxel 75 mg/m² IV day 1 q21d</p><p><b>timing</b>: Once per 21 days</p><p><b>resource</b>: <a href=\"MedicationRequest-DocetaxelMedRequestPHD.html\">MedicationRequest: status = draft; intent = order; medication[x] = docetaxel</a></p></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:363676003 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "363676003" ] ;
+         fhir:display [ fhir:v "Palliative intent" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs>
+         ] ;
+         fhir:code [ fhir:v "1L" ] ;
+         fhir:display [ fhir:v "First-line" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/PHDRegimenDefinition"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/PlanDefinition/PHDRegimenDefinition>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:subject [
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/Patient/MOPAPatientExample> ;
+     fhir:reference [ fhir:v "Patient/MOPAPatientExample" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "pertuzumab-phd-action" ] ;
+     fhir:title [ fhir:v "Pertuzumab IV day 1 q21d" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 1
+           ]
+         ] ) ;
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle>
+         ]
+       ] ) ;
+       fhir:repeat [
+         fhir:period [ fhir:v "21"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:resource [
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/MedicationRequest/PertuzumabMedRequestPHD> ;
+       fhir:reference [ fhir:v "MedicationRequest/PertuzumabMedRequestPHD" ]
+     ]
+  ] [
+     fhir:id [ fhir:v "trastuzumab-phd-action" ] ;
+     fhir:title [ fhir:v "Trastuzumab IV day 1 q21d" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 1
+           ]
+         ] ) ;
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle>
+         ]
+       ] ) ;
+       fhir:repeat [
+         fhir:period [ fhir:v "21"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:resource [
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/MedicationRequest/TrastuzumabMedRequestPHD> ;
+       fhir:reference [ fhir:v "MedicationRequest/TrastuzumabMedRequestPHD" ]
+     ]
+  ] [
+     fhir:id [ fhir:v "docetaxel-phd-action" ] ;
+     fhir:title [ fhir:v "Docetaxel 75 mg/m² IV day 1 q21d" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:extension ( [
+         fhir:extension ( [
+           fhir:url [
+             fhir:v "day"^^xsd:anyURI ;
+             fhir:l fhir:day
+           ] ;
+           fhir:value [
+             a fhir:Integer ;
+             fhir:v 1
+           ]
+         ] ) ;
+         fhir:url [
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle>
+         ]
+       ] ) ;
+       fhir:repeat [
+         fhir:period [ fhir:v "21"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:resource [
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/MedicationRequest/DocetaxelMedRequestPHD> ;
+       fhir:reference [ fhir:v "MedicationRequest/DocetaxelMedRequestPHD" ]
+     ]
+  ] ) . # 
+
+<http://hl7.org/fhir/us/codex-mopa/Patient/MOPAPatientExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/MedicationRequest/PertuzumabMedRequestPHD> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/MedicationRequest/TrastuzumabMedRequestPHD> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/MedicationRequest/DocetaxelMedRequestPHD> a fhir:Us .
+
+# -------------------------------------------------------------------------------------
+

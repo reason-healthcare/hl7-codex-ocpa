@@ -1,0 +1,196 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-mopa/RequestGroup/DDACTRegimenOrder> a fhir:RequestGroup ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "DDACTRegimenOrder"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/anticancer-regimen-requestgroup>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: RequestGroup DDACTRegimenOrder</b></p><a name=\"DDACTRegimenOrder\"> </a><a name=\"hcDDACTRegimenOrder\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-anticancer-regimen-requestgroup.html\">Anti-Cancer Regimen RequestGroup</a></p></div><p><b>Regimen Intent</b>: <span title=\"Codes:{http://snomed.info/sct 373846009}\">Adjuvant - intent</span></p><p><b>Regimen Treatment Line</b>: <span title=\"Codes:{http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs 1L}\">First-line</span></p><p><b>instantiatesCanonical</b>: <a href=\"PlanDefinition-DDACTRegimenDefinition.html\">ddAC→T: Dose-Dense Doxorubicin/Cyclophosphamide then Paclitaxel — Adjuvant Breast Cancer</a></p><p><b>status</b>: Draft</p><p><b>intent</b>: Order</p><p><b>subject</b>: <a href=\"Patient-MOPAPatientExample.html\">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>ac-phase-order</blockquote><p><b>title</b>: AC Phase (Cycles 1–4, q14d)</p><p><b>timing</b>: Count 4  times, Once per 14 days</p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>doxorubicin-action</blockquote><p><b>title</b>: Doxorubicin 60 mg/m² IV day 1</p><p><b>timing</b>: Once per 14 days</p><p><b>resource</b>: <a href=\"MedicationRequest-DoxorubicinMedRequestDDACT.html\">MedicationRequest: status = draft; intent = order; medication[x] = doxorubicin</a></p></blockquote><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>cyclophosphamide-action</blockquote><p><b>title</b>: Cyclophosphamide 600 mg/m² IV day 1</p><p><b>timing</b>: Once per 14 days</p><p><b>resource</b>: <a href=\"MedicationRequest-CyclophosphamideMedRequestDDACT.html\">MedicationRequest: status = draft; intent = order; medication[x] = cyclophosphamide</a></p></blockquote></blockquote><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>t-phase-order</blockquote><p><b>title</b>: T Phase — Paclitaxel (Cycles 5–8, q14d)</p><h3>RelatedActions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>ActionId</b></td><td><b>Relationship</b></td></tr><tr><td style=\"display: none\">*</td><td>ac-phase-order</td><td>After End</td></tr></table><p><b>timing</b>: Count 4  times, Once per 14 days</p><blockquote><p><b>action</b></p><blockquote><p><b>id</b></p>paclitaxel-t-action</blockquote><p><b>title</b>: Paclitaxel 175 mg/m² IV day 1</p><p><b>timing</b>: Once per 14 days</p><p><b>resource</b>: <a href=\"MedicationRequest-PaclitaxelMedRequestTPHase.html\">MedicationRequest: status = draft; intent = order; medication[x] = paclitaxel</a></p></blockquote></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-intent>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         a sct:373846009 ;
+         fhir:system [
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+           fhir:l <http://snomed.info/sct>
+         ] ;
+         fhir:code [ fhir:v "373846009" ] ;
+         fhir:display [ fhir:v "Adjuvant - intent" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/ocpa-regimen-treatment-line>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs"^^xsd:anyURI ;
+           fhir:l <http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs>
+         ] ;
+         fhir:code [ fhir:v "1L" ] ;
+         fhir:display [ fhir:v "First-line" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:instantiatesCanonical ( [
+     fhir:v "http://hl7.org/fhir/us/codex-mopa/PlanDefinition/DDACTRegimenDefinition"^^xsd:anyURI ;
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/PlanDefinition/DDACTRegimenDefinition>
+  ] ) ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:intent [ fhir:v "order"] ; # 
+  fhir:subject [
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/Patient/MOPAPatientExample> ;
+     fhir:reference [ fhir:v "Patient/MOPAPatientExample" ]
+  ] ; # 
+  fhir:action ( [
+     fhir:id [ fhir:v "ac-phase-order" ] ;
+     fhir:title [ fhir:v "AC Phase (Cycles 1–4, q14d)" ] ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:repeat [
+         fhir:count [ fhir:v "4"^^xsd:positiveInteger ] ;
+         fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:action ( [
+       fhir:id [ fhir:v "doxorubicin-action" ] ;
+       fhir:title [ fhir:v "Doxorubicin 60 mg/m² IV day 1" ] ;
+       fhir:timing [
+         a fhir:Timing ;
+         fhir:extension ( [
+           fhir:extension ( [
+             fhir:url [
+               fhir:v "day"^^xsd:anyURI ;
+               fhir:l fhir:day
+             ] ;
+             fhir:value [
+               a fhir:Integer ;
+               fhir:v 1
+             ]
+           ] ) ;
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle>
+           ]
+         ] ) ;
+         fhir:repeat [
+           fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "d" ]
+         ]
+       ] ;
+       fhir:resource [
+         fhir:l <http://hl7.org/fhir/us/codex-mopa/MedicationRequest/DoxorubicinMedRequestDDACT> ;
+         fhir:reference [ fhir:v "MedicationRequest/DoxorubicinMedRequestDDACT" ]
+       ]
+     ] [
+       fhir:id [ fhir:v "cyclophosphamide-action" ] ;
+       fhir:title [ fhir:v "Cyclophosphamide 600 mg/m² IV day 1" ] ;
+       fhir:timing [
+         a fhir:Timing ;
+         fhir:extension ( [
+           fhir:extension ( [
+             fhir:url [
+               fhir:v "day"^^xsd:anyURI ;
+               fhir:l fhir:day
+             ] ;
+             fhir:value [
+               a fhir:Integer ;
+               fhir:v 1
+             ]
+           ] ) ;
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle>
+           ]
+         ] ) ;
+         fhir:repeat [
+           fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "d" ]
+         ]
+       ] ;
+       fhir:resource [
+         fhir:l <http://hl7.org/fhir/us/codex-mopa/MedicationRequest/CyclophosphamideMedRequestDDACT> ;
+         fhir:reference [ fhir:v "MedicationRequest/CyclophosphamideMedRequestDDACT" ]
+       ]
+     ] )
+  ] [
+     fhir:id [ fhir:v "t-phase-order" ] ;
+     fhir:title [ fhir:v "T Phase — Paclitaxel (Cycles 5–8, q14d)" ] ;
+     fhir:relatedAction ( [
+       fhir:actionId [ fhir:v "ac-phase-order" ] ;
+       fhir:relationship [ fhir:v "after-end" ]
+     ] ) ;
+     fhir:timing [
+       a fhir:Timing ;
+       fhir:repeat [
+         fhir:count [ fhir:v "4"^^xsd:positiveInteger ] ;
+         fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+         fhir:periodUnit [ fhir:v "d" ]
+       ]
+     ] ;
+     fhir:action ( [
+       fhir:id [ fhir:v "paclitaxel-t-action" ] ;
+       fhir:title [ fhir:v "Paclitaxel 175 mg/m² IV day 1" ] ;
+       fhir:timing [
+         a fhir:Timing ;
+         fhir:extension ( [
+           fhir:extension ( [
+             fhir:url [
+               fhir:v "day"^^xsd:anyURI ;
+               fhir:l fhir:day
+             ] ;
+             fhir:value [
+               a fhir:Integer ;
+               fhir:v 1
+             ]
+           ] ) ;
+           fhir:url [
+             fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle"^^xsd:anyURI ;
+             fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/regimen-days-of-cycle>
+           ]
+         ] ) ;
+         fhir:repeat [
+           fhir:period [ fhir:v "14"^^xsd:decimal ] ;
+           fhir:periodUnit [ fhir:v "d" ]
+         ]
+       ] ;
+       fhir:resource [
+         fhir:l <http://hl7.org/fhir/us/codex-mopa/MedicationRequest/PaclitaxelMedRequestTPHase> ;
+         fhir:reference [ fhir:v "MedicationRequest/PaclitaxelMedRequestTPHase" ]
+       ]
+     ] )
+  ] ) . # 
+
+<http://hl7.org/fhir/us/codex-mopa/Patient/MOPAPatientExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/MedicationRequest/DoxorubicinMedRequestDDACT> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/MedicationRequest/CyclophosphamideMedRequestDDACT> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/MedicationRequest/PaclitaxelMedRequestTPHase> a fhir:Us .
+
+# -------------------------------------------------------------------------------------
+

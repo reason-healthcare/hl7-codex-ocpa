@@ -1,0 +1,69 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/codex-mopa/Observation/LineOfTherapySecondLine> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "LineOfTherapySecondLine"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://hl7.org/fhir/us/codex-mopa/StructureDefinition/line-of-therapy-observation"^^xsd:anyURI ;
+       fhir:l <http://hl7.org/fhir/us/codex-mopa/StructureDefinition/line-of-therapy-observation>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation LineOfTherapySecondLine</b></p><a name=\"LineOfTherapySecondLine\"> </a><a name=\"hcLineOfTherapySecondLine\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-line-of-therapy-observation.html\">Line of Therapy Observation</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes line-of-therapy}\">Line of Therapy</span></p><p><b>subject</b>: <a href=\"Patient-MOPAPatientExample.html\">Jane Smith (official) Female, DoB: 1968-04-15 ( http://hospital.example.org/patients#MRN-78432)</a></p><p><b>focus</b>: <a href=\"Condition-MOPAMetastaticBreastCancerConditionExample.html\">Condition Malignant neoplasm of breast</a></p><p><b>effective</b>: 2027-03-22 --&gt; (ongoing)</p><p><b>performer</b>: <a href=\"Practitioner-MOPAOncologistExample.html\">Practitioner Maria Lopez (official)</a></p><p><b>value</b>: <span title=\"Codes:{http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs 2L}\">Second-line</span></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-mopa/CodeSystem/ocpa-codes>
+       ] ;
+       fhir:code [ fhir:v "line-of-therapy" ] ;
+       fhir:display [ fhir:v "Line of Therapy" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/Patient/MOPAPatientExample> ;
+     fhir:reference [ fhir:v "Patient/MOPAPatientExample" ]
+  ] ; # 
+  fhir:focus ( [
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/Condition/MOPAMetastaticBreastCancerConditionExample> ;
+     fhir:reference [ fhir:v "Condition/MOPAMetastaticBreastCancerConditionExample" ]
+  ] ) ; # 
+  fhir:effective [
+     a fhir:Period ;
+     fhir:start [ fhir:v "2027-03-22"^^xsd:date ]
+  ] ; # 
+  fhir:performer ( [
+     fhir:l <http://hl7.org/fhir/us/codex-mopa/Practitioner/MOPAOncologistExample> ;
+     fhir:reference [ fhir:v "Practitioner/MOPAOncologistExample" ]
+  ] ) ; # 
+  fhir:value [
+     a fhir:CodeableConcept ;
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs"^^xsd:anyURI ;
+         fhir:l <http://hl7.org/fhir/us/codex-mopa/CodeSystem/treatment-line-cs>
+       ] ;
+       fhir:code [ fhir:v "2L" ] ;
+       fhir:display [ fhir:v "Second-line" ]
+     ] )
+  ] . # 
+
+<http://hl7.org/fhir/us/codex-mopa/Patient/MOPAPatientExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/Condition/MOPAMetastaticBreastCancerConditionExample> a fhir:Us .
+
+<http://hl7.org/fhir/us/codex-mopa/Practitioner/MOPAOncologistExample> a fhir:Us .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,71 @@
+#  - MOPA — Medical Oncology Prior Authorization v0.1.0
+
+## 
+
+### Purpose
+
+Several FHIR artifacts defined in this IG are **not** intended to be permanent residents of the MOPA IG. They are defined here as a temporary home while a formal proposal to incorporate them into [mCODE](http://hl7.org/fhir/us/mcode) is developed and balloted. Once adopted by mCODE, this IG will remove its local definitions and take a dependency on the mCODE versions.
+
+For the upstream mCODE proposal backlog associated with these artifacts, see [mCODE Gap Proposals](mcode-gap-proposals.md).
+
+**These artifacts are mCODE migration candidates.**
+ They are published here to enable pilots and early implementation, not as stable MOPA-owned definitions. Implementers should anticipate that the canonical URLs of these artifacts will change when they migrate to mCODE, and should plan for a versioned cutover.
+
+### Why Define Them Here?
+
+mCODE STU4 does not yet include:
+
+* A first-class, computable anti-cancer regimen resource (`PlanDefinition` / `RequestGroup` profiles)
+* A structured line-of-therapy observation
+* Regimen-level clinical context extensions (intent, treatment line, disease context)
+* A structured data requirements Library pattern for oncology PA
+
+These gaps block implementation of the MOPA CRD/DTR/PAS workflow today. Rather than wait for mCODE STU5, this IG defines the minimum necessary artifacts under the MOPA canonical base (`http://hl7.org/fhir/us/codex-ocpa`) so that pilots can proceed. All candidate artifacts carry `status = draft` and `experimental = true`.
+
+### Migration Plan
+
+The following artifacts are proposed for mCODE STU5. Each entry lists the artifact defined here and the anticipated mCODE destination.
+
+#### Profiles
+
+| | | |
+| :--- | :--- | :--- |
+| Anti-Cancer Regimen PlanDefinition | [AntiCancerRegimenPlanDefinition](StructureDefinition-anticancer-regimen-plandefinition.md) | `mcode-anticancer-regimen-plandefinition`(STU5 new profile) |
+| Anti-Cancer Regimen RequestGroup | [AntiCancerRegimenRequestGroup](StructureDefinition-anticancer-regimen-requestgroup.md) | `mcode-anticancer-regimen-requestgroup`(STU5 new profile) |
+| Line of Therapy Observation | [LineOfTherapyObservation](StructureDefinition-line-of-therapy-observation.md) | `mcode-line-of-therapy`(STU5 new profile) |
+| Oncology Data Requirements Library | [OncologyDataRequirementsLibrary](StructureDefinition-oncology-data-requirements-library.md) | `mcode-oncology-data-requirements-library`(STU5 new profile) |
+
+#### Extensions
+
+| | | |
+| :--- | :--- | :--- |
+| Regimen Intent | [RegimenIntentExtension](StructureDefinition-ocpa-regimen-intent.md) | `mcode-regimen-intent`extension |
+| Regimen Treatment Line | [RegimenTreatmentLineExtension](StructureDefinition-ocpa-regimen-treatment-line.md) | `mcode-regimen-treatment-line`extension |
+| Regimen Disease Context | [RegimenDiseaseContextExtension](StructureDefinition-ocpa-regimen-disease-context.md) | `mcode-regimen-disease-context`extension |
+| Regimen Days of Cycle | [RegimenDaysOfCycle](StructureDefinition-regimen-days-of-cycle.md) | Context-expansion request against`http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle`in HL7 FHIR Extensions pack |
+
+#### Terminology
+
+| | | |
+| :--- | :--- | :--- |
+| Regimen Intent Value Set | [RegimenIntentVS](ValueSet-regimen-intent-vs.md) | mCODE STU5 — all codes sourced from SNOMED CT (no local codes) |
+| Treatment Line Code System | [TreatmentLineCS](CodeSystem-treatment-line-cs.md) | SNOMED CT extension request or mCODE-managed code system |
+| Treatment Line Value Set | [TreatmentLineVS](ValueSet-treatment-line-vs.md) | mCODE STU5 — will bind to SNOMED CT or successor codes |
+| MOPA Local Code System | [OcpaCodesCS](CodeSystem-ocpa-codes.md) | Individual codes submitted to LOINC / SNOMED CT; code system retired on assignment |
+
+### What Implementers Should Do
+
+* **Treat these artifacts as unstable.** Canonical URLs will change at mCODE migration.
+* **Watch the [mCODE project page](https://confluence.hl7.org/display/COD/mCODE)** for STU5 ballot announcements that include these artifacts.
+* **Use the MOPA canonical URLs for pilots** — they are supported and will not be removed without a published migration path.
+* **Do not create derived profiles or extensions** on these artifacts without accepting the re-base cost when migration occurs.
+
+### Relationship to Permanent MOPA Artifacts
+
+The following artifacts are MOPA-owned and are **not** proposed for migration to mCODE. They define the oncology CRD/DTR/PAS integration layer and will remain in this IG:
+
+* [OncologyDataRequirementsLibrary](StructureDefinition-oncology-data-requirements-library.md) instances (e.g., `BreastCancerPADataRequirementsLibrary`) — cancer-specific content owned by MOPA
+* CDS Hooks extension definition (`org.hl7.davinci-crd.oncology`)
+* [Oncology CRD Client Capability Statement](CapabilityStatement-ocpa-crd-client.md)
+* [Oncology CRD Service Capability Statement](CapabilityStatement-ocpa-crd-service.md)
+
